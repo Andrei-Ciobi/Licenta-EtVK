@@ -1,0 +1,370 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "87e294db-7992-4ef0-890a-79f9d59f8e45",
+            "actions": [
+                {
+                    "name": "MouseLook",
+                    "type": "PassThrough",
+                    "id": "09b60f17-682a-4d87-bae5-b41ba8db7f81",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Movement",
+                    "type": "PassThrough",
+                    "id": "1fe8d2f1-da7b-42da-bca7-f0a11ff59cb5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "TapJump",
+                    "type": "Button",
+                    "id": "defdbe6a-e18a-447a-b578-4bb60b5f56d9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                },
+                {
+                    "name": "HoldRun",
+                    "type": "Button",
+                    "id": "3ae03cf3-45a2-4f65-9baf-fc1fa9880bd5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.2)"
+                },
+                {
+                    "name": "TapRun",
+                    "type": "Button",
+                    "id": "42ae9469-3ba9-4923-bbfe-dc7cfd903a21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                },
+                {
+                    "name": "StateSwitch",
+                    "type": "Button",
+                    "id": "2a7bd285-2981-469e-a336-baa46b24e1a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "HoldAttack",
+                    "type": "Button",
+                    "id": "0483dbb4-f09d-4c49-909e-e3a6d9b87c9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.3)"
+                },
+                {
+                    "name": "TapAttack",
+                    "type": "Button",
+                    "id": "97444c1a-0b58-4815-bb67-6d32edd8593c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                },
+                {
+                    "name": "HoldAim",
+                    "type": "Button",
+                    "id": "7dc4422f-cc2d-4ed5-aba1-e6270177be2f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.2)"
+                },
+                {
+                    "name": "TapAim",
+                    "type": "Button",
+                    "id": "05f71b4e-b8f3-4771-bb75-adfc8d5463e0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.15)"
+                },
+                {
+                    "name": "Weapon_1",
+                    "type": "Button",
+                    "id": "a7382717-7efb-411c-bfdc-b392576b1957",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                },
+                {
+                    "name": "TapInteract",
+                    "type": "Button",
+                    "id": "ea2b83c4-5f0d-47e0-b50c-6f6ab0849fc4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                },
+                {
+                    "name": "Weapon_3",
+                    "type": "Button",
+                    "id": "a6a5db7a-123c-4673-a9f7-2aa954ea66b1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                },
+                {
+                    "name": "Weapon_2",
+                    "type": "Button",
+                    "id": "487fd9eb-59f6-4955-a055-352e23772c8e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                },
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "c45607a6-5c45-472e-be77-62d08631e286",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "37e8bf7e-caee-47f5-82c4-92e22335aefd",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "a5cbcbb8-a35e-4f97-9872-6b44661cc42e",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "5e0ba8f3-f1d2-42a5-b826-aaf39e91d6c8",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "838df48c-3be4-4b0a-a656-2f329162bed3",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "029f8d5d-39e7-468f-8f04-a841dfa5cc2d",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "53d066c5-eb7d-4d4e-993e-114216c86933",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6ff96cf7-be32-4e31-8369-eff300b6a828",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81627c7b-f3ad-4c20-9f56-f2b3b7152de6",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldRun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90bac4f8-373f-4208-b6c1-705c15347e9d",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StateSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c141b89-efb0-45d5-838c-454f98be5512",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2e2c765-877c-40f6-8b86-12c3463f0c13",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapRun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da6f7cc3-7899-4021-8ef4-a1e4f571ce6b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5040e177-d4d5-46e2-9f29-50043ccbe55a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0fb030a7-a603-44f1-a64a-a9366cedc31a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4271136e-06e0-4538-8ff3-1d346eb56540",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon_1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39d4ba95-9c89-4889-ae3b-a97409854442",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a29a5cc-bc7e-477b-824c-b519c142df92",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon_3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee768bbf-d6b1-4c61-95cc-f38fed983730",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0073111a-2398-497a-9c97-48bdf2ac873a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "ce3675b6-d9b7-4e60-848c-1a037743b091",
+            "actions": [
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "5ed3c56f-3b43-46f5-bee4-ec29f1dbc6e3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "329672c3-79cf-4107-8c3e-aab06699f8ae",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
