@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EtVK.Scrips.Weapons_Module;
 using UnityEngine;
 
 namespace EtVK.Scrips.Invenotry_Module
@@ -10,6 +11,7 @@ namespace EtVK.Scrips.Invenotry_Module
         [SerializeField] private InventoryData inventoryData;
 
         private List<HolderSlot> holderSlots = new List<HolderSlot>();
+        private List<Weapon> weaponReferences = new List<Weapon>();
 
         private void Start()
         {
@@ -20,6 +22,11 @@ namespace EtVK.Scrips.Invenotry_Module
         public List<HolderSlot> GetAllHolderSlots()
         {
             return holderSlots;
+        }
+
+        public void AddWeaponReference(Weapon weapon)
+        {
+            weaponReferences.Add(weapon);
         }
 
         private void LoadInventory()

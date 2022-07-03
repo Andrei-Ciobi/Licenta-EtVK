@@ -34,6 +34,7 @@ namespace EtVK.Scrips.Weapons_Module.Sword
             //add a reference of the weapon slot to the weapon
             curentWeaponSlot = weaponSlot;
             weaponSlot.DestroyAndSetCurentWeapon(this);
+            inventoryManager.AddWeaponReference(this);
 
         }
     }
