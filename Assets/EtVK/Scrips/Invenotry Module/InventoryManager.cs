@@ -17,6 +17,11 @@ namespace EtVK.Scrips.Invenotry_Module
             LoadInventory();
         }
 
+        public List<HolderSlot> GetAllHolderSlots()
+        {
+            return holderSlots;
+        }
+
         private void LoadInventory()
         {
             if (inventoryData.InventorySize() > 0)
@@ -25,7 +30,7 @@ namespace EtVK.Scrips.Invenotry_Module
                 {
                     var prefab = Instantiate(item.Prefab);
                     var newItem = prefab.GetComponent<Item>();
-                    newItem.LoadItem(holderSlots);
+                    newItem.LoadItem(this);
                 }
             }
         }

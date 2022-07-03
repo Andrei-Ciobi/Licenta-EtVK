@@ -17,7 +17,7 @@ namespace EtVK.Scrips.Weapons_Module
         protected WeaponHolderSlot curentWeaponSlot;
         private bool isArmed;
 
-        public override void LoadItem(List<HolderSlot> holderSlots)
+        public override void LoadItem(InventoryManager inventoryManager)
         {
             throw new System.NotImplementedException();
         }

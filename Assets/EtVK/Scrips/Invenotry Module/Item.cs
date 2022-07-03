@@ -5,6 +5,6 @@ namespace EtVK.Scrips.Invenotry_Module
 {
     public abstract class Item : MonoBehaviour
     {
-        public abstract void LoadItem(List<HolderSlot> holderSlots);
+        public abstract void LoadItem(InventoryManager inventoryManager);
     }
 }

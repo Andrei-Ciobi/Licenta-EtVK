@@ -8,9 +8,9 @@ namespace EtVK.Scrips.Weapons_Module.Sword
     public class Sword : Weapon
     {
         [SerializeField] private SwordData swordData;
-        public override void LoadItem(List<HolderSlot> holderSlots)
+        public override void LoadItem(InventoryManager inventoryManager)
         {
-            var weaponSlotList = holderSlots.FindAll((slot) => slot.HolderSlotType == swordData.ItemType).Cast<WeaponHolderSlot>().ToList();
+            var weaponSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == swordData.ItemType).Cast<WeaponHolderSlot>().ToList();
 
             if (weaponSlotList.Count == 0)
             {
