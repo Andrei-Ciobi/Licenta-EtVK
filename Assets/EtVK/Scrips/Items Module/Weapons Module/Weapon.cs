@@ -2,7 +2,7 @@
 using EtVK.Scrips.Invenotry_Module;
 using UnityEngine;
 
-namespace EtVK.Scrips.Weapons_Module
+namespace EtVK.Scrips.Items_Module.Weapons_Module
 {
     public class Weapon : Item
     {
@@ -14,8 +14,8 @@ namespace EtVK.Scrips.Weapons_Module
         }
 
         public bool IsArmed => isArmed;
-        
-        protected WeaponHolderSlot curentWeaponSlot;
+
+        private WeaponHolderSlot curentWeaponSlot;
         private bool isArmed;
 
         public override void LoadItemFromInvetory(InventoryManager inventoryManager)

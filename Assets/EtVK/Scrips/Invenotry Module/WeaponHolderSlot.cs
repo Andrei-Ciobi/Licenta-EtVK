@@ -1,5 +1,5 @@
 ﻿using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Weapons_Module;
+using EtVK.Scrips.Items_Module.Weapons_Module;
 using UnityEngine;
 
 namespace EtVK.Scrips.Invenotry_Module
