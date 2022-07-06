@@ -1,4 +1,5 @@
-﻿using EtVK.Scrips.Player_Module.Controller;
+﻿using EtVK.Scrips.Core_Module;
+using EtVK.Scrips.Player_Module.Controller;
 using UnityEngine;
 
 namespace EtVK.Scrips.Player_Module.States

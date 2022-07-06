@@ -94,6 +94,13 @@ namespace EtVK.Scrips.Core_Module
         MouseYAxis = 11,
     }
 
+    public enum ItemType
+    {
+        Weapon = 0,
+        Armor = 1,
+        Colectable = 2,
+    }
+
     public enum WeaponType
     {
         Unequiped = 0,
