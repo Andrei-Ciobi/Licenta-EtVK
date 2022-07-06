@@ -29,6 +29,17 @@ namespace EtVK.Scrips.Invenotry_Module
             weaponReferences.Add(weapon);
         }
 
+        public void AddItemToInventory(Item item)
+        {
+            
+            item.AddItemToInvetory(this);
+        }
+
+        public InventoryData GetInventoryData()
+        {
+            return inventoryData;
+        }
+
         private void LoadInventory()
         {
             if (inventoryData.InventorySize() > 0)
@@ -37,7 +48,13 @@ namespace EtVK.Scrips.Invenotry_Module
                 {
                     var prefab = Instantiate(item.Prefab);
                     var newItem = prefab.GetComponent<Item>();
-                    newItem.LoadItem(this);
+
+                    if (newItem == null)
+                    {
+                        Debug.LogError($"No item component on prefab {prefab.name}");
+                        return;
+                    }
+                    newItem.LoadItemFromInvetory(this);
                 }
             }
         }

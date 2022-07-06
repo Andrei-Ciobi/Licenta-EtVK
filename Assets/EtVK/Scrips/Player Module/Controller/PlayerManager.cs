@@ -1,3 +1,4 @@
+using EtVK.Scrips.Core_Module;
 using EtVK.Scrips.Input_Module;
 using UnityEngine;
 

@@ -11,7 +11,9 @@ namespace EtVK.Scrips.Invenotry_Module
         private Weapon curentWeapon;
         public WeaponType WeaponType => weaponType;
         public Transform DrawParentOverride => drawParentOverride;
-        
+
+        public Weapon CurentWeapon => curentWeapon;
+
         public void DestroyAndSetCurentWeapon(Weapon newWeapon)
         {
             if(curentWeapon != null)
