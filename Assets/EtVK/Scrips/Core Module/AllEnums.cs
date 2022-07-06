@@ -115,6 +115,14 @@ namespace EtVK.Scrips.Core_Module
 
     }
 
+    public enum ArmorType
+    {
+        Unequiped = 0,
+        Helmet = 1,
+        Chestplate = 2,
+        Boots = 3,
+    }
+
     public class AllEnums
     {
 
