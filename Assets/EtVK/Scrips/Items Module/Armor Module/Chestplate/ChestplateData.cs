@@ -1,6 +1,4 @@
-﻿using System;
-using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Utyles;
+﻿using EtVK.Scrips.Utyles;
 using UnityEngine;
 
 namespace EtVK.Scrips.Items_Module.Armor_Module.Chestplate

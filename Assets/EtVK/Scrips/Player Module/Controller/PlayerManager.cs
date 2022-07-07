@@ -1,6 +1,7 @@
 using EtVK.Scrips.Core_Module;
 using EtVK.Scrips.Input_Module;
 using EtVK.Scrips.Invenotry_Module;
+using EtVK.Scrips.Utyles;
 using UnityEngine;
 
 namespace EtVK.Scrips.Player_Module.Controller
@@ -18,10 +19,13 @@ namespace EtVK.Scrips.Player_Module.Controller
         private Animator animator;
         private AnimatorOverrideController baseAnimatorOverrideController;
         private InventoryManager inventoryManager;
+        private AnimationEventManager animationEventManager;
 
         private void Awake()
         {
             InitializeReferences();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             SceneLinkedSMB<PlayerManager>.Initialise(animator, this);
         }
 
@@ -34,6 +38,12 @@ namespace EtVK.Scrips.Player_Module.Controller
         public bool IsRunning()
         {
             return InputManager.Instance.HoldRun && IsMoving();
+        }
+
+        public bool CanAttack()
+        {
+            var isAttacking = animator.GetBool(PlayerState.IsAttacking.ToString());
+            return InputManager.Instance.TapAttackInput && !isAttacking;
         }
 
         public PlayerController GetController()
@@ -56,11 +66,17 @@ namespace EtVK.Scrips.Player_Module.Controller
             return inventoryManager;
         }
 
+        public AnimationEventManager GetAnimationEventManager()
+        {
+            return animationEventManager;
+        }
+
         private void InitializeReferences()
         {
             controller = GetComponentInChildren<PlayerController>();
             animator = GetComponentInChildren<Animator>();
             inventoryManager = GetComponentInChildren<InventoryManager>();
+            animationEventManager = GetComponentInChildren<AnimationEventManager>();
 
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         }
