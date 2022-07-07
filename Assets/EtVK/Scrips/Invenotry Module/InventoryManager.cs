@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EtVK.Scrips.Items_Module.Weapons_Module;
+using EtVK.Scrips.Utyles;
 using UnityEngine;
 
 namespace EtVK.Scrips.Invenotry_Module
@@ -33,6 +34,16 @@ namespace EtVK.Scrips.Invenotry_Module
         {
             
             item.AddItemToInvetory(this);
+        }
+
+        public Weapon GetArmedWeapon()
+        {
+            return weaponReferences.Find((weapon) => weapon.IsArmed);
+        }
+
+        public Weapon GetWeapon(WeaponType weaponType)
+        {
+            return weaponReferences.Find((weapon) => weapon.WeaponData.WeaponType == weaponType);
         }
 
         public InventoryData GetInventoryData()

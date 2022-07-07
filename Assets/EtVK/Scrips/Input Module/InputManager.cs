@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using EtVK.Scrips.Core_Module;
+using EtVK.Scrips.Utyles;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,8 @@ namespace EtVK.Scrips.Input_Module
         public bool AttackInputBlocked { get; private set; }
         public bool SpecificInputBlocked { get; private set; }
         public bool JumpInputBlocked { get; set; }
+        public bool SwitchWeaponInput { get; set; }
+        public WeaponType SwitchWeaponType { get; set; }
         public bool TapJumpInput => playerActions.Player.TapJump.triggered;
         public bool TapRunInput => playerActions.Player.TapRun.triggered;
         public bool TapInteractInput => playerActions.Player.TapInteract.triggered;
@@ -119,10 +122,8 @@ namespace EtVK.Scrips.Input_Module
             playerActions.Player.MouseLook.performed += OnMouseLook;
             playerActions.Player.Movement.performed += OnMovementInput;
             // playerActions.Player.TapAttack.performed += _ => PlayerManager.Instance.OnAttack();
-            // playerActions.Player.Weapon_1.performed += _ => PlayerManager.Instance.OnWeaponDraw(1);
-            // playerActions.Player.Weapon_2.performed += _ => PlayerManager.Instance.OnWeaponDraw(2);
-            // playerActions.Player.Weapon_3.performed += _ => PlayerManager.Instance.OnWeaponDraw(3);
-            
+            playerActions.Player.Weapon_1.performed += _ => OnWeaponInput(WeaponType.Sword);
+            playerActions.Player.Weapon_2.performed += _ => OnWeaponInput(WeaponType.Bow);
             //UI
             // playerActions.UI.Escape.performed += OnEscapePerformed;
 
@@ -139,6 +140,14 @@ namespace EtVK.Scrips.Input_Module
             MouseLook = context.ReadValue<Vector2>();
         }
 
+        private void OnWeaponInput(WeaponType weaponType)
+        {
+            if(SwitchWeaponInput)
+                return;
+            
+            SwitchWeaponInput = true;
+            SwitchWeaponType = weaponType;
+        }
 
         private IEnumerator JumpCdCoroutine(float jumpCdTime)
         {

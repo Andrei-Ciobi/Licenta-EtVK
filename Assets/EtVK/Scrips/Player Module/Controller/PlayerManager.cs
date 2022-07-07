@@ -1,5 +1,6 @@
 using EtVK.Scrips.Core_Module;
 using EtVK.Scrips.Input_Module;
+using EtVK.Scrips.Invenotry_Module;
 using UnityEngine;
 
 namespace EtVK.Scrips.Player_Module.Controller
@@ -13,6 +14,7 @@ namespace EtVK.Scrips.Player_Module.Controller
         
         private PlayerController controller;
         private Animator animator;
+        private InventoryManager inventoryManager;
 
         private void Awake()
         {
@@ -46,10 +48,16 @@ namespace EtVK.Scrips.Player_Module.Controller
             return locomotionData;
         }
 
+        public InventoryManager GetInventoryManager()
+        {
+            return inventoryManager;
+        }
+
         private void InitializeReferences()
         {
             controller = GetComponentInChildren<PlayerController>();
             animator = GetComponentInChildren<Animator>();
+            inventoryManager = GetComponentInChildren<InventoryManager>();
         }
     }
 }

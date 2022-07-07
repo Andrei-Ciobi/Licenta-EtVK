@@ -4,20 +4,18 @@ using UnityEngine;
 
 namespace EtVK.Scrips.Items_Module.Weapons_Module
 {
-    public class Weapon : Item
+    public abstract class Weapon : Item
     {
-        protected WeaponData weaponData;
-        public WeaponHolderSlot CurentWeaponSlot
-        {
-            get => curentWeaponSlot;
-            set => curentWeaponSlot = value;
-        }
-
         public bool IsArmed => isArmed;
+        public WeaponData WeaponData => weaponData;
         
+        protected WeaponData weaponData;
         protected WeaponHolderSlot curentWeaponSlot;
-        private bool isArmed;
+        protected bool isArmed;
 
+        public abstract void DrawWeapon();
+        public abstract void WithdrawWeapon();
+        public abstract void SwitchWeapon(Weapon curentWeapon);
         public override void LoadItemFromInvetory(InventoryManager inventoryManager)
         {
             var weaponSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == weaponData.ItemType).Cast<WeaponHolderSlot>().ToList();
