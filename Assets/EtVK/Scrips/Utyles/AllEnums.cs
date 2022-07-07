@@ -1,4 +1,4 @@
-namespace EtVK.Scrips.Core_Module
+namespace EtVK.Scrips.Utyles
 {
 
     // For attacks
@@ -113,6 +113,14 @@ namespace EtVK.Scrips.Core_Module
         BootRightFeet = 22,
         BootLeftFeet = 23,
 
+    }
+
+    public enum ArmorType
+    {
+        Unequiped = 0,
+        Helmet = 1,
+        Chestplate = 2,
+        Boots = 3,
     }
 
     public class AllEnums

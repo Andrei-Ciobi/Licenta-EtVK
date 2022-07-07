@@ -2,7 +2,7 @@
 using EtVK.Scrips.Invenotry_Module;
 using UnityEngine;
 
-namespace EtVK.Scrips.Weapons_Module
+namespace EtVK.Scrips.Items_Module.Weapons_Module
 {
     public class Weapon : Item
     {

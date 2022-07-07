@@ -1,4 +1,4 @@
-using EtVK.Scrips.Weapons_Module;
+using EtVK.Scrips.Items_Module.Weapons_Module;
 using UnityEngine;
 
 namespace EtVK.Scrips.Event_Module.Events
