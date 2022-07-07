@@ -9,6 +9,9 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module
         [SerializeField] protected WeaponType weaponType;
         [SerializeField] private float baseWeaponDamage;
         [SerializeField] private AnimatorOverrideController animatorOverride;
+        [SerializeField] private int maxComboAttacks;
+
+        public int MaxComboAttacks => maxComboAttacks;
 
         public WeaponType WeaponType => weaponType;
 
