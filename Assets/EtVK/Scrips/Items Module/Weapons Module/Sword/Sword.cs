@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using EtVK.Scrips.Invenotry_Module;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace EtVK.Scrips.Weapons_Module.Sword
+namespace EtVK.Scrips.Items_Module.Weapons_Module.Sword
 {
     public class Sword : Weapon
     {

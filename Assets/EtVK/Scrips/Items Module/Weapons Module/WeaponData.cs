@@ -1,8 +1,8 @@
-﻿using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Invenotry_Module;
+﻿using EtVK.Scrips.Invenotry_Module;
+using EtVK.Scrips.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Weapons_Module
+namespace EtVK.Scrips.Items_Module.Weapons_Module
 {
     public abstract class WeaponData : ItemData
     {

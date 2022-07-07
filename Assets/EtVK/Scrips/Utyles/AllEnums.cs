@@ -1,4 +1,4 @@
-namespace EtVK.Scrips.Core_Module
+namespace EtVK.Scrips.Utyles
 {
 
     // For attacks
