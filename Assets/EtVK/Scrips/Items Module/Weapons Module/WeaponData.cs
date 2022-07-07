@@ -14,6 +14,23 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module
 
         public float BaseWeaponDamage => baseWeaponDamage;
 
-        public AnimatorOverrideController AnimatorOverride => animatorOverride;
+        public AnimatorOverrideController AnimatorOverride => virtualOverride;
+        private AnimatorOverrideController virtualOverride;
+
+        public void Initialize()
+        {
+            if(animatorOverride == null)
+                return;
+
+            virtualOverride = new AnimatorOverrideController(animatorOverride.runtimeAnimatorController);
+
+            for (var i = 0; i < animatorOverride.animationClips.Length; ++i)
+            {
+                var clipName = animatorOverride.runtimeAnimatorController.animationClips[i].name;
+                var clip = animatorOverride.animationClips[i];
+
+                virtualOverride[clipName] = clip;
+            }
+        }
     }
 }

@@ -19,4 +19,4 @@ MonoBehaviour:
   itemDescription: 
   weaponType: 1
   baseWeaponDamage: 10
-  animatorOverride: {fileID: 0}
+  animatorOverride: {fileID: 22100000, guid: 1776bc0d2af79fd4290277223c76b887, type: 2}

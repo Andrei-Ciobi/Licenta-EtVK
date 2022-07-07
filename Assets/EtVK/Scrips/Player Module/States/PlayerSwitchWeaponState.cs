@@ -23,6 +23,17 @@ namespace EtVK.Scrips.Player_Module.States
                 }
                 
                 weaponToSwitch.SwitchWeapon(curentWeaponArmed);
+                
+                var newWeapon = monoBehaviour.GetInventoryManager().GetArmedWeapon();
+
+                if (newWeapon != null)
+                {
+                    animator.runtimeAnimatorController = newWeapon.WeaponData.AnimatorOverride;
+                }
+                else
+                {
+                    animator.runtimeAnimatorController = monoBehaviour.BaseAnimatorOverrideController;
+                }
             }
         }
     }

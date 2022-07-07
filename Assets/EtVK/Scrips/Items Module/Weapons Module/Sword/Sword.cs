@@ -13,6 +13,10 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module.Sword
 
         public override void DrawWeapon()
         {
+            if (swordData.AnimatorOverride == null)
+            {
+                swordData.Initialize();
+            }
             transform.parent = curentWeaponSlot.DrawParentOverride;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;

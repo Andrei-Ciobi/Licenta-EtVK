@@ -10,10 +10,13 @@ namespace EtVK.Scrips.Player_Module.Controller
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }
 
+        public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
+
         [SerializeField] private PlayerLocomotionData locomotionData;
         
         private PlayerController controller;
         private Animator animator;
+        private AnimatorOverrideController baseAnimatorOverrideController;
         private InventoryManager inventoryManager;
 
         private void Awake()
@@ -58,6 +61,8 @@ namespace EtVK.Scrips.Player_Module.Controller
             controller = GetComponentInChildren<PlayerController>();
             animator = GetComponentInChildren<Animator>();
             inventoryManager = GetComponentInChildren<InventoryManager>();
+
+            baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         }
     }
 }
