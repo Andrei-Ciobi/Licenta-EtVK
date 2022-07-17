@@ -114,6 +114,16 @@ namespace EtVK.Scrips.Player_Module.Controller
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
 
+        public void UpdatePlayerRootMotionRotation(Animator animator, float rotationSpeed = 0f)
+        {
+            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().GetRotationSpeed() : rotationSpeed;
+            
+            var rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f);
+            
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+            animator.transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+        }
+
         public void MoveOnSlope()
         {
             //If we are on a slope we smoothly go down

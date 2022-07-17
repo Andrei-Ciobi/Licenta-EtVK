@@ -1,3 +1,4 @@
+using System;
 using EtVK.Scrips.Core_Module;
 using EtVK.Scrips.Input_Module;
 using EtVK.Scrips.Invenotry_Module;
@@ -10,6 +11,8 @@ namespace EtVK.Scrips.Player_Module.Controller
     {
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }
+        
+        public bool UseRootMotionRotation { get; set; }
 
         public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
 
@@ -27,6 +30,14 @@ namespace EtVK.Scrips.Player_Module.Controller
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             SceneLinkedSMB<PlayerManager>.Initialise(animator, this);
+        }
+
+        private void LateUpdate()
+        {
+            if (UseRootMotionRotation)
+            {
+                controller.UpdatePlayerRootMotionRotation(animator);
+            }
         }
 
 

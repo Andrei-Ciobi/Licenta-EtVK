@@ -12,6 +12,7 @@ namespace EtVK.Scrips.Player_Module.States
             animator.SetBool(PlayerState.IsAttacking.ToString(), false);
             animator.SetBool(PlayerState.ComboAttack.ToString(), false);
             animator.applyRootMotion = false;
+            monoBehaviour.UseRootMotionRotation = false;
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

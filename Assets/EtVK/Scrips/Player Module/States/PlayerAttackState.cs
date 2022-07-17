@@ -23,11 +23,15 @@ namespace EtVK.Scrips.Player_Module.States
             canContinueCombo = weapon.WeaponData.GetMaxComboForAttackType(attackType) > attackIndex;
 
             animator.applyRootMotion = attackAction.UseRootMotion;
+            monoBehaviour.UseRootMotionRotation = attackAction.UseRootMotion;
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            //monoBehaviour.GetController().UpdatePlayerRotation();
+            if (!monoBehaviour.UseRootMotionRotation)
+            {
+                monoBehaviour.GetController().UpdatePlayerRotation();
+            }
 
             if (monoBehaviour.CanAttack() && monoBehaviour.GetAnimationEventManager().CanCombo && !checkedForAttack)
             {
