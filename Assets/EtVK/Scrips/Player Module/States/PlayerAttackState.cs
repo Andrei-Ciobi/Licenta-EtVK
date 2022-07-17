@@ -12,23 +12,25 @@ namespace EtVK.Scrips.Player_Module.States
         private bool canContinueCombo;
         private bool endAttackContinue;
         private bool checkedForAttack;
+        private bool useRotation;
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             animator.SetBool(PlayerState.IsAttacking.ToString(), false);
             animator.SetBool(PlayerState.ComboAttack.ToString(), false);
             var weapon = monoBehaviour.GetInventoryManager().GetArmedWeapon();
             var attackAction = weapon.WeaponData.GetAttackAction(attackType, attackIndex - 1);
+            useRotation = attackAction.UseRotation;
 
             endAttackContinue = attackAction.ComboIntoDifferentAttackType;
             canContinueCombo = weapon.WeaponData.GetMaxComboForAttackType(attackType) > attackIndex;
 
             animator.applyRootMotion = attackAction.UseRootMotion;
-            monoBehaviour.UseRootMotionRotation = attackAction.UseRootMotion;
+            monoBehaviour.UseRootMotionRotation = attackAction.UseRootMotion && useRotation;
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (!monoBehaviour.UseRootMotionRotation)
+            if (!monoBehaviour.UseRootMotionRotation && useRotation)
             {
                 monoBehaviour.GetController().UpdatePlayerRotation();
             }

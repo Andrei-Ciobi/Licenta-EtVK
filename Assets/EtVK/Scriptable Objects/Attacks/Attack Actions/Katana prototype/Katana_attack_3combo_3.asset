@@ -15,3 +15,4 @@ MonoBehaviour:
   clipName: Base_normal_attack_3
   animationClip: {fileID: 7400000, guid: fe34d8a322b134e498e13606bed0ea8d, type: 2}
   comboIntoDifferentAttackType: 0
+  useRootMotion: 1
