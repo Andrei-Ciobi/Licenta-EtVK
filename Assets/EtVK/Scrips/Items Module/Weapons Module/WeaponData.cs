@@ -49,7 +49,7 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module
             return attacks[attackType].Count;
         }
 
-        public AttackAction GetAttackAction(AttackType attackType, AnimationClip animationClip)
+        public AttackAction GetAttackAction(AttackType attackType, int index)
         {
             if (attacks[attackType] == null)
             {
@@ -57,7 +57,13 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module
                 return null;
             }
 
-            return attacks[attackType].Find((element) => element.AnimationClip.Equals(animationClip));
+            if (attacks[attackType][index] == null)
+            {
+                Debug.LogError($"No attack action for {index} index");
+                return null;
+            }
+
+            return attacks[attackType][index];
         }
 
         private void SetAttackAnimations()

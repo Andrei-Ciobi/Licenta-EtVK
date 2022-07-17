@@ -1,3 +1,4 @@
+using System;
 using EtVK.Scrips.Input_Module;
 using UnityEngine;
 
@@ -52,7 +53,6 @@ namespace EtVK.Scrips.Player_Module.Controller
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 
         }
-        
         public void UpdateCombatMovement(Vector2 movement, float speed = 0f, float rotationSpeed = 0f)
         {
             speed = speed == 0f ? playerManager.GetLocomotionData().GetWalkSpeed() : speed;

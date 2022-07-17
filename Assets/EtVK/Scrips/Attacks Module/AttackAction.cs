@@ -8,6 +8,9 @@ namespace EtVK.Scrips.Attacks_Module
         [SerializeField] private string clipName;
         [SerializeField] private AnimationClip animationClip;
         [SerializeField] private bool comboIntoDifferentAttackType;
+        [SerializeField] private bool useRootMotion;
+
+        public bool UseRootMotion => useRootMotion;
 
         public bool ComboIntoDifferentAttackType => comboIntoDifferentAttackType;
 
