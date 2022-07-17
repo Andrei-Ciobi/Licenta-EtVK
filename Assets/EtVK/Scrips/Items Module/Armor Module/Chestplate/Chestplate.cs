@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EtVK.Scrips.Items_Module.Armor_Module.Chestplate
 {

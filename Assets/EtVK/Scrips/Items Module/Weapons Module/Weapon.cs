@@ -1,24 +1,22 @@
 ﻿using System.Linq;
-using EtVK.Scrips.Invenotry_Module;
+using EtVK.Scrips.Inventory_Module;
 using UnityEngine;
 
 namespace EtVK.Scrips.Items_Module.Weapons_Module
 {
-    public class Weapon : Item
+    public abstract class Weapon : Item, IWeaponDamageable
     {
-        protected WeaponData weaponData;
-        public WeaponHolderSlot CurentWeaponSlot
-        {
-            get => curentWeaponSlot;
-            set => curentWeaponSlot = value;
-        }
-
         public bool IsArmed => isArmed;
+        public WeaponData WeaponData => weaponData;
         
+        protected WeaponData weaponData;
         protected WeaponHolderSlot curentWeaponSlot;
-        private bool isArmed;
+        protected bool isArmed;
 
-        public override void LoadItemFromInvetory(InventoryManager inventoryManager)
+        public abstract void DrawWeapon();
+        public abstract void WithdrawWeapon();
+        public abstract void SwitchWeapon(Weapon curentWeapon);
+        public override void LoadItemFromInventory(InventoryManager inventoryManager)
         {
             var weaponSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == weaponData.ItemType).Cast<WeaponHolderSlot>().ToList();
 
@@ -47,7 +45,7 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module
             inventoryManager.AddWeaponReference(this);
         }
 
-        public override void AddItemToInvetory(InventoryManager inventoryManager)
+        public override void AddItemToInventory(InventoryManager inventoryManager)
         {
             var weaponSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == weaponData.ItemType).Cast<WeaponHolderSlot>().ToList();
 
@@ -75,6 +73,11 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module
             weaponSlot.DestroyAndSetCurentWeapon(this);
             inventoryManager.AddWeaponReference(this);
             inventoryManager.GetInventoryData().AddItem(weaponData);
+        }
+
+        public float DealDamage()
+        {
+            return weaponData.BaseWeaponDamage;
         }
     }
 }

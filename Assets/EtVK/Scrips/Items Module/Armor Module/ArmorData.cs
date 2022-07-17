@@ -1,5 +1,4 @@
-﻿using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Invenotry_Module;
+﻿using EtVK.Scrips.Inventory_Module;
 using EtVK.Scrips.Utyles;
 using UnityEngine;
 

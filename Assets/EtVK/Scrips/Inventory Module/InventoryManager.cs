@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using EtVK.Scrips.Items_Module.Weapons_Module;
+using EtVK.Scrips.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Invenotry_Module
+namespace EtVK.Scrips.Inventory_Module
 {
     public class InventoryManager : MonoBehaviour
     {
@@ -32,7 +32,17 @@ namespace EtVK.Scrips.Invenotry_Module
         public void AddItemToInventory(Item item)
         {
             
-            item.AddItemToInvetory(this);
+            item.AddItemToInventory(this);
+        }
+
+        public Weapon GetArmedWeapon()
+        {
+            return weaponReferences.Find((weapon) => weapon.IsArmed);
+        }
+
+        public Weapon GetWeapon(WeaponType weaponType)
+        {
+            return weaponReferences.Find((weapon) => weapon.WeaponData.WeaponType == weaponType);
         }
 
         public InventoryData GetInventoryData()
@@ -54,7 +64,7 @@ namespace EtVK.Scrips.Invenotry_Module
                         Debug.LogError($"No item component on prefab {prefab.name}");
                         return;
                     }
-                    newItem.LoadItemFromInvetory(this);
+                    newItem.LoadItemFromInventory(this);
                 }
             }
         }

@@ -1,8 +1,7 @@
-﻿using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Utyles;
+﻿using EtVK.Scrips.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Invenotry_Module
+namespace EtVK.Scrips.Inventory_Module
 {
     public class HolderSlot : MonoBehaviour
     { 

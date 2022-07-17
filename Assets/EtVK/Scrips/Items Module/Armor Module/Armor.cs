@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using EtVK.Scrips.Invenotry_Module;
+using EtVK.Scrips.Inventory_Module;
 using UnityEngine;
 
 namespace EtVK.Scrips.Items_Module.Armor_Module
@@ -7,7 +7,7 @@ namespace EtVK.Scrips.Items_Module.Armor_Module
     public class Armor : Item
     {
         protected ArmorData armorData;
-        public override void LoadItemFromInvetory(InventoryManager inventoryManager)
+        public override void LoadItemFromInventory(InventoryManager inventoryManager)
         {
             var armorSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == armorData.ItemType).Cast<ArmorHolderSlot>().ToList();
 
@@ -31,7 +31,7 @@ namespace EtVK.Scrips.Items_Module.Armor_Module
             transform.localRotation = Quaternion.identity;
         }
 
-        public override void AddItemToInvetory(InventoryManager inventoryManager)
+        public override void AddItemToInventory(InventoryManager inventoryManager)
         {
             throw new System.NotImplementedException();
         }

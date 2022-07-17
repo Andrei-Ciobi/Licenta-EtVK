@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using EtVK.Scrips.Core_Module;
 using EtVK.Scrips.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Invenotry_Module
+namespace EtVK.Scrips.Inventory_Module
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Inventory/NewInventory")]
     public class InventoryData : ScriptableObject

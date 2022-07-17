@@ -1,20 +1,13 @@
 namespace EtVK.Scrips.Utyles
 {
-
-    // For attacks
-    public enum EnemyBaseAnimation
-    {
-        BaseAttack,
-        BaseAttackCombo,
-
-    }
+    
 
     // for attacks type
     public enum AttackType
     {
-        StartAttack,
-        ComboAttack,
-        FinisherAttack,
+        NormalAttack,
+        DashAttack,
+        AirAttack,
     }
 
     // For Enemy AI
@@ -92,6 +85,7 @@ namespace EtVK.Scrips.Utyles
         TransitionLayer = 1,
         IsAiming = 10,
         MouseYAxis = 11,
+        ComboAttack = 12,
     }
 
     public enum ItemType
