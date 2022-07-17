@@ -20,4 +20,13 @@ MonoBehaviour:
   weaponType: 1
   baseWeaponDamage: 10
   animatorOverride: {fileID: 22100000, guid: 1776bc0d2af79fd4290277223c76b887, type: 2}
-  maxComboAttacks: 3
+  attacks:
+    customHashMap:
+    - key: 0
+      value:
+      - {fileID: 11400000, guid: 651ba58d1ae8afe4e815f390a2e95063, type: 2}
+      - {fileID: 11400000, guid: cd904b67c93766f4dbd32cc55fb92665, type: 2}
+      - {fileID: 11400000, guid: 88021edc58637df47a0ae3434e87dcfb, type: 2}
+    - key: 1
+      value:
+      - {fileID: 11400000, guid: 3947256328f7d2845bab49c88956ee31, type: 2}

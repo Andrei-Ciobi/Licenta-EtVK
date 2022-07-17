@@ -1,4 +1,6 @@
-﻿using EtVK.Scrips.Invenotry_Module;
+﻿using System.Collections.Generic;
+using EtVK.Scrips.Attacks_Module;
+using EtVK.Scrips.Invenotry_Module;
 using EtVK.Scrips.Utyles;
 using UnityEngine;
 
@@ -9,9 +11,7 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module
         [SerializeField] protected WeaponType weaponType;
         [SerializeField] private float baseWeaponDamage;
         [SerializeField] private AnimatorOverrideController animatorOverride;
-        [SerializeField] private int maxComboAttacks;
-
-        public int MaxComboAttacks => maxComboAttacks;
+        [SerializeField] private SerializableHashMap<AttackType, List<AttackAction>> attacks;
 
         public WeaponType WeaponType => weaponType;
 
@@ -33,6 +33,41 @@ namespace EtVK.Scrips.Items_Module.Weapons_Module
                 var clip = animatorOverride.animationClips[i];
 
                 virtualOverride[clipName] = clip;
+            }
+            
+            SetAttackAnimations();
+        }
+        
+        public int GetMaxComboForAttackType(AttackType attackType)
+        {
+            if (attacks[attackType] == null)
+            {
+                Debug.LogError($"No attacks for {attackType} attack type");
+                return -1;
+            }
+
+            return attacks[attackType].Count;
+        }
+
+        public AttackAction GetAttackAction(AttackType attackType, AnimationClip animationClip)
+        {
+            if (attacks[attackType] == null)
+            {
+                Debug.LogError($"No attacks for {attackType} attack type");
+                return null;
+            }
+
+            return attacks[attackType].Find((element) => element.AnimationClip.Equals(animationClip));
+        }
+
+        private void SetAttackAnimations()
+        {
+            foreach (var varKey in attacks.GetKeys())
+            {
+                foreach (var varAction in attacks[varKey])
+                {
+                    virtualOverride[varAction.ClipName] = varAction.AnimationClip;
+                }
             }
         }
     }

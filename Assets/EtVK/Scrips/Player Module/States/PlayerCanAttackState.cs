@@ -10,6 +10,7 @@ namespace EtVK.Scrips.Player_Module.States
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             animator.SetBool(PlayerState.IsAttacking.ToString(), false);
+            animator.SetBool(PlayerState.ComboAttack.ToString(), false);
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -12,7 +12,6 @@ namespace EtVK.Scrips.Core_Module
         public void SetCanCombo(int value)
         {
             var boolValue = value != 0;
-            Debug.Log(boolValue);
             canCombo = boolValue;
         }
     }

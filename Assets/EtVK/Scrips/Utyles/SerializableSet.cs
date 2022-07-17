@@ -8,6 +8,16 @@ namespace EtVK.Scrips.Utyles
         [SerializeField] private K key;
         [SerializeField] private V value;
 
+        public SerializableSet()
+        {
+        }
+
+        public SerializableSet(K key, V value)
+        {
+            this.key = key;
+            this.value = value;
+        }
+
 
         public K GetKey()
         {
