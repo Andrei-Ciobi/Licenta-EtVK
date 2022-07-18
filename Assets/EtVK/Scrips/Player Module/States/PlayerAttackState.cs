@@ -43,15 +43,5 @@ namespace EtVK.Scrips.Player_Module.States
                 animator.SetBool(PlayerState.ComboAttack.ToString(), canContinueCombo);
             }
         }
-
-        // public override void OnSLStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        // {
-        //     if(animator.applyRootMotion)
-        //     {
-        //         var newPosition = animator.rootPosition;
-        //         newPosition.y = monoBehaviour.transform.position.y;
-        //         monoBehaviour.transform.position = newPosition;
-        //     }
-        // }
     }
 }

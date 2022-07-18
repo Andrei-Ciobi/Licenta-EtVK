@@ -31,16 +31,7 @@ namespace EtVK.Scrips.Player_Module.Controller
             Cursor.visible = false;
             SceneLinkedSMB<PlayerManager>.Initialise(animator, this);
         }
-
-        private void LateUpdate()
-        {
-            if (UseRootMotionRotation)
-            {
-                controller.UpdatePlayerRootMotionRotation(animator);
-            }
-        }
-
-
+        
         public bool IsMoving()
         {
             return InputManager.Instance.MovementInput != Vector2.zero;
