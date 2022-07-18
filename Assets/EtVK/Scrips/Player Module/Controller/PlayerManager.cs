@@ -22,6 +22,7 @@ namespace EtVK.Scrips.Player_Module.Controller
         private AnimatorOverrideController baseAnimatorOverrideController;
         private InventoryManager inventoryManager;
         private AnimationEventManager animationEventManager;
+        private RootMotionController rootMotionController;
 
         private void Awake()
         {
@@ -87,6 +88,8 @@ namespace EtVK.Scrips.Player_Module.Controller
             animator = GetComponentInChildren<Animator>();
             inventoryManager = GetComponentInChildren<InventoryManager>();
             animationEventManager = GetComponentInChildren<AnimationEventManager>();
+            rootMotionController = GetComponentInChildren<RootMotionController>();
+            rootMotionController.Initialize(this);
 
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         }

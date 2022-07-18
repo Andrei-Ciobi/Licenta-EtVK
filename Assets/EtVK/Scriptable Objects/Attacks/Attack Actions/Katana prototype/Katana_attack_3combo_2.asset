@@ -15,3 +15,5 @@ MonoBehaviour:
   clipName: Base_normal_attack_2
   animationClip: {fileID: 7400000, guid: 7d2303c6027a8d14d856dba6d4f38620, type: 2}
   comboIntoDifferentAttackType: 0
+  useRootMotion: 0
+  useRotation: 1

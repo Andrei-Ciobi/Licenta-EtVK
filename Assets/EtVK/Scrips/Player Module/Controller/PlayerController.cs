@@ -75,6 +75,11 @@ namespace EtVK.Scrips.Player_Module.Controller
             speed = speed == 0f ? playerManager.GetLocomotionData().GetWalkSpeed() : speed;
             characterController.Move(transform.forward * Time.deltaTime * speed);
         }
+
+        public void Move(Vector3 position)
+        {
+            characterController.Move(position);
+        }
         
         public void Jump(float gravityValue = 0f, float gravityMultiplayer = 0f, float jumpHeight = 0f)
         {
