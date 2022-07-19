@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Scrips.Attacks_Module
+namespace EtVK.Attacks_Module
 {
     [CreateAssetMenu( menuName = "ScriptableObjects/Attacks/AttackAction")]
     public class AttackAction : ScriptableObject

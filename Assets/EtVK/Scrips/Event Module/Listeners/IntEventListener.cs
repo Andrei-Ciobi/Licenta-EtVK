@@ -1,7 +1,7 @@
-using EtVK.Scrips.Event_Module.Custom_Events;
-using EtVK.Scrips.Event_Module.Events;
+using EtVK.Event_Module.Custom_Events;
+using EtVK.Event_Module.Events;
 
-namespace EtVK.Scrips.Event_Module.Listeners
+namespace EtVK.Event_Module.Listeners
 {
     public class IntEventListener : BaseGameEventListener<int, IntEvent, CustomIntEvent> { }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Scrips.Items_Module.Armor_Module.Chestplate
+namespace EtVK.Items_Module.Armors.Chestplate
 {
     public class Chestplate : Armor
     {

@@ -1,10 +1,10 @@
-using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Input_Module;
-using EtVK.Scrips.Inventory_Module;
-using EtVK.Scrips.Utyles;
+using EtVK.Core_Module;
+using EtVK.Input_Module;
+using EtVK.Inventory_Module;
+using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Controller
+namespace EtVK.Player_Module.Controller
 {
     public class PlayerManager : MonoBehaviour
     {

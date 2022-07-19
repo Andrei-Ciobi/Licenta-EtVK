@@ -1,7 +1,7 @@
-using EtVK.Scrips.Core_Module;
+using EtVK.Core_Module;
 using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Camera {
+namespace EtVK.Player_Module.Camera {
     public class CameraManager : MonoSingletone<CameraManager>
     {
 

@@ -1,10 +1,10 @@
 using System.Collections;
-using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Utyles;
+using EtVK.Core_Module;
+using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace EtVK.Scrips.Input_Module
+namespace EtVK.Input_Module
 {
     public class InputManager : MonoSingletone<InputManager>
     {

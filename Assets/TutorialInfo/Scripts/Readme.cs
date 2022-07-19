@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace TutorialInfo.Scripts
+namespace EtVK.TutorialInfo.Scripts
 {
     public class Readme : ScriptableObject
     {

@@ -1,8 +1,7 @@
-﻿using System;
-using EtVK.Scrips.Items_Module.Weapons_Module;
+﻿using EtVK.Items_Module.Weapons;
 using UnityEngine;
 
-namespace EtVK.Scrips.Health_Module
+namespace EtVK.Health_Module
 {
     public class LivingEntity : MonoBehaviour, IDamageable
     {

@@ -1,7 +1,7 @@
-using EtVK.Scrips.Input_Module;
+using EtVK.Input_Module;
 using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Controller
+namespace EtVK.Player_Module.Controller
 {
     public class PlayerController : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EtVK.Scrips.Core_Module
+namespace EtVK.Core_Module
 {
     public class MonoSingletone<T> : MonoBehaviour where T : MonoSingletone<T>
     {

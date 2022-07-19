@@ -1,7 +1,7 @@
-﻿using EtVK.Scrips.Utyles;
+﻿using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Items_Module.Armor_Module.Chestplate
+namespace EtVK.Items_Module.Armors.Chestplate
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Armor/NewChestplate")]
     public class ChestplateData : ArmorData

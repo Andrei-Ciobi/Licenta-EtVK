@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Scrips.Items_Module.Weapons_Module.Sword
+namespace EtVK.Items_Module.Weapons.Sword
 {
     public class Sword : Weapon
     {

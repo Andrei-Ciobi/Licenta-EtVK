@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Controller
+namespace EtVK.Player_Module.Controller
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Player/LocomotionData")]
     public class PlayerLocomotionData : ScriptableObject

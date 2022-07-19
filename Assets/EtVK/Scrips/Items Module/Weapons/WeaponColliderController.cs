@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-namespace EtVK.Scrips.Items_Module.Weapons_Module
+
+namespace EtVK.Items_Module.Weapons
 {
     public class WeaponColliderController : MonoBehaviour
     {

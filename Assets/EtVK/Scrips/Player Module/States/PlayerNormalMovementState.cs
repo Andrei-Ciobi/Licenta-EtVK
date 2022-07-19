@@ -1,10 +1,10 @@
-using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Input_Module;
-using EtVK.Scrips.Player_Module.Controller;
-using EtVK.Scrips.Utyles;
+using EtVK.Core_Module;
+using EtVK.Input_Module;
+using EtVK.Player_Module.Controller;
+using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.States
+namespace EtVK.Player_Module.States
 {
     public class PlayerNormalMovementState : SceneLinkedSMB<PlayerManager>
     {

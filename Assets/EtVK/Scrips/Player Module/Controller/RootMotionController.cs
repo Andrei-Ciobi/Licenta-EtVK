@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Controller
+namespace EtVK.Player_Module.Controller
 {
     public class RootMotionController : MonoBehaviour
     {

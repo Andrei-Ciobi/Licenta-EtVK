@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using EtVK.Scrips.Inventory_Module;
+using EtVK.Inventory_Module;
 using UnityEngine;
 
-namespace EtVK.Scrips.Items_Module.Armor_Module
+namespace EtVK.Items_Module.Armors
 {
     public class Armor : Item
     {

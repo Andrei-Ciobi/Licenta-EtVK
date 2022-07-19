@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using EtVK.Scrips.Attacks_Module;
-using EtVK.Scrips.Inventory_Module;
-using EtVK.Scrips.Utyles;
+using EtVK.Attacks_Module;
+using EtVK.Inventory_Module;
+using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Items_Module.Weapons_Module
+namespace EtVK.Items_Module.Weapons
 {
     public abstract class WeaponData : ItemData
     {

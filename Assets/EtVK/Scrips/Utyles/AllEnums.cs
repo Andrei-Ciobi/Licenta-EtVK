@@ -1,4 +1,4 @@
-namespace EtVK.Scrips.Utyles
+namespace EtVK.Utyles
 {
     
 

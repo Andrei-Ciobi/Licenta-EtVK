@@ -1,8 +1,8 @@
-using EtVK.Scrips.Event_Module.Events;
+using EtVK.Event_Module.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace EtVK.Scrips.Event_Module.Listeners
+namespace EtVK.Event_Module.Listeners
 {
     public abstract class BaseGameEventListener<T, E, UER> : MonoBehaviour,
         IGameEventListener<T> where E : BaseGameEvent<T> where UER : UnityEvent<T>

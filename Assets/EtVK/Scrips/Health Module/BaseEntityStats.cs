@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Scrips.Health_Module
+namespace EtVK.Health_Module
 {
     [CreateAssetMenu( menuName = "ScriptableObjects/Stats/EntityStats")]
     public class BaseEntityStats : ScriptableObject

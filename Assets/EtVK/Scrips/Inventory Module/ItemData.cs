@@ -1,7 +1,7 @@
-﻿using EtVK.Scrips.Utyles;
+﻿using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Inventory_Module
+namespace EtVK.Inventory_Module
 {
     public abstract class ItemData : ScriptableObject
     {

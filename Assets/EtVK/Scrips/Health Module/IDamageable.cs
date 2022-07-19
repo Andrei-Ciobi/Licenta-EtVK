@@ -1,4 +1,4 @@
-﻿namespace EtVK.Scrips.Health_Module
+﻿namespace EtVK.Health_Module
 {
     public interface IDamageable
     {

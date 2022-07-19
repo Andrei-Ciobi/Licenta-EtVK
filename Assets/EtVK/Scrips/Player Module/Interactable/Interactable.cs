@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Interactable
+namespace EtVK.Player_Module.Interactable
 {
     public abstract class Interactable : MonoBehaviour
     {

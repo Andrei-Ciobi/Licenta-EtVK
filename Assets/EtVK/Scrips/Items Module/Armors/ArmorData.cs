@@ -1,8 +1,8 @@
-﻿using EtVK.Scrips.Inventory_Module;
-using EtVK.Scrips.Utyles;
+﻿using EtVK.Inventory_Module;
+using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Items_Module.Armor_Module
+namespace EtVK.Items_Module.Armors
 {
     public abstract class ArmorData : ItemData
     {

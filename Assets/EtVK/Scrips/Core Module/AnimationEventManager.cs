@@ -1,8 +1,8 @@
-﻿using EtVK.Scrips.Items_Module.Weapons_Module;
-using EtVK.Scrips.Player_Module.Controller;
+﻿using EtVK.Items_Module.Weapons;
+using EtVK.Player_Module.Controller;
 using UnityEngine;
 
-namespace EtVK.Scrips.Core_Module
+namespace EtVK.Core_Module
 {
     public class AnimationEventManager : MonoBehaviour
     {
