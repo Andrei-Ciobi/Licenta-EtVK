@@ -9,10 +9,65 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63bcfd0e8e714f7eba74587eef65cd28, type: 3}
+  m_Script: {fileID: 11500000, guid: dd1a69b8cc804616887aff8e2f1a7880, type: 3}
   m_Name: Katana_attack_dash_1
   m_EditorClassIdentifier: 
   clipName: Base_run_attack_1
   animationClip: {fileID: 7400000, guid: a75ee358d72ef994097121843a020018, type: 2}
   comboIntoDifferentAttackType: 1
   useRootMotion: 1
+  useRotation: 0
+  useForceForward: 1
+  speedGraph:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.00289917
+      value: 0.4988098
+      inSlope: 0.053285733
+      outSlope: 0.053285733
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.37154138
+    - serializedVersion: 3
+      time: 0.20005256
+      value: 0.59109783
+      inSlope: 0.9132358
+      outSlope: 0.9132358
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.23164049
+      outWeight: 0.11237741
+    - serializedVersion: 3
+      time: 0.46666205
+      value: 1.5
+      inSlope: -0.05973581
+      outSlope: -0.05973581
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.29811803
+      outWeight: 0.30094755
+    - serializedVersion: 3
+      time: 0.63134766
+      value: 0.69468325
+      inSlope: -1.3724643
+      outSlope: -1.3724643
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08112033
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: 0.009446196
+      outSlope: 0.009446196
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20297189
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  interval: 0.01
+  speed: 5

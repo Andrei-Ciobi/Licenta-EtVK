@@ -80,7 +80,7 @@ namespace EtVK.Utyles
         CombatState = 5,
         Running = 6,
         IsAttacking = 7,
-        WeaponState = 8,
+        InDodge = 8,
         Transition = 9,
         TransitionLayer = 1,
         IsAiming = 10,

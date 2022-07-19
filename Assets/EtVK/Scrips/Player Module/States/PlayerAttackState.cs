@@ -7,6 +7,9 @@ namespace EtVK.Player_Module.States
 {
     public class PlayerAttackState : SceneLinkedSMB<PlayerManager>
     {
+        public AttackType AttackType => attackType;
+        public int AttackIndex => attackIndex;
+
         [SerializeField] private AttackType attackType;
         [SerializeField] private int attackIndex;
         private bool canContinueCombo;
