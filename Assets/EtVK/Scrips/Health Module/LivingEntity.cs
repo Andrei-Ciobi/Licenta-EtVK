@@ -25,6 +25,11 @@ namespace EtVK.Health_Module
             currentHealth = entityStats.MaxHealth;
         }
 
+        public GameObject GameObject
+        {
+            get => gameObject;
+        }
+
         public void TakeHit(float damage)
         {
             if (isInvulnerable)
@@ -41,7 +46,7 @@ namespace EtVK.Health_Module
             
             //isInvulnerable = true;
 
-            Debug.Log(this.gameObject.name + " recived " + damage);
+            Debug.Log(this.GameObject.name + " recived " + damage);
             
             // if (CanPlayDamageAnimation(damage))
             //     animator.SetTrigger(EnemyAIAction.TakeDamage.ToString());
@@ -51,12 +56,12 @@ namespace EtVK.Health_Module
 
         public void Die()
         {
-            Destroy(gameObject);
+            Destroy(GameObject);
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.transform.root.gameObject == gameObject)
+            if (other.transform.root.gameObject == GameObject)
                 return;
             
             var weapon = other.gameObject.GetComponent<IWeaponDamageable>();

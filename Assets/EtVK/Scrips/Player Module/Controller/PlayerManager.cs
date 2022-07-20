@@ -1,3 +1,5 @@
+using System.Linq;
+using EtVK.Ability_Module;
 using EtVK.Core_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
@@ -71,6 +73,20 @@ namespace EtVK.Player_Module.Controller
         public AnimationEventManager GetAnimationEventManager()
         {
             return animationEventManager;
+        }
+
+        public BaseAbility GetAbility(AbilityType abilityType)
+        {
+            var abilities = GetComponentsInChildren<BaseAbility>().ToList();
+            var ability = abilities.Find(element => element.AbilityType.Equals(abilityType));
+
+            if (ability == null)
+            {
+                Debug.LogError($"No ability of type {abilityType} found under {gameObject.name} gameObject");
+                return null;
+            }
+
+            return ability;
         }
 
         private void InitializeReferences()

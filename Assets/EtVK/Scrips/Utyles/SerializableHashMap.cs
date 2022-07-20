@@ -30,5 +30,10 @@ namespace EtVK.Utyles
 
             return keyList;
         }
+
+        public bool ContainsKey(K key)
+        {
+            return customHashMap.Find((set) => set.GetKey().Equals(key)) != null;
+        }
     }
 }
