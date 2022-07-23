@@ -14,7 +14,7 @@ namespace EtVK.Items_Module.Armors
 
         public override void LoadItemFromInventory(InventoryManager inventoryManager)
         {
-            var armorSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == armorData.ItemType).Cast<ArmorHolderSlot>().ToList();
+            var armorSlotList = inventoryManager.GetAllHolderSlots().FindAll(slot => slot.HolderSlotType == armorData.ItemType).Cast<ArmorHolderSlot>().ToList();
 
             if (armorSlotList.Count == 0)
             {

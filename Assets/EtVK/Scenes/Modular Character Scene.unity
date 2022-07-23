@@ -51244,6 +51244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5116172950965767113}
   - component: {fileID: 5121729126063793646}
+  - component: {fileID: 5121729126063793647}
   m_Layer: 0
   m_Name: Chestplate
   m_TagString: Untagged
@@ -51264,8 +51265,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 10
-  prefabName: chestplate_prototype_1
-  path: Armor
+--- !u!114 &5121729126063793647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5121729126063793645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cf90d06f2c47fba40d6d4c9baf8d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: chestplate_prototype_2
+  fullPath: Assets/EtVK/MyAssets/Models/Armor
   folderName: Chestplates
 --- !u!1 &5121730323685321861
 GameObject:
@@ -51952,9 +51965,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!1 &5121771526171223005
 GameObject:
   m_ObjectHideFlags: 0
@@ -52561,9 +52571,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!1 &5121819505623570327
 GameObject:
   m_ObjectHideFlags: 0
@@ -54045,6 +54052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5116565926313694471}
   - component: {fileID: 5121923054758019356}
+  - component: {fileID: 5121923054758019357}
   m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
@@ -54065,9 +54073,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 11
-  prefabName: 
-  path: 
-  folderName: 
+--- !u!114 &5121923054758019357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5121923054758019355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cf90d06f2c47fba40d6d4c9baf8d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: pants_prototype_1
+  fullPath: Assets/EtVK/MyAssets/Models/Armor
+  folderName: Pants
 --- !u!1 &5121923118436747091
 GameObject:
   m_ObjectHideFlags: 0
@@ -54704,6 +54724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5116145707730694945}
   - component: {fileID: 5121964458957033460}
+  - component: {fileID: 5121964458957033461}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -54724,9 +54745,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
-  prefabName: 
-  path: 
-  folderName: 
+--- !u!114 &5121964458957033461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5121964458957033459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cf90d06f2c47fba40d6d4c9baf8d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: cape_prototype_1
+  fullPath: Assets/EtVK/MyAssets/Models/Armor
+  folderName: Cape
 --- !u!1 &5121966172223302453
 GameObject:
   m_ObjectHideFlags: 0
@@ -57000,9 +57033,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 12
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!1 &5122139046665563081
 GameObject:
   m_ObjectHideFlags: 0
@@ -57691,9 +57721,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 8
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!1 &5122198519665019073
 GameObject:
   m_ObjectHideFlags: 0
@@ -59084,6 +59111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5116361821301746935}
   - component: {fileID: 5122277668067873646}
+  - component: {fileID: 5122277668067873647}
   m_Layer: 0
   m_Name: Helmet
   m_TagString: Untagged
@@ -59104,8 +59132,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
-  prefabName: Helmet_prototype_1
-  path: Armor
+--- !u!114 &5122277668067873647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5122277668067873645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cf90d06f2c47fba40d6d4c9baf8d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: helmet_prototype_1
+  fullPath: Assets/EtVK/MyAssets/Models/Armor
   folderName: Helmets
 --- !u!1 &5122282134460812593
 GameObject:
@@ -60406,9 +60446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 9
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!1 &5122387660622728277
 GameObject:
   m_ObjectHideFlags: 0
@@ -63982,9 +64019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5124579593056601401
 Transform:
   m_ObjectHideFlags: 0
@@ -64513,9 +64547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5124623839863371383
 Transform:
   m_ObjectHideFlags: 0
@@ -65367,35 +65398,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
-  bodyType: 0
+  bodyType: 4
   currentMaterial: {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   colorList:
   - key: 0
     value: {r: 0.68287647, g: 0.8679245, b: 0.8625933, a: 0}
   - key: 1
-    value: {r: 0.16646487, g: 0.3345548, b: 0.5283019, a: 0}
+    value: {r: 0.1664648, g: 0.33455473, b: 0.5283019, a: 0}
   - key: 2
-    value: {r: 0.2924528, g: 0.25396857, b: 0.11372549, a: 0}
+    value: {r: 0.29245275, g: 0.2539685, b: 0.11372543, a: 0}
   - key: 3
-    value: {r: 0.22641501, g: 0.202544, b: 0.15891767, a: 0}
+    value: {r: 0.22641495, g: 0.20254394, b: 0.1589176, a: 0}
   - key: 4
-    value: {r: 0.4032751, g: 0.4227922, b: 0.45283002, a: 0}
+    value: {r: 0.40327504, g: 0.42279214, b: 0.4528299, a: 0}
   - key: 5
-    value: {r: 0.26539683, g: 0.2765265, b: 0.2830188, a: 0}
+    value: {r: 0.26539677, g: 0.27652645, b: 0.28301874, a: 0}
   - key: 6
-    value: {r: 0.07322891, g: 0.12261567, b: 0.20754719, a: 0}
+    value: {r: 0.07322884, g: 0.1226156, b: 0.20754713, a: 0}
   - key: 7
     value: {r: 0.5188676, g: 0.50614095, b: 0.50614095, a: 0}
   - key: 8
     value: {r: 0.9150943, g: 0.6346188, b: 0.46963328, a: 0}
   - key: 9
-    value: {r: 0.3584905, g: 0.32264143, b: 0.32264143, a: 0}
+    value: {r: 0.35849044, g: 0.32264137, b: 0.32264137, a: 0}
   - key: 10
-    value: {r: 0.6037736, g: 0.39732045, b: 0.31555688, a: 0}
+    value: {r: 0.6037736, g: 0.3973204, b: 0.31555682, a: 0}
   - key: 11
-    value: {r: 0.13421133, g: 0.15618151, b: 0.1886791, a: 1}
+    value: {r: 0.13421127, g: 0.15618145, b: 0.18867904, a: 1}
   - key: 12
-    value: {r: 0.5566037, g: 0.31934464, b: 0.028355243, a: 0}
+    value: {r: 0.5566037, g: 0.31934458, b: 0.028355243, a: 0}
 --- !u!4 &5124681146753835215
 Transform:
   m_ObjectHideFlags: 0
@@ -66035,9 +66066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5124722455703860959
 Transform:
   m_ObjectHideFlags: 0
@@ -67620,9 +67648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 12
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5124894854279828895
 Transform:
   m_ObjectHideFlags: 0
@@ -68638,9 +68663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 13
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5124980585964777947
 Transform:
   m_ObjectHideFlags: 0
@@ -68843,9 +68865,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5124994715143353711
 Transform:
   m_ObjectHideFlags: 0
@@ -69318,9 +69337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5125029383707220989
 Transform:
   m_ObjectHideFlags: 0
@@ -69443,9 +69459,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 9
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5125035498720018509
 Transform:
   m_ObjectHideFlags: 0
@@ -69899,9 +69912,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 8
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5125066549947505061
 Transform:
   m_ObjectHideFlags: 0
@@ -70121,9 +70131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
-  prefabName: 
-  path: 
-  folderName: 
 --- !u!4 &5125089103717787571
 Transform:
   m_ObjectHideFlags: 0

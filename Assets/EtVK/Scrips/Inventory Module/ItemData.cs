@@ -5,11 +5,11 @@ namespace EtVK.Inventory_Module
 {
     public abstract class ItemData : ScriptableObject
     {
-        [SerializeField] private Sprite itemIcon;
-        [SerializeField] private ItemType itemType;
-        [SerializeField] private GameObject prefab;
-        [SerializeField] private string itemName;
-        [SerializeField] private string itemDescription;
+        [SerializeField] protected Sprite itemIcon;
+        [SerializeField] protected ItemType itemType;
+        [SerializeField] protected GameObject prefab;
+        [SerializeField] protected string itemName;
+        [SerializeField] protected string itemDescription;
 
 
         public Sprite ItemIcon => itemIcon;

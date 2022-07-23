@@ -36,12 +36,13 @@ namespace EtVK.Customization_Module
             meshFilter.mesh = obj.sharedMesh;
             meshRenderer.material = mat;
 
-            var cloneObj = Instantiate(obj.gameObject, parentObj.transform, false);
+            var cloneObj = Instantiate(obj, parentObj.transform, false);
             cloneObj.name = obj.name;
             cloneObj.transform.position = Vector3.zero;
             cloneObj.transform.rotation = Quaternion.identity;
+            cloneObj.material = mat;
             // cloneObj.transform.localScale = Vector3.one;
-            cloneObj.SetActive(false);
+            cloneObj.gameObject.SetActive(false);
 
             
             return parentObj;
