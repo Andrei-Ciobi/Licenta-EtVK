@@ -30,12 +30,15 @@ namespace EtVK.Utyles
         Eyebrows,
         FacialHair,
         Helmet,
+        Shoulder,
+        Back,
         UpperArm,
         LowerArm,
         Hand,
         Chest,
         Hips,
         Legs,
+        HelmetAttachment,
         
     }
 
