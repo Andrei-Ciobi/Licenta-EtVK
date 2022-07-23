@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace EtVK.Scrips.Utyles
+namespace EtVK.Utyles
 {
     [System.Serializable]
     public class SerializableHashMap<K, V>
@@ -29,6 +29,11 @@ namespace EtVK.Scrips.Utyles
             }
 
             return keyList;
+        }
+
+        public bool ContainsKey(K key)
+        {
+            return customHashMap.Find((set) => set.GetKey().Equals(key)) != null;
         }
     }
 }

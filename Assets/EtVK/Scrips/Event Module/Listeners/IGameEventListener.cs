@@ -1,4 +1,4 @@
-namespace EtVK.Scrips.Event_Module.Listeners
+namespace EtVK.Event_Module.Listeners
 {
     public interface IGameEventListener<T>
     {

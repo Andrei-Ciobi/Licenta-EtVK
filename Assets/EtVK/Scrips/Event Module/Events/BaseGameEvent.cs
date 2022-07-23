@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using EtVK.Scrips.Event_Module.Listeners;
+using EtVK.Event_Module.Listeners;
 using UnityEngine;
 
-namespace EtVK.Scrips.Event_Module.Events
+namespace EtVK.Event_Module.Events
 {
     public abstract class BaseGameEvent<T> : ScriptableObject
     {

@@ -1,7 +1,7 @@
-using EtVK.Scrips.Items_Module.Weapons_Module;
+using EtVK.Items_Module.Weapons;
 using UnityEngine.Events;
 
-namespace EtVK.Scrips.Event_Module.Custom_Events
+namespace EtVK.Event_Module.Custom_Events
 {
     [System.Serializable] public class CustomWeaponEvent : UnityEvent<Weapon> { }
 }

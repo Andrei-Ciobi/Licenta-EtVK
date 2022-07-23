@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using EtVK.Scrips.Input_Module;
+using EtVK.Input_Module;
 using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Interactable
+namespace EtVK.Player_Module.Interactable
 {
     public class InteractableManager : MonoBehaviour
     {

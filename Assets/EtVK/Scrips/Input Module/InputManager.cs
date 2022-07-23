@@ -1,10 +1,10 @@
 using System.Collections;
-using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Utyles;
+using EtVK.Core_Module;
+using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace EtVK.Scrips.Input_Module
+namespace EtVK.Input_Module
 {
     public class InputManager : MonoSingletone<InputManager>
     {
@@ -20,6 +20,7 @@ namespace EtVK.Scrips.Input_Module
         public bool TapRunInput => playerActions.Player.TapRun.triggered;
         public bool TapInteractInput => playerActions.Player.TapInteract.triggered;
         public bool TapAttackInput => playerActions.Player.TapAttack.triggered;
+        public bool TapDodge => playerActions.Player.TapDodge.triggered;
         public bool SwitchStateInput => playerActions.Player.StateSwitch.triggered;
         public Vector2 MovementInput { get; private set; }
         public Vector2 MouseLook { get; private set; }

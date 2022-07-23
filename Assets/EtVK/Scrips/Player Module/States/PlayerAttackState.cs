@@ -1,12 +1,15 @@
-﻿using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Player_Module.Controller;
-using EtVK.Scrips.Utyles;
+﻿using EtVK.Core_Module;
+using EtVK.Player_Module.Controller;
+using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.States
+namespace EtVK.Player_Module.States
 {
     public class PlayerAttackState : SceneLinkedSMB<PlayerManager>
     {
+        public AttackType AttackType => attackType;
+        public int AttackIndex => attackIndex;
+
         [SerializeField] private AttackType attackType;
         [SerializeField] private int attackIndex;
         private bool canContinueCombo;
@@ -41,16 +44,6 @@ namespace EtVK.Scrips.Player_Module.States
                 
                 animator.SetBool(PlayerState.IsAttacking.ToString(), canContinueCombo || endAttackContinue);
                 animator.SetBool(PlayerState.ComboAttack.ToString(), canContinueCombo);
-            }
-        }
-
-        public override void OnSLStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        {
-            if(animator.applyRootMotion)
-            {
-                var newPosition = animator.rootPosition;
-                newPosition.y = monoBehaviour.transform.position.y;
-                monoBehaviour.transform.position = newPosition;
             }
         }
     }

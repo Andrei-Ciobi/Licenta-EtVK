@@ -161,6 +161,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Tap(duration=0.25)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TapDodge"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c8f7e41-d318-41bb-a629-cb03223e43aa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap(duration=0.25)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -372,6 +381,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a527acd7-9765-4205-8125-896e53ee04a5"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TapDodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -423,6 +443,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Weapon_3 = m_Player.FindAction("Weapon_3", throwIfNotFound: true);
         m_Player_Weapon_2 = m_Player.FindAction("Weapon_2", throwIfNotFound: true);
         m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        m_Player_TapDodge = m_Player.FindAction("TapDodge", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
@@ -500,6 +521,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Weapon_3;
     private readonly InputAction m_Player_Weapon_2;
     private readonly InputAction m_Player_Escape;
+    private readonly InputAction m_Player_TapDodge;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -519,6 +541,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Weapon_3 => m_Wrapper.m_Player_Weapon_3;
         public InputAction @Weapon_2 => m_Wrapper.m_Player_Weapon_2;
         public InputAction @Escape => m_Wrapper.m_Player_Escape;
+        public InputAction @TapDodge => m_Wrapper.m_Player_TapDodge;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -573,6 +596,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Escape.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
                 @Escape.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
                 @Escape.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                @TapDodge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTapDodge;
+                @TapDodge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTapDodge;
+                @TapDodge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTapDodge;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -622,6 +648,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Escape.started += instance.OnEscape;
                 @Escape.performed += instance.OnEscape;
                 @Escape.canceled += instance.OnEscape;
+                @TapDodge.started += instance.OnTapDodge;
+                @TapDodge.performed += instance.OnTapDodge;
+                @TapDodge.canceled += instance.OnTapDodge;
             }
         }
     }
@@ -676,6 +705,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnWeapon_3(InputAction.CallbackContext context);
         void OnWeapon_2(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnTapDodge(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

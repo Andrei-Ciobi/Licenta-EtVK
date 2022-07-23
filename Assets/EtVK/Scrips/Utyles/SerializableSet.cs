@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EtVK.Scrips.Utyles
+namespace EtVK.Utyles
 {
     [System.Serializable]
     public class SerializableSet<K,V>

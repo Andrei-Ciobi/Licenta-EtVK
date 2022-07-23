@@ -1,8 +1,8 @@
-﻿using EtVK.Scrips.Event_Module.Events;
-using EtVK.Scrips.Items_Module.Weapons_Module;
+﻿using EtVK.Event_Module.Events;
+using EtVK.Items_Module.Weapons;
 using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Interactable
+namespace EtVK.Player_Module.Interactable
 {
     [RequireComponent(typeof(BoxCollider))]
     [RequireComponent(typeof(Rigidbody))]

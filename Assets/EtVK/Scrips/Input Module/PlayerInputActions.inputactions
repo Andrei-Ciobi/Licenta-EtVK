@@ -1,5 +1,5 @@
 {
-    "name": "PlayerControls",
+    "name": "PlayerInputActions",
     "maps": [
         {
             "name": "Player",
@@ -11,7 +11,8 @@
                     "id": "09b60f17-682a-4d87-bae5-b41ba8db7f81",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Movement",
@@ -19,7 +20,8 @@
                     "id": "1fe8d2f1-da7b-42da-bca7-f0a11ff59cb5",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TapJump",
@@ -27,7 +29,8 @@
                     "id": "defdbe6a-e18a-447a-b578-4bb60b5f56d9",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "HoldRun",
@@ -35,7 +38,8 @@
                     "id": "3ae03cf3-45a2-4f65-9baf-fc1fa9880bd5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold(duration=0.2)"
+                    "interactions": "Hold(duration=0.2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TapRun",
@@ -43,7 +47,8 @@
                     "id": "42ae9469-3ba9-4923-bbfe-dc7cfd903a21",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "StateSwitch",
@@ -51,7 +56,8 @@
                     "id": "2a7bd285-2981-469e-a336-baa46b24e1a4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "HoldAttack",
@@ -59,7 +65,8 @@
                     "id": "0483dbb4-f09d-4c49-909e-e3a6d9b87c9a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold(duration=0.3)"
+                    "interactions": "Hold(duration=0.3)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TapAttack",
@@ -67,7 +74,8 @@
                     "id": "97444c1a-0b58-4815-bb67-6d32edd8593c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "HoldAim",
@@ -75,7 +83,8 @@
                     "id": "7dc4422f-cc2d-4ed5-aba1-e6270177be2f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold(duration=0.2)"
+                    "interactions": "Hold(duration=0.2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TapAim",
@@ -83,7 +92,8 @@
                     "id": "05f71b4e-b8f3-4771-bb75-adfc8d5463e0",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.15)"
+                    "interactions": "Tap(duration=0.15)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Weapon_1",
@@ -91,7 +101,8 @@
                     "id": "a7382717-7efb-411c-bfdc-b392576b1957",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TapInteract",
@@ -99,7 +110,8 @@
                     "id": "ea2b83c4-5f0d-47e0-b50c-6f6ab0849fc4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Weapon_3",
@@ -107,7 +119,8 @@
                     "id": "a6a5db7a-123c-4673-a9f7-2aa954ea66b1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Weapon_2",
@@ -115,7 +128,8 @@
                     "id": "487fd9eb-59f6-4955-a055-352e23772c8e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Escape",
@@ -123,7 +137,17 @@
                     "id": "c45607a6-5c45-472e-be77-62d08631e286",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TapDodge",
+                    "type": "Button",
+                    "id": "6c8f7e41-d318-41bb-a629-cb03223e43aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -335,6 +359,17 @@
                     "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a527acd7-9765-4205-8125-896e53ee04a5",
+                    "path": "<Keyboard>/alt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TapDodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -348,7 +383,8 @@
                     "id": "5ed3c56f-3b43-46f5-bee4-ec29f1dbc6e3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap(duration=0.25)"
+                    "interactions": "Tap(duration=0.25)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

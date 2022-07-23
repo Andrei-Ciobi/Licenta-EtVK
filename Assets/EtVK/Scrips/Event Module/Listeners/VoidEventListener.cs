@@ -1,8 +1,8 @@
-using EtVK.Scrips.Event_Module.Custom_Events;
-using EtVK.Scrips.Event_Module.Event_Types;
-using EtVK.Scrips.Event_Module.Events;
+using EtVK.Event_Module.Custom_Events;
+using EtVK.Event_Module.Event_Types;
+using EtVK.Event_Module.Events;
 
-namespace EtVK.Scrips.Event_Module.Listeners
+namespace EtVK.Event_Module.Listeners
 {
     public class VoidEventListener : BaseGameEventListener<Void, VoidEvent, CustomVoidEvent> { }
 }

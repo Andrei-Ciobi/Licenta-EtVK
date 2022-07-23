@@ -1,8 +1,8 @@
-﻿using EtVK.Scrips.Items_Module.Weapons_Module;
-using EtVK.Scrips.Utyles;
+﻿using EtVK.Items_Module.Weapons;
+using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Inventory_Module
+namespace EtVK.Inventory_Module
 {
     public class WeaponHolderSlot : HolderSlot
     {

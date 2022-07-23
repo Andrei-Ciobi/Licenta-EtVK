@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Animations;
 
-namespace EtVK.Scrips.Core_Module
+namespace EtVK.Core_Module
 {
     public class SceneLinkedSMB<TMonoBehaviour> : SealedSMB where TMonoBehaviour : MonoBehaviour
     {

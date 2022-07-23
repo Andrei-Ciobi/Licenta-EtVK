@@ -1,10 +1,12 @@
-using EtVK.Scrips.Core_Module;
-using EtVK.Scrips.Input_Module;
-using EtVK.Scrips.Inventory_Module;
-using EtVK.Scrips.Utyles;
+using System.Linq;
+using EtVK.Ability_Module;
+using EtVK.Core_Module;
+using EtVK.Input_Module;
+using EtVK.Inventory_Module;
+using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Scrips.Player_Module.Controller
+namespace EtVK.Player_Module.Controller
 {
     public class PlayerManager : MonoBehaviour
     {
@@ -22,6 +24,7 @@ namespace EtVK.Scrips.Player_Module.Controller
         private AnimatorOverrideController baseAnimatorOverrideController;
         private InventoryManager inventoryManager;
         private AnimationEventManager animationEventManager;
+        private RootMotionController rootMotionController;
 
         private void Awake()
         {
@@ -30,16 +33,7 @@ namespace EtVK.Scrips.Player_Module.Controller
             Cursor.visible = false;
             SceneLinkedSMB<PlayerManager>.Initialise(animator, this);
         }
-
-        private void LateUpdate()
-        {
-            if (UseRootMotionRotation)
-            {
-                controller.UpdatePlayerRootMotionRotation(animator);
-            }
-        }
-
-
+        
         public bool IsMoving()
         {
             return InputManager.Instance.MovementInput != Vector2.zero;
@@ -81,12 +75,28 @@ namespace EtVK.Scrips.Player_Module.Controller
             return animationEventManager;
         }
 
+        public BaseAbility GetAbility(AbilityType abilityType)
+        {
+            var abilities = GetComponentsInChildren<BaseAbility>().ToList();
+            var ability = abilities.Find(element => element.AbilityType.Equals(abilityType));
+
+            if (ability == null)
+            {
+                Debug.LogError($"No ability of type {abilityType} found under {gameObject.name} gameObject");
+                return null;
+            }
+
+            return ability;
+        }
+
         private void InitializeReferences()
         {
             controller = GetComponentInChildren<PlayerController>();
             animator = GetComponentInChildren<Animator>();
             inventoryManager = GetComponentInChildren<InventoryManager>();
             animationEventManager = GetComponentInChildren<AnimationEventManager>();
+            rootMotionController = GetComponentInChildren<RootMotionController>();
+            rootMotionController.Initialize(this);
 
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         }
