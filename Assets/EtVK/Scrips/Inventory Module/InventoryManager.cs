@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using EtVK.Items_Module.Armors;
 using EtVK.Items_Module.Weapons;
 using EtVK.Utyles;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace EtVK.Inventory_Module
 
         private List<HolderSlot> holderSlots = new List<HolderSlot>();
         private List<Weapon> weaponReferences = new List<Weapon>();
+        private List<Armor> armorReferences = new List<Armor>();
 
         private void Start()
         {
@@ -27,6 +29,11 @@ namespace EtVK.Inventory_Module
         public void AddWeaponReference(Weapon weapon)
         {
             weaponReferences.Add(weapon);
+        }
+
+        public void AddArmorReference(Armor armor)
+        {
+            armorReferences.Add(armor);
         }
 
         public void AddItemToInventory(Item item)
