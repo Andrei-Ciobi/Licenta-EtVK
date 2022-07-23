@@ -9,6 +9,7 @@ namespace EtVK.Items_Module.Armors.Chestplate
         private void Awake()
         {
             armorData = chestplateData;
+            InitializeReferences();
         }
     }
 }

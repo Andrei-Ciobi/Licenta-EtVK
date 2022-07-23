@@ -7,7 +7,8 @@ namespace EtVK.Items_Module.Armors
 {
     public class Armor : Item
     {
-        [SerializeField] private SkinnedMeshRenderer meshRenderer;
+        private SkinnedMeshRenderer meshRenderer;
+        private MeshFilter meshFilter;
         protected ArmorData armorData;
         
 
@@ -34,7 +35,7 @@ namespace EtVK.Items_Module.Armors
             transform.localRotation = Quaternion.identity;
             SetSkinBones(armorSLot);
             armorSLot.DefaultMeshRenderer.gameObject.SetActive(false);
-            
+            DeactivateVisual();
         }
 
         public override void AddItemToInventory(InventoryManager inventoryManager)
@@ -42,6 +43,23 @@ namespace EtVK.Items_Module.Armors
             throw new System.NotImplementedException();
         }
 
+        protected void InitializeReferences()
+        {
+            meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>(true);
+            meshFilter = GetComponentInChildren<MeshFilter>(true);
+        }
+
+        protected void DeactivateVisual()
+        {
+            meshRenderer.gameObject.SetActive(true);
+            meshFilter.gameObject.SetActive(false);
+        }
+        
+        protected void ActivateVisual()
+        {
+            meshFilter.gameObject.SetActive(true);
+            meshRenderer.gameObject.SetActive(false);
+        }
 
         private void SetSkinBones(ArmorHolderSlot armorHolderSlot)
         {

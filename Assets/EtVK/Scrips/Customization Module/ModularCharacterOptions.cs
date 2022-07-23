@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using EtVK.Utyles;
 using Unity.Collections;
 using UnityEngine;
 
-namespace EtVK.Core_Module
+namespace EtVK.Customization_Module
 {
     public class ModularCharacterOptions : MonoBehaviour
     {

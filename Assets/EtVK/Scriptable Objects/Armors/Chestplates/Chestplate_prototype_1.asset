@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemType: 1
-  prefab: {fileID: 5969439288954419158, guid: eb13e490b5e37a14aac89aa628a87ab2, type: 3}
+  prefab: {fileID: 309323837433135575, guid: 258d7685f48ea4a4da3c2d3880af5dc0, type: 3}
   itemName: 
   itemDescription: 
   armorType: 2

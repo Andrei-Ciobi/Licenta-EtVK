@@ -1,19 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using EtVK.Items_Module.Armors;
 using EtVK.Utyles;
+using UnityEditor;
 using UnityEngine;
 
-namespace EtVK.Core_Module
+namespace EtVK.Customization_Module
 {
     public class ModularElementOption : MonoBehaviour
     {
         [SerializeField] private ModularOptions type;
-        private List<GameObject> elementOptions = new List<GameObject>();
-        private List<SkinnedMeshRenderer> renderers = new List<SkinnedMeshRenderer>();
-        private int currentIndex = -1;
-
+        
         public ModularOptions Type => type;
         public Material Mat { get; set; }
+
+        private List<GameObject> elementOptions = new();
+        private List<SkinnedMeshRenderer> renderers = new();
+        private int currentIndex = -1;
+
 
         public void Initialize()
         {
@@ -42,30 +47,11 @@ namespace EtVK.Core_Module
                 
                 elementOptions.Add(child);
             }
-            
-            // for (int i = 0; i < transform.childCount; i++)
-            // {
-            //     var child = transform.GetChild(i).gameObject;
-            //
-            //     if (child.activeInHierarchy)
-            //     {
-            //         if (currentIndex == 0)
-            //         {
-            //             currentIndex = i;
-            //         }
-            //         else
-            //         {
-            //             child.SetActive(false);
-            //         }
-            //     }
-            //     
-            //     elementOptions.Add(child);
-            // }
         }
 
-        public IEnumerable<SkinnedMeshRenderer> GetMeshRenderers()
+        public SkinnedMeshRenderer GetCurrentElement()
         {
-            return renderers;
+            return currentIndex == -1 ? null : renderers[currentIndex];
         }
 
         public void Next()
