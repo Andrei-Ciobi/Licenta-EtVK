@@ -313,6 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350895163}
+  - component: {fileID: 350895164}
   m_Layer: 0
   m_Name: ArmUpper
   m_TagString: Untagged
@@ -337,6 +338,21 @@ Transform:
   m_Father: {fileID: 5124679609297801567}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350895164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350895162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa918ebacae468a91eb962723285e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: prototype_upper_bracers_1
+  fullPath: Assets/EtVK/MyAssets/Models/Armor
+  folderName: UpperBracers
 --- !u!1 &549933358
 GameObject:
   m_ObjectHideFlags: 0
@@ -52486,7 +52502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5121820276768429615
 GameObject:
   m_ObjectHideFlags: 0
@@ -55048,7 +55064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &5121994979585160373
 GameObject:
   m_ObjectHideFlags: 0
@@ -56782,7 +56798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5122134363339870065
 GameObject:
   m_ObjectHideFlags: 0
@@ -62740,7 +62756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &5122810027051638265
 GameObject:
   m_ObjectHideFlags: 0
@@ -65214,35 +65230,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
-  bodyType: 6
-  currentMaterial: {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  bodyType: 7
+  currentMaterial: {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   colorList:
   - key: 0
-    value: {r: 0.16470578, g: 0.21960774, b: 0.27058813, a: 0}
+    value: {r: 0.68287647, g: 0.8679245, b: 0.8625933, a: 0}
   - key: 1
-    value: {r: 0.23921555, g: 0.25098026, b: 0.18823516, a: 0}
+    value: {r: 0.16646472, g: 0.33455464, b: 0.5283019, a: 0}
   - key: 2
-    value: {r: 0.30882338, g: 0.21390557, b: 0.15895313, a: 0}
+    value: {r: 0.29245266, g: 0.25396842, b: 0.11372533, a: 0}
   - key: 3
-    value: {r: 0.37254882, g: 0.32941163, b: 0.27843124, a: 0}
+    value: {r: 0.22641486, g: 0.20254385, b: 0.15891752, a: 0}
   - key: 4
-    value: {r: 0.69803923, g: 0.6509804, b: 0.61960775, a: 0}
+    value: {r: 0.40327495, g: 0.42279205, b: 0.45282984, a: 0}
   - key: 5
-    value: {r: 0.39215675, g: 0.40392146, b: 0.4117646, a: 0}
+    value: {r: 0.26539668, g: 0.27652636, b: 0.28301865, a: 0}
   - key: 6
-    value: {r: 0.3152367, g: 0.42082322, b: 0.51886785, a: 0}
+    value: {r: 0.0732288, g: 0.12261551, b: 0.20754704, a: 0}
   - key: 7
-    value: {r: 0.95283014, g: 0.81260234, b: 0.81260234, a: 0}
+    value: {r: 0.5188676, g: 0.50614095, b: 0.50614095, a: 0}
   - key: 8
-    value: {r: 1, g: 1, b: 1, a: 0}
+    value: {r: 0.9150943, g: 0.6346188, b: 0.46963328, a: 0}
   - key: 9
-    value: {r: 0.80392164, g: 0.7019608, b: 0.6313726, a: 0}
+    value: {r: 0.35849035, g: 0.32264128, b: 0.32264128, a: 0}
   - key: 10
-    value: {r: 0.9294118, g: 0.6862744, b: 0.5921568, a: 0}
+    value: {r: 0.6037736, g: 0.3973203, b: 0.31555673, a: 0}
   - key: 11
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 0.13421118, g: 0.15618137, b: 0.18867895, a: 1}
   - key: 12
-    value: {r: 0.5294118, g: 0.30980378, b: 0.64705884, a: 0}
+    value: {r: 0.5566037, g: 0.3193445, b: 0.028355243, a: 0}
 --- !u!4 &5124681146753835215
 Transform:
   m_ObjectHideFlags: 0

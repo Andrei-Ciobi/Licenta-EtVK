@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEditor;
+using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
@@ -46,6 +48,25 @@ namespace EtVK.Customization_Module
 
             
             return parentObj;
+        }
+
+        protected string CheckAndCreateDirectory(string fullPath, string folderName, string prefabName)
+        {
+            if (!Directory.Exists($"{fullPath}/{folderName}"))
+                AssetDatabase.CreateFolder($"{fullPath}", folderName);
+            
+            var localPath = $"{fullPath}/{folderName}/" + "Model_" + prefabName + ".prefab";
+            localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
+
+            return localPath;
+        }
+
+        protected void SavePrefab(GameObject prefab, string localPath)
+        {
+            PrefabUtility.SaveAsPrefabAsset(prefab, localPath, out var prefabSuccess);
+            
+            
+            Debug.Log(prefabSuccess ? "Prefab was saved successfully" : "Prefab failed to save");
         }
     }
 }

@@ -19,20 +19,12 @@ namespace EtVK.Customization_Module
                 Debug.Log("No active element");
                 return;
             }
-            
-            
-            if (!Directory.Exists($"{fullPath}/{folderName}"))
-                AssetDatabase.CreateFolder($"{fullPath}", folderName);
-            
-            var localPath = $"{fullPath}/{folderName}/" + "Model_" + prefabName + ".prefab";
-            localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
+
+            var localPath = CheckAndCreateDirectory(fullPath, folderName, prefabName);
 
             var prefab = PreparePrefab(modEleOpt.GetCurrentElement(), modEleOpt.Mat);
-
-            PrefabUtility.SaveAsPrefabAsset(prefab, localPath, out var prefabSuccess);
+            SavePrefab(prefab, localPath);
             
-            
-            Debug.Log(prefabSuccess ? "Prefab was saved successfully" : "Prefab failed to save");
             
             DestroyImmediate(prefab);
         }

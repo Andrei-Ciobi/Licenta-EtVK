@@ -34,7 +34,6 @@ namespace EtVK.Items_Module.Armors
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             SetSkinBones(armorSLot);
-            armorSLot.DefaultMeshRenderer.gameObject.SetActive(false);
             DeactivateVisual();
         }
 
@@ -49,7 +48,7 @@ namespace EtVK.Items_Module.Armors
             meshFilter = GetComponentInChildren<MeshFilter>(true);
         }
 
-        protected void DeactivateVisual()
+        protected virtual void DeactivateVisual()
         {
             meshRenderer.gameObject.SetActive(true);
             meshFilter.gameObject.SetActive(false);
@@ -61,10 +60,11 @@ namespace EtVK.Items_Module.Armors
             meshRenderer.gameObject.SetActive(false);
         }
 
-        protected void SetSkinBones(ArmorHolderSlot armorHolderSlot)
+        protected virtual void SetSkinBones(ArmorHolderSlot armorHolderSlot)
         {
             meshRenderer.bones = armorHolderSlot.DefaultMeshRenderer.bones;
             meshRenderer.rootBone = armorHolderSlot.DefaultMeshRenderer.rootBone;
+            armorHolderSlot.DefaultMeshRenderer.gameObject.SetActive(false);
         }
     }
 }
