@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EtVK.Items_Module.Armors.Helmet
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Armor/NewHelmet")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/Items/Armor/NewHelmet")]
     public class HelmetData : ArmorData
     {
         private void Awake()

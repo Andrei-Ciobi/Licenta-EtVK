@@ -150,8 +150,15 @@ namespace EtVK.Utyles
     {
         Unequiped = 0,
         Helmet = 1,
-        Chestplate = 2,
-        Boots = 3,
+        Shoulders = 2,
+        UpperBracers = 3,
+        LowerBracers = 4,
+        Gloves = 5,
+        Chestplate = 6,
+        Back = 7,
+        Pants = 8,
+        Boots = 9,
+        
     }
 
     public class AllEnums

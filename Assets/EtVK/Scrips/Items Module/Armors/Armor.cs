@@ -22,7 +22,7 @@ namespace EtVK.Items_Module.Armors
                 return;
             }
 
-            var armorSLot = armorSlotList.Find((slot) => slot.ArmorType == armorData.ArmorType);
+            var armorSLot = armorSlotList.Find(slot => slot.ArmorType == armorData.ArmorType);
             
             if (armorSLot == null)
             {
@@ -61,9 +61,8 @@ namespace EtVK.Items_Module.Armors
             meshRenderer.gameObject.SetActive(false);
         }
 
-        private void SetSkinBones(ArmorHolderSlot armorHolderSlot)
+        protected void SetSkinBones(ArmorHolderSlot armorHolderSlot)
         {
-            Debug.Log(meshRenderer);
             meshRenderer.bones = armorHolderSlot.DefaultMeshRenderer.bones;
             meshRenderer.rootBone = armorHolderSlot.DefaultMeshRenderer.rootBone;
         }

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a14021be8440eca1eb41b20912e074, type: 3}
-  m_Name: Helmet_prototype_1
+  m_Script: {fileID: 11500000, guid: aa7f1ae2a359450aa880bd170ba66175, type: 3}
+  m_Name: Prototype_cape_1
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemType: 1
-  prefab: {fileID: 6346652711716964767, guid: 3dd9e470e22f2d140b39782771b43cae, type: 3}
+  prefab: {fileID: 3708999600759908571, guid: 05f9c640d65e92c41bdad82561048048, type: 3}
   itemName: 
   itemDescription: 
-  armorType: 1
+  armorType: 7
