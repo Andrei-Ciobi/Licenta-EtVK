@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using EtVK.Items_Module.Armors;
 using EtVK.Utyles;
-using UnityEditor;
 using UnityEngine;
 
 namespace EtVK.Customization_Module
@@ -117,6 +114,28 @@ namespace EtVK.Customization_Module
         {
             renderers.ForEach(x=> x.material = newMaterial);
             Mat = newMaterial;
+        }
+
+        public void DestroyInactive()
+        {
+            if (currentIndex == -1)
+            {
+                elementOptions[0].SetActive(true);
+            }
+            
+            foreach (var obj in elementOptions)
+            {
+                if (!obj.activeInHierarchy)
+                {
+                    Debug.Log(obj.name);
+                    DestroyImmediate(obj.gameObject);
+                }
+            }
+
+            if (currentIndex == -1)
+            {
+                elementOptions[0].SetActive(false);
+            }
         }
         
         

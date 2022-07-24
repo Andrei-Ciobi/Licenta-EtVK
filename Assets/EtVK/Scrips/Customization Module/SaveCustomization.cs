@@ -6,6 +6,9 @@ namespace EtVK.Customization_Module
 {
     public abstract class SaveCustomization : MonoBehaviour
     {
+        [SerializeField] protected string prefabName;
+        [SerializeField] protected string fullPath;
+        [SerializeField] protected string folderName;
         public abstract void Save();
 
         protected GameObject PreparePrefab(SkinnedMeshRenderer obj, Material mat, string parentName)

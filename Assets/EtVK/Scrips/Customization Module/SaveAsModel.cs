@@ -1,15 +1,9 @@
-﻿using System.IO;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
     public class SaveAsModel : SaveCustomization
     {
-        [SerializeField] private string prefabName;
-        [SerializeField] private string fullPath;
-        [SerializeField] private string folderName;
-        
         public override void Save()
         {
             var modEleOpt = GetComponent<ModularElementOption>();

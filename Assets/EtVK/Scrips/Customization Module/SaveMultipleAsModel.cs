@@ -6,9 +6,6 @@ namespace EtVK.Customization_Module
 {
     public class SaveMultipleAsModel : SaveCustomization
     {
-        [SerializeField] private string prefabName;
-        [SerializeField] private string fullPath;
-        [SerializeField] private string folderName;
         public override void Save()
         {
             var modEleOptList = GetComponentsInChildren<ModularElementOption>().ToList();

@@ -704,6 +704,54 @@ Material:
     - _Color_Stubble: {r: 0.3584905, g: 0.32264143, b: 0.32264143, a: 0}
     - _Color_Tertiary: {r: 0.7352941, g: 0.20004326, b: 0.20004326, a: 1}
   m_BuildTextureStacks: []
+--- !u!1 &1661912688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661912690}
+  - component: {fileID: 1661912689}
+  m_Layer: 0
+  m_Name: SAVE MODEL BUTTON
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1661912689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661912688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ceb39edc3d24ba780bd82a70c1bfb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: prototype_1
+  fullPath: Assets/EtVK/MyAssets/Models/Hero
+  folderName: Prototype
+  configurationModel: {fileID: 5122090463983092899}
+--- !u!4 &1661912690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661912688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023102927
 GameObject:
   m_ObjectHideFlags: 0
@@ -66375,7 +66423,7 @@ Transform:
   - {fileID: 5124952988643653357}
   - {fileID: 5116573036902741169}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5124760892504851089
 Transform:
