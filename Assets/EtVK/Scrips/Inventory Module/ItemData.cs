@@ -10,6 +10,7 @@ namespace EtVK.Inventory_Module
         [SerializeField] protected GameObject prefab;
         [SerializeField] protected string itemName;
         [SerializeField] protected string itemDescription;
+        [SerializeField] protected bool isEquipped;
 
 
         public Sprite ItemIcon => itemIcon;
@@ -21,5 +22,7 @@ namespace EtVK.Inventory_Module
         public GameObject Prefab => prefab;
 
         public string ItemDescription => itemDescription;
+
+        public bool IsEquipped => isEquipped;
     }
 }

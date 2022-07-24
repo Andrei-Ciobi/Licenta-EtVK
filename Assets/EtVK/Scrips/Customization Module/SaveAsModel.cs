@@ -22,7 +22,8 @@ namespace EtVK.Customization_Module
 
             var localPath = CheckAndCreateDirectory(fullPath, folderName, prefabName);
 
-            var prefab = PreparePrefab(modEleOpt.GetCurrentElement(), modEleOpt.Mat);
+            var prefab = PreparePrefab(modEleOpt.GetCurrentElement(), modEleOpt.Mat,
+                modEleOpt.GetCurrentElement().gameObject.name);
             SavePrefab(prefab, localPath);
             
             

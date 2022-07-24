@@ -1,19 +1,19 @@
-﻿using System.IO;
-using UnityEditor;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
-    public class SaveDualAsModel : SaveCustomization
+    public class SaveMultipleAsModel : SaveCustomization
     {
         [SerializeField] private string prefabName;
         [SerializeField] private string fullPath;
         [SerializeField] private string folderName;
         public override void Save()
         {
-            var modEleOptList = GetComponentsInChildren<ModularElementOption>();
+            var modEleOptList = GetComponentsInChildren<ModularElementOption>().ToList();
 
-            if (modEleOptList.Length != 2)
+            if (modEleOptList.Count == 0)
             {
                 Debug.Log("Not enough active elements");
                 return;
@@ -21,10 +21,16 @@ namespace EtVK.Customization_Module
 
             var localPath = CheckAndCreateDirectory(fullPath, folderName, prefabName);
 
-            var firstObj = PreparePrefab(modEleOptList[0].GetCurrentElement(), modEleOptList[0].Mat);
-            var secondObj = PreparePrefab(modEleOptList[1].GetCurrentElement(), modEleOptList[1].Mat);
+            var preparedPrefabList = new List<Transform>();
 
-            var prefab = CreateParentPrefab(firstObj.transform, secondObj.transform);
+            foreach (var option in modEleOptList)
+            {
+                var obj = PreparePrefab(option.GetCurrentElement(), option.Mat,
+                    option.GetCurrentElement().gameObject.name);
+                preparedPrefabList.Add(obj.transform);
+            }
+
+            var prefab = CreateParentPrefab(preparedPrefabList);
             
             SavePrefab(prefab, localPath);
             
@@ -32,7 +38,7 @@ namespace EtVK.Customization_Module
 
         }
 
-        private GameObject CreateParentPrefab(Transform firstObj, Transform secondObj)
+        private GameObject CreateParentPrefab(List<Transform> objList)
         {
             var parentObj = new GameObject()
             {
@@ -45,13 +51,13 @@ namespace EtVK.Customization_Module
                 }
             };
 
-            firstObj.parent = parentObj.transform;
-            firstObj.position = Vector3.zero;
-            firstObj.rotation = Quaternion.identity;
+            objList.ForEach(x =>
+            {
+                x.parent = parentObj.transform;
+                x.position = Vector3.zero;
+                x.rotation = Quaternion.identity;
+            });
             
-            secondObj.parent = parentObj.transform;
-            secondObj.position = Vector3.zero;
-            secondObj.rotation = Quaternion.identity;
 
             return parentObj;
         }

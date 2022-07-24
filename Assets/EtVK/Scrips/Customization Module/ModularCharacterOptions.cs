@@ -14,21 +14,32 @@ namespace EtVK.Customization_Module
         [Header("The current material and color")]
         [SerializeField][ReadOnly] private Material currentMaterial;
         [SerializeField] private List<SerializableSet<ModularColorOptions, Color>> colorList;
+        [SerializeField] private CustomizationShaderValues shaderValues = new();
         
         private List<ModularElementOption> elements = new();
         private ModularOptions lastCurrentType = ModularOptions.Head;
 
         private void OnValidate()
         {
+            if(elements.Count == 0)
+                return;
+            
             if (bodyType != lastCurrentType)
             {
                 currentMaterial = elements.Find(x => x.Type.Equals(bodyType)).Mat;
                 SetColors();
+                SetFloats();
                 lastCurrentType = bodyType;
             }
             else
             {
-                colorList.ForEach(x=> currentMaterial.SetColor($"_Color_{x.GetKey().ToString()}", x.GetValue()));
+                colorList.ForEach(x=>
+                {
+                    currentMaterial.SetColor($"_Color_{x.GetKey().ToString()}", x.GetValue());
+                    currentMaterial.SetFloat("_Emmision", shaderValues.emmision);
+                    currentMaterial.SetFloat("_Metallic", shaderValues.metalic);
+                    currentMaterial.SetFloat("_Smoothness", shaderValues.smoothness);
+                });
             }
             
         }
@@ -45,6 +56,7 @@ namespace EtVK.Customization_Module
 
             currentMaterial = elements.Find(x => x.Type.Equals(bodyType)).Mat;
             SetColors();
+            SetFloats();
         }
 
         public void SetMaterialForAll()
@@ -52,6 +64,7 @@ namespace EtVK.Customization_Module
             elements.ForEach(x => x.SetMaterial(material));
             currentMaterial = material;
             SetColors();
+            SetFloats();
         }
 
         public void SetMaterialForCurrentType()
@@ -60,6 +73,7 @@ namespace EtVK.Customization_Module
             elementList.ForEach( x=> x.SetMaterial(material));
             currentMaterial = material;
             SetColors();
+            SetFloats();
         }
 
         public void OnNext()
@@ -129,6 +143,13 @@ namespace EtVK.Customization_Module
                 new(ModularColorOptions.Eyes, eyes),
                 new(ModularColorOptions.BodyArt, bodyArt),
             };
+        }
+
+        private void SetFloats()
+        {
+            shaderValues.metalic = currentMaterial.GetFloat("_Metallic");
+            shaderValues.smoothness = currentMaterial.GetFloat("_Smoothness");
+            shaderValues.emmision = currentMaterial.GetFloat("_Emmision");
         }
     }
 }

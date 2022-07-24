@@ -8,7 +8,7 @@ namespace EtVK.Customization_Module
     {
         public abstract void Save();
 
-        protected GameObject PreparePrefab(SkinnedMeshRenderer obj, Material mat)
+        protected GameObject PreparePrefab(SkinnedMeshRenderer obj, Material mat, string parentName)
         {
             var parentObj = new GameObject
             {
@@ -19,7 +19,7 @@ namespace EtVK.Customization_Module
                     rotation = Quaternion.identity,
                     localScale = Vector3.one
                 },
-                name = "parent"
+                name = parentName
             };
 
             var newObj = new GameObject

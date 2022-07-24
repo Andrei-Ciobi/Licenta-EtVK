@@ -17,4 +17,5 @@ MonoBehaviour:
   prefab: {fileID: 8056281268454727331, guid: 2fcef554806104d44b1992e16b1824e6, type: 3}
   itemName: 
   itemDescription: 
+  isEquipped: 1
   armorType: 8
