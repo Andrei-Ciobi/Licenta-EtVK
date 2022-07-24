@@ -1,4 +1,5 @@
-﻿using EtVK.Utyles;
+﻿using System.Collections.Generic;
+using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Inventory_Module
@@ -10,5 +11,6 @@ namespace EtVK.Inventory_Module
 
         public ArmorType ArmorType => armorType;
         public SkinnedMeshRenderer DefaultMeshRenderer => defaultMeshRenderer;
+        
     }
 }

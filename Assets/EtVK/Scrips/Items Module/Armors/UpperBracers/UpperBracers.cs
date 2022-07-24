@@ -22,7 +22,7 @@ namespace EtVK.Items_Module.Armors.UpperBracers
             rightMesh.GetValue().gameObject.SetActive(true);
             
             leftMesh.GetKey().gameObject.SetActive(false);
-            leftMesh.GetKey().gameObject.SetActive(false);
+            rightMesh.GetKey().gameObject.SetActive(false);
         }
 
         protected override void SetSkinBones(ArmorHolderSlot armorHolderSlot)

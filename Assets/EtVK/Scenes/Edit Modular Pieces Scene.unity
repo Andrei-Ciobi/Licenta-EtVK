@@ -768,7 +768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2023102928
 Transform:
   m_ObjectHideFlags: 0
@@ -13680,7 +13680,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13797,7 +13797,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20342,7 +20342,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21362,7 +21362,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23067,7 +23067,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25038,7 +25038,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27180,7 +27180,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32829,7 +32829,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36397,7 +36397,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39951,7 +39951,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40285,7 +40285,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41367,7 +41367,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41489,7 +41489,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e9425ec343459e47b653c94ee4b0098, type: 2}
+  - {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -49302,7 +49302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5121455489498481315
 GameObject:
   m_ObjectHideFlags: 0
@@ -51611,7 +51611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5121751431831987033
 GameObject:
   m_ObjectHideFlags: 0
@@ -53424,6 +53424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5124980445138001783}
   - component: {fileID: 5124980445138001784}
+  - component: {fileID: 5124980445138001785}
   m_Layer: 0
   m_Name: Helmet_Attachment
   m_TagString: Untagged
@@ -65326,23 +65327,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
-  bodyType: 3
+  bodyType: 13
   currentMaterial: {fileID: 2100000, guid: 389aed23a871d5c45bf796739ddf897b, type: 2}
   colorList:
   - key: 0
     value: {r: 0.68287647, g: 0.8679245, b: 0.8625933, a: 0}
   - key: 1
-    value: {r: 0.16646442, g: 0.3345543, b: 0.5283019, a: 0}
+    value: {r: 0.1664643, g: 0.3345542, b: 0.5283019, a: 0}
   - key: 2
-    value: {r: 0.29245234, g: 0.2539681, b: 0.113725014, a: 0}
+    value: {r: 0.29245222, g: 0.25396797, b: 0.113724895, a: 0}
   - key: 3
-    value: {r: 0.22641453, g: 0.20254356, b: 0.15891722, a: 0}
+    value: {r: 0.22641441, g: 0.20254344, b: 0.1589171, a: 0}
   - key: 4
-    value: {r: 0.40327463, g: 0.42279172, b: 0.45282984, a: 0}
+    value: {r: 0.4032745, g: 0.4227916, b: 0.45282984, a: 0}
   - key: 5
-    value: {r: 0.26539636, g: 0.27652603, b: 0.28301832, a: 0}
+    value: {r: 0.26539624, g: 0.2765259, b: 0.2830182, a: 0}
   - key: 6
-    value: {r: 0.07322856, g: 0.122615196, b: 0.20754674, a: 0}
+    value: {r: 0.073228486, g: 0.12261508, b: 0.20754662, a: 0}
   - key: 7
     value: {r: 0.5307939, g: 0.5469592, b: 0.5660378, a: 0}
   - key: 8
@@ -65350,15 +65351,15 @@ MonoBehaviour:
   - key: 9
     value: {r: 0.5294118, g: 0.54509795, b: 0.5647059, a: 0}
   - key: 10
-    value: {r: 0.6037736, g: 0.12758958, b: 0.13210744, a: 0.22745098}
+    value: {r: 0.6037736, g: 0.12758946, b: 0.13210732, a: 0.22745098}
   - key: 11
-    value: {r: 0.8301887, g: 0.109157346, b: 0, a: 1}
+    value: {r: 0.6886792, g: 0.1270464, b: 0.04158058, a: 0.89411765}
   - key: 12
-    value: {r: 0.5566037, g: 0.31934416, b: 0.028355243, a: 0}
+    value: {r: 0.5566037, g: 0.31934404, b: 0.028355243, a: 0}
   shaderValues:
-    metalic: 0.031
+    metalic: 0.098
     smoothness: 0.141
-    emmision: 0
+    emmision: 0.059
 --- !u!4 &5124681146753835215
 Transform:
   m_ObjectHideFlags: 0
@@ -68580,6 +68581,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 13
+--- !u!114 &5124980445138001785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5121886183020132557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cf90d06f2c47fba40d6d4c9baf8d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: prototype_helmet_attch_1
+  fullPath: Assets/EtVK/MyAssets/Models/Armor
+  folderName: HelmetAttch
 --- !u!4 &5124980585964777947
 Transform:
   m_ObjectHideFlags: 0

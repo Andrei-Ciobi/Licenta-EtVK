@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using EtVK.Inventory_Module;
+using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Items_Module.Armors.Helmet
@@ -8,39 +9,38 @@ namespace EtVK.Items_Module.Armors.Helmet
     public class Helmet : Armor
     {
         [SerializeField] private HelmetData helmetData;
+        [SerializeField] private SerializableSet<MeshFilter, SkinnedMeshRenderer> helmetMesh;
+        [SerializeField] private SerializableSet<MeshFilter, SkinnedMeshRenderer> attachmentMesh;
 
         private void Awake()
         {
             armorData = helmetData;
             InitializeReferences();
         }
-
-        public override void LoadItemFromInventory(InventoryManager inventoryManager)
+        
+        protected override void DeactivateVisual()
         {
-            // inventoryManager.GetAllHolderSlots().FindAll(slot => slot.HolderSlotType == armorData.ItemType).ForEach(Debug.Log);
-            var armorSlotList = inventoryManager.GetAllHolderSlots().FindAll(slot => slot.HolderSlotType == armorData.ItemType).Cast<ArmorHolderSlot>().ToList();
-
-            if (armorSlotList.Count == 0)
-            {
-                Debug.LogError("No reference to an holder slot");
-                return;
-            }
-
-            var armorSLot = (HelmetHolderSlot) armorSlotList.Find(slot => slot.ArmorType == armorData.ArmorType);
+            helmetMesh.GetValue().gameObject.SetActive(true);
+            attachmentMesh.GetValue()?.gameObject.SetActive(true);
             
-            if (armorSLot == null)
+            helmetMesh.GetKey().gameObject.SetActive(false);
+            attachmentMesh.GetKey()?.gameObject.SetActive(false);
+        }
+
+        protected override void SetSkinBones(ArmorHolderSlot armorHolderSlot)
+        {
+            var helmetSlot = (HelmetHolderSlot) armorHolderSlot;
+            var defaultDualSlot = armorHolderSlot.GetComponentInChildren<DefaultDualSlot>();
+            helmetMesh.GetValue().bones = defaultDualSlot.LeftMesh.bones;
+            helmetMesh.GetValue().rootBone = defaultDualSlot.LeftMesh.rootBone;
+
+            if (attachmentMesh.GetValue() != null)
             {
-                Debug.LogError("No reference to an armor holder slot");
-                return;
+                attachmentMesh.GetValue().bones = defaultDualSlot.RightMesh.bones;
+                attachmentMesh.GetValue().rootBone = defaultDualSlot.RightMesh.rootBone;
             }
             
-            transform.parent = armorSLot.ParentOverride;
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-            SetSkinBones(armorSLot);
-            armorSLot.DefaultMeshRenderer.gameObject.SetActive(false);
-            DeactivateVisual();
-            armorSLot.DependencyList.ForEach(x => x.SetActive(false));
+            helmetSlot.DependencyList.ForEach(x => x.SetActive(false));
         }
     }
 }
