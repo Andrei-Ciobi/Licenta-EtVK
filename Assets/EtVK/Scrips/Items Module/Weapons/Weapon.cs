@@ -12,12 +12,12 @@ namespace EtVK.Items_Module.Weapons
         public WeaponData WeaponData => weaponData;
         
         protected WeaponData weaponData;
-        protected WeaponHolderSlot curentWeaponSlot;
+        protected WeaponHolderSlot currentWeaponSlot;
         protected bool isArmed;
 
         public abstract void DrawWeapon();
         public abstract void WithdrawWeapon();
-        public abstract void SwitchWeapon(Weapon curentWeapon);
+        public abstract void SwitchWeapon(Weapon currentWeapon);
         public override void LoadItemFromInventory(InventoryManager inventoryManager)
         {
             var weaponSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == weaponData.ItemType).Cast<WeaponHolderSlot>().ToList();
@@ -42,7 +42,7 @@ namespace EtVK.Items_Module.Weapons
             transform.localRotation = Quaternion.identity;
             
             //add a reference of the weapon slot to the weapon
-            curentWeaponSlot = weaponSlot;
+            currentWeaponSlot = weaponSlot;
             weaponSlot.DestroyAndSetCurentWeapon(this);
             inventoryManager.AddWeaponReference(this);
         }
