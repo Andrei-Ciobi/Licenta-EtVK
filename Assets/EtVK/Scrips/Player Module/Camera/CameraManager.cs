@@ -1,23 +1,49 @@
-using EtVK.Core_Module;
+using System.Collections.Generic;
+using Cinemachine;
+using EtVK.Event_Module.Event_Types;
+using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.Camera {
-    public class CameraManager : MonoSingletone<CameraManager>
+    public class CameraManager : MonoBehaviour
     {
+        [SerializeField] private List<SerializableSet<ActiveCameraType, CinemachineVirtualCamera>> cameraList = new();
 
-        [SerializeField]
-        private GameObject aimCamera;
-        [SerializeField]
-        private GameObject mainCamera;
+        private CinemachineVirtualCamera currentCamera;
 
-        public static bool aimCameraActive = false;
 
-        private void Awake()
+        private void Start()
         {
-            InitializeSingletone();
-
+            OnStart();
         }
 
+
+        public void ChangeCamera(ActiveCamera cam)
+        {
+            var newCamera = cameraList.Find(x => x.GetKey().Equals(cam.CameraType)).GetValue();
+
+            if (newCamera == null)
+            {
+                Debug.LogError($"No camera type found {cam.CameraType}");
+                return;
+            }
+            
+            newCamera.gameObject.SetActive(true);
+            currentCamera.gameObject.SetActive(false);
+            currentCamera.LookAt = cam.CameraType.Equals(ActiveCameraType.LockOn) ? cam.TargetTransform : null;
+        }
+
+
+        private void OnStart()
+        {
+            foreach (var set in cameraList)
+            {
+                set.GetValue().gameObject.SetActive(false);
+            }
+            
+            currentCamera = cameraList.Find(x => x.GetKey() == ActiveCameraType.Main).GetValue();
+            currentCamera.gameObject.SetActive(true);
+        }
 
         // Update is called once per frame
         // void Update()
@@ -33,10 +59,6 @@ namespace EtVK.Player_Module.Camera {
         //     }
         // }
 
-        public void SetActiveAimCamera(bool value)
-        {
-            aimCameraActive = value;
-            aimCamera.SetActive(value);
-        }
+
     }
 }

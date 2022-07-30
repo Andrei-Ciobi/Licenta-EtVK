@@ -8,7 +8,7 @@ namespace EtVK.Player_Module.Controller
         [SerializeField] private Transform playerHead;
         
         private CharacterController characterController;
-        private Transform cameraMainTransform;
+
         private PlayerManager playerManager;
         private RaycastHit slopeHit;
 
@@ -42,12 +42,12 @@ namespace EtVK.Player_Module.Controller
             
             
             var move = new Vector3(movement.x, 0f, movement.y);
-            playerHead.rotation = Quaternion.Euler(0f, cameraMainTransform.localEulerAngles.y, 0f);
+            playerHead.rotation = Quaternion.Euler(0f, playerManager.CameraMainTransform.localEulerAngles.y, 0f);
             move = playerHead.forward * move.z + playerHead.right * move.x;
             move.y = 0f;
             characterController.Move(move * Time.deltaTime * speed);
 
-            var targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
+            var targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + playerManager.CameraMainTransform.eulerAngles.y;
             var rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 
@@ -59,13 +59,13 @@ namespace EtVK.Player_Module.Controller
             
             
             var move = new Vector3(movement.x, 0f, movement.y);
-            playerHead.rotation = Quaternion.Euler(0f, cameraMainTransform.localEulerAngles.y, 0f);
+            playerHead.rotation = Quaternion.Euler(0f, playerManager.CameraMainTransform.localEulerAngles.y, 0f);
             move = playerHead.forward * move.z + playerHead.right * move.x;
             move.y = 0f;
             characterController.Move(move * Time.deltaTime * speed);
 
 
-            var targetAngle = cameraMainTransform.eulerAngles.y;
+            var targetAngle = playerManager.CameraMainTransform.eulerAngles.y;
             var rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
@@ -114,7 +114,7 @@ namespace EtVK.Player_Module.Controller
         {
             rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             
-            var rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f);
+            var rotation = Quaternion.Euler(0f, playerManager.CameraMainTransform.eulerAngles.y, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
 
@@ -122,7 +122,7 @@ namespace EtVK.Player_Module.Controller
         {
             rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             
-            var rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f);
+            var rotation = Quaternion.Euler(0f, playerManager.CameraMainTransform.eulerAngles.y, 0f);
             
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
             animator.transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
@@ -215,7 +215,7 @@ namespace EtVK.Player_Module.Controller
         {
             characterController = GetComponent<CharacterController>();
             playerManager = transform.root.GetComponent<PlayerManager>();
-            cameraMainTransform = UnityEngine.Camera.main!.transform;
+            
         }
     }
 }

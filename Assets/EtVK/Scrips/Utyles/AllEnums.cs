@@ -167,6 +167,13 @@ namespace EtVK.Utyles
         Fail = 1,
     }
 
+    public enum ActiveCameraType
+    {
+        Main = 0,
+        Aim = 1,
+        LockOn = 2,
+    }
+
     public class AllEnums
     {
 
