@@ -75,6 +75,16 @@ namespace EtVK.Player_Module.Controller
             speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
             characterController.Move(transform.forward * Time.deltaTime * speed);
         }
+        
+        public void UpdateForceMovementDirectional(Vector2 movement, float speed = 0f)
+        {
+            var move = new Vector3(movement.x, 0f, movement.y);
+            playerHead.rotation = Quaternion.Euler(0f, playerManager.CameraMainTransform.localEulerAngles.y, 0f);
+            move = playerHead.forward * move.z + playerHead.right * move.x;
+            move.y = 0f;
+            speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
+            characterController.Move(move * Time.deltaTime * speed);
+        }
 
         public void Move(Vector3 position)
         {

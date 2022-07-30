@@ -32,7 +32,7 @@ namespace EtVK.Player_Module.States
             }
             
             // Dodge bool variable for animator
-            if (InputManager.Instance.TapDodge && !inTransition)
+            if (InputManager.Instance.TapDodge && monoBehaviour.IsMoving() && !inTransition)
             {
                 animator.SetBool(PlayerState.InDodge.ToString(), true);
                 return;
