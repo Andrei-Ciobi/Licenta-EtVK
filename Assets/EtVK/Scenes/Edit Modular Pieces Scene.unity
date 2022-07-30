@@ -803,6 +803,55 @@ MonoBehaviour:
   prefabName: prototype_head_1
   fullPath: Assets/EtVK/MyAssets/Models/Heads
   folderName: Prototype
+--- !u!1 &2043621639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043621640}
+  - component: {fileID: 2043621641}
+  m_Layer: 0
+  m_Name: Helmet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043621640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043621639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5116361821301746935}
+  - {fileID: 5124980445138001783}
+  m_Father: {fileID: 5124679609297801567}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043621641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043621639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa918ebacae468a91eb962723285e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: prototype_helmet_1
+  fullPath: Assets/EtVK/MyAssets/Models/Armor
+  folderName: Helmets
 --- !u!95 &5062794958246604685
 Animator:
   serializedVersion: 4
@@ -46019,7 +46068,7 @@ Transform:
   - {fileID: 5124737034989024607}
   - {fileID: 5116648330716710219}
   - {fileID: 5124835646526430777}
-  m_Father: {fileID: 5124679609297801567}
+  m_Father: {fileID: 2043621640}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5116363447293090535
@@ -65301,8 +65350,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2023102928}
-  - {fileID: 5116361821301746935}
-  - {fileID: 5124980445138001783}
+  - {fileID: 2043621640}
   - {fileID: 5116172950965767113}
   - {fileID: 5116145707730694945}
   - {fileID: 247349673}
@@ -68565,7 +68613,7 @@ Transform:
   - {fileID: 5116144019294491685}
   - {fileID: 5124675465292772527}
   - {fileID: 5116548970872671975}
-  m_Father: {fileID: 5124679609297801567}
+  m_Father: {fileID: 2043621640}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5124980445138001784

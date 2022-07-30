@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc9a1cc5cbf45f1b7d281a59002c605, type: 3}
   m_Name: Player_prototype_inventory
   m_EditorClassIdentifier: 
+  inventorySpace:
+  - key: 0
+    value: 3
+  - key: 1
+    value: 10
+  - key: 2
+    value: 20
   listOfItems:
   - key: 0
     value:

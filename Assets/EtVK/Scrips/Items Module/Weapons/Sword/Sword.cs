@@ -17,7 +17,7 @@ namespace EtVK.Items_Module.Weapons.Sword
             {
                 swordData.Initialize();
             }
-            transform.parent = curentWeaponSlot.DrawParentOverride;
+            transform.parent = currentWeaponSlot.DrawParentOverride;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
 
@@ -26,28 +26,28 @@ namespace EtVK.Items_Module.Weapons.Sword
 
         public override void WithdrawWeapon()
         {
-            transform.parent = curentWeaponSlot.ParentOverride;
+            transform.parent = currentWeaponSlot.ParentOverride;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
 
             isArmed = false;
         }
 
-        public override void SwitchWeapon(Weapon curentWeapon)
+        public override void SwitchWeapon(Weapon currentWeapon)
         {
-            if (curentWeapon == null)
+            if (currentWeapon == null)
             {
                 DrawWeapon();
             }
             else
             {
-                if (curentWeapon == this)
+                if (currentWeapon == this)
                 {
                     WithdrawWeapon();
                 }
                 else
                 {
-                    curentWeapon.WithdrawWeapon();
+                    currentWeapon.WithdrawWeapon();
                     DrawWeapon();
                 }
             }
