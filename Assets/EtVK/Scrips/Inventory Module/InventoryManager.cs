@@ -11,9 +11,9 @@ namespace EtVK.Inventory_Module
     {
         [SerializeField] private InventoryData inventoryData;
 
-        private List<HolderSlot> holderSlots = new List<HolderSlot>();
-        private List<Weapon> weaponReferences = new List<Weapon>();
-        private List<Armor> armorReferences = new List<Armor>();
+        private List<HolderSlot> holderSlots = new();
+        private List<Weapon> weaponReferences = new();
+        private List<Armor> armorReferences = new();
 
         private void Start()
         {
@@ -36,10 +36,21 @@ namespace EtVK.Inventory_Module
             armorReferences.Add(armor);
         }
 
-        public void AddItemToInventory(Item item)
+        public void AddItemToInventory(Event_Module.Event_Types.Item item)
         {
             
-            item.AddItemToInventory(this);
+            item.InteractItem.AddItemToInventory(this, item.Interactable);
+        }
+
+        public bool SpaceAvailable(ItemType itemType)
+        {
+            var inventorySpace = inventoryData.AllItemsByType(itemType);
+            if (inventorySpace == null)
+                return true;
+
+            var maxInventorySpace = inventoryData.GetInventorySpace(itemType);
+            
+            return inventorySpace.Count < maxInventorySpace;
         }
 
         public Weapon GetArmedWeapon()
@@ -56,26 +67,27 @@ namespace EtVK.Inventory_Module
         {
             return inventoryData;
         }
+        
 
         private void LoadInventory()
         {
-            if (inventoryData.InventorySize() > 0)
+            if (inventoryData.InventorySize() <= 0) 
+                return;
+            
+            foreach (var item in inventoryData.AllItems())
             {
-                foreach (var item in inventoryData.AllItems())
-                {
-                    if(!item.IsEquipped)
-                        continue;
+                if(!item.IsEquipped)
+                    continue;
                     
-                    var prefab = Instantiate(item.Prefab);
-                    var newItem = prefab.GetComponent<Item>();
+                var prefab = Instantiate(item.Prefab);
+                var newItem = prefab.GetComponent<Item>();
 
-                    if (newItem == null)
-                    {
-                        Debug.LogError($"No item component on prefab {prefab.name}");
-                        continue;
-                    }
-                    newItem.LoadItemFromInventory(this);
+                if (newItem == null)
+                {
+                    Debug.LogError($"No item component on prefab {prefab.name}");
+                    continue;
                 }
+                newItem.LoadItemFromInventory(this);
             }
         }
     }

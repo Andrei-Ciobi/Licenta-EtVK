@@ -7,13 +7,17 @@ namespace EtVK.Inventory_Module
     [CreateAssetMenu(menuName = "ScriptableObjects/Inventory/NewInventory")]
     public class InventoryData : ScriptableObject
     {
-        [SerializeField]
-        private List<SerializableSet<ItemType, List<ItemData>>> listOfItems =
-            new List<SerializableSet<ItemType, List<ItemData>>>();
+        [SerializeField] private List<SerializableSet<ItemType, int>> inventorySpace = new();
+        [SerializeField] private List<SerializableSet<ItemType, List<ItemData>>> listOfItems = new();
 
         public List<ItemData> AllItemsByType(ItemType type)
         {
-            return listOfItems.Find((items) => items.GetKey().Equals(type)).GetValue();
+            return listOfItems.Find(items => items.GetKey().Equals(type)).GetValue();
+        }
+
+        public int GetInventorySpace(ItemType type)
+        {
+            return inventorySpace.Find(x => x.GetKey().Equals(type)).GetValue();
         }
 
         public void AddItem(ItemData item)

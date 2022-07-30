@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EtVK.Utyles;
+using UnityEngine;
 
 namespace EtVK.Player_Module.Interactable
 {
@@ -8,5 +9,6 @@ namespace EtVK.Player_Module.Interactable
         protected bool destroyAfterInteract;
 
         public abstract void Action();
+        public abstract void Response(StatusResponse statusResponse, string message = "");
     }
 }

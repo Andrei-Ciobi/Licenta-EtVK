@@ -161,6 +161,12 @@ namespace EtVK.Utyles
         
     }
 
+    public enum StatusResponse
+    {
+        Success = 0,
+        Fail = 1,
+    }
+
     public class AllEnums
     {
 

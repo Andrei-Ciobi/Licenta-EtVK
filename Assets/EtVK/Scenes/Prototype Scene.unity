@@ -1467,7 +1467,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh548024
+  m_Name: pb_Mesh147750
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3606,7 +3606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyAfterInteract: 1
-  equipWeaponEvent: {fileID: 11400000, guid: ccd864c04538776489e85789529a7465, type: 2}
+  equipWeaponEvent: {fileID: 11400000, guid: 3ad1db7cccd1a9041bbbdf91f1bb5d53, type: 2}
 --- !u!54 &1403838837
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4250,16 +4250,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1570520804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f963f5712f2663247be84b3b188b6cae, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e161f6ab02a4f7c97813f80b3fa6a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: ccd864c04538776489e85789529a7465, type: 2}
+  gameEvent: {fileID: 11400000, guid: 3ad1db7cccd1a9041bbbdf91f1bb5d53, type: 2}
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 774092083}
-        m_TargetAssemblyTypeName: EtVK.Scrips.Invenotry_Module.InventoryManager,
-          Assembly-CSharp
+        m_TargetAssemblyTypeName: EtVK.Inventory_Module.InventoryManager, Assembly-CSharp
         m_MethodName: AddItemToInventory
         m_Mode: 0
         m_Arguments:

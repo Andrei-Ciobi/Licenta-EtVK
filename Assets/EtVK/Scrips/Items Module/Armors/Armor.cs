@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using EtVK.Inventory_Module;
+using EtVK.Player_Module.Interactable;
 using UnityEngine;
 
 namespace EtVK.Items_Module.Armors
@@ -37,7 +38,7 @@ namespace EtVK.Items_Module.Armors
             DeactivateVisual();
         }
 
-        public override void AddItemToInventory(InventoryManager inventoryManager)
+        public override void AddItemToInventory(InventoryManager inventoryManager, Interactable interactable)
         {
             throw new System.NotImplementedException();
         }
