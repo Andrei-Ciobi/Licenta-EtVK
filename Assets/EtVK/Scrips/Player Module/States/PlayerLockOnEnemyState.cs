@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using EtVK.Core_Module;
-using EtVK.Event_Module.Event_Types;
-using EtVK.Event_Module.Events;
-using EtVK.Health_Module;
+﻿using EtVK.Core_Module;
 using EtVK.Input_Module;
 using EtVK.Player_Module.Controller;
 using EtVK.Utyles;
@@ -16,7 +12,10 @@ namespace EtVK.Player_Module.States
         {
             if (InputManager.Instance.LockOnInput)
             {
-                monoBehaviour.GetLockOnController()?.LockOnEnemy();
+                if (monoBehaviour.GetLockOnController()?.LockOnEnemy() == true)
+                {
+                    animator.SetBool(PlayerState.IsLockedOn.ToString(), true);
+                }
             }
         }
 
@@ -24,7 +23,10 @@ namespace EtVK.Player_Module.States
         {
             if (InputManager.Instance.LockOnInput)
             {
-                monoBehaviour.GetLockOnController()?.LockOnEnemy();
+                if (monoBehaviour.GetLockOnController()?.LockOnEnemy() == true)
+                {
+                    animator.SetBool(PlayerState.IsLockedOn.ToString(), true);
+                }
             }
         }
         

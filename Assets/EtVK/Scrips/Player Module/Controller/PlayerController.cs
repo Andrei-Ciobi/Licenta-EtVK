@@ -52,7 +52,7 @@ namespace EtVK.Player_Module.Controller
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 
         }
-        public void UpdateCombatMovement(Vector2 movement, float speed = 0f, float rotationSpeed = 0f)
+        public void UpdateLockOnMovement(Vector2 movement, float speed = 0f, float rotationSpeed = 0f)
         {
             speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
             rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
