@@ -27,7 +27,7 @@ namespace EtVK.Player_Module.Controller
         private InventoryManager inventoryManager;
         private AnimationEventManager animationEventManager;
         private RootMotionController rootMotionController;
-        public LockOnCamera lockOnCamera;
+        private LockOnController lockOnController;
         private Transform cameraMainTransform;
 
         private void Awake()
@@ -93,9 +93,9 @@ namespace EtVK.Player_Module.Controller
             return ability;
         }
 
-        public LockOnCamera GetLockOnCamera()
+        public LockOnController GetLockOnController()
         {
-            return lockOnCamera;
+            return lockOnController;
         }
 
         private void InitializeReferences()
@@ -105,7 +105,7 @@ namespace EtVK.Player_Module.Controller
             inventoryManager = GetComponentInChildren<InventoryManager>();
             animationEventManager = GetComponentInChildren<AnimationEventManager>();
             rootMotionController = GetComponentInChildren<RootMotionController>();
-            lockOnCamera = GetComponentInChildren<LockOnCamera>();
+            lockOnController = GetComponentInChildren<LockOnController>();
             rootMotionController.Initialize(this);
 
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);

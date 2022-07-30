@@ -16,7 +16,7 @@ namespace EtVK.Player_Module.States
         {
             if (InputManager.Instance.LockOnInput)
             {
-                monoBehaviour.GetLockOnCamera()?.LockOnEnemy();
+                monoBehaviour.GetLockOnController()?.LockOnEnemy();
             }
         }
 
@@ -24,7 +24,7 @@ namespace EtVK.Player_Module.States
         {
             if (InputManager.Instance.LockOnInput)
             {
-                monoBehaviour.GetLockOnCamera()?.LockOnEnemy();
+                monoBehaviour.GetLockOnController()?.LockOnEnemy();
             }
         }
         
