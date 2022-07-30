@@ -1,3 +1,4 @@
+// ReSharper disable InconsistentNaming
 namespace EtVK.Utyles
 {
     
@@ -20,6 +21,42 @@ namespace EtVK.Utyles
         LookForTarget = 5,
         VoidState = 100,
 
+    }
+
+    public enum ModularOptions
+    {
+        Head,
+        Hair,
+        Eyebrows,
+        FacialHair,
+        Helmet,
+        Shoulder,
+        Back,
+        UpperArm,
+        LowerArm,
+        Hand,
+        Chest,
+        Hips,
+        Legs,
+        HelmetAttachment,
+        
+    }
+
+    public enum ModularColorOptions
+    {
+        Primary,
+        Secondary,
+        Leather_Primary,
+        Leather_Secondary,
+        Metal_Primary,
+        Metal_Secondary,
+        Metal_Dark,
+        Hair,
+        Skin,
+        Stubble,
+        Scar,
+        Eyes,
+        BodyArt,
     }
 
     public enum EnemyAIAction
@@ -113,8 +150,15 @@ namespace EtVK.Utyles
     {
         Unequiped = 0,
         Helmet = 1,
-        Chestplate = 2,
-        Boots = 3,
+        Shoulders = 2,
+        UpperBracers = 3,
+        LowerBracers = 4,
+        Gloves = 5,
+        Chestplate = 6,
+        Back = 7,
+        Pants = 8,
+        Boots = 9,
+        
     }
 
     public class AllEnums

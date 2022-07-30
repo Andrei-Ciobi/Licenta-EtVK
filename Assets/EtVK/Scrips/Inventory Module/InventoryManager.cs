@@ -63,13 +63,16 @@ namespace EtVK.Inventory_Module
             {
                 foreach (var item in inventoryData.AllItems())
                 {
+                    if(!item.IsEquipped)
+                        continue;
+                    
                     var prefab = Instantiate(item.Prefab);
                     var newItem = prefab.GetComponent<Item>();
 
                     if (newItem == null)
                     {
                         Debug.LogError($"No item component on prefab {prefab.name}");
-                        return;
+                        continue;
                     }
                     newItem.LoadItemFromInventory(this);
                 }

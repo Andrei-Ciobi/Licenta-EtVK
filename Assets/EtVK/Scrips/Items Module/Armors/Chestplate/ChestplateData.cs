@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EtVK.Items_Module.Armors.Chestplate
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Armor/NewChestplate")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/Items/Armor/NewChestplate")]
     public class ChestplateData : ArmorData
     {
         private void Awake()

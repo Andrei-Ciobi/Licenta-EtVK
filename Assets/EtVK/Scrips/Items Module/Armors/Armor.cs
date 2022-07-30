@@ -7,13 +7,14 @@ namespace EtVK.Items_Module.Armors
 {
     public class Armor : Item
     {
-        [SerializeField] private SkinnedMeshRenderer meshRenderer;
+        private SkinnedMeshRenderer meshRenderer;
+        private MeshFilter meshFilter;
         protected ArmorData armorData;
         
 
         public override void LoadItemFromInventory(InventoryManager inventoryManager)
         {
-            var armorSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == armorData.ItemType).Cast<ArmorHolderSlot>().ToList();
+            var armorSlotList = inventoryManager.GetAllHolderSlots().FindAll(slot => slot.HolderSlotType == armorData.ItemType).Cast<ArmorHolderSlot>().ToList();
 
             if (armorSlotList.Count == 0)
             {
@@ -21,7 +22,7 @@ namespace EtVK.Items_Module.Armors
                 return;
             }
 
-            var armorSLot = armorSlotList.Find((slot) => slot.ArmorType == armorData.ArmorType);
+            var armorSLot = armorSlotList.Find(slot => slot.ArmorType == armorData.ArmorType);
             
             if (armorSLot == null)
             {
@@ -33,8 +34,7 @@ namespace EtVK.Items_Module.Armors
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             SetSkinBones(armorSLot);
-            armorSLot.DefaultMeshRenderer.gameObject.SetActive(false);
-            
+            DeactivateVisual();
         }
 
         public override void AddItemToInventory(InventoryManager inventoryManager)
@@ -42,12 +42,29 @@ namespace EtVK.Items_Module.Armors
             throw new System.NotImplementedException();
         }
 
-
-        private void SetSkinBones(ArmorHolderSlot armorHolderSlot)
+        protected void InitializeReferences()
         {
-            Debug.Log(meshRenderer);
+            meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>(true);
+            meshFilter = GetComponentInChildren<MeshFilter>(true);
+        }
+
+        protected virtual void DeactivateVisual()
+        {
+            meshRenderer.gameObject.SetActive(true);
+            meshFilter.gameObject.SetActive(false);
+        }
+        
+        protected void ActivateVisual()
+        {
+            meshFilter.gameObject.SetActive(true);
+            meshRenderer.gameObject.SetActive(false);
+        }
+
+        protected virtual void SetSkinBones(ArmorHolderSlot armorHolderSlot)
+        {
             meshRenderer.bones = armorHolderSlot.DefaultMeshRenderer.bones;
             meshRenderer.rootBone = armorHolderSlot.DefaultMeshRenderer.rootBone;
+            armorHolderSlot.DefaultMeshRenderer.gameObject.SetActive(false);
         }
     }
 }
