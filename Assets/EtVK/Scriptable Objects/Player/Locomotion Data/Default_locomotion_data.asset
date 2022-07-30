@@ -20,3 +20,6 @@ MonoBehaviour:
   jumpHeight: 5
   slopeFore: 10
   slopeForceRayLenght: 3
+  steepSlopeLimit: 30
+  steepSlopeSpeed: 10
+  pushPower: 5

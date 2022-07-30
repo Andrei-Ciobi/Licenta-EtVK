@@ -13,45 +13,31 @@ namespace EtVK.Player_Module.Controller
         [SerializeField] private float jumpHeight;
         [SerializeField] private float slopeFore = 10f;
         [SerializeField] private float slopeForceRayLenght = 3f;
+        [SerializeField] private float steepSlopeLimit = 45f;
+        [SerializeField] private float steepSlopeSpeed = 2f;
+        [SerializeField] private float pushPower = 5f;
 
 
-        public float GetWalkSpeed()
-        {
-            return walkSpeed;
-        }
+        public float WalkSpeed => walkSpeed;
 
-        public float GetRunSpeed()
-        {
-            return runSpeed;
-        }
-        public float GetRotationSpeed()
-        {
-            return rotationSpeed;
-        }
+        public float RunSpeed => runSpeed;
 
-        public float GetGravityValue()
-        {
-            return gravityValue;
-        }
+        public float RotationSpeed => rotationSpeed;
 
-        public float GetGravityMultiplayer()
-        {
-            return gravityMultiplayer;
-        }
+        public float GravityValue => gravityValue;
 
-        public float GetJumpHeight()
-        {
-            return jumpHeight;
-        }
+        public float GravityMultiplayer => gravityMultiplayer;
 
-        public float GetSlopeForce()
-        {
-            return slopeFore;
-        }
+        public float JumpHeight => jumpHeight;
 
-        public float GetSlopeForceRayLenght()
-        {
-            return slopeForceRayLenght;
-        }
+        public float SlopeFore => slopeFore;
+
+        public float SlopeForceRayLenght => slopeForceRayLenght;
+
+        public float SteepSlopeLimit => steepSlopeLimit;
+
+        public float SteepSlopeSpeed => steepSlopeSpeed;
+
+        public float PushPower => pushPower;
     }
 }

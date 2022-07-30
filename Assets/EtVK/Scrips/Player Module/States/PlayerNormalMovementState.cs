@@ -62,7 +62,7 @@ namespace EtVK.Player_Module.States
                 var movement = InputManager.Instance.MovementInput;
 
                 animator.SetFloat(PlayerState.Movement.ToString(), 1f, transitionDelay, Time.deltaTime);
-                monoBehaviour.GetController().UpdateNormalMovement(movement, monoBehaviour.GetLocomotionData().GetRunSpeed());
+                monoBehaviour.GetController().UpdateNormalMovement(movement, monoBehaviour.GetLocomotionData().RunSpeed);
             }
 
             monoBehaviour.GetController().MoveOnSlope();

@@ -10,6 +10,7 @@ namespace EtVK.Player_Module.Controller
         private CharacterController characterController;
         private Transform cameraMainTransform;
         private PlayerManager playerManager;
+        private RaycastHit slopeHit;
 
         private void Awake()
         {
@@ -30,15 +31,14 @@ namespace EtVK.Player_Module.Controller
                 newDownVelocity.y = -0.5f;
                 playerManager.DownVelocity = newDownVelocity;
             }
-            
-            
+
         }
         
         // Default value for speed is the walk speed, can be overridden
         public void UpdateNormalMovement(Vector2 movement, float speed = 0f, float rotationSpeed = 0f)
         {
-            speed = speed == 0f ? playerManager.GetLocomotionData().GetWalkSpeed() : speed;
-            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().GetRotationSpeed() : rotationSpeed;
+            speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
+            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             
             
             var move = new Vector3(movement.x, 0f, movement.y);
@@ -54,8 +54,8 @@ namespace EtVK.Player_Module.Controller
         }
         public void UpdateCombatMovement(Vector2 movement, float speed = 0f, float rotationSpeed = 0f)
         {
-            speed = speed == 0f ? playerManager.GetLocomotionData().GetWalkSpeed() : speed;
-            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().GetRotationSpeed() : rotationSpeed;
+            speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
+            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             
             
             var move = new Vector3(movement.x, 0f, movement.y);
@@ -72,7 +72,7 @@ namespace EtVK.Player_Module.Controller
         
         public void UpdateForceMovementForward(float speed = 0f)
         {
-            speed = speed == 0f ? playerManager.GetLocomotionData().GetWalkSpeed() : speed;
+            speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
             characterController.Move(transform.forward * Time.deltaTime * speed);
         }
 
@@ -83,9 +83,9 @@ namespace EtVK.Player_Module.Controller
         
         public void Jump(float gravityValue = 0f, float gravityMultiplayer = 0f, float jumpHeight = 0f)
         {
-            gravityValue = gravityValue == 0f ? playerManager.GetLocomotionData().GetGravityValue() : gravityValue;
-            gravityMultiplayer = gravityMultiplayer == 0f ? playerManager.GetLocomotionData().GetGravityMultiplayer() : gravityMultiplayer;
-            jumpHeight = jumpHeight == 0f ? playerManager.GetLocomotionData().GetJumpHeight() : jumpHeight;
+            gravityValue = gravityValue == 0f ? playerManager.GetLocomotionData().GravityValue : gravityValue;
+            gravityMultiplayer = gravityMultiplayer == 0f ? playerManager.GetLocomotionData().GravityMultiplayer : gravityMultiplayer;
+            jumpHeight = jumpHeight == 0f ? playerManager.GetLocomotionData().JumpHeight : jumpHeight;
             playerManager.IsJumping = true;
             
             //Velocity * gravity
@@ -97,8 +97,8 @@ namespace EtVK.Player_Module.Controller
         
         public void UpdateGravity(float gravityValue = 0f, float gravityMultiplayer = 0f)
         {
-            gravityValue = gravityValue == 0f ? playerManager.GetLocomotionData().GetGravityValue() : gravityValue;
-            gravityMultiplayer = gravityMultiplayer == 0f ? playerManager.GetLocomotionData().GetGravityMultiplayer() : gravityMultiplayer;
+            gravityValue = gravityValue == 0f ? playerManager.GetLocomotionData().GravityValue: gravityValue;
+            gravityMultiplayer = gravityMultiplayer == 0f ? playerManager.GetLocomotionData().GravityMultiplayer : gravityMultiplayer;
 
             if (!characterController.isGrounded)
             {
@@ -112,7 +112,7 @@ namespace EtVK.Player_Module.Controller
         
         public void UpdatePlayerRotation(float rotationSpeed = 0f)
         {
-            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().GetRotationSpeed() : rotationSpeed;
+            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             
             var rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
@@ -120,7 +120,7 @@ namespace EtVK.Player_Module.Controller
 
         public void UpdatePlayerRootMotionRotation(Animator animator, float rotationSpeed = 0f)
         {
-            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().GetRotationSpeed() : rotationSpeed;
+            rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             
             var rotation = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f);
             
@@ -131,10 +131,15 @@ namespace EtVK.Player_Module.Controller
         public void MoveOnSlope()
         {
             //If we are on a slope we smoothly go down
-            if (playerManager.IsMoving() && OnSlope())
+            if (playerManager.IsMoving() && OnSlope() && !OnSteepSlope())
             {
-                characterController.Move(Vector3.down * characterController.height / 2 * playerManager.GetLocomotionData().GetSlopeForce() * Time.deltaTime);
+                characterController.Move(Vector3.down * characterController.height / 2 * playerManager.GetLocomotionData().SlopeFore * Time.deltaTime);
             }
+            if (OnSteepSlope())
+            {
+                SteepSlopeMovement();
+            }
+
         }
         
         private bool OnSlope()
@@ -143,13 +148,66 @@ namespace EtVK.Player_Module.Controller
                 return false;
 
             if (Physics.Raycast(transform.position,
-                    Vector3.down, out var hit, characterController.height / 2 * playerManager.GetLocomotionData().GetSlopeForceRayLenght()))
+                    Vector3.down, out var hit, characterController.height / 2 * playerManager.GetLocomotionData().SlopeForceRayLenght))
             {
                 if (hit.normal != Vector3.up)
                     return true;
             }
 
             return false;
+        }
+
+        private bool OnSteepSlope()
+        {
+            if (!characterController.isGrounded)
+                return false;
+            
+            if (Physics.Raycast(transform.position,
+                    Vector3.down, out var hit,
+                    characterController.height / 2 * playerManager.GetLocomotionData().SlopeForceRayLenght))
+            {
+                var slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+                
+                if (slopeAngle > playerManager.GetLocomotionData().SteepSlopeLimit)
+                {
+                    slopeHit = hit;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void SteepSlopeMovement()
+        {
+            var slopeDirection = Vector3.up - slopeHit.normal * Vector3.Dot(Vector3.up, slopeHit.normal);
+
+            var moveDirection = slopeDirection * -playerManager.GetLocomotionData().SteepSlopeSpeed;
+            moveDirection.y = moveDirection.y - slopeHit.point.y;
+            Move((moveDirection + Vector3.down * characterController.height / 2 * playerManager.GetLocomotionData().SlopeFore) * Time.deltaTime);
+        } 
+        
+        void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            var body = hit.collider.attachedRigidbody;
+
+            // no rigidbody
+            if (body == null || body.isKinematic)
+                return;
+
+            // We dont want to push objects below us
+            if (hit.moveDirection.y < -0.3f)
+                return;
+
+            // Calculate push direction from move direction,
+            // we only push objects to the sides never up and down
+            var pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+            // If you know how fast your character is trying to move,
+            // then you can also multiply the push velocity by that.
+
+            // Apply the push
+            body.velocity = pushDir * playerManager.GetLocomotionData().PushPower;
         }
         
         
