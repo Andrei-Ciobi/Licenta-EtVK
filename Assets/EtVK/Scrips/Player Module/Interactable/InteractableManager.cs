@@ -21,10 +21,12 @@ namespace EtVK.Player_Module.Interactable
             var shortestDistance = float.PositiveInfinity;
 
             Interactable closestInteractableObject = null;
-
+            curentInteractableObjects.RemoveAll(x => x == null);
+            
             // Finds the closest interactable obj
             foreach (var obj in curentInteractableObjects)
             {
+
                 var distance = Vector3.Distance(transform.root.position, obj.transform.position);
 
                 if (distance < shortestDistance)
