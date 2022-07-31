@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemType: 0
-  prefab: {fileID: 2314768736643601934, guid: fdb7910c93d322d47849d7b8ec90b16e, type: 3}
+  prefab: {fileID: 4583293235184861865, guid: 8026912673ba3a94da6ef6cba98de611, type: 3}
   itemName: 
   itemDescription: 
   isEquipped: 1

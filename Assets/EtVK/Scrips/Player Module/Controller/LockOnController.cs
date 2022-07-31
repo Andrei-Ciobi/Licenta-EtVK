@@ -12,8 +12,8 @@ namespace EtVK.Player_Module.Controller
         [SerializeField] private float maxLockOnDistance;
         [SerializeField] private ActiveCameraEvent changeCameraEvent;
         private PlayerManager playerManager;
-        private List<LivingEntity> availableTargets = new();
-        private LivingEntity currentLockOnTarget;
+        private List<EnemyLivingEntity> availableTargets = new();
+        private EnemyLivingEntity currentLockOnTarget;
 
         private void Awake()
         {
@@ -25,20 +25,33 @@ namespace EtVK.Player_Module.Controller
             if (!CalculateClosestTarget())
                 return;
 
-                changeCameraEvent.Invoke(new ActiveCamera(ActiveCameraType.LockOn, currentLockOnTarget.transform));
+            changeCameraEvent.Invoke(new ActiveCamera(ActiveCameraType.LockOn, currentLockOnTarget.transform));
+            currentLockOnTarget.onDie += UnlockFromEnemy;
             success = true;
 
+        }
+
+        public void UnlockFromEnemy()
+        {
+            changeCameraEvent.Invoke(new ActiveCamera(ActiveCameraType.Main, null));
+            playerManager.GetAnimator().SetBool(PlayerState.IsLockedOn.ToString(), false);
         }
 
         private bool CalculateClosestTarget()
         {
             var colliders = Physics.OverlapSphere(playerManager.transform.position, 26);
-            availableTargets = new List<LivingEntity>();
-            currentLockOnTarget = null;
+            availableTargets = new List<EnemyLivingEntity>();
             
+            // Unsubscribe to the OnDie event and make the current target null
+            if (currentLockOnTarget != null)
+            {
+                currentLockOnTarget.onDie -= UnlockFromEnemy;
+                currentLockOnTarget = null;
+            }
+
             foreach (var coll in colliders)
             {
-                var entity = coll.GetComponent<LivingEntity>();
+                var entity = coll.GetComponent<EnemyLivingEntity>();
                 if(entity == null)
                     continue;
                 if(entity.transform.root == playerManager.transform.root)
@@ -73,5 +86,6 @@ namespace EtVK.Player_Module.Controller
 
             return found;
         }
+        
     }
 }

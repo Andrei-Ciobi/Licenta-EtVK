@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 5132048338687801736}
   - component: {fileID: 1661693391770683838}
   m_Layer: 0
-  m_Name: Sword_Prototype 2
+  m_Name: Prefab_template_one_hand_sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01f8352ccb34b3299f94e846f4665ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordData: {fileID: 11400000, guid: b7394a722b5253b4287f611ecd0dbf35, type: 2}
+  swordData: {fileID: 0}
 --- !u!114 &2267506216075277397
 MonoBehaviour:
   m_ObjectHideFlags: 0

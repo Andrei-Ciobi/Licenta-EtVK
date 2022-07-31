@@ -135,10 +135,11 @@ namespace EtVK.Utyles
 
     public enum WeaponType
     {
-        Unequiped = 0,
+        Unequipped = 0,
         Sword = 1,
-        Shield = 3,
-        Bow = 2,
+        GreatSword = 2,
+        Bow = 3,
+        Shield = 4,
         Arrows = 9,
         FistRightHand = 20,
         FistLeftHand = 21,

@@ -123,7 +123,7 @@ namespace EtVK.Input_Module
             playerActions.Player.MouseLook.performed += OnMouseLook;
             playerActions.Player.Movement.performed += OnMovementInput;
             playerActions.Player.Weapon_1.performed += _ => OnWeaponInput(WeaponType.Sword);
-            playerActions.Player.Weapon_2.performed += _ => OnWeaponInput(WeaponType.Bow);
+            playerActions.Player.Weapon_2.performed += _ => OnWeaponInput(WeaponType.GreatSword);
             //UI
             // playerActions.UI.Escape.performed += OnEscapePerformed;
 

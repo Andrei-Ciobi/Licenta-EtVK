@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1a69b8cc804616887aff8e2f1a7880, type: 3}
+  m_Name: Rapier_sword_attack_dash_1
+  m_EditorClassIdentifier: 
+  clipName: Base_run_attack_1
+  animationClip: {fileID: 7400000, guid: 10f3329d069e65b4ea3b19ea2e2388d0, type: 2}
+  comboIntoDifferentAttackType: 1
+  useRootMotion: 1
+  useRotation: 0
+  useForceForward: 1
+  speedGraph:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.00289917
+      value: 0.4988098
+      inSlope: 0.053285733
+      outSlope: 0.053285733
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.37154138
+    - serializedVersion: 3
+      time: 0.6458909
+      value: 0.5389844
+      inSlope: 0.2627006
+      outSlope: 0.2627006
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.105606385
+      outWeight: 0.38514778
+    - serializedVersion: 3
+      time: 0.8244196
+      value: 1.4646149
+      inSlope: -0.05973581
+      outSlope: -0.05973581
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.29811803
+      outWeight: 0.30094755
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: 0.009446196
+      outSlope: 0.009446196
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20297189
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  interval: 0.01
+  speed: 5
