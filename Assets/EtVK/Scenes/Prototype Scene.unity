@@ -3559,7 +3559,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232718811
 GameObject:
@@ -4969,6 +4969,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLockOnDistance: 20
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   changeCameraEvent: {fileID: 11400000, guid: 279f58ed3ec1dd34a9b68112583ffb45, type: 2}
 --- !u!1 &365545137
 GameObject:
@@ -5931,7 +5934,7 @@ Transform:
   m_Children:
   - {fileID: 1796500970}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &440374787
 GameObject:
@@ -7710,7 +7713,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586586358
 GameObject:
@@ -7747,7 +7750,7 @@ Transform:
   - {fileID: 405758302}
   - {fileID: 1183616389}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596240812
 GameObject:
@@ -8815,10 +8818,11 @@ GameObject:
   - component: {fileID: 1013564692}
   - component: {fileID: 1013564693}
   - component: {fileID: 1013564694}
+  - component: {fileID: 1013564695}
   - component: {fileID: 1013564691}
   - component: {fileID: 1013564690}
   - component: {fileID: 1013564689}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Prototype enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8873,7 +8877,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.26
+  m_Radius: 0.3
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -8891,7 +8895,7 @@ Transform:
   m_Children:
   - {fileID: 7506123599395391301}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1013564693
 MonoBehaviour:
@@ -8920,6 +8924,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11256f8998940b8976bde47d786956b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1013564695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013564688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13117ab020694017a4468cd12dbeccdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityStats: {fileID: 11400000, guid: d630c81c6cddc3c4ba630b50348597af, type: 2}
+  isInvulnerable: 0
 --- !u!43 &1022046094
 Mesh:
   m_ObjectHideFlags: 0
@@ -10566,7 +10584,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1229569111
 GameObject:
@@ -10999,7 +11017,7 @@ Transform:
   m_Children:
   - {fileID: 1881803558}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!65 &1403838840
 BoxCollider:
@@ -13091,7 +13109,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1772888903
 Rigidbody:
@@ -14158,7 +14176,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1937067704
 GameObject:
@@ -14916,7 +14934,7 @@ Transform:
   - {fileID: 1830266213}
   - {fileID: 327195336}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057250221
 GameObject:
@@ -33422,7 +33440,7 @@ Transform:
   - {fileID: 7360520265253758340}
   - {fileID: 183010756760080569}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4294987910468788832
 MonoBehaviour:

@@ -62,6 +62,7 @@ namespace EtVK.Health_Module
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("Hi");
             if (other.transform.root.gameObject == GameObject)
                 return;
             
@@ -69,8 +70,6 @@ namespace EtVK.Health_Module
             
             if(weapon == null)
                 return;
-            
-            
             TakeHit(weapon.DealDamage());
         }
         

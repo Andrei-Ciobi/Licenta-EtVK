@@ -11,6 +11,7 @@ namespace EtVK.Player_Module.Controller
     public class LockOnController : MonoBehaviour
     {
         [SerializeField] private float maxLockOnDistance;
+        [SerializeField] private LayerMask hitLayer;
         [SerializeField] private ActiveCameraEvent changeCameraEvent;
         private PlayerManager playerManager;
         private List<EnemyLivingEntity> availableTargets = new();
@@ -40,7 +41,7 @@ namespace EtVK.Player_Module.Controller
 
         private bool CalculateClosestTarget()
         {
-            var colliders = Physics.OverlapSphere(playerManager.transform.position, 26);
+            var colliders = Physics.OverlapSphere(playerManager.transform.position, 26, hitLayer);
             availableTargets = new List<EnemyLivingEntity>();
             
             // Unsubscribe to the OnDie event and make the current target null
