@@ -30,7 +30,10 @@ namespace EtVK.Player_Module.Camera {
             
             newCamera.gameObject.SetActive(true);
             currentCamera.gameObject.SetActive(false);
+            
+            currentCamera = newCamera;
             currentCamera.LookAt = cam.CameraType.Equals(ActiveCameraType.LockOn) ? cam.TargetTransform : null;
+            
         }
 
 

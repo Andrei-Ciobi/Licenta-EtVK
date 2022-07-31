@@ -6,12 +6,12 @@ namespace EtVK.Health_Module
     public class LivingEntity : MonoBehaviour, IDamageable
     {
         [SerializeField] private BaseEntityStats entityStats;
-
         [SerializeField] private bool isInvulnerable;
+        
+        public GameObject GameObject => gameObject;
 
         private float currentHealth;
         private float currentPoiseLevel;
-
         private bool damageAnimationOnCd;
 
         private void Start()
@@ -25,12 +25,9 @@ namespace EtVK.Health_Module
             currentHealth = entityStats.MaxHealth;
         }
 
-        public GameObject GameObject
-        {
-            get => gameObject;
-        }
 
-        public void TakeHit(float damage)
+
+        public virtual void TakeHit(float damage)
         {
             if (isInvulnerable)
                 return;
@@ -54,7 +51,7 @@ namespace EtVK.Health_Module
             //     StartCoroutine(InvulnerableCorutine(stats.GetInvulnerableTime()));
         }
 
-        public void Die()
+        public virtual void Die()
         {
             Destroy(GameObject);
         }
