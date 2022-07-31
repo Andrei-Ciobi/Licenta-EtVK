@@ -10,23 +10,27 @@ namespace EtVK.Player_Module.States
     {
         public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (InputManager.Instance.LockOnInput)
+            if (!InputManager.Instance.LockOnInput) 
+                return;
+            
+            var success = false;
+            monoBehaviour.GetLockOnController()?.LockOnEnemy(ref success);
+            if (success)
             {
-                if (monoBehaviour.GetLockOnController()?.LockOnEnemy() == true)
-                {
-                    animator.SetBool(PlayerState.IsLockedOn.ToString(), true);
-                }
+                animator.SetBool(PlayerState.IsLockedOn.ToString(), true);
             }
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (InputManager.Instance.LockOnInput)
+            if (!InputManager.Instance.LockOnInput) 
+                return;
+            
+            var success = false;
+            monoBehaviour.GetLockOnController()?.LockOnEnemy(ref success);
+            if (success)
             {
-                if (monoBehaviour.GetLockOnController()?.LockOnEnemy() == true)
-                {
-                    animator.SetBool(PlayerState.IsLockedOn.ToString(), true);
-                }
+                animator.SetBool(PlayerState.IsLockedOn.ToString(), true);
             }
         }
         

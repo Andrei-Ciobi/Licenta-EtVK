@@ -20,13 +20,13 @@ namespace EtVK.Player_Module.Controller
             playerManager = transform.root.GetComponent<PlayerManager>();
         }
 
-        public bool LockOnEnemy()
+        public void LockOnEnemy(ref bool success) 
         {
-            if (!CalculateClosestTarget()) 
-                return false;
-            
-            changeCameraEvent.Invoke(new ActiveCamera(ActiveCameraType.LockOn, currentLockOnTarget.transform));
-            return true;
+            if (!CalculateClosestTarget())
+                return;
+
+                changeCameraEvent.Invoke(new ActiveCamera(ActiveCameraType.LockOn, currentLockOnTarget.transform));
+            success = true;
 
         }
 
