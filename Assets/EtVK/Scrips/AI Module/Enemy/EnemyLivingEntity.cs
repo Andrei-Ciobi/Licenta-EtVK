@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using EtVK.Health_Module;
 
-namespace EtVK.Health_Module
+namespace EtVK.AI_Module.Enemy
 {
     public class EnemyLivingEntity : LivingEntity
     {

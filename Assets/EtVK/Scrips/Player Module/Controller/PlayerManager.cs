@@ -19,7 +19,7 @@ namespace EtVK.Player_Module.Controller
 
         public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
 
-        [SerializeField] private PlayerLocomotionData locomotionData;
+        [SerializeField] private PlayerLocomotionData playerLocomotionData;
         
         private PlayerController controller;
         private Animator animator;
@@ -66,7 +66,7 @@ namespace EtVK.Player_Module.Controller
 
         public PlayerLocomotionData GetLocomotionData()
         {
-            return locomotionData;
+            return playerLocomotionData;
         }
 
         public InventoryManager GetInventoryManager()
@@ -77,6 +77,11 @@ namespace EtVK.Player_Module.Controller
         public AnimationEventManager GetAnimationEventManager()
         {
             return animationEventManager;
+        }
+        
+        public LockOnController GetLockOnController()
+        {
+            return lockOnController;
         }
 
         public BaseAbility GetAbility(AbilityType abilityType)
@@ -91,11 +96,6 @@ namespace EtVK.Player_Module.Controller
             }
 
             return ability;
-        }
-
-        public LockOnController GetLockOnController()
-        {
-            return lockOnController;
         }
 
         private void InitializeReferences()

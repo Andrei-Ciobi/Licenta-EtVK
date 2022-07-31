@@ -68086,14 +68086,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4
-    functionName: PerformAbility
-    data: 
-    objectReferenceParameter: {fileID: 11400000, guid: b3d831f037f1b094db2055747692407a,
-      type: 2}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.46666667
     functionName: DeactivateWeaponCollider
     data: 

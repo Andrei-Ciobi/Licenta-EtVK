@@ -92,8 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2799454466758401685}
-  - component: {fileID: 7523683468019327193}
   - component: {fileID: 7691937336828284149}
+  - component: {fileID: 656125453664042956}
   - component: {fileID: 4003184731140605645}
   - component: {fileID: 993783107984921680}
   m_Layer: 0
@@ -118,21 +118,8 @@ Transform:
   - {fileID: 1606752266750318881}
   - {fileID: 6795836534997510006}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7523683468019327193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788516309176370882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a01f8352ccb34b3299f94e846f4665ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordData: {fileID: 11400000, guid: 81282482bc21ecc4695417fe33032893, type: 2}
 --- !u!114 &7691937336828284149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +132,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7773fe0a94114f298671589f36e44241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &656125453664042956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788516309176370882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23955e58397847fb8c546c6747818837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greatSwordData: {fileID: 11400000, guid: 9840c25c26500b4439c12f9242b9df86, type: 2}
 --- !u!136 &4003184731140605645
 CapsuleCollider:
   m_ObjectHideFlags: 0

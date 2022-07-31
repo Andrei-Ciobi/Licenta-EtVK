@@ -39,6 +39,7 @@ namespace EtVK.Utyles
         Hips,
         Legs,
         HelmetAttachment,
+        HeadAttachment,
         
     }
 

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using EtVK.Utyles;
+using UnityEngine;
 
 namespace EtVK.Health_Module
 {
@@ -9,6 +11,8 @@ namespace EtVK.Health_Module
         [SerializeField] private float maxHealth;
         [SerializeField] private float poiseLevel;
         [SerializeField] private float invulnerableTime;
+        [SerializeField] private Factions entityFaction;
+        [SerializeField] private List<Factions> entityAllies;
 
         public string EntityName => entityName;
 
@@ -17,5 +21,9 @@ namespace EtVK.Health_Module
         public float PoiseLevel => poiseLevel;
 
         public float InvulnerableTime => invulnerableTime;
+
+        public Factions EntityFaction => entityFaction;
+
+        public List<Factions> EntityAllies => entityAllies;
     }
 }

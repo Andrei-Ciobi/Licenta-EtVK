@@ -1,4 +1,5 @@
 ﻿using EtVK.Items_Module.Weapons;
+using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Health_Module
@@ -9,6 +10,7 @@ namespace EtVK.Health_Module
         [SerializeField] private bool isInvulnerable;
         
         public GameObject GameObject => gameObject;
+        public Factions EntityFaction => entityStats.EntityFaction;
 
         private float currentHealth;
         private float currentPoiseLevel;
@@ -18,14 +20,6 @@ namespace EtVK.Health_Module
         {
             OnStart();
         }
-
-
-        private void OnStart()
-        {
-            currentHealth = entityStats.MaxHealth;
-        }
-
-
 
         public virtual void TakeHit(float damage)
         {
@@ -56,6 +50,16 @@ namespace EtVK.Health_Module
             Destroy(GameObject);
         }
 
+        public bool IsAllies(Factions faction)
+        {
+            return entityStats.EntityAllies.Contains(faction) || entityStats.EntityFaction.Equals(faction);
+        }
+        
+        private void OnStart()
+        {
+            currentHealth = entityStats.MaxHealth;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.transform.root.gameObject == GameObject)
@@ -69,5 +73,7 @@ namespace EtVK.Health_Module
             
             TakeHit(weapon.DealDamage());
         }
+        
+        
     }
 }
