@@ -111,8 +111,8 @@ namespace EtVK.Utyles
     public enum PlayerState
     {
         Movement = 0,
-        CombatMovementX = 2,
-        CombatMovementY = 3,
+        LockOnMovementX = 2,
+        LockOnMovementY = 3,
         Jump = 4,
         CombatState = 5,
         Running = 6,
@@ -123,6 +123,7 @@ namespace EtVK.Utyles
         IsAiming = 10,
         MouseYAxis = 11,
         ComboAttack = 12,
+        IsLockedOn = 13,
     }
 
     public enum ItemType
@@ -165,6 +166,13 @@ namespace EtVK.Utyles
     {
         Success = 0,
         Fail = 1,
+    }
+
+    public enum ActiveCameraType
+    {
+        Main = 0,
+        Aim = 1,
+        LockOn = 2,
     }
 
     public class AllEnums

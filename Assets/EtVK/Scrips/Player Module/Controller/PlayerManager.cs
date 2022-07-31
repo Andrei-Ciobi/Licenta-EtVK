@@ -3,6 +3,7 @@ using EtVK.Ability_Module;
 using EtVK.Core_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
+using EtVK.Player_Module.Camera;
 using EtVK.Utyles;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace EtVK.Player_Module.Controller
         public Vector3 DownVelocity { get; set; }
         
         public bool UseRootMotionRotation { get; set; }
+        public Transform CameraMainTransform => cameraMainTransform;
 
         public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
 
@@ -25,6 +27,8 @@ namespace EtVK.Player_Module.Controller
         private InventoryManager inventoryManager;
         private AnimationEventManager animationEventManager;
         private RootMotionController rootMotionController;
+        private LockOnController lockOnController;
+        private Transform cameraMainTransform;
 
         private void Awake()
         {
@@ -89,6 +93,11 @@ namespace EtVK.Player_Module.Controller
             return ability;
         }
 
+        public LockOnController GetLockOnController()
+        {
+            return lockOnController;
+        }
+
         private void InitializeReferences()
         {
             controller = GetComponentInChildren<PlayerController>();
@@ -96,9 +105,11 @@ namespace EtVK.Player_Module.Controller
             inventoryManager = GetComponentInChildren<InventoryManager>();
             animationEventManager = GetComponentInChildren<AnimationEventManager>();
             rootMotionController = GetComponentInChildren<RootMotionController>();
+            lockOnController = GetComponentInChildren<LockOnController>();
             rootMotionController.Initialize(this);
 
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+            cameraMainTransform = UnityEngine.Camera.main!.transform;
         }
     }
 }
