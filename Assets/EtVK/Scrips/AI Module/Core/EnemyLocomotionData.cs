@@ -1,13 +1,14 @@
 ﻿using EtVK.Core_Module;
 using UnityEngine;
 
-namespace EtVK.AI_Module.Enemy
+namespace EtVK.AI_Module.Core
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/AI/Stats/EnemyLocomotionData")]
     public class EnemyLocomotionData : LocomotionData
     {
         [SerializeField] private float sprintSpeed;
         [SerializeField] private float maxRotationSpeed = 4f;
+        [Range(0f, 420f)] [SerializeField] private float patrolWaitTime;
 
         [Header("Detection parameters")] 
         [SerializeField] private LayerMask detectionLayer;
@@ -28,6 +29,8 @@ namespace EtVK.AI_Module.Enemy
         public float SprintSpeed => sprintSpeed;
 
         public float MaxRotationSpeed => maxRotationSpeed;
+
+        public float PatrolWaitTime => patrolWaitTime;
 
         public LayerMask DetectionLayer => detectionLayer;
 

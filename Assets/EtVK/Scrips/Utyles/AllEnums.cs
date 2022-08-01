@@ -17,7 +17,7 @@ namespace EtVK.Utyles
         AgentState,
         IdleState = 1,
         CombatState = 2,
-        DummyState,
+        DummyState = 3,
         LookForTarget = 5,
         VoidState = 100,
 

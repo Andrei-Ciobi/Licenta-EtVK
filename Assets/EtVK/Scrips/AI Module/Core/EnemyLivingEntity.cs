@@ -1,6 +1,6 @@
 ﻿using EtVK.Health_Module;
 
-namespace EtVK.AI_Module.Enemy
+namespace EtVK.AI_Module.Core
 {
     public class EnemyLivingEntity : LivingEntity
     {

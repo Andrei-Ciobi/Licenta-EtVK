@@ -1,11 +1,9 @@
-﻿using System;
-using EtVK.Core_Module;
-using EtVK.Health_Module;
+﻿using EtVK.Core_Module;
 using EtVK.Inventory_Module;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace EtVK.AI_Module.Enemy
+namespace EtVK.AI_Module.Core
 {
     public class EnemyManager : MonoBehaviour
     {
@@ -18,10 +16,11 @@ namespace EtVK.AI_Module.Enemy
 
         private EnemyController controller;
         private Animator animator;
-        private InventoryManager inventoryManager;
+        private EnemyRootMotionController rootMotionController;
         private Rigidbody agentRigidBody;
         private EnemyLivingEntity livingEntity;
         private NavMeshAgent navMeshAgent;
+        private PatrolManager patrolManager;
 
         private void Awake()
         {
@@ -34,6 +33,20 @@ namespace EtVK.AI_Module.Enemy
             OnStart();
         }
 
+        public Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal)
+        {
+            if (!angleIsGlobal)
+            {
+                angleInDegrees += transform.eulerAngles.y;
+            }
+
+            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0f, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        }
+
+        public bool HasPatrolPath()
+        {
+            return patrolManager != null && patrolManager.HasPath;
+        }
         public EnemyController GetController()
         {
             return controller;
@@ -58,29 +71,29 @@ namespace EtVK.AI_Module.Enemy
         {
             return navMeshAgent;
         }
-
+        
         public EnemyLocomotionData GetLocomotionData()
         {
             return enemyLocomotionData;
         }
-        
-        public Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal)
-        {
-            if (!angleIsGlobal)
-            {
-                angleInDegrees += transform.eulerAngles.y;
-            }
 
-            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0f, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        public PatrolManager GetPatrolManager()
+        {
+            return patrolManager;
         }
+        
+
         private void InitializeReferences()
         {
             controller = GetComponent<EnemyController>();
             animator = GetComponentInChildren<Animator>();
-            inventoryManager = GetComponentInChildren<InventoryManager>();
+            rootMotionController = GetComponentInChildren<EnemyRootMotionController>();
             agentRigidBody = GetComponent<Rigidbody>();
             livingEntity = GetComponentInChildren<EnemyLivingEntity>();
             navMeshAgent = GetComponent<NavMeshAgent>();
+            patrolManager = GetComponentInChildren<PatrolManager>();
+            
+            rootMotionController.Initialize(this);
 
         }
 

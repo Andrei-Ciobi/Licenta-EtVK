@@ -16,5 +16,5 @@ MonoBehaviour:
   maxHealth: 200
   poiseLevel: 20
   invulnerableTime: 0.2
-  entityFaction: 0
+  entityFaction: 1
   entityAllies: 

@@ -1,4 +1,4 @@
-﻿using EtVK.AI_Module.Enemy;
+﻿using EtVK.AI_Module.Core;
 using UnityEditor;
 using UnityEngine;
 // ReSharper disable CheckNamespace

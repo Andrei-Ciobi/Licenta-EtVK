@@ -1,18 +1,27 @@
-﻿using System;
-using EtVK.Health_Module;
+﻿using EtVK.Health_Module;
 using UnityEngine;
 
-namespace EtVK.AI_Module.Enemy
+namespace EtVK.AI_Module.Core
 {
     public class EnemyController : MonoBehaviour
     {
         public Transform CurrentTarget { get; set; }
-
+        public bool HasCurrentTarget => CurrentTarget ? true : false;
         private EnemyManager enemyManager;
 
         private void Awake()
         {
             InitializeReferences();
+        }
+
+        public void Move(Vector3 position)
+        {
+            transform.root.position = position;
+        }
+
+        public void UpdateRootMotionRotation(Animator animator)
+        {
+            
         }
 
         // Function that detect if a living entity is in our field of view
@@ -56,6 +65,14 @@ namespace EtVK.AI_Module.Enemy
                 CurrentTarget = livingEntity.transform;
                 enemyManager.LookingForTarget = false;
             }
+        }
+        
+        public float AngleBetweenGivenTarget(Transform currentTransform, Vector3 lookTarget)
+        {
+            var directionToTarget = (lookTarget - currentTransform.position).normalized;
+            var targetAngle = 90 - Mathf.Atan2(directionToTarget.z, directionToTarget.x) * Mathf.Rad2Deg;
+
+            return Mathf.DeltaAngle(currentTransform.eulerAngles.y, targetAngle);
         }
 
         private void InitializeReferences()

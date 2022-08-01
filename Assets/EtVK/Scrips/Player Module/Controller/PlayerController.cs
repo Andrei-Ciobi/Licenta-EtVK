@@ -128,7 +128,7 @@ namespace EtVK.Player_Module.Controller
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
 
-        public void UpdatePlayerRootMotionRotation(Animator animator, float rotationSpeed = 0f)
+        public void UpdateRootMotionRotation(Animator animator, float rotationSpeed = 0f)
         {
             rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             

@@ -2,7 +2,7 @@
 
 namespace EtVK.Player_Module.Controller
 {
-    public class RootMotionController : MonoBehaviour
+    public class PlayerRootMotionController : MonoBehaviour
     {
         private PlayerManager playerManager;
         private Animator animator;
@@ -18,7 +18,7 @@ namespace EtVK.Player_Module.Controller
             
             if (playerManager.UseRootMotionRotation)
             {
-                playerManager.GetController().UpdatePlayerRootMotionRotation(animator);
+                playerManager.GetController().UpdateRootMotionRotation(animator);
             }
         }
 

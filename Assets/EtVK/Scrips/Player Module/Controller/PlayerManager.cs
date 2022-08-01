@@ -26,7 +26,7 @@ namespace EtVK.Player_Module.Controller
         private AnimatorOverrideController baseAnimatorOverrideController;
         private InventoryManager inventoryManager;
         private AnimationEventManager animationEventManager;
-        private RootMotionController rootMotionController;
+        private PlayerRootMotionController playerRootMotionController;
         private LockOnController lockOnController;
         private Transform cameraMainTransform;
 
@@ -104,9 +104,9 @@ namespace EtVK.Player_Module.Controller
             animator = GetComponentInChildren<Animator>();
             inventoryManager = GetComponentInChildren<InventoryManager>();
             animationEventManager = GetComponentInChildren<AnimationEventManager>();
-            rootMotionController = GetComponentInChildren<RootMotionController>();
+            playerRootMotionController = GetComponentInChildren<PlayerRootMotionController>();
             lockOnController = GetComponentInChildren<LockOnController>();
-            rootMotionController.Initialize(this);
+            playerRootMotionController.Initialize(this);
 
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
