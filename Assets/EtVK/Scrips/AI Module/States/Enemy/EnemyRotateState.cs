@@ -38,11 +38,6 @@ namespace EtVK.AI_Module.States
             HandleDetection(animator);
         }
 
-        public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        {
-            animator.SetFloat(EnemyAIAction.Rotation.ToString(), 0f);
-        }
-
         private void DecideRotation()
         {
             switch (rotation)
@@ -75,9 +70,16 @@ namespace EtVK.AI_Module.States
                 return;
             
             animator.SetInteger(EnemyAIState.AgentState.ToString(), EnemyAIState.CombatState.GetHashCode());
-            
+            OnExitState(animator);
+        }
+
+        private void OnExitState(Animator animator)
+        {
+            animator.SetBool(EnemyAIAction.IsPatrolling.ToString(), false);
+            animator.SetFloat(EnemyAIAction.Rotation.ToString(), 0f);
             if (rotation != RotateAround.CurentTarget)
                 animator.SetBool(EnemyAIAction.IsRotating.ToString(), false);
+            
         }
     }
 }

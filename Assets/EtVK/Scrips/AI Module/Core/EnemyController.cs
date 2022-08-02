@@ -6,17 +6,40 @@ namespace EtVK.AI_Module.Core
     public class EnemyController : MonoBehaviour
     {
         public Transform CurrentTarget { get; set; }
-        public bool HasCurrentTarget => CurrentTarget ? true : false;
+        public bool HasCurrentTarget => CurrentTarget;
+
         private EnemyManager enemyManager;
 
         private void Awake()
         {
             InitializeReferences();
         }
+        
+        public virtual void FixedUpdate()
+        {
+            if (!enemyManager.IsChasing)
+                return;
+            
+            if (HasCurrentTarget)
+            {
+                enemyManager.GetNavMeshAgent().destination = CurrentTarget.position;
+            }
+
+        }
 
         public void Move(Vector3 position)
         {
             transform.root.position = position;
+        }
+
+        public void MoveAgent(bool status, float speed = 0f)
+        {
+            enemyManager.GetNavMeshAgent().isStopped = !status;
+            enemyManager.IsChasing = status;
+            if (status)
+            {
+                enemyManager.GetNavMeshAgent().speed = speed;
+            }
         }
 
         public void UpdateRootMotionRotation(Animator animator)
@@ -66,7 +89,24 @@ namespace EtVK.AI_Module.Core
                 enemyManager.LookingForTarget = false;
             }
         }
-        
+
+        public void RotateTowardsCurrentTarget()
+        {
+            var direction = DirectionToCurrentTarget;
+            direction.y = 0;
+            direction.Normalize();
+            
+            if (direction == Vector3.zero)
+                direction = transform.forward;
+
+            var locomotionData = enemyManager.GetLocomotionData();
+            
+            var reverseDistance = locomotionData.CombatAggroRange - DistanceToCurrentTarget;
+            var rotateSpeed = Mathf.Clamp(reverseDistance, locomotionData.RotationSpeed, locomotionData.MaxRotationSpeed);
+            
+            var targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+        }
         public float AngleBetweenGivenTarget(Transform currentTransform, Vector3 lookTarget)
         {
             var directionToTarget = (lookTarget - currentTransform.position).normalized;
@@ -75,9 +115,34 @@ namespace EtVK.AI_Module.Core
             return Mathf.DeltaAngle(currentTransform.eulerAngles.y, targetAngle);
         }
 
+        public bool TargetInRange(float range)
+        {
+            if (ObstructedVisionTowardsCurrentTarget())
+                return false;
+            return DistanceToCurrentTarget < range;
+        }
+        
+        public bool ObstructedVisionTowardsCurrentTarget()
+        {
+            return CurrentTarget == null ||
+                   Physics.Raycast(transform.position, DirectionToCurrentTarget, DistanceToCurrentTarget,
+                       enemyManager.GetLocomotionData().ObstacleMask);
+
+        }
         private void InitializeReferences()
         {
             enemyManager = GetComponent<EnemyManager>();
+        }
+        
+        public Vector3 DirectionToCurrentTarget => CurrentTarget.position - enemyManager.transform.position;
+        
+        public  float DistanceToCurrentTarget{
+            get
+            {
+                var vectorToTarget = transform.position - CurrentTarget.position;
+                vectorToTarget.y = 0f;
+                return vectorToTarget.magnitude;
+            }
         }
     }
 }

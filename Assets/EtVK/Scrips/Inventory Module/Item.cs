@@ -5,7 +5,7 @@ namespace EtVK.Inventory_Module
 {
     public abstract class Item : MonoBehaviour
     {
-        public abstract void LoadItemFromInventory(InventoryManager inventoryManager);
-        public abstract void AddItemToInventory(InventoryManager inventoryManager, Interactable interactable);
+        public abstract void LoadItemFromInventory(BaseInventoryManager inventory);
+        public abstract void AddItemToInventory(BaseInventoryManager inventory, Interactable interactable);
     }
 }

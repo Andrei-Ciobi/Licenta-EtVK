@@ -10,7 +10,7 @@ namespace EtVK.AI_Module.States
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             monoBehaviour.GetPatrolManager()
-                .GoToNextWaypoint(monoBehaviour, monoBehaviour.GetLocomotionData().WalkSpeed);
+                .GoToNextWaypoint(monoBehaviour, monoBehaviour.GetLocomotionData().WalkSlowSpeed);
         }
 
         public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

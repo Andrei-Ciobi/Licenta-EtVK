@@ -4,11 +4,14 @@ namespace EtVK.Core_Module
 {
     public abstract class LocomotionData : ScriptableObject
     {
-        [SerializeField] private float walkSpeed;
+        [SerializeField] private float walkSlowSpeed;
+        [SerializeField] private float walkFastSpeed;
         [SerializeField] private float runSpeed;
         [SerializeField] private float rotationSpeed;
 
-        public float WalkSpeed => walkSpeed;
+        public float WalkSlowSpeed => walkSlowSpeed;
+
+        public float WalkFastSpeed => walkFastSpeed;
 
         public float RunSpeed => runSpeed;
 

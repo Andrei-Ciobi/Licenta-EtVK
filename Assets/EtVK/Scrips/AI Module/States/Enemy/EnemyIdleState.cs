@@ -44,7 +44,7 @@ namespace EtVK.AI_Module.States
                 return;
             
             animator.SetInteger(EnemyAIState.AgentState.ToString(), EnemyAIState.CombatState.GetHashCode());
-            
+
         }
         
         private void HandlePatrolMovement(Animator animator)

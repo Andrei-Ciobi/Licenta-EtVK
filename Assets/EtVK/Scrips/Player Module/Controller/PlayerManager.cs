@@ -24,7 +24,7 @@ namespace EtVK.Player_Module.Controller
         private PlayerController controller;
         private Animator animator;
         private AnimatorOverrideController baseAnimatorOverrideController;
-        private InventoryManager inventoryManager;
+        private PlayerInventoryManager playerInventoryManager;
         private AnimationEventManager animationEventManager;
         private PlayerRootMotionController playerRootMotionController;
         private LockOnController lockOnController;
@@ -69,9 +69,9 @@ namespace EtVK.Player_Module.Controller
             return playerLocomotionData;
         }
 
-        public InventoryManager GetInventoryManager()
+        public PlayerInventoryManager GetInventoryManager()
         {
-            return inventoryManager;
+            return playerInventoryManager;
         }
 
         public AnimationEventManager GetAnimationEventManager()
@@ -102,7 +102,7 @@ namespace EtVK.Player_Module.Controller
         {
             controller = GetComponentInChildren<PlayerController>();
             animator = GetComponentInChildren<Animator>();
-            inventoryManager = GetComponentInChildren<InventoryManager>();
+            playerInventoryManager = GetComponentInChildren<PlayerInventoryManager>();
             animationEventManager = GetComponentInChildren<AnimationEventManager>();
             playerRootMotionController = GetComponentInChildren<PlayerRootMotionController>();
             lockOnController = GetComponentInChildren<LockOnController>();

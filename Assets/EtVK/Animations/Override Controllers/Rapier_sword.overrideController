@@ -9,8 +9,6 @@ AnimatorOverrideController:
   m_Name: Rapier_sword
   m_Controller: {fileID: 9100000, guid: c4ed6f9c302801d40887b35279ad04ab, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: ab4106da487d29d478b0a38249963ec0, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: b63c31961e1954b4ca74ed327327b64a, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 56845f6935e72e548b40923337cb581e, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 64f307e2081d75c4cbb9736ab8a71258, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 6e120608cd4ce6e49b65537a305d3fc2, type: 2}
@@ -29,3 +27,5 @@ AnimatorOverrideController:
     m_OverrideClip: {fileID: 7400000, guid: 94c85a7e396f6e34bb2cce732808dc09, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 39d1db3f9a5af2b45b90c5a40f154f8f, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 481e1b6a0f6ba7243b4f42831f0a55d5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ef17180fce164194bad2d8436a2f4019, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b63c31961e1954b4ca74ed327327b64a, type: 2}

@@ -1,4 +1,5 @@
-﻿using EtVK.Core_Module;
+﻿using EtVK.AI_Module.Inventory;
+using EtVK.Core_Module;
 using EtVK.Inventory_Module;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +14,7 @@ namespace EtVK.AI_Module.Core
 
         public bool UseRootMotionRotation { get; set; }
         public bool LookingForTarget { get; set; }
+        public bool IsChasing { get; set; }
 
         private EnemyController controller;
         private Animator animator;
@@ -21,6 +23,7 @@ namespace EtVK.AI_Module.Core
         private EnemyLivingEntity livingEntity;
         private NavMeshAgent navMeshAgent;
         private PatrolManager patrolManager;
+        private EnemyInventoryManager inventoryManager;
 
         private void Awake()
         {
@@ -81,6 +84,10 @@ namespace EtVK.AI_Module.Core
         {
             return patrolManager;
         }
+        public EnemyInventoryManager GetInventoryManager()
+        {
+            return inventoryManager;
+        }
         
 
         private void InitializeReferences()
@@ -92,6 +99,7 @@ namespace EtVK.AI_Module.Core
             livingEntity = GetComponentInChildren<EnemyLivingEntity>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             patrolManager = GetComponentInChildren<PatrolManager>();
+            inventoryManager = GetComponentInChildren<EnemyInventoryManager>();
             
             rootMotionController.Initialize(this);
 

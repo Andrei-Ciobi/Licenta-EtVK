@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Prototype_entity_data
   m_EditorClassIdentifier: 
   entityName: Gigel
-  maxHealth: 200
+  maxHealth: 15
   poiseLevel: 20
   invulnerableTime: 0.2
   entityFaction: 1

@@ -8,20 +8,8 @@ namespace EtVK.Inventory_Module
     {
         [SerializeField] private WeaponType weaponType;
         [SerializeField] private Transform drawParentOverride;
-        private Weapon curentWeapon;
         public WeaponType WeaponType => weaponType;
         public Transform DrawParentOverride => drawParentOverride;
 
-        public Weapon CurentWeapon => curentWeapon;
-
-        public void DestroyAndSetCurentWeapon(Weapon newWeapon)
-        {
-            if(curentWeapon != null)
-            {
-                Destroy(curentWeapon.gameObject);
-            }
-            curentWeapon = newWeapon;
-        }
-        
     }
 }

@@ -18,9 +18,9 @@ namespace EtVK.Items_Module.Weapons
         public abstract void DrawWeapon();
         public abstract void WithdrawWeapon();
         public abstract void SwitchWeapon(Weapon currentWeapon);
-        public override void LoadItemFromInventory(InventoryManager inventoryManager)
+        public override void LoadItemFromInventory(BaseInventoryManager inventory)
         {
-            var weaponSlotList = inventoryManager.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == weaponData.ItemType).Cast<WeaponHolderSlot>().ToList();
+            var weaponSlotList = inventory.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == weaponData.ItemType).Cast<WeaponHolderSlot>().ToList();
 
             if (weaponSlotList.Count == 0)
             {
@@ -43,19 +43,20 @@ namespace EtVK.Items_Module.Weapons
             
             //add a reference of the weapon slot to the weapon
             currentWeaponSlot = weaponSlot;
-            weaponSlot.DestroyAndSetCurentWeapon(this);
-            inventoryManager.AddWeaponReference(this);
+            var playerInventory = (PlayerInventoryManager) inventory;
+            playerInventory.AddWeaponReference(this);
         }
 
-        public override void AddItemToInventory(InventoryManager inventoryManager, Interactable interactable)
+        public override void AddItemToInventory(BaseInventoryManager inventory, Interactable interactable)
         {
-            if (!inventoryManager.SpaceAvailable(weaponData.ItemType))
+            var playerInventory = (PlayerInventoryManager) inventory;
+            if (!playerInventory.SpaceAvailable(weaponData.ItemType))
             {
                 interactable.Response(StatusResponse.Fail, "No space available");
                 return;
             }
             
-            inventoryManager.GetInventoryData().AddItem(weaponData);
+            playerInventory.GetInventoryData().AddItem(weaponData);
             interactable.Response(StatusResponse.Success);
             
 

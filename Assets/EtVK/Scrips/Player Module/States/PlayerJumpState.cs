@@ -14,7 +14,7 @@ namespace EtVK.Player_Module.States
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             monoBehaviour.GetController().Jump();
-            curentAirSpeed = monoBehaviour.GetLocomotionData().WalkSpeed;
+            curentAirSpeed = monoBehaviour.GetLocomotionData().WalkFastSpeed;
             movement = Vector2.zero;
         }
 

@@ -10,7 +10,10 @@ using UnityEngine;
         private void OnSceneGUI()
         {
             var fow = (EnemyManager)target;
+            if(fow == null)
+                return;
             
+            var inventory = fow.GetInventoryManager();
             if(fow.GetLocomotionData() == null)
                 return;
             
@@ -35,14 +38,24 @@ using UnityEngine;
                 fow.GetLocomotionData().BaseDetectionRadius, 1.5f);
             
             // Attack range radius
+            var attackRadius = fow.GetLocomotionData().BaseAttackRadius;
+            if (inventory != null)
+            {
+                attackRadius = inventory.GetCurrentWeapon().WeaponData.AttackRange;
+            }
             Handles.color = Color.blue;
             Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360,
-                fow.GetLocomotionData().BaseAttackRadius, 1.5f);
+                attackRadius, 1.5f);
             
             // Melee range radius
+            var meleeRadius = fow.GetLocomotionData().BaseMeleeRadius;
+            if (inventory != null)
+            {
+                meleeRadius = inventory.GetCurrentWeapon().WeaponData.MeleeRange;
+            }
             Handles.color = Color.green;
             Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360,
-                fow.GetLocomotionData().BaseMeleeRadius, 1.5f);
+                meleeRadius, 1.5f);
             
             // Aggro range radius
             Handles.color = Color.red;
