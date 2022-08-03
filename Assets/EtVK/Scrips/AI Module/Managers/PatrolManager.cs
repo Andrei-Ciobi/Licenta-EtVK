@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace EtVK.AI_Module.Core
+namespace EtVK.AI_Module.Managers
 {
     public class PatrolManager : MonoBehaviour
     {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using EtVK.Items_Module.Armors;
 using EtVK.Items_Module.Weapons;
 using EtVK.Utyles;
@@ -55,14 +53,26 @@ namespace EtVK.Inventory_Module
             return inventorySpace.Count < maxInventorySpace;
         }
 
-        public Weapon GetArmedWeapon()
+        public Weapon GetCurrentWeapon()
         {
-            return weaponReferences.Find((weapon) => weapon.IsArmed);
+            var weapon = weaponReferences.Find(x => x.IsArmed);
+            
+            if (weapon != null) 
+                return weapon;
+            
+            Debug.Log("No weapon armed");
+            return null;
         }
 
-        public Weapon GetWeapon(WeaponType weaponType)
+        public Weapon GetWeaponByType(WeaponType type)
         {
-            return weaponReferences.Find((weapon) => weapon.WeaponData.WeaponType == weaponType);
+            var weapon = weaponReferences.Find(x => x.WeaponData.WeaponType.Equals(type));
+            
+            if (weapon != null) 
+                return weapon;
+            
+            Debug.Log($"No weapon of type: {type}");
+            return null;
         }
 
         public InventoryData GetInventoryData()

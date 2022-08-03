@@ -1,4 +1,4 @@
-﻿using EtVK.AI_Module.Core;
+﻿using EtVK.AI_Module.Managers;
 using EtVK.Core_Module;
 using EtVK.Utyles;
 using UnityEngine;
@@ -42,7 +42,7 @@ namespace EtVK.AI_Module.States
 
         private void HandleCombatBehaviour(Animator animator)
         {
-            // var weapon = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
+            var weapon = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
             var inAggroRange = monoBehaviour.GetController()
                 .TargetInRange(monoBehaviour.GetLocomotionData().AggroRange);
             var inCombatAggroRange = monoBehaviour.GetController()

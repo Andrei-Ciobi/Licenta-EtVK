@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using EtVK.AI_Module.Attacks;
+using EtVK.AI_Module.Actions;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Weapons

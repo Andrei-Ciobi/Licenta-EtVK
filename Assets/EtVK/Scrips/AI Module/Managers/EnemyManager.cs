@@ -1,12 +1,13 @@
-﻿using EtVK.AI_Module.Inventory;
+﻿using EtVK.AI_Module.Controllers;
+using EtVK.AI_Module.Core;
+using EtVK.AI_Module.Inventory;
 using EtVK.Core_Module;
-using EtVK.Inventory_Module;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace EtVK.AI_Module.Core
+namespace EtVK.AI_Module.Managers
 {
-    public class EnemyManager : MonoBehaviour
+    public class EnemyManager : BaseManager<EnemyManager, EnemyController, EnemyInventoryManager>
     {
         [SerializeField] private EnemyLocomotionData enemyLocomotionData;
         [Header("Set AI to dummy mode, only takes damage")]
@@ -15,20 +16,17 @@ namespace EtVK.AI_Module.Core
         public bool UseRootMotionRotation { get; set; }
         public bool LookingForTarget { get; set; }
         public bool IsChasing { get; set; }
-
-        private EnemyController controller;
-        private Animator animator;
+        
         private EnemyRootMotionController rootMotionController;
         private Rigidbody agentRigidBody;
         private EnemyLivingEntity livingEntity;
         private NavMeshAgent navMeshAgent;
         private PatrolManager patrolManager;
-        private EnemyInventoryManager inventoryManager;
 
         private void Awake()
         {
+            InitializeBaseReferences();
             InitializeReferences();
-            SceneLinkedSMB<EnemyManager>.Initialise(animator, this);
         }
 
         private void Start()
@@ -50,15 +48,8 @@ namespace EtVK.AI_Module.Core
         {
             return patrolManager != null && patrolManager.HasPath;
         }
-        public EnemyController GetController()
-        {
-            return controller;
-        }
 
-        public Animator GetAnimator()
-        {
-            return animator;
-        }
+        
 
         public Rigidbody GetAgentRigidBody()
         {
@@ -84,22 +75,15 @@ namespace EtVK.AI_Module.Core
         {
             return patrolManager;
         }
-        public EnemyInventoryManager GetInventoryManager()
-        {
-            return inventoryManager;
-        }
-        
+
 
         private void InitializeReferences()
         {
-            controller = GetComponent<EnemyController>();
-            animator = GetComponentInChildren<Animator>();
             rootMotionController = GetComponentInChildren<EnemyRootMotionController>();
             agentRigidBody = GetComponent<Rigidbody>();
             livingEntity = GetComponentInChildren<EnemyLivingEntity>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             patrolManager = GetComponentInChildren<PatrolManager>();
-            inventoryManager = GetComponentInChildren<EnemyInventoryManager>();
             
             rootMotionController.Initialize(this);
 

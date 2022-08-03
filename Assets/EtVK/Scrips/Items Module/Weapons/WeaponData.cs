@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using EtVK.Attacks_Module;
+using EtVK.Actions_Module;
 using EtVK.Inventory_Module;
 using EtVK.Utyles;
 using UnityEngine;
@@ -76,5 +76,6 @@ namespace EtVK.Items_Module.Weapons
                 }
             }
         }
+        
     }
 }

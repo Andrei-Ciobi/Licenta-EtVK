@@ -19,7 +19,7 @@ namespace EtVK.Player_Module.States
         {
             if (monoBehaviour.CanAttack())
             {
-                var weaponDraw = monoBehaviour.GetInventoryManager().GetArmedWeapon();
+                var weaponDraw = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
 
                 if (weaponDraw == null)
                 {

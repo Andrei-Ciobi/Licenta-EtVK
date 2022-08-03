@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EtVK.AI_Module.Managers;
 using UnityEngine;
 
-namespace EtVK.AI_Module.Core
+namespace EtVK.AI_Module.Controllers
 {
     public class EnemyRootMotionController : MonoBehaviour
     {

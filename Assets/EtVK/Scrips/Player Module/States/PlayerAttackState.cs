@@ -20,7 +20,7 @@ namespace EtVK.Player_Module.States
         {
             animator.SetBool(PlayerState.IsAttacking.ToString(), false);
             animator.SetBool(PlayerState.ComboAttack.ToString(), false);
-            var weapon = monoBehaviour.GetInventoryManager().GetArmedWeapon();
+            var weapon = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
             var attackAction = weapon.WeaponData.GetAttackAction(attackType, attackIndex - 1);
             useRotation = attackAction.UseRotation;
 

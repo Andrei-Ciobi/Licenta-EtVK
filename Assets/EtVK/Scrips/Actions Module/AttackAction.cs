@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Attacks_Module
+namespace EtVK.Actions_Module
 {
-    [CreateAssetMenu( menuName = "ScriptableObjects/Attacks/AttackAction")]
-    public class AttackAction : ScriptableObject
+    [CreateAssetMenu( menuName = "ScriptableObjects/Actions/AttackAction")]
+    public class AttackAction : BaseAction
     {
-        [SerializeField] private string clipName;
-        [SerializeField] private AnimationClip animationClip;
         [SerializeField] private bool comboIntoDifferentAttackType;
         [SerializeField] private bool useRootMotion;
         [SerializeField] private bool useRotation;
@@ -17,8 +15,6 @@ namespace EtVK.Attacks_Module
 
         public bool ComboIntoDifferentAttackType => comboIntoDifferentAttackType;
 
-        public string ClipName => clipName;
-
-        public AnimationClip AnimationClip => animationClip;
+       
     }
 }

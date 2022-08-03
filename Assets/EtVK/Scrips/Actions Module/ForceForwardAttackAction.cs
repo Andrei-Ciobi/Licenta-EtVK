@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Attacks_Module
+namespace EtVK.Actions_Module
 {
-    [CreateAssetMenu( menuName = "ScriptableObjects/Attacks/ForceForward")]
+    [CreateAssetMenu( menuName = "ScriptableObjects/Actions/ForceForward")]
     public class ForceForwardAttackAction : AttackAction
     {
         [Header("Force forward parameters")]

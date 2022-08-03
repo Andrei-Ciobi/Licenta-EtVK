@@ -7,19 +7,15 @@ using UnityEngine;
 
 namespace EtVK.AI_Module.Weapons
 {
-    public abstract class BaseEnemyWeapon : Item, IWeaponDamageable
+    public abstract class BaseEnemyWeapon<T> : Item, IWeaponDamageable where T : BaseEnemyWeaponData
     {
+        [SerializeField] protected T weaponData;
         public bool IsArmed => isArmed;
-        public BaseEnemyWeaponData WeaponData => weaponData;
+        public T WeaponData => weaponData;
         
-        protected BaseEnemyWeaponData weaponData;
         protected WeaponHolderSlot currentWeaponSlot;
         protected bool isArmed;
-        
-        public abstract void DrawWeapon();
-        public abstract void WithdrawWeapon();
-        public abstract void SwitchWeapon(BaseEnemyWeapon currentWeapon);
-        
+
         public override void LoadItemFromInventory(BaseInventoryManager inventory)
         {
             var weaponSlotList = inventory.GetAllHolderSlots().FindAll((slot) => slot.HolderSlotType == weaponData.ItemType).Cast<WeaponHolderSlot>().ToList();
@@ -45,11 +41,11 @@ namespace EtVK.AI_Module.Weapons
             
             //add a reference of the weapon slot to the weapon
             currentWeaponSlot = weaponSlot;
-            var playerInventory = (EnemyInventoryManager) inventory;
-            playerInventory.AddWeaponReference(this);
+            var enemyInventory =  (BaseEnemyInventoryManager<BaseEnemyWeapon<T>, T>) inventory;
+            enemyInventory.AddWeaponReference(this);
         }
         public override void AddItemToInventory(BaseInventoryManager inventoryManager, Interactable interactable) { }
-        public float DealDamage()
+        public virtual float DealDamage()
         {
             return weaponData.Damage;
         }

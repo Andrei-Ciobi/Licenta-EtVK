@@ -1,5 +1,5 @@
 ﻿using System;
-using EtVK.AI_Module.Core;
+using EtVK.AI_Module.Managers;
 using EtVK.Core_Module;
 using EtVK.Utyles;
 using UnityEngine;

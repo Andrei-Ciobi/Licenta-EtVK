@@ -1,4 +1,5 @@
 ﻿using EtVK.AI_Module.Core;
+using EtVK.AI_Module.Managers;
 using UnityEditor;
 using UnityEngine;
 // ReSharper disable CheckNamespace

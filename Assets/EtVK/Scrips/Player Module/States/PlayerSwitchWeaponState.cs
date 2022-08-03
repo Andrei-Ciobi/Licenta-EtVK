@@ -13,8 +13,8 @@ namespace EtVK.Player_Module.States
             {
                 InputManager.Instance.SwitchWeaponInput = false;
                 var weaponType = InputManager.Instance.SwitchWeaponType;
-                var curentWeaponArmed = monoBehaviour.GetInventoryManager().GetArmedWeapon();
-                var weaponToSwitch = monoBehaviour.GetInventoryManager().GetWeapon(weaponType);
+                var curentWeaponArmed = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
+                var weaponToSwitch = monoBehaviour.GetInventoryManager().GetWeaponByType(weaponType);
                 
                 if (weaponToSwitch == null)
                 {
@@ -24,7 +24,7 @@ namespace EtVK.Player_Module.States
                 
                 weaponToSwitch.SwitchWeapon(curentWeaponArmed);
                 
-                var newWeapon = monoBehaviour.GetInventoryManager().GetArmedWeapon();
+                var newWeapon = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
 
                 if (newWeapon != null)
                 {

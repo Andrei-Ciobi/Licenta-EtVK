@@ -8,7 +8,7 @@ namespace EtVK.AI_Module.Weapons
     {
         [SerializeField] protected WeaponType weaponType;
         [SerializeField] private AnimatorOverrideController animatorOverride;
-        
+
         [Header("Weapon stats")] 
         [Range(0f, 35f)] [SerializeField] private float attackRange;
         [Range(0f, 35f)] [SerializeField] private float meleeRange;
@@ -39,6 +39,5 @@ namespace EtVK.AI_Module.Weapons
                 virtualOverride[clipName] = clip;
             }
         }
-
     }
 }
