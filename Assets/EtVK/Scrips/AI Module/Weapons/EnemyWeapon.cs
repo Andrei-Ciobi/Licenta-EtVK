@@ -1,9 +1,10 @@
-﻿using EtVK.Core_Module;
+﻿using EtVK.AI_Module.Actions;
+using EtVK.Core_Module;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Weapons
 {
-    public class EnemyWeapon : BaseEnemyWeapon<EnemyWeaponData>, IWeapon
+    public class EnemyWeapon : BaseEnemyWeapon<EnemyWeaponData, EnemyAttackAction>, IWeapon
     {
         public void DrawWeapon()
         {

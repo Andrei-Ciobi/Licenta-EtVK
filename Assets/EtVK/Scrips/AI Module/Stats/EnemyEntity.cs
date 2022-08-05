@@ -1,8 +1,8 @@
 ﻿using EtVK.Health_Module;
 
-namespace EtVK.AI_Module.Core
+namespace EtVK.AI_Module.Stats
 {
-    public class EnemyLivingEntity : LivingEntity
+    public class EnemyEntity : LivingEntity<BaseEntityStats>
     {
         public delegate void OnDie();
         public OnDie onDie;

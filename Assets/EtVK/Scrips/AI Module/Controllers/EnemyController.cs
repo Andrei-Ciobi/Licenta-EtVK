@@ -62,7 +62,7 @@ namespace EtVK.AI_Module.Controllers
             {
                 if (coll.gameObject == this.gameObject) continue;
 
-                var livingEntity = coll.GetComponent<LivingEntity>();
+                var livingEntity = coll.GetComponent<ILivingEntity>();
 
                 if (livingEntity == null) 
                     continue;
@@ -72,8 +72,8 @@ namespace EtVK.AI_Module.Controllers
                     continue;
 
                 // We calculate the direction from this gameObj to the target
-                var directionToTarget = (livingEntity.transform.position - transform.position).normalized;
-                var distanceToTarget = Vector3.Distance(livingEntity.transform.position, transform.position);
+                var directionToTarget = (livingEntity.Transform.position - transform.position).normalized;
+                var distanceToTarget = Vector3.Distance(livingEntity.Transform.position, transform.position);
 
                 //If the target is not in the field of view or he is in aggro range
                 if (!(Vector3.Angle(transform.forward, directionToTarget) <
@@ -86,7 +86,7 @@ namespace EtVK.AI_Module.Controllers
                         enemyManager.GetLocomotionData().ObstacleMask))
                     continue;
                 
-                CurrentTarget = livingEntity.transform;
+                CurrentTarget = livingEntity.Transform;
                 enemyManager.LookingForTarget = false;
             }
         }

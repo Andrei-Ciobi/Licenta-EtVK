@@ -6,10 +6,11 @@ using UnityEngine;
 
 namespace EtVK.AI_Module.Inventory
 {
-    public abstract class BaseEnemyInventoryManager<TWeapon, TWeaponData> : BaseInventoryManager 
-        where  TWeapon : BaseEnemyWeapon<TWeaponData> where TWeaponData : BaseEnemyWeaponData
+    public abstract class BaseEnemyInventoryManager<TWeapon, TWeaponData, TAction> : BaseInventoryManager, IEnemyInventory
+        where  TWeapon : BaseEnemyWeapon<TWeaponData, TAction> 
+        where TWeaponData : BaseEnemyWeaponData<TAction>
     {
-        [SerializeField] private List<ItemData> itemList = new();
+        [SerializeField] private List<TWeaponData> weaponsList = new();
         
         private List<TWeapon> weaponReferences = new();
 
@@ -40,12 +41,23 @@ namespace EtVK.AI_Module.Inventory
             Debug.Log($"No weapon of type: {type}");
             return null;
         }
+
+        public GameObject GetCurrentWeaponObj()
+        {
+            return weaponReferences.Find(weapon => weapon.IsArmed).gameObject;
+        }
+
+        public GameObject GetWeaponObjByType(WeaponType weaponType)
+        {
+            return weaponReferences.Find(weapon => weapon.WeaponData.WeaponType == weaponType).gameObject;
+        }
+
         protected override void LoadInventory()
         {
-            if (itemList.Count <= 0) 
+            if (weaponsList.Count <= 0) 
                 return;
             
-            foreach (var item in itemList)
+            foreach (var item in weaponsList)
             {
                 if(!item.IsEquipped)
                     continue;

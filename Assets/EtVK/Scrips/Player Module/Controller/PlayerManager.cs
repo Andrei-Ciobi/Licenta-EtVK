@@ -1,4 +1,5 @@
 using EtVK.Core_Module;
+using EtVK.Health_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
 using EtVK.Utyles;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace EtVK.Player_Module.Controller
 {
-    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager>
+    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>
     {
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }

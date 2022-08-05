@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace EtVK.Health_Module
 {
-    public class LivingEntity : MonoBehaviour, IDamageable
+    public abstract class LivingEntity<TStats> : MonoBehaviour, IDamageable, ILivingEntity
+        where TStats : BaseEntityStats
     {
-        [SerializeField] private BaseEntityStats entityStats;
+        [SerializeField] private TStats entityStats;
         [SerializeField] private bool isInvulnerable;
         
         public GameObject GameObject => gameObject;
+        public Transform Transform => transform;
         public Factions EntityFaction => entityStats.EntityFaction;
 
         private float currentHealth;

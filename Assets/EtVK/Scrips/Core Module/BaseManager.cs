@@ -5,18 +5,20 @@ using UnityEngine;
 
 namespace EtVK.Core_Module
 {
-    public class BaseManager<TManager, TController, TInventoryManager > : MonoBehaviour 
-        where TManager : BaseManager<TManager, TController, TInventoryManager>
+    public class BaseManager<TManager, TController, TInventoryManager, TEntity > : MonoBehaviour 
+        where TManager : BaseManager<TManager, TController, TInventoryManager, TEntity>
     {
         protected Animator animator;
         private TController controller;
         private TInventoryManager inventoryManager;
+        private TEntity livingEntity;
         
-        protected void InitializeBaseReferences()
+        protected virtual void InitializeBaseReferences()
         {
             animator = GetComponentInChildren<Animator>();
             controller = GetComponent<TController>();
             inventoryManager = GetComponentInChildren<TInventoryManager>();
+            livingEntity = GetComponent<TEntity>();
             SceneLinkedSMB<TManager>.Initialise(animator, this as TManager);
         }
         
@@ -47,6 +49,11 @@ namespace EtVK.Core_Module
         public TInventoryManager GetInventoryManager()
         {
             return inventoryManager;
+        }
+
+        public TEntity GetLivingEntity()
+        {
+            return livingEntity;
         }
         
         

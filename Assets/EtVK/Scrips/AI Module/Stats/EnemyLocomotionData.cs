@@ -1,7 +1,7 @@
 ﻿using EtVK.Core_Module;
 using UnityEngine;
 
-namespace EtVK.AI_Module.Core
+namespace EtVK.AI_Module.Stats
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/AI/Stats/EnemyLocomotionData")]
     public class EnemyLocomotionData : LocomotionData
