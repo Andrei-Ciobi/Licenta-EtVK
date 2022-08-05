@@ -8,6 +8,9 @@ namespace EtVK.Core_Module
     public class BaseManager<TManager, TController, TInventoryManager, TEntity > : MonoBehaviour 
         where TManager : BaseManager<TManager, TController, TInventoryManager, TEntity>
     {
+        public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
+        
+        private AnimatorOverrideController baseAnimatorOverrideController;
         protected Animator animator;
         private TController controller;
         private TInventoryManager inventoryManager;
@@ -19,6 +22,7 @@ namespace EtVK.Core_Module
             controller = GetComponent<TController>();
             inventoryManager = GetComponentInChildren<TInventoryManager>();
             livingEntity = GetComponent<TEntity>();
+            baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
             SceneLinkedSMB<TManager>.Initialise(animator, this as TManager);
         }
         

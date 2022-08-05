@@ -15,11 +15,8 @@ namespace EtVK.Player_Module.Controller
         public bool UseRootMotionRotation { get; set; }
         public Transform CameraMainTransform => cameraMainTransform;
 
-        public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
-
         [SerializeField] private PlayerLocomotionData playerLocomotionData;
         
-        private AnimatorOverrideController baseAnimatorOverrideController;
         private PlayerAnimationEventController animationEventController;
         private PlayerRootMotionController playerRootMotionController;
         private LockOnController lockOnController;
@@ -72,8 +69,6 @@ namespace EtVK.Player_Module.Controller
             playerRootMotionController = GetComponentInChildren<PlayerRootMotionController>();
             lockOnController = GetComponentInChildren<LockOnController>();
             playerRootMotionController.Initialize(this);
-
-            baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
         }
     }

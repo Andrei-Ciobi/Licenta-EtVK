@@ -1,5 +1,6 @@
 ﻿using EtVK.Ability_Module;
 using EtVK.AI_Module.Inventory;
+using EtVK.AI_Module.Weapons;
 using EtVK.Core_Module;
 using EtVK.Items_Module.Weapons;
 using EtVK.Utyles;
@@ -38,8 +39,7 @@ namespace EtVK.AI_Module.Controllers
         {
             var inventoryWeapon = inventory.GetWeaponObjByType(weaponType);
             
-            Debug.Log(inventoryWeapon);
-            var weapon = inventoryWeapon.GetComponent<IWeapon>();
+            var weapon = inventoryWeapon.GetComponent<IEnemyWeapon>();
             if (weapon == null)
             {
                 Debug.LogError($"No IWeapon interface on {inventoryWeapon.gameObject.name}");
@@ -51,7 +51,7 @@ namespace EtVK.AI_Module.Controllers
         public override void WithdrawWeapon(WeaponType weaponType)
         {
             var inventoryWeapon = inventory.GetWeaponObjByType(weaponType);
-            var weapon = inventoryWeapon.GetComponent<IWeapon>();
+            var weapon = inventoryWeapon.GetComponent<IEnemyWeapon>();
             if (weapon == null)
             {
                 Debug.LogError($"No IWeapon interface on {inventoryWeapon.gameObject.name}");

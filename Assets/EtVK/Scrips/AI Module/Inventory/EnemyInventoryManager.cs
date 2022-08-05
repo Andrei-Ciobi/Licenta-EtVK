@@ -1,4 +1,5 @@
-﻿using EtVK.AI_Module.Actions;
+﻿using System;
+using EtVK.AI_Module.Actions;
 using EtVK.AI_Module.Weapons;
 
 namespace EtVK.AI_Module.Inventory
@@ -8,6 +9,11 @@ namespace EtVK.AI_Module.Inventory
         private void Awake()
         {
             Initialize();
+        }
+
+        private void Start()
+        {
+            LoadInventory();
         }
     }
 }

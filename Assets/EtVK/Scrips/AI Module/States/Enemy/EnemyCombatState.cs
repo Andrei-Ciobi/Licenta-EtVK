@@ -1,4 +1,6 @@
-﻿using EtVK.AI_Module.Managers;
+﻿using EtVK.AI_Module.Actions;
+using EtVK.AI_Module.Managers;
+using EtVK.AI_Module.Weapons;
 using EtVK.Core_Module;
 using EtVK.Utyles;
 using UnityEngine;
@@ -53,9 +55,9 @@ namespace EtVK.AI_Module.States
             //     .TargetInRange(weapon.WeaponData.AttackRange);
             
             var inMeleeRange = monoBehaviour.GetController()
-                .TargetInRange(monoBehaviour.GetLocomotionData().BaseMeleeRadius);
+                .TargetInRange(MeleeRange(weapon));
             var inAttackRange = monoBehaviour.GetController()
-                .TargetInRange(monoBehaviour.GetLocomotionData().BaseAttackRadius);
+                .TargetInRange(AttackRange(weapon));
             
             //If we are chasing the target and we got to the melee range we stop chasing
             if (monoBehaviour.IsChasing && inMeleeRange)
@@ -109,6 +111,16 @@ namespace EtVK.AI_Module.States
                 horizontalMovementValue = 1f;
             else if(horizontalMovementValue == 0)
                 horizontalMovementValue = 1f;
+        }
+
+        private float MeleeRange(EnemyWeapon weapon)
+        {
+            return weapon?.WeaponData.MeleeRange ?? monoBehaviour.GetLocomotionData().BaseMeleeRadius;
+        }
+        
+        private float AttackRange(EnemyWeapon weapon)
+        {
+            return weapon?.WeaponData.AttackRange ?? monoBehaviour.GetLocomotionData().BaseAttackRadius;
         }
     }
 }

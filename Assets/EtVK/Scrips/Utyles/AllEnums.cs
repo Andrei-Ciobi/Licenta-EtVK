@@ -164,6 +164,12 @@ namespace EtVK.Utyles
         
     }
 
+    public enum WeaponActionType
+    {
+        Draw = 0,
+        Withdraw = 1,
+    }
+
     public enum StatusResponse
     {
         Success = 0,

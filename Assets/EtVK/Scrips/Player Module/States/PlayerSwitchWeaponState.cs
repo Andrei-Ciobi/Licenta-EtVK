@@ -13,7 +13,7 @@ namespace EtVK.Player_Module.States
             {
                 InputManager.Instance.SwitchWeaponInput = false;
                 var weaponType = InputManager.Instance.SwitchWeaponType;
-                var curentWeaponArmed = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
+                var currentWeaponArmed = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
                 var weaponToSwitch = monoBehaviour.GetInventoryManager().GetWeaponByType(weaponType);
                 
                 if (weaponToSwitch == null)
@@ -22,18 +22,11 @@ namespace EtVK.Player_Module.States
                     return;
                 }
                 
-                weaponToSwitch.SwitchWeapon(curentWeaponArmed);
+                weaponToSwitch.SwitchWeapon(currentWeaponArmed);
                 
                 var newWeapon = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
 
-                if (newWeapon != null)
-                {
-                    animator.runtimeAnimatorController = newWeapon.WeaponData.AnimatorOverride;
-                }
-                else
-                {
-                    animator.runtimeAnimatorController = monoBehaviour.BaseAnimatorOverrideController;
-                }
+                animator.runtimeAnimatorController = newWeapon != null ? newWeapon.WeaponData.AnimatorOverride : monoBehaviour.BaseAnimatorOverrideController;
             }
         }
     }

@@ -23,12 +23,7 @@ namespace EtVK.AI_Module.Inventory
         {
             var weapon = weaponReferences.Find(x => x.IsArmed);
             
-            if (weapon != null) 
-                return weapon;
-            
-            Debug.Log("No weapon armed");
-            return null;
-
+            return weapon != null ? weapon : null;
         }
 
         public TWeapon GetWeaponByType(WeaponType type)

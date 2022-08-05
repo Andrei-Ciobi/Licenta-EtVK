@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using EtVK.Actions_Module;
 using EtVK.AI_Module.Inventory;
 using EtVK.Inventory_Module;
 using EtVK.Items_Module.Weapons;
@@ -42,13 +43,14 @@ namespace EtVK.AI_Module.Weapons
             
             //add a reference of the weapon slot to the weapon
             currentWeaponSlot = weaponSlot;
-            var enemyInventory =  (BaseEnemyInventoryManager<BaseEnemyWeapon<TWeaponData, TAction>, TWeaponData, TAction>) inventory;
-            enemyInventory.AddWeaponReference(this);
+            SetWeaponReference(inventory);
         }
         public override void AddItemToInventory(BaseInventoryManager inventoryManager, Interactable interactable) { }
         public virtual float DealDamage()
         {
             return weaponData.Damage;
         }
+
+        protected abstract void SetWeaponReference(BaseInventoryManager inventory);
     }
 }
