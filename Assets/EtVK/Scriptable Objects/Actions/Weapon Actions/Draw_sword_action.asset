@@ -16,3 +16,5 @@ MonoBehaviour:
   clipName: 
   animationClip: {fileID: 0}
   weaponType: 1
+  weaponActionType: 0
+  layerIndex: 1

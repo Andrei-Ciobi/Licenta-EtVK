@@ -20,9 +20,9 @@ MonoBehaviour:
   isEquipped: 1
   weaponType: 1
   animatorOverride: {fileID: 22100000, guid: 68672cc8b8a20c74e80314f823fa4fdc, type: 2}
-  attackRange: 0
-  meleeRange: 0
-  weaponAttackCd: 0
+  attackRange: 4.6
+  meleeRange: 3
+  weaponAttackCd: 0.02
   baseActionList:
   - {fileID: 11400000, guid: 059cd645789ae1c4895f13fbd19a3d2e, type: 2}
   actionList: []
