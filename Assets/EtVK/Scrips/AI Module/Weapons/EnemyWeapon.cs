@@ -36,7 +36,7 @@ namespace EtVK.AI_Module.Weapons
         
         public float DealDamage()
         {
-            return 0f;
+            return CurrentAttackAction?.AttackDamage ?? weaponData.BaseDamage;
         }
         
         protected override void SetWeaponReference(BaseInventoryManager inventory)

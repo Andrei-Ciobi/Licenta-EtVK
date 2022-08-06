@@ -87,7 +87,7 @@ namespace EtVK.AI_Module.Managers
             overrideController[weapon.CurrentAttackAction!.ClipName] = weapon.CurrentAttackAction.AnimationClip;
         }
         
-        private bool InAttackParameters(EnemyAttackAction attack)
+        public bool InAttackParameters(EnemyAttackAction attack)
         {
             // We calculate the current angle and distance from target
             var directionToTarget = controller.DirectionToCurrentTarget;

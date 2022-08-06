@@ -22,8 +22,8 @@ MonoBehaviour:
   animatorOverride: {fileID: 22100000, guid: 68672cc8b8a20c74e80314f823fa4fdc, type: 2}
   meleeRange: 3.5
   attackRange: 5.3
-  weaponAttackCd: 0.02
+  baseDamage: 0
   baseActionList:
   - {fileID: 11400000, guid: 059cd645789ae1c4895f13fbd19a3d2e, type: 2}
   actionList:
-  - {fileID: 11400000, guid: 96a4a07098636d24e9542fd8b526b6e7, type: 2}
+  - {fileID: 11400000, guid: 01f95a8b84f3b1f45b65c031e043c6a9, type: 2}

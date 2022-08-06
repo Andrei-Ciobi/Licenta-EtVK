@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb9eaf32d4d04167be314fc8eb55b0cf, type: 3}
-  m_Name: Enemy_attack_katana_3combo_3
+  m_Name: Enemy_attack_katana_3combo_1
   m_EditorClassIdentifier: 
   actionName: 
-  clipName: Base_normal_attack_3
-  animationClip: {fileID: 7400000, guid: fe34d8a322b134e498e13606bed0ea8d, type: 2}
+  clipName: Base_normal_attack
+  animationClip: {fileID: 7400000, guid: c4b3820aec0026b4080a38ac5539f49e, type: 2}
   comboIntoDifferentAttackType: 0
-  useRootMotion: 1
+  useRootMotion: 0
   useRotation: 1
   rotationSpeed: 1.03
   attackScore: 2
@@ -26,5 +26,5 @@ MonoBehaviour:
   maxAngle: 90
   minAttackRange: 2
   maxAttackRange: 6
-  hasCombo: 0
-  comboAction: {fileID: 0}
+  hasCombo: 1
+  comboAction: {fileID: 11400000, guid: 40dc2d793be5f7e4f8286c0888c2eda6, type: 2}

@@ -23,7 +23,9 @@ namespace EtVK.AI_Module.Managers
         private Rigidbody agentRigidBody;
         private NavMeshAgent navMeshAgent;
         private PatrolManager patrolManager;
+        private EnemyAnimationEventController animationEventController;
         protected EnemyRootMotionController rootMotionController;
+        
         
         public Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal)
         {
@@ -64,6 +66,11 @@ namespace EtVK.AI_Module.Managers
             return patrolManager;
         }
 
+        public EnemyAnimationEventController GetAnimationEventController()
+        {
+            return animationEventController;
+        }
+
         protected override void InitializeBaseReferences()
         {
             base.InitializeBaseReferences();
@@ -71,6 +78,7 @@ namespace EtVK.AI_Module.Managers
             navMeshAgent = GetComponent<NavMeshAgent>();
             patrolManager = GetComponentInChildren<PatrolManager>();
             rootMotionController = GetComponentInChildren<EnemyRootMotionController>();
+            animationEventController = GetComponentInChildren<EnemyAnimationEventController>();
         }
 
         protected void OnStart()

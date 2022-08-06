@@ -11,7 +11,7 @@ namespace EtVK.AI_Module.Controllers
         private Quaternion deltaRotation;
         
         
-        private void Update()
+        private void LateUpdate()
         {
             // if (animator.applyRootMotion)
             // {

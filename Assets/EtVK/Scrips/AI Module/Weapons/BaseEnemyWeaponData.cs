@@ -15,19 +15,20 @@ namespace EtVK.AI_Module.Weapons
         [Header("Weapon stats")] 
         [Range(0f, 35f)] [SerializeField] private float meleeRange;
         [Range(0f, 35f)] [SerializeField] private float attackRange;
-        [Range(0f, 10f)] [SerializeField] private float weaponAttackCd;
-        
+        [SerializeField] private float baseDamage;
         [Header("List of base actions")] 
         [SerializeField] private List<BaseAction> baseActionList;
         [Header("List of attack actions")] 
         [SerializeField] private List<TAction> actionList;
 
+        
         //Public props
         public WeaponType WeaponType => weaponType;
         public float AttackRange => attackRange;
         public float MeleeRange => meleeRange;
-        public float WeaponAttackCd => weaponAttackCd;
+        public float BaseDamage => baseDamage;
         public AnimatorOverrideController AnimatorOverride => virtualOverride;
+        
         
         //Private
         private AnimatorOverrideController virtualOverride;
