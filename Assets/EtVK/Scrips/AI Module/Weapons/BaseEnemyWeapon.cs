@@ -1,20 +1,20 @@
 ﻿using System.Linq;
-using EtVK.Actions_Module;
-using EtVK.AI_Module.Inventory;
+using EtVK.AI_Module.Actions;
 using EtVK.Inventory_Module;
-using EtVK.Items_Module.Weapons;
 using EtVK.Player_Module.Interactable;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Weapons
 {
-    public abstract class BaseEnemyWeapon<TWeaponData, TAction> : Item, IWeaponDamageable 
+    public abstract class BaseEnemyWeapon<TWeaponData, TAction> : Item 
         where TWeaponData : BaseEnemyWeaponData<TAction>
     {
         [SerializeField] protected TWeaponData weaponData;
         public bool IsArmed => isArmed;
         public TWeaponData WeaponData => weaponData;
-        
+        [CanBeNull] public EnemyAttackAction CurrentAttackAction { get; set; }
+
         protected WeaponHolderSlot currentWeaponSlot;
         protected bool isArmed;
 
@@ -46,11 +46,6 @@ namespace EtVK.AI_Module.Weapons
             SetWeaponReference(inventory);
         }
         public override void AddItemToInventory(BaseInventoryManager inventoryManager, Interactable interactable) { }
-        public virtual float DealDamage()
-        {
-            return weaponData.Damage;
-        }
-
         protected abstract void SetWeaponReference(BaseInventoryManager inventory);
     }
 }

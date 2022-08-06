@@ -1,12 +1,12 @@
 ﻿using EtVK.AI_Module.Actions;
 using EtVK.AI_Module.Inventory;
-using EtVK.Core_Module;
 using EtVK.Inventory_Module;
+using EtVK.Items_Module.Weapons;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Weapons
 {
-    public class EnemyWeapon : BaseEnemyWeapon<EnemyWeaponData, EnemyAttackAction>, IEnemyWeapon
+    public class EnemyWeapon : BaseEnemyWeapon<EnemyWeaponData, EnemyAttackAction>, IEnemyWeapon, IWeaponDamageable
     {
         public void DrawWeapon()
         {
@@ -33,11 +33,18 @@ namespace EtVK.AI_Module.Weapons
                 weaponData.Initialize();
             }
         }
-
+        
+        public float DealDamage()
+        {
+            return 0f;
+        }
+        
         protected override void SetWeaponReference(BaseInventoryManager inventory)
         {
             var enemyInventory = (EnemyInventoryManager) inventory;
             enemyInventory.AddWeaponReference(this);
         }
+
+
     }
 }

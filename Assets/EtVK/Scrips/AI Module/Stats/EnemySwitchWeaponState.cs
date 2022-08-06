@@ -38,7 +38,7 @@ namespace EtVK.AI_Module.Stats
             const WeaponType type = WeaponType.Sword;
             
             var weapon = monoBehaviour.GetInventoryManager().GetWeaponByType(type);
-            action = weapon.WeaponData.GetAction<WeaponAction>(x =>
+            action = weapon.WeaponData.GetBaseActionAs<WeaponAction>(x =>
                 x.WeaponType == type && x.WeaponActionType == WeaponActionType.Draw);
             
             animator.SetLayerWeight(action.LayerIndex, 1f);

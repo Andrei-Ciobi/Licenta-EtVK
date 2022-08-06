@@ -12,9 +12,9 @@ namespace EtVK.Core_Module
         
         private AnimatorOverrideController baseAnimatorOverrideController;
         protected Animator animator;
-        private TController controller;
-        private TInventoryManager inventoryManager;
-        private TEntity livingEntity;
+        protected TController controller;
+        protected TInventoryManager inventoryManager;
+        protected TEntity livingEntity;
         
         protected virtual void InitializeBaseReferences()
         {

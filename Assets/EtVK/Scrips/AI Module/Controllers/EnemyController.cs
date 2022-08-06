@@ -43,11 +43,6 @@ namespace EtVK.AI_Module.Controllers
             }
         }
 
-        public void UpdateRootMotionRotation(Animator animator)
-        {
-            
-        }
-
         // Function that detect if a living entity is in our field of view
         public void HandleDetection()
         {
@@ -91,7 +86,7 @@ namespace EtVK.AI_Module.Controllers
             }
         }
 
-        public void RotateTowardsCurrentTarget()
+        public void RotateTowardsCurrentTarget(float rotationSpeed = 0f)
         {
             var direction = DirectionToCurrentTarget;
             direction.y = 0;
@@ -101,12 +96,16 @@ namespace EtVK.AI_Module.Controllers
                 direction = transform.forward;
 
             var locomotionData = enemyManager.GetLocomotionData();
-            
-            var reverseDistance = locomotionData.CombatAggroRange - DistanceToCurrentTarget;
-            var rotateSpeed = Mathf.Clamp(reverseDistance, locomotionData.RotationSpeed, locomotionData.MaxRotationSpeed);
-            
+
+            if (rotationSpeed == 0f)
+            {
+                var reverseDistance = locomotionData.CombatAggroRange - DistanceToCurrentTarget;
+                rotationSpeed = Mathf.Clamp(reverseDistance, locomotionData.RotationSpeed,
+                    locomotionData.MaxRotationSpeed);
+            }
+
             var targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
         public float AngleBetweenGivenTarget(Transform currentTransform, Vector3 lookTarget)
         {

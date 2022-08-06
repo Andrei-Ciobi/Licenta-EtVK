@@ -27,13 +27,10 @@ namespace EtVK.AI_Module.Controllers
             }
             if (enemyManager.UseRootMotionRotation)
             {
-                enemyManager.GetController().RotateTowardsCurrentTarget();
+                var weapon = enemyManager.GetInventoryManager().GetCurrentWeapon();
+                var speed = weapon?.CurrentAttackAction?.RotationSpeed;
+                enemyManager.GetController().RotateTowardsCurrentTarget(speed?? 0f);
             }
-        }
-
-        private void LateUpdate()
-        {
-
         }
 
         public void Initialize(EnemyManager manager)

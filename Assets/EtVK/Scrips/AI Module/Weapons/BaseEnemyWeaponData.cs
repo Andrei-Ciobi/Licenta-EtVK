@@ -13,8 +13,8 @@ namespace EtVK.AI_Module.Weapons
         [SerializeField] private AnimatorOverrideController animatorOverride;
 
         [Header("Weapon stats")] 
-        [Range(0f, 35f)] [SerializeField] private float attackRange;
         [Range(0f, 35f)] [SerializeField] private float meleeRange;
+        [Range(0f, 35f)] [SerializeField] private float attackRange;
         [Range(0f, 10f)] [SerializeField] private float weaponAttackCd;
         
         [Header("List of base actions")] 
@@ -22,16 +22,16 @@ namespace EtVK.AI_Module.Weapons
         [Header("List of attack actions")] 
         [SerializeField] private List<TAction> actionList;
 
-
+        //Public props
         public WeaponType WeaponType => weaponType;
         public float AttackRange => attackRange;
         public float MeleeRange => meleeRange;
         public float WeaponAttackCd => weaponAttackCd;
         public AnimatorOverrideController AnimatorOverride => virtualOverride;
         
+        //Private
         private AnimatorOverrideController virtualOverride;
 
-        public virtual float Damage => 0f;
         public abstract void Initialize();
 
         public List<TAction> GetActions()
@@ -43,7 +43,7 @@ namespace EtVK.AI_Module.Weapons
             return actionList.Find(predicate);
         }
 
-        public T GetAction<T>(Predicate<T> predicate) where T : BaseAction
+        public T GetBaseActionAs<T>(Predicate<T> predicate) where T : BaseAction
         {
             bool Filter(BaseAction x) => predicate(x as T);
 

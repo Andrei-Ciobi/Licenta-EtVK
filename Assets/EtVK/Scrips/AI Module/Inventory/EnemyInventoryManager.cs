@@ -1,5 +1,4 @@
-﻿using System;
-using EtVK.AI_Module.Actions;
+﻿using EtVK.AI_Module.Actions;
 using EtVK.AI_Module.Weapons;
 
 namespace EtVK.AI_Module.Inventory

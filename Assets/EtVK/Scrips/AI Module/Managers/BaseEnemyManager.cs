@@ -1,4 +1,5 @@
-﻿using EtVK.AI_Module.Controllers;
+﻿using System.Collections;
+using EtVK.AI_Module.Controllers;
 using EtVK.Core_Module;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,6 +18,7 @@ namespace EtVK.AI_Module.Managers
         public bool UseRootMotionRotation { get; set; }
         public bool LookingForTarget { get; set; }
         public bool IsChasing { get; set; }
+        public bool CanAttack { get; set; }
         
         private Rigidbody agentRigidBody;
         private NavMeshAgent navMeshAgent;
@@ -32,7 +34,11 @@ namespace EtVK.AI_Module.Managers
 
             return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0f, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
         }
-        
+
+        public void SetAttackOnCd(float time)
+        {
+            StartCoroutine(AttackCdCoroutine(time));
+        }
         public bool HasPatrolPath()
         {
             return patrolManager != null && patrolManager.HasPath;
@@ -70,6 +76,13 @@ namespace EtVK.AI_Module.Managers
         protected void OnStart()
         {
             agentRigidBody.isKinematic = true;
+            CanAttack = true;
+        }
+
+        private IEnumerator AttackCdCoroutine(float time)
+        {
+            yield return new WaitForSecondsRealtime(time);
+            CanAttack = true;
         }
     }
 }

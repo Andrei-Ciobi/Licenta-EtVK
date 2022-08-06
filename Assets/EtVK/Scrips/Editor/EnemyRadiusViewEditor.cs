@@ -41,7 +41,7 @@ using UnityEngine;
             var attackRadius = fow.GetLocomotionData().BaseAttackRadius;
             if (inventory != null)
             {
-                attackRadius = inventory.GetCurrentWeapon().WeaponData.AttackRange;
+                attackRadius = inventory.GetCurrentWeapon()?.WeaponData.AttackRange ?? attackRadius;
             }
             Handles.color = Color.blue;
             Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360,
@@ -51,7 +51,7 @@ using UnityEngine;
             var meleeRadius = fow.GetLocomotionData().BaseMeleeRadius;
             if (inventory != null)
             {
-                meleeRadius = inventory.GetCurrentWeapon().WeaponData.MeleeRange;
+                meleeRadius = inventory.GetCurrentWeapon()?.WeaponData.MeleeRange ?? meleeRadius;
             }
             Handles.color = Color.green;
             Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360,
