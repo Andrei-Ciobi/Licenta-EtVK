@@ -17,11 +17,13 @@ MonoBehaviour:
   animationClip: {fileID: 7400000, guid: 7d2303c6027a8d14d856dba6d4f38620, type: 2}
   comboIntoDifferentAttackType: 0
   useRootMotion: 0
-  useRotation: 1
+  useRotation: 0
+  attackType: 0
+  transitionDuration: 0.3
   rotationSpeed: 1.03
   attackScore: 2
   attackDamage: 10
-  attackCd: 3.01
+  attackCd: 10
   minAngle: -90
   maxAngle: 90
   minAttackRange: 2

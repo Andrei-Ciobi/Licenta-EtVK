@@ -13,6 +13,7 @@ namespace EtVK.Input_Module
         public bool Aim { get; private set; }
         public bool AttackInputBlocked { get; private set; }
         public bool SpecificInputBlocked { get; private set; }
+        public bool DeactivateLockOn { get; set; }
         public bool JumpInputBlocked { get; set; }
         public bool SwitchWeaponInput { get; set; }
         public WeaponType SwitchWeaponType { get; set; }
@@ -21,7 +22,7 @@ namespace EtVK.Input_Module
         public bool TapInteractInput => playerActions.Player.TapInteract.triggered;
         public bool TapAttackInput => playerActions.Player.TapAttack.triggered;
         public bool TapDodge => playerActions.Player.TapDodge.triggered;
-        public bool LockOnInput => playerActions.Player.StateSwitch.triggered;
+        public bool ActivateLockOn => playerActions.Player.ActivateLockOn.triggered;
         public Vector2 MovementInput { get; private set; }
         public Vector2 MouseLook { get; private set; }
 
@@ -124,6 +125,8 @@ namespace EtVK.Input_Module
             playerActions.Player.Movement.performed += OnMovementInput;
             playerActions.Player.Weapon_1.performed += _ => OnWeaponInput(WeaponType.Sword);
             playerActions.Player.Weapon_2.performed += _ => OnWeaponInput(WeaponType.GreatSword);
+            playerActions.Player.DeactivateLockOn.performed += _ => DeactivateLockOn = true;
+            playerActions.Player.DeactivateLockOn.canceled += _ => DeactivateLockOn = false;
             //UI
             // playerActions.UI.Escape.performed += OnEscapePerformed;
 

@@ -51,5 +51,6 @@ namespace EtVK.AI_Module.States
             combo = true;
             animator.CrossFade(action.ComboAction.ClipName, action.TransitionDuration);
         }
+
     }
 }

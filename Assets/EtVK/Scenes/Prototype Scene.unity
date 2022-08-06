@@ -9028,7 +9028,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926923846}
-  m_LocalRotation: {x: -0.32750025, y: -0.6991348, z: 0.6073937, w: -0.18715526}
+  m_LocalRotation: {x: -0.11220365, y: -0.58921444, z: 0.6971968, w: -0.39262357}
   m_LocalPosition: {x: 11.1, y: 1.8, z: -5.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9036,7 +9036,7 @@ Transform:
   - {fileID: 1732307417}
   m_Father: {fileID: 4967546307823674289}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 76.382, y: 215.328, z: 78.328}
+  m_LocalEulerAnglesHint: {x: 65.465, y: 47.513, z: -89.634}
 --- !u!43 &938948899
 Mesh:
   m_ObjectHideFlags: 0
@@ -16644,7 +16644,7 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 2
+  m_XDamping: 2.5
   m_YDamping: 0
   m_ZDamping: 1
   m_TargetMovementOnly: 1
@@ -16655,7 +16655,7 @@ MonoBehaviour:
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
+  m_SoftZoneWidth: 0.64
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
   m_BiasY: -0.08900002
@@ -16690,7 +16690,7 @@ MonoBehaviour:
   m_HorizontalDamping: 0
   m_VerticalDamping: 0
   m_ScreenX: 0.5
-  m_ScreenY: 0.38
+  m_ScreenY: 0.44
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_SoftZoneWidth: 0.8

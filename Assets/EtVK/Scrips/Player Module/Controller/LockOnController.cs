@@ -2,6 +2,7 @@
 using EtVK.AI_Module.Stats;
 using EtVK.Event_Module.Event_Types;
 using EtVK.Event_Module.Events;
+using EtVK.Input_Module;
 using EtVK.Utyles;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ namespace EtVK.Player_Module.Controller
         public void UnlockFromEnemy()
         {
             changeCameraEvent.Invoke(new ActiveCamera(ActiveCameraType.Main, null));
+            currentLockOnTarget.onDie -= UnlockFromEnemy;
             playerManager.GetAnimator().SetBool(PlayerState.IsLockedOn.ToString(), false);
         }
 

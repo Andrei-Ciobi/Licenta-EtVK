@@ -18,22 +18,27 @@ namespace EtVK.AI_Module.States
             DecideRotation();
             angle = monoBehaviour.GetController().AngleBetweenGivenTarget(animator.transform, rotateTowards);
             // We set the blend tree to the desired rotation
-            if (!(Mathf.Abs(angle) > angleLimit)) 
+            if (Mathf.Abs(angle) < angleLimit) 
                 return;
             
+            Debug.Log(angle);
             animator.applyRootMotion = true;
             animator.SetBool(EnemyAIAction.IsRotating.ToString(), true);
-            animator.SetFloat(EnemyAIAction.Rotation.ToString(), Mathf.Clamp(angle, -1f, 1f), 0f, Time.deltaTime);
+            var test = Mathf.Clamp(angle, -1f, 1f);
+            Debug.Log(test);
+            animator.SetFloat(EnemyAIAction.Rotation.ToString(), test, 0f, Time.deltaTime);
         }
 
         public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            // DecideRotation();
             CheckRotationAngle(animator);
             HandleDetection(animator);
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            // DecideRotation();
             CheckRotationAngle(animator);
             HandleDetection(animator);
         }
@@ -53,7 +58,8 @@ namespace EtVK.AI_Module.States
 
         private void CheckRotationAngle(Animator animator)
         {
-            angle = monoBehaviour.GetController().AngleBetweenGivenTarget(animator.transform, rotateTowards);
+            angle = monoBehaviour.GetController().AngleBetweenGivenTarget(animator.transform,
+                monoBehaviour.GetController().CurrentTarget.position);
             
             if (Mathf.Abs(angle) < angleLimit)
             {
@@ -77,8 +83,7 @@ namespace EtVK.AI_Module.States
         {
             animator.SetBool(EnemyAIAction.IsPatrolling.ToString(), false);
             animator.SetFloat(EnemyAIAction.Rotation.ToString(), 0f);
-            if (rotation != RotateAround.CurentTarget)
-                animator.SetBool(EnemyAIAction.IsRotating.ToString(), false);
+            animator.SetBool(EnemyAIAction.IsRotating.ToString(), false);
             
         }
     }

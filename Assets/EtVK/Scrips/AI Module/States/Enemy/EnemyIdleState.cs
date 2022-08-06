@@ -63,7 +63,6 @@ namespace EtVK.AI_Module.States
 
                 if (Mathf.Abs(angle) > angleLimit)
                 {
-                    animator.SetFloat(EnemyAIAction.Angle.ToString(), angle);
                     animator.SetBool(EnemyAIAction.IsRotating.ToString(), true);
                 }
             }

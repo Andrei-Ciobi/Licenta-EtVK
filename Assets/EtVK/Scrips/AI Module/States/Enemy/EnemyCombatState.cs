@@ -102,7 +102,7 @@ namespace EtVK.AI_Module.States
 
         private void UpdateMovement(Animator animator)
         {
-            animator.SetFloat(EnemyAIAction.CombatHorizontal.ToString(), horizontalMovementValue, .2f, Time.smoothDeltaTime);
+            animator.SetFloat(EnemyAIAction.CombatHorizontal.ToString(), horizontalMovementValue, .1f, Time.smoothDeltaTime);
             animator.SetFloat(EnemyAIAction.CombatVertical.ToString(), verticalMovementValue, verticalDamp, Time.smoothDeltaTime);
         }
 
