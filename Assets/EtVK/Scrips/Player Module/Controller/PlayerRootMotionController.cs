@@ -8,7 +8,7 @@ namespace EtVK.Player_Module.Controller
         private Animator animator;
         private Vector3 deltaPosition;
 
-        private void LateUpdate()
+        private void Update()
         {
             if (animator.applyRootMotion)
             {

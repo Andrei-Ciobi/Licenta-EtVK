@@ -28,5 +28,5 @@ MonoBehaviour:
   maxAngle: 90
   minAttackRange: 2
   maxAttackRange: 6
-  hasCombo: 0
+  hasCombo: 1
   comboAction: {fileID: 11400000, guid: 96a4a07098636d24e9542fd8b526b6e7, type: 2}

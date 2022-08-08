@@ -2,16 +2,18 @@
 using EtVK.Core_Module;
 using EtVK.Utyles;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace EtVK.AI_Module.States
 {
     public class EnemyRotateState : SceneLinkedSMB<EnemyManager>
     {
-        [SerializeField] private RotateAround rotation;
+        [FormerlySerializedAs("rotation")] [SerializeField] private RotateAround rotateTowardsType;
         [Range(0f, 180f)] [SerializeField] private float angleLimit;
         
         private Vector3 rotateTowards;
         private float angle;
+        private float rotation;
 
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
@@ -21,12 +23,9 @@ namespace EtVK.AI_Module.States
             if (Mathf.Abs(angle) < angleLimit) 
                 return;
             
-            Debug.Log(angle);
             animator.applyRootMotion = true;
             animator.SetBool(EnemyAIAction.IsRotating.ToString(), true);
-            var test = Mathf.Clamp(angle, -1f, 1f);
-            Debug.Log(test);
-            animator.SetFloat(EnemyAIAction.Rotation.ToString(), test, 0f, Time.deltaTime);
+            rotation = Mathf.Clamp(angle, -1f, 1f);
         }
 
         public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -43,9 +42,20 @@ namespace EtVK.AI_Module.States
             HandleDetection(animator);
         }
 
+        public override void OnSLStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            UpdateRotation(animator);
+        }
+
+        public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            animator.SetFloat(EnemyAIAction.Rotation.ToString(), 0f);
+        }
+
+
         private void DecideRotation()
         {
-            switch (rotation)
+            switch (rotateTowardsType)
             {
                 case RotateAround.CurentTarget:
                     rotateTowards = monoBehaviour.GetController().CurrentTarget.position;
@@ -60,17 +70,21 @@ namespace EtVK.AI_Module.States
         {
             angle = monoBehaviour.GetController().AngleBetweenGivenTarget(animator.transform,
                 monoBehaviour.GetController().CurrentTarget.position);
+            rotation = Mathf.Clamp(angle, -1f, 1f);
+
+            if (!(Mathf.Abs(angle) < angleLimit)) 
+                return;
             
-            if (Mathf.Abs(angle) < angleLimit)
-            {
-                animator.SetBool(EnemyAIAction.IsRotating.ToString(), false);
-            }
+            animator.SetBool(EnemyAIAction.IsRotating.ToString(), false);
         }
         
         private void HandleDetection(Animator animator)
         {
-            monoBehaviour.GetController().HandleDetection();
             
+            if(rotateTowardsType == RotateAround.CurentTarget)
+                return;
+            
+            monoBehaviour.GetController().HandleDetection();
             // If we detect a target we go and chase him
             if(!monoBehaviour.GetController().HasCurrentTarget)
                 return;
@@ -82,9 +96,14 @@ namespace EtVK.AI_Module.States
         private void OnExitState(Animator animator)
         {
             animator.SetBool(EnemyAIAction.IsPatrolling.ToString(), false);
-            animator.SetFloat(EnemyAIAction.Rotation.ToString(), 0f);
             animator.SetBool(EnemyAIAction.IsRotating.ToString(), false);
             
+        }
+
+
+        private void UpdateRotation(Animator animator)
+        {
+            animator.SetFloat(EnemyAIAction.Rotation.ToString(), rotation, 0.3f, Time.deltaTime);
         }
     }
 }
