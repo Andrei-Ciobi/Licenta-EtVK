@@ -17,7 +17,7 @@ namespace EtVK.Utyles
         AgentState,
         IdleState = 1,
         CombatState = 2,
-        DummyState,
+        DummyState = 3,
         LookForTarget = 5,
         VoidState = 100,
 
@@ -39,6 +39,7 @@ namespace EtVK.Utyles
         Hips,
         Legs,
         HelmetAttachment,
+        HeadAttachment,
         
     }
 
@@ -161,6 +162,12 @@ namespace EtVK.Utyles
         Pants = 8,
         Boots = 9,
         
+    }
+
+    public enum WeaponActionType
+    {
+        Draw = 0,
+        Withdraw = 1,
     }
 
     public enum StatusResponse

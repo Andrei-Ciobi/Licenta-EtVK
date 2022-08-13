@@ -10,7 +10,7 @@ namespace EtVK.Player_Module.States
     {
         public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (!InputManager.Instance.LockOnInput) 
+            if (!InputManager.Instance.ActivateLockOn) 
                 return;
             
             var success = false;
@@ -23,7 +23,7 @@ namespace EtVK.Player_Module.States
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (!InputManager.Instance.LockOnInput) 
+            if (!InputManager.Instance.ActivateLockOn) 
                 return;
             
             var success = false;

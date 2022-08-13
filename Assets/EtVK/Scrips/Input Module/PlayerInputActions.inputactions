@@ -51,12 +51,21 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "StateSwitch",
+                    "name": "ActivateLockOn",
                     "type": "Button",
                     "id": "2a7bd285-2981-469e-a336-baa46b24e1a4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DeactivateLockOn",
+                    "type": "Button",
+                    "id": "b79a8873-6a00-4d2e-b912-5e086f2f4a56",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.3)",
                     "initialStateCheck": false
                 },
                 {
@@ -246,7 +255,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "StateSwitch",
+                    "action": "ActivateLockOn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -368,6 +377,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TapDodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28f2e15b-d498-4367-b946-e5b868a0da17",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeactivateLockOn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

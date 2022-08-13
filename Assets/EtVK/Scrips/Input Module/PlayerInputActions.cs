@@ -73,12 +73,21 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""StateSwitch"",
+                    ""name"": ""ActivateLockOn"",
                     ""type"": ""Button"",
                     ""id"": ""2a7bd285-2981-469e-a336-baa46b24e1a4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DeactivateLockOn"",
+                    ""type"": ""Button"",
+                    ""id"": ""b79a8873-6a00-4d2e-b912-5e086f2f4a56"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.3)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -268,7 +277,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""StateSwitch"",
+                    ""action"": ""ActivateLockOn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -392,6 +401,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""TapDodge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28f2e15b-d498-4367-b946-e5b868a0da17"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeactivateLockOn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -433,7 +453,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_TapJump = m_Player.FindAction("TapJump", throwIfNotFound: true);
         m_Player_HoldRun = m_Player.FindAction("HoldRun", throwIfNotFound: true);
         m_Player_TapRun = m_Player.FindAction("TapRun", throwIfNotFound: true);
-        m_Player_StateSwitch = m_Player.FindAction("StateSwitch", throwIfNotFound: true);
+        m_Player_ActivateLockOn = m_Player.FindAction("ActivateLockOn", throwIfNotFound: true);
+        m_Player_DeactivateLockOn = m_Player.FindAction("DeactivateLockOn", throwIfNotFound: true);
         m_Player_HoldAttack = m_Player.FindAction("HoldAttack", throwIfNotFound: true);
         m_Player_TapAttack = m_Player.FindAction("TapAttack", throwIfNotFound: true);
         m_Player_HoldAim = m_Player.FindAction("HoldAim", throwIfNotFound: true);
@@ -511,7 +532,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_TapJump;
     private readonly InputAction m_Player_HoldRun;
     private readonly InputAction m_Player_TapRun;
-    private readonly InputAction m_Player_StateSwitch;
+    private readonly InputAction m_Player_ActivateLockOn;
+    private readonly InputAction m_Player_DeactivateLockOn;
     private readonly InputAction m_Player_HoldAttack;
     private readonly InputAction m_Player_TapAttack;
     private readonly InputAction m_Player_HoldAim;
@@ -531,7 +553,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @TapJump => m_Wrapper.m_Player_TapJump;
         public InputAction @HoldRun => m_Wrapper.m_Player_HoldRun;
         public InputAction @TapRun => m_Wrapper.m_Player_TapRun;
-        public InputAction @StateSwitch => m_Wrapper.m_Player_StateSwitch;
+        public InputAction @ActivateLockOn => m_Wrapper.m_Player_ActivateLockOn;
+        public InputAction @DeactivateLockOn => m_Wrapper.m_Player_DeactivateLockOn;
         public InputAction @HoldAttack => m_Wrapper.m_Player_HoldAttack;
         public InputAction @TapAttack => m_Wrapper.m_Player_TapAttack;
         public InputAction @HoldAim => m_Wrapper.m_Player_HoldAim;
@@ -566,9 +589,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @TapRun.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTapRun;
                 @TapRun.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTapRun;
                 @TapRun.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTapRun;
-                @StateSwitch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStateSwitch;
-                @StateSwitch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStateSwitch;
-                @StateSwitch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStateSwitch;
+                @ActivateLockOn.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivateLockOn;
+                @ActivateLockOn.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivateLockOn;
+                @ActivateLockOn.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivateLockOn;
+                @DeactivateLockOn.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDeactivateLockOn;
+                @DeactivateLockOn.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDeactivateLockOn;
+                @DeactivateLockOn.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDeactivateLockOn;
                 @HoldAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldAttack;
                 @HoldAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldAttack;
                 @HoldAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHoldAttack;
@@ -618,9 +644,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @TapRun.started += instance.OnTapRun;
                 @TapRun.performed += instance.OnTapRun;
                 @TapRun.canceled += instance.OnTapRun;
-                @StateSwitch.started += instance.OnStateSwitch;
-                @StateSwitch.performed += instance.OnStateSwitch;
-                @StateSwitch.canceled += instance.OnStateSwitch;
+                @ActivateLockOn.started += instance.OnActivateLockOn;
+                @ActivateLockOn.performed += instance.OnActivateLockOn;
+                @ActivateLockOn.canceled += instance.OnActivateLockOn;
+                @DeactivateLockOn.started += instance.OnDeactivateLockOn;
+                @DeactivateLockOn.performed += instance.OnDeactivateLockOn;
+                @DeactivateLockOn.canceled += instance.OnDeactivateLockOn;
                 @HoldAttack.started += instance.OnHoldAttack;
                 @HoldAttack.performed += instance.OnHoldAttack;
                 @HoldAttack.canceled += instance.OnHoldAttack;
@@ -695,7 +724,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnTapJump(InputAction.CallbackContext context);
         void OnHoldRun(InputAction.CallbackContext context);
         void OnTapRun(InputAction.CallbackContext context);
-        void OnStateSwitch(InputAction.CallbackContext context);
+        void OnActivateLockOn(InputAction.CallbackContext context);
+        void OnDeactivateLockOn(InputAction.CallbackContext context);
         void OnHoldAttack(InputAction.CallbackContext context);
         void OnTapAttack(InputAction.CallbackContext context);
         void OnHoldAim(InputAction.CallbackContext context);

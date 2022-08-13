@@ -1,13 +1,12 @@
-﻿using UnityEngine;
+﻿using EtVK.Core_Module;
+using UnityEngine;
 
 namespace EtVK.Player_Module.Controller
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Player/LocomotionData")]
-    public class PlayerLocomotionData : ScriptableObject
+    public class PlayerLocomotionData : LocomotionData
     {
-        [SerializeField] private float walkSpeed;
-        [SerializeField] private float runSpeed;
-        [SerializeField] private float rotationSpeed;
+
         [SerializeField] private float gravityValue;
         [SerializeField] private float gravityMultiplayer;
         [SerializeField] private float jumpHeight;
@@ -16,13 +15,6 @@ namespace EtVK.Player_Module.Controller
         [SerializeField] private float steepSlopeLimit = 45f;
         [SerializeField] private float steepSlopeSpeed = 2f;
         [SerializeField] private float pushPower = 5f;
-
-
-        public float WalkSpeed => walkSpeed;
-
-        public float RunSpeed => runSpeed;
-
-        public float RotationSpeed => rotationSpeed;
 
         public float GravityValue => gravityValue;
 

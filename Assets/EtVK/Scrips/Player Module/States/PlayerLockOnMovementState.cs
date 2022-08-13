@@ -37,6 +37,16 @@ namespace EtVK.Player_Module.States
                 animator.SetBool(PlayerState.InDodge.ToString(), true);
                 return;
             }
+
+            if (InputManager.Instance.ActivateLockOn)
+            {
+                Debug.Log("Sall");
+            }
+            if (InputManager.Instance.DeactivateLockOn)
+            {
+                monoBehaviour.GetLockOnController().UnlockFromEnemy();
+                return;
+            }
             
             // Running bool variable from animator
             animator.SetBool(PlayerState.Running.ToString(), monoBehaviour.IsRunning());

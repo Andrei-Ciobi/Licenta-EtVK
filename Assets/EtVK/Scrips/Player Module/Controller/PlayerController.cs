@@ -37,7 +37,7 @@ namespace EtVK.Player_Module.Controller
         // Default value for speed is the walk speed, can be overridden
         public void UpdateNormalMovement(Vector2 movement, float speed = 0f, float rotationSpeed = 0f)
         {
-            speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
+            speed = speed == 0f ? playerManager.GetLocomotionData().WalkFastSpeed : speed;
             rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             
             
@@ -54,7 +54,7 @@ namespace EtVK.Player_Module.Controller
         }
         public void UpdateLockOnMovement(Vector2 movement, float speed = 0f, float rotationSpeed = 0f)
         {
-            speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
+            speed = speed == 0f ? playerManager.GetLocomotionData().WalkFastSpeed : speed;
             rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             
             
@@ -72,7 +72,7 @@ namespace EtVK.Player_Module.Controller
         
         public void UpdateForceMovementForward(float speed = 0f)
         {
-            speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
+            speed = speed == 0f ? playerManager.GetLocomotionData().WalkFastSpeed : speed;
             characterController.Move(transform.forward * Time.deltaTime * speed);
         }
         
@@ -82,7 +82,7 @@ namespace EtVK.Player_Module.Controller
             playerHead.rotation = Quaternion.Euler(0f, playerManager.CameraMainTransform.localEulerAngles.y, 0f);
             move = playerHead.forward * move.z + playerHead.right * move.x;
             move.y = 0f;
-            speed = speed == 0f ? playerManager.GetLocomotionData().WalkSpeed : speed;
+            speed = speed == 0f ? playerManager.GetLocomotionData().WalkFastSpeed : speed;
             characterController.Move(move * Time.deltaTime * speed);
         }
 
@@ -128,7 +128,7 @@ namespace EtVK.Player_Module.Controller
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
 
-        public void UpdatePlayerRootMotionRotation(Animator animator, float rotationSpeed = 0f)
+        public void UpdateRootMotionRotation(Animator animator, float rotationSpeed = 0f)
         {
             rotationSpeed = rotationSpeed == 0f ? playerManager.GetLocomotionData().RotationSpeed : rotationSpeed;
             

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using EtVK.Inventory_Module;
 using EtVK.Player_Module.Interactable;
 using EtVK.Utyles;
@@ -14,9 +13,9 @@ namespace EtVK.Items_Module.Armors
         protected ArmorData armorData;
         
 
-        public override void LoadItemFromInventory(InventoryManager inventoryManager)
+        public override void LoadItemFromInventory(BaseInventoryManager inventory)
         {
-            var armorSlotList = inventoryManager.GetAllHolderSlots().FindAll(slot => slot.HolderSlotType == armorData.ItemType).Cast<ArmorHolderSlot>().ToList();
+            var armorSlotList = inventory.GetAllHolderSlots().FindAll(slot => slot.HolderSlotType == armorData.ItemType).Cast<ArmorHolderSlot>().ToList();
 
             if (armorSlotList.Count == 0)
             {
@@ -37,17 +36,20 @@ namespace EtVK.Items_Module.Armors
             transform.localRotation = Quaternion.identity;
             SetSkinBones(armorSLot);
             DeactivateVisual();
+            var playerInventory = (PlayerInventoryManager) inventory;
+            playerInventory.AddArmorReference(this);
         }
 
-        public override void AddItemToInventory(InventoryManager inventoryManager, Interactable interactable)
+        public override void AddItemToInventory(BaseInventoryManager inventory, Interactable interactable)
         {
-            if (!inventoryManager.SpaceAvailable(armorData.ItemType))
+            var playerInventory = (PlayerInventoryManager) inventory;
+            if (!playerInventory.SpaceAvailable(armorData.ItemType))
             {
                 interactable.Response(StatusResponse.Fail, "No space available");
                 return;
             }
             
-            inventoryManager.GetInventoryData().AddItem(armorData);
+            playerInventory.GetInventoryData().AddItem(armorData);
             interactable.Response(StatusResponse.Success);
         }
 

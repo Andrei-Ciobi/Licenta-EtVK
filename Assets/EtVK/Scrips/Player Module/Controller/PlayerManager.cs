@@ -1,15 +1,13 @@
-using System.Linq;
-using EtVK.Ability_Module;
 using EtVK.Core_Module;
+using EtVK.Health_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
-using EtVK.Player_Module.Camera;
 using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.Controller
 {
-    public class PlayerManager : MonoBehaviour
+    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>
     {
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }
@@ -17,25 +15,19 @@ namespace EtVK.Player_Module.Controller
         public bool UseRootMotionRotation { get; set; }
         public Transform CameraMainTransform => cameraMainTransform;
 
-        public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
-
-        [SerializeField] private PlayerLocomotionData locomotionData;
+        [SerializeField] private PlayerLocomotionData playerLocomotionData;
         
-        private PlayerController controller;
-        private Animator animator;
-        private AnimatorOverrideController baseAnimatorOverrideController;
-        private InventoryManager inventoryManager;
-        private AnimationEventManager animationEventManager;
-        private RootMotionController rootMotionController;
+        private PlayerAnimationEventController animationEventController;
+        private PlayerRootMotionController playerRootMotionController;
         private LockOnController lockOnController;
         private Transform cameraMainTransform;
 
         private void Awake()
         {
+            InitializeBaseReferences();
             InitializeReferences();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            SceneLinkedSMB<PlayerManager>.Initialise(animator, this);
         }
         
         public bool IsMoving()
@@ -54,61 +46,29 @@ namespace EtVK.Player_Module.Controller
             return InputManager.Instance.TapAttackInput && !isAttacking;
         }
 
-        public PlayerController GetController()
-        {
-            return controller;
-        }
-
-        public Animator GetAnimator()
-        {
-            return animator;
-        }
-
         public PlayerLocomotionData GetLocomotionData()
         {
-            return locomotionData;
+            return playerLocomotionData;
         }
 
-        public InventoryManager GetInventoryManager()
+        public PlayerAnimationEventController GetAnimationEventManager()
         {
-            return inventoryManager;
+            return animationEventController;
         }
-
-        public AnimationEventManager GetAnimationEventManager()
-        {
-            return animationEventManager;
-        }
-
-        public BaseAbility GetAbility(AbilityType abilityType)
-        {
-            var abilities = GetComponentsInChildren<BaseAbility>().ToList();
-            var ability = abilities.Find(element => element.AbilityType.Equals(abilityType));
-
-            if (ability == null)
-            {
-                Debug.LogError($"No ability of type {abilityType} found under {gameObject.name} gameObject");
-                return null;
-            }
-
-            return ability;
-        }
-
+        
         public LockOnController GetLockOnController()
         {
             return lockOnController;
         }
+        
 
         private void InitializeReferences()
         {
-            controller = GetComponentInChildren<PlayerController>();
             animator = GetComponentInChildren<Animator>();
-            inventoryManager = GetComponentInChildren<InventoryManager>();
-            animationEventManager = GetComponentInChildren<AnimationEventManager>();
-            rootMotionController = GetComponentInChildren<RootMotionController>();
+            animationEventController = GetComponentInChildren<PlayerAnimationEventController>();
+            playerRootMotionController = GetComponentInChildren<PlayerRootMotionController>();
             lockOnController = GetComponentInChildren<LockOnController>();
-            rootMotionController.Initialize(this);
-
-            baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+            playerRootMotionController.Initialize(this);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
         }
     }

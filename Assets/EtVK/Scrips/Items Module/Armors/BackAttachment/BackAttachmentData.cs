@@ -1,5 +1,4 @@
-﻿using System;
-using EtVK.Utyles;
+﻿using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Items_Module.Armors.BackAttachment

@@ -1,4 +1,4 @@
-﻿using EtVK.Attacks_Module;
+﻿using EtVK.Actions_Module;
 using EtVK.Core_Module;
 using EtVK.Player_Module.Controller;
 using UnityEngine;
@@ -11,7 +11,7 @@ namespace EtVK.Player_Module.States
         private ForceForwardAttackAction attackAction;
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            var weapon = monoBehaviour.GetInventoryManager().GetArmedWeapon();
+            var weapon = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
             attackAction =
                 (ForceForwardAttackAction) weapon.WeaponData.GetAttackAction(attackState.AttackType, attackState.AttackIndex - 1);
 

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using EtVK.AI_Module.Stats;
 using EtVK.Event_Module.Event_Types;
 using EtVK.Event_Module.Events;
-using EtVK.Health_Module;
+using EtVK.Input_Module;
 using EtVK.Utyles;
 using UnityEngine;
 
@@ -10,10 +11,11 @@ namespace EtVK.Player_Module.Controller
     public class LockOnController : MonoBehaviour
     {
         [SerializeField] private float maxLockOnDistance;
+        [SerializeField] private LayerMask hitLayer;
         [SerializeField] private ActiveCameraEvent changeCameraEvent;
         private PlayerManager playerManager;
-        private List<EnemyLivingEntity> availableTargets = new();
-        private EnemyLivingEntity currentLockOnTarget;
+        private List<EnemyEntity> availableTargets = new();
+        private EnemyEntity currentLockOnTarget;
 
         private void Awake()
         {
@@ -34,13 +36,14 @@ namespace EtVK.Player_Module.Controller
         public void UnlockFromEnemy()
         {
             changeCameraEvent.Invoke(new ActiveCamera(ActiveCameraType.Main, null));
+            currentLockOnTarget.onDie -= UnlockFromEnemy;
             playerManager.GetAnimator().SetBool(PlayerState.IsLockedOn.ToString(), false);
         }
 
         private bool CalculateClosestTarget()
         {
-            var colliders = Physics.OverlapSphere(playerManager.transform.position, 26);
-            availableTargets = new List<EnemyLivingEntity>();
+            var colliders = Physics.OverlapSphere(playerManager.transform.position, 26, hitLayer);
+            availableTargets = new List<EnemyEntity>();
             
             // Unsubscribe to the OnDie event and make the current target null
             if (currentLockOnTarget != null)
@@ -51,7 +54,7 @@ namespace EtVK.Player_Module.Controller
 
             foreach (var coll in colliders)
             {
-                var entity = coll.GetComponent<EnemyLivingEntity>();
+                var entity = coll.GetComponent<EnemyEntity>();
                 if(entity == null)
                     continue;
                 if(entity.transform.root == playerManager.transform.root)
