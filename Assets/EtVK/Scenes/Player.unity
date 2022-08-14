@@ -389,6 +389,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3574976061433991881, guid: 40f778b4854eb594da5ad11bee085211,
+        type: 3}
+      propertyPath: m_StepOffset
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3574976061433991882, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: playerLocomotionData

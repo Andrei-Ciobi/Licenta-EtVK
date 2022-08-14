@@ -1941,6 +1941,56 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000038146973, y: 19.400223, z: 5.6942015}
     m_Extent: {x: 13.966351, y: 8.175964, z: 11.483178}
   m_DirtyAABB: 0
+--- !u!1 &2124020269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124020271}
+  - component: {fileID: 2124020270}
+  m_Layer: 0
+  m_Name: Prefab Creation Tool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2124020270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124020269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9af0b0c87148a49c96437a04e56ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: rock
+  folderName: Rocks
+  models:
+  - {fileID: 919132149155446097, guid: bac8d76fe247285439757335cbbdfd34, type: 3}
+  - {fileID: 919132149155446097, guid: 972291b3437e0984abfc93d37dc369d2, type: 3}
+  - {fileID: 919132149155446097, guid: a7f18e0cdda1d8d4f90967e14777461a, type: 3}
+--- !u!4 &2124020271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124020269}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.66, y: 0.17, z: -1.4557471}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &415726239538898622
 MeshFilter:
   m_ObjectHideFlags: 0
