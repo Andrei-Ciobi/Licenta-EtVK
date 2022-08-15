@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Prototype_enemy_2
+  m_Name: Zeus
   m_Shader: {fileID: 4800000, guid: 4a31887e3b64b2d4bbc64351abe099e2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -69,7 +69,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: 7dd0476daa9e82447856b542d1d238eb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8e5861e022058a7469ef3e1d6657b737, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
@@ -156,26 +156,26 @@ Material:
     m_Floats:
     - _BodyArt_Amount: 0.63694096
     - _Emission: 0
-    - _Emmision: 0.02
-    - _Metallic: 0
+    - _Emmision: 0.068
+    - _Metallic: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.061
+    - _Smoothness: 0.055
     - _Tattoo_Amount: 1
     - __dirty: 0
     m_Colors:
     - _Color1: {r: 0.2283196, g: 0.5822246, b: 0.7573529, a: 1}
-    - _Color_BodyArt: {r: 0.8301887, g: 0.790147, b: 0.45738697, a: 0}
-    - _Color_Eyes: {r: 0.990566, g: 0.9642073, b: 0.2653969, a: 1}
+    - _Color_BodyArt: {r: 0.45882332, g: 0.78442234, b: 0.83137256, a: 0}
+    - _Color_Eyes: {r: 0.04266637, g: 0.4083912, b: 0.4811321, a: 1}
     - _Color_Hair: {r: 0.86666673, g: 0.86666673, b: 0.86666673, a: 0}
-    - _Color_Leather_Primary: {r: 0.3773585, g: 0.3763049, b: 0.28622285, a: 0}
-    - _Color_Leather_Secondary: {r: 0.8092792, g: 0.8396226, b: 0.050694145, a: 0}
-    - _Color_Metal_Dark: {r: 0.37647063, g: 0.37647063, b: 0.28627452, a: 0}
-    - _Color_Metal_Primary: {r: 0.745283, g: 0.7005659, b: 0.67075473, a: 0}
-    - _Color_Metal_Secondary: {r: 0.41509432, g: 0.39454573, b: 0.37750086, a: 0}
+    - _Color_Leather_Primary: {r: 0.32075462, g: 0.27944988, b: 0.15553567, a: 0}
+    - _Color_Leather_Secondary: {r: 0.121644676, g: 0.23752621, b: 0.6320754, a: 0}
+    - _Color_Metal_Dark: {r: 0.35003552, g: 0.3664089, b: 0.4245282, a: 0}
+    - _Color_Metal_Primary: {r: 0.3007475, g: 0.33031356, b: 0.45283002, a: 0}
+    - _Color_Metal_Secondary: {r: 0.61607337, g: 0.61607337, b: 0.7830188, a: 0}
     - _Color_Primary: {r: 0.8578142, g: 0.9056604, b: 0.8792, a: 0}
-    - _Color_Scar: {r: 0.9339623, g: 0.1794951, b: 0.11806681, a: 0}
-    - _Color_Secondary: {r: 0.8078432, g: 0.83921576, b: 0.050980397, a: 0}
+    - _Color_Scar: {r: 0.9339623, g: 0.17949492, b: 0.11806663, a: 0}
+    - _Color_Secondary: {r: 0.09638647, g: 0.2725181, b: 0.8962264, a: 0}
     - _Color_Skin: {r: 1, g: 0.8000001, b: 0.64705884, a: 0}
     - _Color_Stubble: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0}
     - _Color_Tertiary: {r: 0.7352941, g: 0.20004326, b: 0.20004326, a: 1}

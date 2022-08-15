@@ -136,6 +136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Input Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 762065796711062445, guid: 6349678d9bc95954a9bf55bad0b61137,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 762065796711062447, guid: 6349678d9bc95954a9bf55bad0b61137,
         type: 3}
       propertyPath: m_RootOrder
@@ -210,12 +215,12 @@ PrefabInstance:
     - target: {fileID: 5260371791124481837, guid: 5189d72c27397234ab2a33f0e246fa5d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.1
+      value: 94.5
       objectReference: {fileID: 0}
     - target: {fileID: 5260371791124481837, guid: 5189d72c27397234ab2a33f0e246fa5d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 49.66
+      value: 48.48
       objectReference: {fileID: 0}
     - target: {fileID: 5260371791124481837, guid: 5189d72c27397234ab2a33f0e246fa5d,
         type: 3}
@@ -262,6 +267,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5260371791124481838, guid: 5189d72c27397234ab2a33f0e246fa5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5189d72c27397234ab2a33f0e246fa5d, type: 3}
@@ -287,6 +297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCameraManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961118370407786022, guid: 62df7278f20023249956876551373403,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5961118370407786025, guid: 62df7278f20023249956876551373403,
         type: 3}
@@ -346,12 +361,12 @@ PrefabInstance:
     - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.55019
+      value: 94.950195
       objectReference: {fileID: 0}
     - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 48.271923
+      value: 47.091923
       objectReference: {fileID: 0}
     - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
         type: 3}
@@ -405,6 +420,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Eros
       objectReference: {fileID: 0}
+    - target: {fileID: 3574976061433991894, guid: 40f778b4854eb594da5ad11bee085211,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: m_RootOrder
@@ -428,12 +448,12 @@ PrefabInstance:
     - target: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.1
+      value: 94.5
       objectReference: {fileID: 0}
     - target: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 48.89
+      value: 47.71
       objectReference: {fileID: 0}
     - target: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
