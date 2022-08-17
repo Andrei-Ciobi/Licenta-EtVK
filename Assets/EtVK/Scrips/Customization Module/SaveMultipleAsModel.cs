@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public class SaveMultipleAsModel : SaveCustomization
     {
         public override void Save()
@@ -59,4 +60,5 @@ namespace EtVK.Customization_Module
             return parentObj;
         }
     }
+    #endif
 }

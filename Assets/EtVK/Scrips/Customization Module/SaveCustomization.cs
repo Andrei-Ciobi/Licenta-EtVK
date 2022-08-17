@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public abstract class SaveCustomization : MonoBehaviour
     {
         [SerializeField] protected string prefabName;
@@ -72,4 +73,5 @@ namespace EtVK.Customization_Module
             Debug.Log(prefabSuccess ? "Prefab was saved successfully" : "Prefab failed to save");
         }
     }
+#endif
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace EtVK.Utyles
 {
+#if UNITY_EDITOR
     public class PrefabCreationTool : MonoBehaviour
     {
         [Header("Prefab props")] 
@@ -106,4 +107,5 @@ namespace EtVK.Utyles
         }
         
     }
+    #endif
 }

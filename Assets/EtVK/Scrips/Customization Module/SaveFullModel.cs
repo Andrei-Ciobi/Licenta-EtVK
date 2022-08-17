@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public class SaveFullModel : SaveCustomization
     {
         [SerializeField] private GameObject configurationModel;
@@ -27,4 +28,5 @@ namespace EtVK.Customization_Module
             DestroyImmediate(prefab);
         }
     }
+    #endif
 }
