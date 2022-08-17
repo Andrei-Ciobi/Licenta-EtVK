@@ -298,11 +298,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCameraManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5961118370407786022, guid: 62df7278f20023249956876551373403,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5961118370407786025, guid: 62df7278f20023249956876551373403,
         type: 3}
       propertyPath: m_RootOrder
@@ -357,21 +352,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 94.950195
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 47.091923
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 119.650536
       objectReference: {fileID: 0}
     - target: {fileID: 7752405530935341573, guid: 62df7278f20023249956876551373403,
         type: 3}

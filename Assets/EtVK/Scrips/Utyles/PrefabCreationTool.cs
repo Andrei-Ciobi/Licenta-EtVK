@@ -7,9 +7,12 @@ namespace EtVK.Utyles
 {
     public class PrefabCreationTool : MonoBehaviour
     {
-        [Header("Default directory " + "Assets/EtVK/Prefab/Env")] 
+        [Header("Prefab props")] 
+        [SerializeField] private LayerMask layerMask;
+        [SerializeField] private Material material;
         [SerializeField] private bool resetTransform;
         [SerializeField] private bool isStatic;
+        [Header("Default directory " + "Assets/EtVK/Prefab/Env")] 
         [SerializeField] private string prefabName;
         [SerializeField] private string folderName;
         [SerializeField] private List<GameObject> models = new();
@@ -21,7 +24,7 @@ namespace EtVK.Utyles
         {
             foreach (var model in models)
             {
-                var obj = CreateAndSetPrefabProps(model, prefabName);
+                var obj = CreatePrefab(model, prefabName);
                 if (obj.transform.childCount > 0)
                 {
                     SetChildrenColliders(obj);
@@ -30,6 +33,9 @@ namespace EtVK.Utyles
                 {
                     obj.AddComponent<MeshCollider>();
                 }
+                
+                SetPrefabProps(obj);
+                
                 var localPath = CheckAndCreateDirectory(path, folderName, prefabName);
                 SavePrefab(obj, localPath);
                 DestroyImmediate(obj);
@@ -45,7 +51,7 @@ namespace EtVK.Utyles
             }
         }
 
-        private GameObject CreateAndSetPrefabProps(GameObject model, string newName)
+        private GameObject CreatePrefab(GameObject model, string newName)
         {
             var obj = Instantiate(model);
             
@@ -61,6 +67,23 @@ namespace EtVK.Utyles
             obj.isStatic = isStatic;
 
             return obj;
+        }
+
+        private void SetPrefabProps(GameObject obj)
+        {
+            obj.layer = layerMask;
+            if (obj.transform.childCount > 0)
+            {
+                for (var index = 0; index < obj.transform.childCount; index++)
+                {
+                    obj.transform.GetChild(index).gameObject.layer = layerMask;
+                    obj.transform.GetChild(index).gameObject.GetComponent<MeshRenderer>().material = material;
+                }
+            }
+            else
+            {
+                obj.GetComponent<MeshRenderer>().material = material;
+            }
         }
         
         private string CheckAndCreateDirectory(string fullPath, string folderName, string prefabName)
