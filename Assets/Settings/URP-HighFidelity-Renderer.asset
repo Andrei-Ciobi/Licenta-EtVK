@@ -55,7 +55,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: -3239316307151393116}
-  m_RendererFeatureMap: adc0de57c6d2eee5a46e1c35fba20bd3
+  - {fileID: 6195301162088347680}
+  m_RendererFeatureMap: adc0de57c6d2eee5a46e1c35fba20bd32038d7329521fa55
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -74,13 +75,13 @@ MonoBehaviour:
       type: 3}
     objectMotionVector: {fileID: 4800000, guid: 7b3ede40266cd49a395def176e1bc486,
       type: 3}
-  m_AssetVersion: 2
+  m_AssetVersion: 1
   m_OpaqueLayerMask:
     serializedVersion: 2
     m_Bits: 2147483647
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
@@ -91,8 +92,38 @@ MonoBehaviour:
   m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
   m_DepthPrimingMode: 0
-  m_CopyDepthMode: 0
-  m_AccurateGbufferNormals: 0
+  m_AccurateGbufferNormals: 1
   m_ClusteredRendering: 0
   m_TileSize: 32
   m_IntermediateTextureMode: 1
+--- !u!114 &6195301162088347680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e52f9777c2b5e4a8c2c3a84899548f, type: 3}
+  m_Name: Volumetric Light
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    downsampling: 1
+    stage: 0
+    intensity: 12.58
+    scattering: -0.4
+    steps: 34.3
+    maxDistance: 75
+    jitter: 250
+    colorSettings:
+      samples: 7.06
+      jitterMultiplier: 1.87
+      maxDistance: 29.08
+      colorBoost: 3.41
+    gaussBlur:
+      amount: 1.93
+      samples: 2.84
+    material: {fileID: 2100000, guid: bf4578bbf45ea2f448c24bdd8c09161f, type: 2}
+    renderPassEvent: 600

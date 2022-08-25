@@ -49,6 +49,7 @@ namespace EtVK.Utyles
             for (var index = 0; index < obj.transform.childCount; index++)
             {
                 obj.transform.GetChild(index).gameObject.AddComponent<MeshCollider>();
+                obj.transform.GetChild(index).gameObject.isStatic = isStatic;
             }
         }
 

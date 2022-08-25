@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSlowSpeed: 1
   walkFastSpeed: 3
-  runSpeed: 7
+  runSpeed: 8
   rotationSpeed: 10
   gravityValue: -9.81
   gravityMultiplayer: 3
