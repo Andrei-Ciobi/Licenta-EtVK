@@ -26,8 +26,8 @@ namespace EtVK.Player_Module.Controller
         {
             InitializeBaseReferences();
             InitializeReferences();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            // Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.visible = false;
         }
         
         public bool IsMoving()

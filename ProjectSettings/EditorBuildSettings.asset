@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/EtVK/Scenes/Level 1.unity
     guid: d7a5486fa21bbf54f887e1a0dc6ec57a
   - enabled: 1
-    path: Assets/EtVK/Scenes/Player.unity
+    path: Assets/EtVK/Scenes/Core Scenes/Player.unity
     guid: 165032eae78e28d4fa872455c46007df
   m_configObjects: {}

@@ -44,6 +44,7 @@ namespace EtVK.Input_Module
         
         private void OnEnable()
         {
+            playerActions.Enable();
             playerActions.Player.Enable();
             playerActions.UI.Enable();
         }
@@ -129,8 +130,6 @@ namespace EtVK.Input_Module
             playerActions.Player.DeactivateLockOn.canceled += _ => DeactivateLockOn = false;
             //UI
             // playerActions.UI.Escape.performed += OnEscapePerformed;
-
-            playerActions.Enable();
         }
         
         private void OnMovementInput(InputAction.CallbackContext context)

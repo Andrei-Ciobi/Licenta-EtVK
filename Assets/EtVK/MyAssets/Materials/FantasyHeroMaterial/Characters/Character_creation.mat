@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FantasyHero
+  m_Name: Character_creation
   m_Shader: {fileID: 4800000, guid: 4a31887e3b64b2d4bbc64351abe099e2, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -162,18 +162,18 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color1: {r: 0.2283196, g: 0.5822246, b: 0.7573529, a: 1}
-    - _Color_BodyArt: {r: 0.5294118, g: 0.3098038, b: 0.64705884, a: 0}
+    - _Color_BodyArt: {r: 0.5203532, g: 0.62316793, b: 1.1632478, a: 1}
     - _Color_Eyes: {r: 0, g: 0, b: 0, a: 1}
-    - _Color_Hair: {r: 0.8000001, g: 0.8196079, b: 0.8078432, a: 0}
-    - _Color_Leather_Primary: {r: 0.3088234, g: 0.2139056, b: 0.15895316, a: 0}
-    - _Color_Leather_Secondary: {r: 0.37254885, g: 0.32941166, b: 0.27843127, a: 0}
-    - _Color_Metal_Dark: {r: 0.16603577, g: 0.2190471, b: 0.27205873, a: 0}
+    - _Color_Hair: {r: 0, g: 0.1889928, b: 0.5025457, a: 1}
+    - _Color_Leather_Primary: {r: 0.30882338, g: 0.21390557, b: 0.15895313, a: 0}
+    - _Color_Leather_Secondary: {r: 0.37254882, g: 0.32941163, b: 0.27843124, a: 0}
+    - _Color_Metal_Dark: {r: 0.16603574, g: 0.21904704, b: 0.2720587, a: 0}
     - _Color_Metal_Primary: {r: 0.69803923, g: 0.6509804, b: 0.61960775, a: 0}
-    - _Color_Metal_Secondary: {r: 0.39215678, g: 0.40392148, b: 0.41176462, a: 0}
+    - _Color_Metal_Secondary: {r: 0.39215675, g: 0.40392146, b: 0.4117646, a: 0}
     - _Color_Primary: {r: 0.7924528, g: 0.73510325, b: 0.6833036, a: 0}
-    - _Color_Scar: {r: 0.9294118, g: 0.6862744, b: 0.5921568, a: 0}
-    - _Color_Secondary: {r: 0.23921558, g: 0.2509803, b: 0.1882352, a: 0}
-    - _Color_Skin: {r: 1, g: 0.8000001, b: 0.68235296, a: 0}
-    - _Color_Stubble: {r: 0.80392164, g: 0.7019608, b: 0.6313726, a: 0}
+    - _Color_Scar: {r: 0.5099672, g: 0.5296925, b: 0, a: 1}
+    - _Color_Secondary: {r: 0.23921555, g: 0.25098026, b: 0.18823516, a: 0}
+    - _Color_Skin: {r: 0.8627451, g: 0.7176471, b: 0.6784314, a: 1}
+    - _Color_Stubble: {r: 0.3957197, g: 0.50996673, b: 0.60344267, a: 1}
     - _Color_Tertiary: {r: 0.7352941, g: 0.20004326, b: 0.20004326, a: 1}
   m_BuildTextureStacks: []
