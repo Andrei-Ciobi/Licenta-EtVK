@@ -2,6 +2,7 @@
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public class SaveAsModel : SaveCustomization
     {
         public override void Save()
@@ -25,4 +26,5 @@ namespace EtVK.Customization_Module
         }
         
     }
+    #endif
 }

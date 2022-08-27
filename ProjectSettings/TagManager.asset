@@ -12,14 +12,14 @@ TagManager:
   - Water
   - UI
   - Terrain
-  - 
+  - Player
   - 
   - 
   - 
   - LivingEntity
   - Damageable
-  - 
-  - 
+  - Obstacle
+  - Volume
   - 
   - 
   - 
