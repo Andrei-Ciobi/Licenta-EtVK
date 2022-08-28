@@ -2,7 +2,7 @@
 using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Core_Module
+namespace EtVK.Core
 {
     public abstract class AnimationEventController : MonoBehaviour 
     {

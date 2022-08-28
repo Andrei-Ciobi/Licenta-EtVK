@@ -1,11 +1,12 @@
 ﻿using System;
 using EtVK.Input_Module;
+using EtVK.UI_Module.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace EtVK.UI_Module.Character_Creation
 {
-    public class CharacterCreationUiManager : MonoBehaviour
+    public class CharacterCreationUiManager : UiManager
     {
         [Header("Default button color")]
         [SerializeField] private ColorBlock defaultButtonColor;
@@ -40,6 +41,16 @@ namespace EtVK.UI_Module.Character_Creation
 
             currentButtonActive = button;
             currentButtonActive.colors = activeButtonColor;
+        }
+
+        protected override void OnMaxMenuIndex()
+        {
+            Debug.Log("Start");
+        }
+
+        protected override void OnMinMenuIndex()
+        {
+            Debug.Log("Back");
         }
     }
 }

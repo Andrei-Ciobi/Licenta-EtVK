@@ -111,6 +111,19 @@ namespace EtVK.Customization_Module
             currentIndex = -1;
         }
 
+        public void SetActiveByName(string objName)
+        {
+            foreach (var element in elementOptions)
+            {
+                if (element.name != objName)
+                    continue;
+                
+                GetCurrentElement()?.gameObject.SetActive(false);
+                element.SetActive(true);
+                currentIndex = elementOptions.IndexOf(element);
+            }
+        }
+
         public void SetMaterial(Material newMaterial)
         {
             renderers.ForEach(x=> x.material = newMaterial);

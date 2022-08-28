@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace EtVK.Core_Module
+namespace EtVK.Core
 {
     [ExecuteAlways]
     public class MoonDirection : MonoBehaviour

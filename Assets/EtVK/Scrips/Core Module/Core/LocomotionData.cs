@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Core_Module
+namespace EtVK.Core
 {
     public abstract class LocomotionData : ScriptableObject
     {

@@ -3,7 +3,7 @@ using EtVK.Ability_Module;
 using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Core_Module
+namespace EtVK.Core
 {
     public class BaseManager<TManager, TController, TInventoryManager, TEntity > : MonoBehaviour 
         where TManager : BaseManager<TManager, TController, TInventoryManager, TEntity>

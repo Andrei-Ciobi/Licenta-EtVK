@@ -1,5 +1,5 @@
 using System.Collections;
-using EtVK.Core_Module;
+using EtVK.Core;
 using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.InputSystem;

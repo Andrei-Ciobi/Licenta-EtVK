@@ -1,4 +1,4 @@
-using EtVK.Core_Module;
+using EtVK.Core;
 using EtVK.Health_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;

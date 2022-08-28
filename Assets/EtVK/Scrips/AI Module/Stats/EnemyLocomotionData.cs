@@ -1,4 +1,4 @@
-﻿using EtVK.Core_Module;
+﻿using EtVK.Core;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Stats
