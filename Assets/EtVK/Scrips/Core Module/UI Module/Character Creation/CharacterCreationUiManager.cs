@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using EtVK.Core;
 using EtVK.Input_Module;
 using EtVK.UI_Module.Core;
+using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,12 +48,20 @@ namespace EtVK.UI_Module.Character_Creation
 
         protected override void OnMaxMenuIndex()
         {
-            Debug.Log("Start");
+            var scenesToLoad = new List<SceneNames>
+            {
+                SceneNames.LevelOne,
+                SceneNames.Player,
+            };
+            
+            GameManager.Instance.UnLoadScene(SceneNames.CharacterCreation);
+            GameManager.Instance.LoadScene(scenesToLoad);
         }
 
         protected override void OnMinMenuIndex()
         {
-            Debug.Log("Back");
+            GameManager.Instance.UnLoadScene(SceneNames.CharacterCreation);
+            GameManager.Instance.LoadScene(SceneNames.Menu);
         }
     }
 }

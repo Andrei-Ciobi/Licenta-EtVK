@@ -1,14 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using EtVK.Core;
 using UnityEngine;
 
 namespace EtVK.Save_System_Module
 {
-    public class SaveSystemManager : MonoBehaviour
+    public class SaveSystemManager : MonoSingletone<SaveSystemManager>
     {
         private string SavePath => $"{Application.persistentDataPath}/save.txt";
 
+
+        private void Awake()
+        {
+            InitializeSingletone();
+        }
 
         [ContextMenu("Save")]
         public void Save()

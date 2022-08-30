@@ -1,7 +1,7 @@
 // ReSharper disable InconsistentNaming
 namespace EtVK.Utyles
 {
-    
+
 
     // for attacks type
     public enum AttackType
@@ -41,7 +41,7 @@ namespace EtVK.Utyles
         HelmetAttachment = 13,
         HeadAttachment = 14,
         All = 15,
-        
+
     }
 
     public enum ModularColorOptions
@@ -162,7 +162,7 @@ namespace EtVK.Utyles
         Back = 7,
         Pants = 8,
         Boots = 9,
-        
+
     }
 
     public enum WeaponActionType
@@ -184,7 +184,15 @@ namespace EtVK.Utyles
         LockOn = 2,
     }
 
-    public class AllEnums
+    public enum SceneNames
+    {
+        Menu = 0,
+        Player = 1,
+        CharacterCreation = 2,
+        LevelOne = 3,
+    }
+
+public class AllEnums
     {
 
     }
