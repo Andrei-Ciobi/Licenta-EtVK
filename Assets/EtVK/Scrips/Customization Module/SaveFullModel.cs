@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
-#if UNITY_EDITOR
     public class SaveFullModel : SaveCustomization
     {
         [SerializeField] private GameObject configurationModel;
+#if UNITY_EDITOR
         public override void Save()
         {
-            if(configurationModel == null)
+            if (configurationModel == null)
                 return;
 
             var localPath = CheckAndCreateDirectory(fullPath, folderName, prefabName);
@@ -20,13 +20,13 @@ namespace EtVK.Customization_Module
 
             modChrOpt.Initialize();
             modEleOptList.ForEach(x => x.DestroyInactive());
-            
+
             prefab.transform.position = Vector3.zero;
             prefab.transform.rotation = Quaternion.identity;
             prefab.transform.localScale = Vector3.one;
             SavePrefab(prefab, localPath);
             DestroyImmediate(prefab);
         }
+#endif
     }
-    #endif
 }

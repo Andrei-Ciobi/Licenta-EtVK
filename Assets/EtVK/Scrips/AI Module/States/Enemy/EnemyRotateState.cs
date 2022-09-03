@@ -1,5 +1,5 @@
 ﻿using EtVK.AI_Module.Managers;
-using EtVK.Core_Module;
+using EtVK.Core;
 using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.Serialization;

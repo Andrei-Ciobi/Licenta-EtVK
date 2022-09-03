@@ -1,4 +1,5 @@
-using EtVK.Core_Module;
+using System;
+using EtVK.Core;
 using EtVK.Health_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
@@ -26,8 +27,8 @@ namespace EtVK.Player_Module.Controller
         {
             InitializeBaseReferences();
             InitializeReferences();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            // Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.visible = false;
         }
         
         public bool IsMoving()
@@ -60,8 +61,14 @@ namespace EtVK.Player_Module.Controller
         {
             return lockOnController;
         }
-        
 
+        private void OnFinishLoading()
+        {
+            InputManager.Instance.DisableUIActionMap();
+            InputManager.Instance.EnablePlayerActionMap();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         private void InitializeReferences()
         {
             animator = GetComponentInChildren<Animator>();
@@ -70,6 +77,14 @@ namespace EtVK.Player_Module.Controller
             lockOnController = GetComponentInChildren<LockOnController>();
             playerRootMotionController.Initialize(this);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
+
+            GameManager.Instance.onFinishLoading += OnFinishLoading;
+        }
+
+
+        private void OnDestroy()
+        {
+            GameManager.Instance.onFinishLoading -= OnFinishLoading;
         }
     }
 }

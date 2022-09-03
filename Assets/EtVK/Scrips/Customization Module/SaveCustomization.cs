@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
-#if UNITY_EDITOR
     public abstract class SaveCustomization : MonoBehaviour
     {
         [SerializeField] protected string prefabName;
@@ -50,7 +49,7 @@ namespace EtVK.Customization_Module
             // cloneObj.transform.localScale = Vector3.one;
             cloneObj.gameObject.SetActive(false);
 
-            
+
             return parentObj;
         }
 
@@ -58,20 +57,21 @@ namespace EtVK.Customization_Module
         {
             if (!Directory.Exists($"{fullPath}/{folderName}"))
                 AssetDatabase.CreateFolder($"{fullPath}", folderName);
-            
+
             var localPath = $"{fullPath}/{folderName}/" + "Model_" + prefabName + ".prefab";
             localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
 
             return localPath;
         }
 
+#if UNITY_EDITOR
         protected void SavePrefab(GameObject prefab, string localPath)
         {
             PrefabUtility.SaveAsPrefabAsset(prefab, localPath, out var prefabSuccess);
-            
-            
+
+
             Debug.Log(prefabSuccess ? "Prefab was saved successfully" : "Prefab failed to save");
         }
-    }
 #endif
+    }
 }

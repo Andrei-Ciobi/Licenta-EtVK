@@ -8,7 +8,7 @@ namespace EtVK.Customization_Module
     public class ModularElementOption : MonoBehaviour
     {
         [SerializeField] private ModularOptions type;
-        
+        [SerializeField] private bool partialInitialize;
         public ModularOptions Type => type;
         public Material Mat { get; set; }
 
@@ -29,8 +29,9 @@ namespace EtVK.Customization_Module
             foreach (var obj in renderers)
             {
                 var child = obj.gameObject;
-
-                if (child.activeInHierarchy)
+                
+                
+                if (child.activeInHierarchy && !partialInitialize)
                 {
                     if (currentIndex == -1)
                     {
@@ -108,6 +109,19 @@ namespace EtVK.Customization_Module
             }
 
             currentIndex = -1;
+        }
+
+        public void SetActiveByName(string objName)
+        {
+            foreach (var element in elementOptions)
+            {
+                if (element.name != objName)
+                    continue;
+                
+                GetCurrentElement()?.gameObject.SetActive(false);
+                element.SetActive(true);
+                currentIndex = elementOptions.IndexOf(element);
+            }
         }
 
         public void SetMaterial(Material newMaterial)
