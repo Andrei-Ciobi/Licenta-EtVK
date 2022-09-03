@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EtVK.Save_System_Module
 {
-    public class SaveSystemManager : MonoSingletone<SaveSystemManager>
+    public class GameSaveManager : MonoSingletone<GameSaveManager>
     {
         private string SavePath => $"{Application.persistentDataPath}/save.txt";
 

@@ -2803,7 +2803,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuList:
   - {fileID: 2078757681}
-  - {fileID: 1682152136}
   defaultButtonColor:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
@@ -6385,7 +6384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572657493}
   m_LocalRotation: {x: 0.004414427, y: 0.70709306, z: -0.0044144257, w: 0.70709306}
-  m_LocalPosition: {x: 183.42, y: 45.36, z: 119.39}
+  m_LocalPosition: {x: 183.42, y: 45.28, z: 119.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74508,11 +74507,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3574976060068803480}
+  - component: {fileID: 3574976060068803484}
   - component: {fileID: 3574976060068803483}
   - component: {fileID: 3574976060068803482}
   m_Layer: 11
   m_Name: Character_Eros
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74547,6 +74547,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!114 &3574976060068803484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574976060068803481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46cb44d89e0484d94afe309a2081cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmount: 15
+  rotationSpeed: 10
 --- !u!1 &3574976060087709296
 GameObject:
   m_ObjectHideFlags: 0

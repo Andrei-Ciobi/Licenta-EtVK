@@ -8,6 +8,7 @@ namespace EtVK.Core
 {
     public class GameManager : MonoSingletone<GameManager>
     {
+        [SerializeField] private GameObject loadingScreen;
         [SerializeField] private bool startFullGame;
         public bool IsLoadingScene => isLoadingScene;
         
@@ -63,7 +64,7 @@ namespace EtVK.Core
             isUnloadingScene = true;
             StartCoroutine(UnloadSceneAsync(scenesToUnload));
         }
-        
+
         public void UnLoadScene(SceneNames sceneToUnload)
         {
             if (isUnloadingScene)
@@ -78,6 +79,7 @@ namespace EtVK.Core
 
         private IEnumerator LoadSceneAsync(List<SceneNames> scenesToLoad)
         {
+            StartLoadingScreen();
             var operations = new List<AsyncOperation>();
 
             foreach (var sceneName in scenesToLoad)
@@ -94,11 +96,12 @@ namespace EtVK.Core
             }
 
             isLoadingScene = false;
-            FinishLoadingScreen();
+            FinishLoading();
         }
         
         private IEnumerator UnloadSceneAsync(List<SceneNames> scenesToUnload)
         {
+            StartLoadingScreen();
             var operations = new List<AsyncOperation>();
 
             foreach (var sceneName in scenesToUnload)
@@ -115,17 +118,27 @@ namespace EtVK.Core
             }
 
             isUnloadingScene = false;
-            FinishLoadingScreen();
+            FinishLoading();
         }
 
-        private void FinishLoadingScreen()
+        private void FinishLoading()
         {
             if(isLoadingScene || isUnloadingScene)
                 return;
             
             onFinishLoading?.Invoke();
+            loadingScreen.SetActive(false);
         }
 
+        private void StartLoadingScreen()
+        {
+            if(loadingScreen.activeInHierarchy)
+                return;
+            
+            
+            loadingScreen.SetActive(true);
+        }
+        
         private void InitializeGame()
         {
             var scene = new List<SceneNames> {SceneNames.Menu};

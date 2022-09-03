@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using EtVK.Core;
 using EtVK.Input_Module;
+using EtVK.Save_System_Module;
 using EtVK.UI_Module.Core;
 using EtVK.Utyles;
 using UnityEngine;
@@ -54,6 +55,7 @@ namespace EtVK.UI_Module.Character_Creation
                 SceneNames.Player,
             };
             
+            GameSaveManager.Instance.Save();
             GameManager.Instance.UnLoadScene(SceneNames.CharacterCreation);
             GameManager.Instance.LoadScene(scenesToLoad);
         }

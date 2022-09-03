@@ -26,6 +26,8 @@ namespace EtVK.Input_Module
         public Vector2 MovementInput { get; private set; }
         public Vector2 MouseLook { get; private set; }
 
+        public Vector2 ScrollWheel { get; private set; }
+
 
         private PlayerInputActions playerActions;
         private Coroutine blockInputCoroutine;
@@ -129,6 +131,7 @@ namespace EtVK.Input_Module
             playerActions.Player.DeactivateLockOn.performed += _ => DeactivateLockOn = true;
             playerActions.Player.DeactivateLockOn.canceled += _ => DeactivateLockOn = false;
             //UI
+            playerActions.UI.ScrollWheel.performed += OnScrollWheel;
             // playerActions.UI.Escape.performed += OnEscapePerformed;
         }
         
@@ -140,6 +143,11 @@ namespace EtVK.Input_Module
         private void OnMouseLook(InputAction.CallbackContext context)
         {
             MouseLook = context.ReadValue<Vector2>();
+        }
+
+        private void OnScrollWheel(InputAction.CallbackContext context)
+        {
+            ScrollWheel = context.ReadValue<Vector2>();
         }
 
         private void OnWeaponInput(WeaponType weaponType)

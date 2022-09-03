@@ -1,4 +1,5 @@
-﻿using EtVK.Core;
+﻿using System;
+using EtVK.Core;
 using EtVK.Utyles;
 using UnityEngine;
 
@@ -6,7 +7,6 @@ namespace EtVK.UI_Module.Main_Menu
 {
     public class MainMenuUiManager : MonoBehaviour
     {
-
         public void StartNewGame()
         {
             GameManager.Instance.UnLoadScene(SceneNames.Menu);
