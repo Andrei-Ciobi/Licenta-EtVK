@@ -23,12 +23,12 @@ namespace EtVK.Utyles
             var scroll = InputManager.Instance.ScrollWheel;
             if (scroll.y > 0)
             {
-                targetRotation.y += rotationAmount;
+                targetRotation.y -= rotationAmount;
             }
 
             if (scroll.y < 0)
             {
-                targetRotation.y -= rotationAmount;
+                targetRotation.y += rotationAmount;
             }
 
             currentRotation = Vector3.Lerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);

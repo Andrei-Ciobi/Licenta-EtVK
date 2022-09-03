@@ -16,7 +16,9 @@ namespace EtVK.Levels_Module
 
         private void LoadCurrentLevelData()
         {
+            GameManager.Instance.PreventLoad = true;
             GameSaveManager.Instance.Load();
+            GameManager.Instance.PreventLoad = false;
         }
 
         [ContextMenu("Set Player Position")]
