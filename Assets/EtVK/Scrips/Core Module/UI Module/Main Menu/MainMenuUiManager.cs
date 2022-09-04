@@ -20,7 +20,7 @@ namespace EtVK.UI_Module.Main_Menu
 
         public void StartNewGame()
         {
-            GameManager.Instance.UnLoadScene(SceneNames.Menu);
+            GameManager.Instance.UnLoadScene(SceneNames.MainMenu);
             GameManager.Instance.LoadScene(SceneNames.CharacterCreation);
         }
 

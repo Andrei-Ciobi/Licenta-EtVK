@@ -33,18 +33,18 @@ namespace EtVK.Player_Module.Controller
         
         public bool IsMoving()
         {
-            return InputManager.Instance.MovementInput != Vector2.zero;
+            return InputManager.Instance.Player.MovementInput != Vector2.zero;
         }
 
         public bool IsRunning()
         {
-            return InputManager.Instance.HoldRun && IsMoving();
+            return InputManager.Instance.Player.HoldRun && IsMoving();
         }
 
         public bool CanAttack()
         {
             var isAttacking = animator.GetBool(PlayerState.IsAttacking.ToString());
-            return InputManager.Instance.TapAttackInput && !isAttacking;
+            return InputManager.Instance.Player.TapAttackInput && !isAttacking;
         }
 
         public PlayerLocomotionData GetLocomotionData()
@@ -62,13 +62,16 @@ namespace EtVK.Player_Module.Controller
             return lockOnController;
         }
 
-        private void OnFinishLoading()
+        private void OnFinishLoadingLate()
         {
-            InputManager.Instance.DisableUIActionMap();
-            InputManager.Instance.EnablePlayerActionMap();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            animator.enabled = true;
         }
+
+        private void OnGameStateChange(bool state)
+        {
+            animator.enabled = !state;
+        }
+
         private void InitializeReferences()
         {
             animator = GetComponentInChildren<Animator>();
@@ -78,13 +81,14 @@ namespace EtVK.Player_Module.Controller
             playerRootMotionController.Initialize(this);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
 
-            GameManager.Instance.onFinishLoading += OnFinishLoading;
+            GameManager.Instance.onLateFinishLoading += OnFinishLoadingLate;
+            GameManager.Instance.onChangeGameState += OnGameStateChange;
         }
-
 
         private void OnDestroy()
         {
-            GameManager.Instance.onFinishLoading -= OnFinishLoading;
+            GameManager.Instance.onLateFinishLoading -= OnFinishLoadingLate;
+            GameManager.Instance.onChangeGameState -= OnGameStateChange;
         }
     }
 }

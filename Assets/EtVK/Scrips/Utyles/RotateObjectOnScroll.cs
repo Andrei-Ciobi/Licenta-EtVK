@@ -20,7 +20,7 @@ namespace EtVK.Utyles
 
         private void Update()
         {
-            var scroll = InputManager.Instance.ScrollWheel;
+            var scroll = InputManager.Instance.Ui.ScrollWheel;
             if (scroll.y > 0)
             {
                 targetRotation.y -= rotationAmount;

@@ -6,12 +6,15 @@ namespace EtVK.Levels_Module
 {
     public class BaseLevelManager : MonoBehaviour
     {
+        [SerializeField] private bool saveOnStart;
         [SerializeField] private Transform playerSpawnPoint;
 
         private void Awake()
         {
             GameManager.Instance.onFinishLoading += LoadCurrentLevelData;
             GameManager.Instance.onFinishLoading += SetPlayerPosition;
+            GameManager.Instance.onFinishLoading += SaveOnStartLevel;
+            
         }
 
         private void LoadCurrentLevelData()
@@ -19,6 +22,14 @@ namespace EtVK.Levels_Module
             GameManager.Instance.PreventLoad = true;
             GameSaveManager.Instance.Load();
             GameManager.Instance.PreventLoad = false;
+        }
+
+        private void SaveOnStartLevel()
+        {
+            if(!saveOnStart)
+                return;
+            
+            GameSaveManager.Instance.Save();
         }
 
         [ContextMenu("Set Player Position")]
@@ -39,6 +50,7 @@ namespace EtVK.Levels_Module
         {
             GameManager.Instance.onFinishLoading -= LoadCurrentLevelData;
             GameManager.Instance.onFinishLoading -= SetPlayerPosition;
+            GameManager.Instance.onFinishLoading -= SaveOnStartLevel;
         }
     }
 }

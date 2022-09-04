@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using EtVK.UI_Module.Core.Interfaces;
 using UnityEngine;
 
 namespace EtVK.UI_Module.Core
 {
-    public abstract class UiManager : MonoBehaviour
+    public abstract class MultiMenuUi : MonoBehaviour, IMultiMenuUi
     {
+        
         [SerializeField] private List<GameObject> menuList;
-
+        
         private int currentMenuIndex;
-
         public void NextMenu()
         {
             if (currentMenuIndex + 1 >= menuList.Count)

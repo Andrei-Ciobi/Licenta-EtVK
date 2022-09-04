@@ -15,14 +15,20 @@ namespace EtVK.Core
         public bool PreventLoad { get; set; }
 
         public LoadingEvent onFinishLoading;
+        public LoadingEvent onLateFinishLoading;
+        public ChangeGameState onChangeGameState;
 
         public delegate void LoadingEvent();
+        public delegate void ChangeGameState(bool state);
 
 
+        private bool gamePaused;
+        
         // private Dictionary<SceneNames, Scene> currentLoadedScenes = new();
         private bool isLoadingScene;
         private bool isUnloadingScene;
         private List<SceneNames> currentScenesLoaded = new();
+        
 
         private void Awake()
         {
@@ -42,9 +48,10 @@ namespace EtVK.Core
             }
 
             isLoadingScene = true;
+            Time.timeScale = 1f;
             StartCoroutine(LoadSceneAsync(scenesToLoad));
-            
-            if(!alter)
+
+            if (!alter)
                 return;
             scenesToLoad.ForEach(x => currentScenesLoaded.Add(x));
         }
@@ -58,9 +65,10 @@ namespace EtVK.Core
             }
 
             isLoadingScene = true;
+            Time.timeScale = 1f;
             StartCoroutine(LoadSceneAsync(new List<SceneNames> {sceneToLoad}));
-            
-            if(!alter)
+
+            if (!alter)
                 return;
             currentScenesLoaded.Add(sceneToLoad);
         }
@@ -75,8 +83,8 @@ namespace EtVK.Core
 
             isUnloadingScene = true;
             StartCoroutine(UnloadSceneAsync(scenesToUnload));
-            
-            if(!alter)
+
+            if (!alter)
                 return;
             scenesToUnload.ForEach(x => currentScenesLoaded.Remove(x));
         }
@@ -91,8 +99,8 @@ namespace EtVK.Core
 
             isUnloadingScene = true;
             StartCoroutine(UnloadSceneAsync(new List<SceneNames> {sceneToUnload}));
-            
-            if(!alter)
+
+            if (!alter)
                 return;
             currentScenesLoaded.Remove(sceneToUnload);
         }
@@ -114,15 +122,20 @@ namespace EtVK.Core
 
         public void LoadState(object state)
         {
-            if(PreventLoad)
+            if (PreventLoad)
                 return;
-            
+
             var saveData = (SaveData) state;
             currentScenesLoaded = saveData.SceneNames;
         }
 
         private IEnumerator LoadSceneAsync(List<SceneNames> scenesToLoad)
         {
+            while (isUnloadingScene)
+            {
+                yield return null;
+            }
+
             StartLoadingScreen();
             var operations = new List<AsyncOperation>();
 
@@ -146,6 +159,11 @@ namespace EtVK.Core
 
         private IEnumerator UnloadSceneAsync(List<SceneNames> scenesToUnload)
         {
+            while (isLoadingScene)
+            {
+                yield return null;
+            }
+
             StartLoadingScreen();
             var operations = new List<AsyncOperation>();
 
@@ -171,8 +189,9 @@ namespace EtVK.Core
             if (isLoadingScene || isUnloadingScene)
                 return;
 
+            IsGamePaused = false;
             onFinishLoading?.Invoke();
-            loadingScreen.SetActive(false);
+            StartCoroutine(LoadingDelay(2f));
         }
 
         private void StartLoadingScreen()
@@ -184,10 +203,29 @@ namespace EtVK.Core
             loadingScreen.SetActive(true);
         }
 
+        private IEnumerator LoadingDelay(float time)
+        {
+            yield return new WaitForSecondsRealtime(time/2f);
+            onLateFinishLoading?.Invoke();
+            
+            yield return new WaitForSecondsRealtime(time/2f);
+            loadingScreen.SetActive(false);
+        }
+
         private void InitializeGame()
         {
-            var scene = new List<SceneNames> {SceneNames.Menu};
+            var scene = new List<SceneNames> {SceneNames.MainMenu};
             LoadScene(scene);
+        }
+        
+        public bool IsGamePaused
+        {
+            get => gamePaused;
+            set
+            {
+                gamePaused = value;
+                onChangeGameState?.Invoke(value);
+            }
         }
 
         [System.Serializable]

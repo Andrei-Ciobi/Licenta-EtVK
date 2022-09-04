@@ -19,7 +19,7 @@ namespace EtVK.UI_Module.Main_Menu
         private void OnClick()
         {
             GameSaveManager.Instance.LoadSaveFileWithName(saveName.text);
-            GameManager.Instance.UnLoadScene(SceneNames.Menu);
+            GameManager.Instance.UnLoadScene(SceneNames.MainMenu);
             GameManager.Instance.LoadCurrentScenes();
         }
     }

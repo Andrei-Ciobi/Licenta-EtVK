@@ -784,6 +784,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8447787890960134694, guid: a1899ae142a319b498995f08324f7691,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8447787890960134695, guid: a1899ae142a319b498995f08324f7691,
         type: 3}
       propertyPath: loadingScreen

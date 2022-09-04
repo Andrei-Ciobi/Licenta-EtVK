@@ -256,6 +256,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 996119331463529059, guid: 40f778b4854eb594da5ad11bee085211,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3574976060800153707, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: inventoryData
@@ -266,6 +271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character_Eros
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574976061433991894, guid: 40f778b4854eb594da5ad11bee085211,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
@@ -320,6 +330,11 @@ PrefabInstance:
     - target: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986851451809076183, guid: 40f778b4854eb594da5ad11bee085211,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

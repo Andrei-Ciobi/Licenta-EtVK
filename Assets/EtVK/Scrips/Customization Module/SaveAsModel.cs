@@ -2,9 +2,10 @@
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public class SaveAsModel : SaveCustomization
     {
-#if UNITY_EDITOR
+
         public override void Save()
         {
             var modEleOpt = GetComponent<ModularElementOption>();
@@ -24,6 +25,7 @@ namespace EtVK.Customization_Module
 
             DestroyImmediate(prefab);
         }
-#endif
+
     }
+#endif
 }

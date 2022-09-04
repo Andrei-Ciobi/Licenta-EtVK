@@ -1,4 +1,5 @@
 // ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
 namespace EtVK.Utyles
 {
 
@@ -186,10 +187,26 @@ namespace EtVK.Utyles
 
     public enum SceneNames
     {
-        Menu = 0,
+        MainMenu = 0,
+        GameUi = 4, 
         Player = 1,
         CharacterCreation = 2,
         LevelOne = 3,
+    }
+
+    public enum GameUi
+    {
+        Menu,
+        Inventory,
+        Shop,
+        Hud,
+    }
+
+    public enum HudUi
+    {
+        Health,
+        Stamina,
+        
     }
 
 public class AllEnums

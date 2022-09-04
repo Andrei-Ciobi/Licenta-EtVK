@@ -8,27 +8,12 @@ namespace EtVK.Input_Module
 {
     public class InputManager : MonoSingletone<InputManager>
     {
-        public bool HoldRun { get; private set; }
-        public bool ChannelingAttack { get; private set; }
-        public bool Aim { get; private set; }
-        public bool AttackInputBlocked { get; private set; }
-        public bool SpecificInputBlocked { get; private set; }
-        public bool DeactivateLockOn { get; set; }
-        public bool JumpInputBlocked { get; set; }
-        public bool SwitchWeaponInput { get; set; }
-        public WeaponType SwitchWeaponType { get; set; }
-        public bool TapJumpInput => playerActions.Player.TapJump.triggered;
-        public bool TapRunInput => playerActions.Player.TapRun.triggered;
-        public bool TapInteractInput => playerActions.Player.TapInteract.triggered;
-        public bool TapAttackInput => playerActions.Player.TapAttack.triggered;
-        public bool TapDodge => playerActions.Player.TapDodge.triggered;
-        public bool ActivateLockOn => playerActions.Player.ActivateLockOn.triggered;
-        public Vector2 MovementInput { get; private set; }
-        public Vector2 MouseLook { get; private set; }
-
-        public Vector2 ScrollWheel { get; private set; }
+        public PlayerInputs Player => playerInputs;
+        public UiInputs Ui => uiInputs;
 
 
+        private PlayerInputs playerInputs;
+        private UiInputs uiInputs;
         private PlayerInputActions playerActions;
         private Coroutine blockInputCoroutine;
         private Coroutine blockAttackInputCoroutine;
@@ -37,6 +22,7 @@ namespace EtVK.Input_Module
         {
             InitializeSingletone();
             playerActions = new PlayerInputActions();
+            InitializeInputs();
         }
         
         private void Start()
@@ -94,7 +80,7 @@ namespace EtVK.Input_Module
                 StopCoroutine(blockInputCoroutine);
             }
 
-            SpecificInputBlocked = true;
+            playerInputs.SpecificInputBlocked = true;
             blockInputCoroutine = StartCoroutine(BlockInputCoroutine(blockInputCd));
         }
 
@@ -110,7 +96,7 @@ namespace EtVK.Input_Module
                 StopCoroutine(blockAttackInputCoroutine);
             }
 
-            AttackInputBlocked = true;
+            playerInputs.AttackInputBlocked = true;
             blockAttackInputCoroutine = StartCoroutine(BlockAttackInputCoroutine(blockInputCd));
         }
         
@@ -118,18 +104,18 @@ namespace EtVK.Input_Module
         {
 
             // Player
-            playerActions.Player.HoldRun.performed += _ => HoldRun = true;
-            playerActions.Player.HoldRun.canceled += _ => HoldRun = false;
-            playerActions.Player.HoldAttack.performed += _ => ChannelingAttack = true;
-            playerActions.Player.HoldAttack.canceled += _ => ChannelingAttack = false;
+            playerActions.Player.HoldRun.performed += _ => playerInputs.HoldRun = true;
+            playerActions.Player.HoldRun.canceled += _ => playerInputs.HoldRun = false;
+            playerActions.Player.HoldAttack.performed += _ => playerInputs.ChannelingAttack = true;
+            playerActions.Player.HoldAttack.canceled += _ => playerInputs.ChannelingAttack = false;
             // playerActions.Player.HoldAim.performed += OnAimPerformed;
-            playerActions.Player.HoldAim.canceled += _ => Aim = false;
+            playerActions.Player.HoldAim.canceled += _ => playerInputs.Aim = false;
             playerActions.Player.MouseLook.performed += OnMouseLook;
             playerActions.Player.Movement.performed += OnMovementInput;
             playerActions.Player.Weapon_1.performed += _ => OnWeaponInput(WeaponType.Sword);
             playerActions.Player.Weapon_2.performed += _ => OnWeaponInput(WeaponType.GreatSword);
-            playerActions.Player.DeactivateLockOn.performed += _ => DeactivateLockOn = true;
-            playerActions.Player.DeactivateLockOn.canceled += _ => DeactivateLockOn = false;
+            playerActions.Player.DeactivateLockOn.performed += _ => playerInputs.DeactivateLockOn = true;
+            playerActions.Player.DeactivateLockOn.canceled += _ => playerInputs.DeactivateLockOn = false;
             //UI
             playerActions.UI.ScrollWheel.performed += OnScrollWheel;
             // playerActions.UI.Escape.performed += OnEscapePerformed;
@@ -137,44 +123,89 @@ namespace EtVK.Input_Module
         
         private void OnMovementInput(InputAction.CallbackContext context)
         {
-            MovementInput = context.ReadValue<Vector2>();
+            playerInputs.MovementInput = context.ReadValue<Vector2>();
         }
 
         private void OnMouseLook(InputAction.CallbackContext context)
         {
-            MouseLook = context.ReadValue<Vector2>();
+            playerInputs.MouseLook = context.ReadValue<Vector2>();
         }
 
         private void OnScrollWheel(InputAction.CallbackContext context)
         {
-            ScrollWheel = context.ReadValue<Vector2>();
+            uiInputs.ScrollWheel = context.ReadValue<Vector2>();
         }
 
         private void OnWeaponInput(WeaponType weaponType)
         {
-            if(SwitchWeaponInput)
+            if(playerInputs.SwitchWeaponInput)
                 return;
             
-            SwitchWeaponInput = true;
-            SwitchWeaponType = weaponType;
+            playerInputs.SwitchWeaponInput = true;
+            playerInputs.SwitchWeaponType = weaponType;
         }
 
         private IEnumerator JumpCdCoroutine(float jumpCdTime)
         {
             yield return new WaitForSeconds(jumpCdTime);
-            JumpInputBlocked = false;
+            playerInputs.JumpInputBlocked = false;
         }
 
         private IEnumerator BlockInputCoroutine(float blockInputCd)
         {
             yield return new WaitForSeconds(blockInputCd);
-            SpecificInputBlocked = false;
+            playerInputs.SpecificInputBlocked = false;
         }
 
         private IEnumerator BlockAttackInputCoroutine(float blockInputCd)
         {
             yield return new WaitForSeconds(blockInputCd);
-            AttackInputBlocked = false;
+            playerInputs.AttackInputBlocked = false;
+        }
+
+        private void InitializeInputs()
+        {
+            playerInputs = new PlayerInputs(playerActions);
+            uiInputs = new UiInputs(playerActions);
+        }
+        
+        public class PlayerInputs
+        {
+            private readonly PlayerInputActions playerActions;
+            public bool HoldRun { get;  set; }
+            public bool ChannelingAttack { get;  set; }
+            public bool Aim { get; set; }
+            public bool AttackInputBlocked { get;  set; }
+            public bool SpecificInputBlocked { get;  set; }
+            public bool DeactivateLockOn { get; set; }
+            public bool JumpInputBlocked { get; set; }
+            public bool SwitchWeaponInput { get; set; }
+            public WeaponType SwitchWeaponType { get; set; }
+            public bool TapJumpInput => playerActions.Player.TapJump.triggered;
+            public bool TapRunInput => playerActions.Player.TapRun.triggered;
+            public bool TapInteractInput => playerActions.Player.TapInteract.triggered;
+            public bool TapAttackInput => playerActions.Player.TapAttack.triggered;
+            public bool TapDodge => playerActions.Player.TapDodge.triggered;
+            public bool ActivateLockOn => playerActions.Player.ActivateLockOn.triggered;
+            public bool TapEscape => playerActions.Player.Escape.triggered;
+            public Vector2 MovementInput { get;  set; }
+            public Vector2 MouseLook { get;  set; }
+
+            public PlayerInputs(PlayerInputActions playerActions)
+            {
+                this.playerActions = playerActions;
+            }
+        }
+        public class UiInputs
+        {
+            private PlayerInputActions playerActions;
+            public bool TapEscape => playerActions.UI.Cancel.triggered;
+            public Vector2 ScrollWheel { get;  set; }
+
+            public UiInputs(PlayerInputActions playerActions)
+            {
+                this.playerActions = playerActions;
+            }
         }
     }
 }

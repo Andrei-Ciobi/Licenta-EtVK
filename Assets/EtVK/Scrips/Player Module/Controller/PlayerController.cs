@@ -22,7 +22,7 @@ namespace EtVK.Player_Module.Controller
             if (characterController.isGrounded && playerManager.IsJumping)
             {
                 playerManager.IsJumping = false;
-                InputManager.Instance.JumpInputBlocked = true;
+                InputManager.Instance.Player.JumpInputBlocked = true;
             }
 
             if (characterController.isGrounded && playerManager.DownVelocity.y < -0.5f)

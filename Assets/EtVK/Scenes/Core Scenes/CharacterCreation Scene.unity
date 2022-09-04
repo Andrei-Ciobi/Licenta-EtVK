@@ -2762,6 +2762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 298875757}
   - component: {fileID: 298875758}
+  - component: {fileID: 298875760}
   m_Layer: 5
   m_Name: Character Creation UI Manager
   m_TagString: Untagged
@@ -2803,9 +2804,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuList:
   - {fileID: 2078757681}
+--- !u!114 &298875760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298875756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd3e784c0cd47a6acf6f320c5089b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   defaultButtonColor:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -2813,7 +2826,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   activeButtonColor:
     m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -7484,7 +7497,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -7506,9 +7519,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeSubMenu
         m_Mode: 2
         m_Arguments:
@@ -7519,9 +7531,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeActiveButton
         m_Mode: 2
         m_Arguments:
@@ -8900,7 +8911,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -8922,9 +8933,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeSubMenu
         m_Mode: 2
         m_Arguments:
@@ -8935,9 +8945,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeActiveButton
         m_Mode: 2
         m_Arguments:
@@ -9409,7 +9418,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -9431,9 +9440,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeSubMenu
         m_Mode: 2
         m_Arguments:
@@ -9444,9 +9452,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeActiveButton
         m_Mode: 2
         m_Arguments:
@@ -10547,7 +10554,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -10569,9 +10576,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeSubMenu
         m_Mode: 2
         m_Arguments:
@@ -10582,9 +10588,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeActiveButton
         m_Mode: 2
         m_Arguments:
@@ -10718,7 +10723,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.UiManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.MultiMenuUi, Assembly-CSharp
         m_MethodName: NextMenu
         m_Mode: 1
         m_Arguments:
@@ -13073,7 +13078,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -13095,9 +13100,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeSubMenu
         m_Mode: 2
         m_Arguments:
@@ -13108,9 +13112,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeActiveButton
         m_Mode: 2
         m_Arguments:
@@ -13719,7 +13722,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.UiManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.MultiMenuUi, Assembly-CSharp
         m_MethodName: PreviousMenu
         m_Mode: 1
         m_Arguments:
@@ -14073,7 +14076,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -14095,9 +14098,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeSubMenu
         m_Mode: 2
         m_Arguments:
@@ -14108,9 +14110,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeActiveButton
         m_Mode: 2
         m_Arguments:
@@ -20177,7 +20178,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -20199,9 +20200,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeSubMenu
         m_Mode: 2
         m_Arguments:
@@ -20212,9 +20212,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 298875758}
-        m_TargetAssemblyTypeName: EtVK.UI_Module.Character_Creation.CharacterCreationUiManager,
-          Assembly-CSharp
+      - m_Target: {fileID: 298875760}
+        m_TargetAssemblyTypeName: EtVK.UI_Module.Core.SubMenusUi, Assembly-CSharp
         m_MethodName: ChangeActiveButton
         m_Mode: 2
         m_Arguments:

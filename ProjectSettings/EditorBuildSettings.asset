@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/EtVK/Scenes/Core Scenes/GameManager Scene.unity
     guid: c72846fe794be124cb6bb9e942d00fa3
   - enabled: 1
-    path: Assets/EtVK/Scenes/Core Scenes/Menu Scene.unity
+    path: Assets/EtVK/Scenes/UI Scenes/MainMenu Scene.unity
     guid: 2b2da15c5bc04ca479c5f55155ae54bf
+  - enabled: 1
+    path: Assets/EtVK/Scenes/UI Scenes/GameUi Scene.unity
+    guid: deab9d1365c24bf4ba7e9cd28fbc55eb
   - enabled: 1
     path: Assets/EtVK/Scenes/Core Scenes/Player Scene.unity
     guid: 165032eae78e28d4fa872455c46007df
@@ -21,6 +24,6 @@ EditorBuildSettings:
     path: Assets/EtVK/Scenes/Core Scenes/CharacterCreation Scene.unity
     guid: ebb02b20629eb614ab5608697ceea0c7
   - enabled: 1
-    path: Assets/EtVK/Scenes/Levels/LevelOne Scene.unity
+    path: Assets/EtVK/Scenes/Level Scenes/LevelOne Scene.unity
     guid: d7a5486fa21bbf54f887e1a0dc6ec57a
   m_configObjects: {}

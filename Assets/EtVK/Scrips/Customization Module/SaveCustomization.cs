@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public abstract class SaveCustomization : MonoBehaviour
     {
         [SerializeField] protected string prefabName;
@@ -64,7 +65,7 @@ namespace EtVK.Customization_Module
             return localPath;
         }
 
-#if UNITY_EDITOR
+
         protected void SavePrefab(GameObject prefab, string localPath)
         {
             PrefabUtility.SaveAsPrefabAsset(prefab, localPath, out var prefabSuccess);
@@ -72,6 +73,7 @@ namespace EtVK.Customization_Module
 
             Debug.Log(prefabSuccess ? "Prefab was saved successfully" : "Prefab failed to save");
         }
-#endif
+
     }
+#endif
 }
