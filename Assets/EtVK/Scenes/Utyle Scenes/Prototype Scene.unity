@@ -12631,6 +12631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
+  partialInitialize: 0
 --- !u!1 &627017515766335532
 GameObject:
   m_ObjectHideFlags: 0
@@ -13652,6 +13653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 12
+  partialInitialize: 0
 --- !u!137 &872927109823846609
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -14774,6 +14776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  partialInitialize: 0
 --- !u!1 &1159305356292583242
 GameObject:
   m_ObjectHideFlags: 0
@@ -15450,6 +15453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 9
+  partialInitialize: 0
 --- !u!4 &1372606762051711166
 Transform:
   m_ObjectHideFlags: 0
@@ -15832,6 +15836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 12
+  partialInitialize: 0
 --- !u!1 &1483985718645145431
 GameObject:
   m_ObjectHideFlags: 0
@@ -17250,6 +17255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 9
+  partialInitialize: 0
 --- !u!1 &1851847594716442169
 GameObject:
   m_ObjectHideFlags: 0
@@ -18237,6 +18243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 8
+  partialInitialize: 0
 --- !u!1 &2042009916946262973
 GameObject:
   m_ObjectHideFlags: 0
@@ -19211,6 +19218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
+  partialInitialize: 0
 --- !u!4 &2291905746276174432
 Transform:
   m_ObjectHideFlags: 0
@@ -19620,6 +19628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 8
+  partialInitialize: 0
 --- !u!4 &2442145695871872310
 Transform:
   m_ObjectHideFlags: 0
@@ -20570,6 +20579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 14
+  partialInitialize: 0
 --- !u!1 &2665919073044877986
 GameObject:
   m_ObjectHideFlags: 0
@@ -21330,6 +21340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
+  partialInitialize: 0
 --- !u!1 &2820455080894905937
 GameObject:
   m_ObjectHideFlags: 0
@@ -24642,6 +24653,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3574976061433991882, guid: 40f778b4854eb594da5ad11bee085211,
+        type: 3}
+      propertyPath: playerLocomotionData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fc075dc2f6e8ff4295973f551129c72,
+        type: 2}
     - target: {fileID: 3574976061433991894, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: m_Name
@@ -30395,6 +30412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 13
+  partialInitialize: 0
 --- !u!4 &5019202798125676881
 Transform:
   m_ObjectHideFlags: 0
@@ -31819,6 +31837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 11
+  partialInitialize: 0
 --- !u!4 &5293008607585850302
 Transform:
   m_ObjectHideFlags: 0
@@ -32313,6 +32332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
+  partialInitialize: 0
 --- !u!1 &5453451439246686455
 GameObject:
   m_ObjectHideFlags: 0
@@ -34828,6 +34848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  partialInitialize: 0
 --- !u!4 &6198919698721487766
 Transform:
   m_ObjectHideFlags: 0
@@ -35151,6 +35172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  partialInitialize: 0
 --- !u!1 &6327205902495108116
 GameObject:
   m_ObjectHideFlags: 0
@@ -38733,6 +38755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 10
+  partialInitialize: 0
 --- !u!4 &7056756489186036001
 Transform:
   m_ObjectHideFlags: 0
@@ -39932,6 +39955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
+  partialInitialize: 0
 --- !u!4 &7389494516281038016
 Transform:
   m_ObjectHideFlags: 0
@@ -45730,6 +45754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  partialInitialize: 0
 --- !u!4 &8682984481046254712
 Transform:
   m_ObjectHideFlags: 0
@@ -47222,6 +47247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  partialInitialize: 0
 --- !u!4 &9041449772916573113
 Transform:
   m_ObjectHideFlags: 0

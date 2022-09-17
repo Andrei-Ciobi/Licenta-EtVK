@@ -797,7 +797,7 @@ PrefabInstance:
     - target: {fileID: 8447787890960134695, guid: a1899ae142a319b498995f08324f7691,
         type: 3}
       propertyPath: startFullGame
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1899ae142a319b498995f08324f7691, type: 3}

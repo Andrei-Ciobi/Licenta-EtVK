@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using EtVK.Save_System_Module;
 using EtVK.Utyles;
 using UnityEngine;
@@ -127,6 +128,12 @@ namespace EtVK.Core
 
             var saveData = (SaveData) state;
             currentScenesLoaded = saveData.SceneNames;
+        }
+
+        public void SetFullGameState(bool state)
+        {
+            startFullGame = state;
+            FindObjectsOfType<FullGameObjectTool>().ToList().ForEach(x => x.SetFullGameState(state));
         }
 
         private IEnumerator LoadSceneAsync(List<SceneNames> scenesToLoad)

@@ -8,15 +8,16 @@ using UnityEngine;
 
 namespace EtVK.Player_Module.Controller
 {
-    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>
+    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>, IFullGameComponent
     {
+        [SerializeField] private bool startFullGame;
+        [SerializeField] private PlayerLocomotionData playerLocomotionData;
+        
+        public bool StartFullGame { get => startFullGame; set => startFullGame = value; }
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }
-        
         public bool UseRootMotionRotation { get; set; }
         public Transform CameraMainTransform => cameraMainTransform;
-
-        [SerializeField] private PlayerLocomotionData playerLocomotionData;
         
         private PlayerAnimationEventController animationEventController;
         private PlayerRootMotionController playerRootMotionController;
@@ -81,8 +82,17 @@ namespace EtVK.Player_Module.Controller
             playerRootMotionController.Initialize(this);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
 
-            GameManager.Instance.onLateFinishLoading += OnFinishLoadingLate;
-            GameManager.Instance.onChangeGameState += OnGameStateChange;
+            if (startFullGame)
+            {
+                GameManager.Instance.onLateFinishLoading += OnFinishLoadingLate;
+                GameManager.Instance.onChangeGameState += OnGameStateChange;
+            }
+            else
+            {
+                animator.enabled = true;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
 
         private void OnDestroy()

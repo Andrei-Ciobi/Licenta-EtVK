@@ -9,7 +9,7 @@ namespace EtVK.Save_System_Module
 {
     public class GameSaveManager : MonoSingletone<GameSaveManager>
     {
-        public readonly string directory = "SaveFiles";
+        private readonly string directory = "SaveFiles";
         private string currentSaveFile;
 
 

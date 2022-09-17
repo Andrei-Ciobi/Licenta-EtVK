@@ -1,16 +1,22 @@
 ﻿using EtVK.Core;
 using EtVK.Save_System_Module;
+using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Levels_Module
 {
-    public class BaseLevelManager : MonoBehaviour
+    public class BaseLevelManager : MonoBehaviour, IFullGameComponent
     {
+        [SerializeField] private bool startFullGame;
         [SerializeField] private bool saveOnStart;
         [SerializeField] private Transform playerSpawnPoint;
-
+        
+        public bool StartFullGame { get => startFullGame; set => startFullGame = value; }
         private void Awake()
         {
+            if(!startFullGame)
+                return;
+            
             GameManager.Instance.onFinishLoading += LoadCurrentLevelData;
             GameManager.Instance.onFinishLoading += SetPlayerPosition;
             GameManager.Instance.onFinishLoading += SaveOnStartLevel;
