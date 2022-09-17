@@ -16,7 +16,7 @@ namespace EtVK.AI_Module.Controllers
             InitializeReferences();
         }
         
-        public virtual void FixedUpdate()
+        public  void FixedUpdate()
         {
             if (!enemyManager.IsChasing)
                 return;

@@ -3252,7 +3252,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh171026
+  m_Name: pb_Mesh47722
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7433,7 +7433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locomotionData: {fileID: 11400000, guid: 32a1e2173a5f1fa408f5bd3de3362322, type: 2}
-  dummyMode: 0
+  dummyMode: 1
 --- !u!114 &1013564694
 MonoBehaviour:
   m_ObjectHideFlags: 0

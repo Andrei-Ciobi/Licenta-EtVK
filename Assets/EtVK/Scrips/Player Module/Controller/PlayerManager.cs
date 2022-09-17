@@ -97,6 +97,8 @@ namespace EtVK.Player_Module.Controller
 
         private void OnDestroy()
         {
+            if(!startFullGame)
+                return;
             GameManager.Instance.onLateFinishLoading -= OnFinishLoadingLate;
             GameManager.Instance.onChangeGameState -= OnGameStateChange;
         }
