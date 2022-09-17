@@ -50,7 +50,7 @@ namespace EtVK.Player_Module.States
 
             if (monoBehaviour.IsMoving())
             { 
-                movement = InputManager.Instance.MovementInput;
+                movement = InputManager.Instance.Player.MovementInput;
             }
 
             monoBehaviour.GetController().UpdateNormalMovement(movement, curentAirSpeed);

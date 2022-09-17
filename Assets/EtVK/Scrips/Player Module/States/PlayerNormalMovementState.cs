@@ -25,14 +25,14 @@ namespace EtVK.Player_Module.States
             var inTransition = animator.GetBool(PlayerState.Transition.ToString());
 
             // Jump bool variable from animator
-            if (InputManager.Instance.TapJumpInput && !inTransition)
+            if (InputManager.Instance.Player.TapJumpInput && !inTransition)
             {
                 animator.SetBool(PlayerState.Jump.ToString(), true);
                 return;
             }
             
             // Dodge bool variable for animator
-            if (InputManager.Instance.TapDodge && monoBehaviour.IsMoving() && !inTransition)
+            if (InputManager.Instance.Player.TapDodge && monoBehaviour.IsMoving() && !inTransition)
             {
                 animator.SetBool(PlayerState.InDodge.ToString(), true);
                 return;
@@ -50,7 +50,7 @@ namespace EtVK.Player_Module.States
             // Walk blendTree
             if (monoBehaviour.IsMoving() && !monoBehaviour.IsRunning() && !monoBehaviour.IsJumping)
             {
-                var movement = InputManager.Instance.MovementInput;
+                var movement = InputManager.Instance.Player.MovementInput;
 
                 animator.SetFloat(PlayerState.Movement.ToString(), .5f, transitionDelay, Time.deltaTime);
                 monoBehaviour.GetController().UpdateNormalMovement(movement);
@@ -59,7 +59,7 @@ namespace EtVK.Player_Module.States
             // Running blendTree
             if (monoBehaviour.IsRunning() && !monoBehaviour.IsJumping)
             {
-                var movement = InputManager.Instance.MovementInput;
+                var movement = InputManager.Instance.Player.MovementInput;
 
                 animator.SetFloat(PlayerState.Movement.ToString(), 1f, transitionDelay, Time.deltaTime);
                 monoBehaviour.GetController().UpdateNormalMovement(movement, monoBehaviour.GetLocomotionData().RunSpeed);

@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public class SaveMultipleAsModel : SaveCustomization
     {
-#if UNITY_EDITOR
+
         public override void Save()
         {
             var modEleOptList = GetComponentsInChildren<ModularElementOption>().ToList();
@@ -34,7 +35,6 @@ namespace EtVK.Customization_Module
 
             DestroyImmediate(prefab);
         }
-#endif
 
         private GameObject CreateParentPrefab(List<Transform> objList)
         {
@@ -60,4 +60,5 @@ namespace EtVK.Customization_Module
             return parentObj;
         }
     }
+#endif
 }

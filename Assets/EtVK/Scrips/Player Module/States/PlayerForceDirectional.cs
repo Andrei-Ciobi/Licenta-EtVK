@@ -16,7 +16,7 @@ namespace EtVK.Player_Module.States
 
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            movement = InputManager.Instance.MovementInput;
+            movement = InputManager.Instance.Player.MovementInput;
         }
 
         public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
