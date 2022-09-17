@@ -1,4 +1,5 @@
-using EtVK.Core_Module;
+using System;
+using EtVK.Core;
 using EtVK.Health_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
@@ -7,15 +8,16 @@ using UnityEngine;
 
 namespace EtVK.Player_Module.Controller
 {
-    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>
+    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>, IFullGameComponent
     {
+        [SerializeField] private bool startFullGame;
+        [SerializeField] private PlayerLocomotionData playerLocomotionData;
+        
+        public bool StartFullGame { get => startFullGame; set => startFullGame = value; }
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }
-        
         public bool UseRootMotionRotation { get; set; }
         public Transform CameraMainTransform => cameraMainTransform;
-
-        [SerializeField] private PlayerLocomotionData playerLocomotionData;
         
         private PlayerAnimationEventController animationEventController;
         private PlayerRootMotionController playerRootMotionController;
@@ -26,24 +28,24 @@ namespace EtVK.Player_Module.Controller
         {
             InitializeBaseReferences();
             InitializeReferences();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            // Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.visible = false;
         }
         
         public bool IsMoving()
         {
-            return InputManager.Instance.MovementInput != Vector2.zero;
+            return InputManager.Instance.Player.MovementInput != Vector2.zero;
         }
 
         public bool IsRunning()
         {
-            return InputManager.Instance.HoldRun && IsMoving();
+            return InputManager.Instance.Player.HoldRun && IsMoving();
         }
 
         public bool CanAttack()
         {
             var isAttacking = animator.GetBool(PlayerState.IsAttacking.ToString());
-            return InputManager.Instance.TapAttackInput && !isAttacking;
+            return InputManager.Instance.Player.TapAttackInput && !isAttacking;
         }
 
         public PlayerLocomotionData GetLocomotionData()
@@ -60,7 +62,16 @@ namespace EtVK.Player_Module.Controller
         {
             return lockOnController;
         }
-        
+
+        private void OnFinishLoadingLate()
+        {
+            animator.enabled = true;
+        }
+
+        private void OnGameStateChange(bool state)
+        {
+            animator.enabled = !state;
+        }
 
         private void InitializeReferences()
         {
@@ -70,6 +81,24 @@ namespace EtVK.Player_Module.Controller
             lockOnController = GetComponentInChildren<LockOnController>();
             playerRootMotionController.Initialize(this);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
+
+            if (startFullGame)
+            {
+                GameManager.Instance.onLateFinishLoading += OnFinishLoadingLate;
+                GameManager.Instance.onChangeGameState += OnGameStateChange;
+            }
+            else
+            {
+                animator.enabled = true;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.Instance.onLateFinishLoading -= OnFinishLoadingLate;
+            GameManager.Instance.onChangeGameState -= OnGameStateChange;
         }
     }
 }

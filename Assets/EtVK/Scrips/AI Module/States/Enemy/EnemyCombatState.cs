@@ -1,6 +1,6 @@
 ﻿using EtVK.AI_Module.Managers;
 using EtVK.AI_Module.Weapons;
-using EtVK.Core_Module;
+using EtVK.Core;
 using EtVK.Utyles;
 using UnityEngine;
 

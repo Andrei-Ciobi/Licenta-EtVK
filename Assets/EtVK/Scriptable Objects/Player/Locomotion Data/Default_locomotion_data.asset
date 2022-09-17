@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSlowSpeed: 1
   walkFastSpeed: 3
-  runSpeed: 7
+  runSpeed: 8
   rotationSpeed: 10
   gravityValue: -9.81
   gravityMultiplayer: 3
   jumpHeight: 5
   slopeFore: 10
   slopeForceRayLenght: 3
-  steepSlopeLimit: 30
+  steepSlopeLimit: 45
   steepSlopeSpeed: 10
   pushPower: 5

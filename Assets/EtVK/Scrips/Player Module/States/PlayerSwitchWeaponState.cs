@@ -1,4 +1,4 @@
-﻿using EtVK.Core_Module;
+﻿using EtVK.Core;
 using EtVK.Input_Module;
 using EtVK.Player_Module.Controller;
 using UnityEngine;
@@ -9,10 +9,10 @@ namespace EtVK.Player_Module.States
     {
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (InputManager.Instance.SwitchWeaponInput)
+            if (InputManager.Instance.Player.SwitchWeaponInput)
             {
-                InputManager.Instance.SwitchWeaponInput = false;
-                var weaponType = InputManager.Instance.SwitchWeaponType;
+                InputManager.Instance.Player.SwitchWeaponInput = false;
+                var weaponType = InputManager.Instance.Player.SwitchWeaponType;
                 var currentWeaponArmed = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
                 var weaponToSwitch = monoBehaviour.GetInventoryManager().GetWeaponByType(weaponType);
                 

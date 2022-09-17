@@ -2,8 +2,10 @@
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public class SaveAsModel : SaveCustomization
     {
+
         public override void Save()
         {
             var modEleOpt = GetComponent<ModularElementOption>();
@@ -19,10 +21,11 @@ namespace EtVK.Customization_Module
             var prefab = PreparePrefab(modEleOpt.GetCurrentElement(), modEleOpt.Mat,
                 modEleOpt.GetCurrentElement().gameObject.name);
             SavePrefab(prefab, localPath);
-            
-            
+
+
             DestroyImmediate(prefab);
         }
-        
+
     }
+#endif
 }

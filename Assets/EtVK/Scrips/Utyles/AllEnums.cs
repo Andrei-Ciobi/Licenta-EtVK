@@ -1,7 +1,8 @@
 // ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
 namespace EtVK.Utyles
 {
-    
+
 
     // for attacks type
     public enum AttackType
@@ -25,39 +26,40 @@ namespace EtVK.Utyles
 
     public enum ModularOptions
     {
-        Head,
-        Hair,
-        Eyebrows,
-        FacialHair,
-        Helmet,
-        Shoulder,
-        Back,
-        UpperArm,
-        LowerArm,
-        Hand,
-        Chest,
-        Hips,
-        Legs,
-        HelmetAttachment,
-        HeadAttachment,
-        
+        Head = 0,
+        Hair = 1,
+        Eyebrows = 2,
+        FacialHair = 3,
+        Helmet = 4,
+        Shoulder = 5,
+        Back = 6,
+        UpperArm = 7,
+        LowerArm = 8,
+        Hand = 9,
+        Chest = 10,
+        Hips = 11,
+        Legs = 12,
+        HelmetAttachment = 13,
+        HeadAttachment = 14,
+        All = 15,
+
     }
 
     public enum ModularColorOptions
     {
-        Primary,
-        Secondary,
-        Leather_Primary,
-        Leather_Secondary,
-        Metal_Primary,
-        Metal_Secondary,
-        Metal_Dark,
-        Hair,
-        Skin,
-        Stubble,
-        Scar,
-        Eyes,
-        BodyArt,
+        Primary = 0,
+        Secondary = 1,
+        Leather_Primary = 2,
+        Leather_Secondary = 3,
+        Metal_Primary = 4,
+        Metal_Secondary = 5,
+        Metal_Dark = 6,
+        Hair = 7,
+        Skin = 8,
+        Stubble = 9,
+        Scar = 10,
+        Eyes = 11,
+        BodyArt = 12,
     }
 
     public enum EnemyAIAction
@@ -161,7 +163,7 @@ namespace EtVK.Utyles
         Back = 7,
         Pants = 8,
         Boots = 9,
-        
+
     }
 
     public enum WeaponActionType
@@ -183,7 +185,31 @@ namespace EtVK.Utyles
         LockOn = 2,
     }
 
-    public class AllEnums
+    public enum SceneNames
+    {
+        MainMenu = 0,
+        GameUi = 4, 
+        Player = 1,
+        CharacterCreation = 2,
+        LevelOne = 3,
+    }
+
+    public enum GameUi
+    {
+        Menu,
+        Inventory,
+        Shop,
+        Hud,
+    }
+
+    public enum HudUi
+    {
+        Health,
+        Stamina,
+        
+    }
+
+public class AllEnums
     {
 
     }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf157a3be9d412e8eb20b7a6f1d50ac, type: 3}
+  m_Name: GOD_locomotion_data
+  m_EditorClassIdentifier: 
+  walkSlowSpeed: 1
+  walkFastSpeed: 7
+  runSpeed: 20
+  rotationSpeed: 10
+  gravityValue: -9.81
+  gravityMultiplayer: 3
+  jumpHeight: 5
+  slopeFore: 10
+  slopeForceRayLenght: 3
+  steepSlopeLimit: 45
+  steepSlopeSpeed: 10
+  pushPower: 5

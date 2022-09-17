@@ -10,7 +10,7 @@ namespace EtVK.Player_Module.Interactable
 
         private void Update()
         {
-            if (InputManager.Instance.TapInteractInput && curentInteractableObjects.Count > 0)
+            if (InputManager.Instance.Player.TapInteractInput && curentInteractableObjects.Count > 0)
             {
                 OnInteractButton();
             }

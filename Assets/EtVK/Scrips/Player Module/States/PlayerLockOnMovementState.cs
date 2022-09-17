@@ -1,4 +1,4 @@
-﻿using EtVK.Core_Module;
+﻿using EtVK.Core;
 using EtVK.Input_Module;
 using EtVK.Player_Module.Controller;
 using EtVK.Utyles;
@@ -25,24 +25,20 @@ namespace EtVK.Player_Module.States
             var inTransition = animator.GetBool(PlayerState.Transition.ToString());
             
             // Jump bool variable from animator
-            if (InputManager.Instance.TapJumpInput && !inTransition)
+            if (InputManager.Instance.Player.TapJumpInput && !inTransition)
             {
                 animator.SetBool(PlayerState.Jump.ToString(), true);
                 return;
             }
             
             // Dodge bool variable for animator
-            if (InputManager.Instance.TapDodge && monoBehaviour.IsMoving() && !inTransition)
+            if (InputManager.Instance.Player.TapDodge && monoBehaviour.IsMoving() && !inTransition)
             {
                 animator.SetBool(PlayerState.InDodge.ToString(), true);
                 return;
             }
 
-            if (InputManager.Instance.ActivateLockOn)
-            {
-                Debug.Log("Sall");
-            }
-            if (InputManager.Instance.DeactivateLockOn)
+            if (InputManager.Instance.Player.DeactivateLockOn)
             {
                 monoBehaviour.GetLockOnController().UnlockFromEnemy();
                 return;
@@ -61,7 +57,7 @@ namespace EtVK.Player_Module.States
             // Walk blendTree
             if (monoBehaviour.IsMoving() && !monoBehaviour.IsRunning() && !monoBehaviour.IsJumping)
             {
-                var movement = InputManager.Instance.MovementInput;
+                var movement = InputManager.Instance.Player.MovementInput;
                 var moveX = Mathf.Clamp(movement.x * 2.1f, -1f, 1f);
                 var moveY = Mathf.Clamp(movement.y * 2.1f, -1f, 1f);
                 
@@ -73,7 +69,7 @@ namespace EtVK.Player_Module.States
             // Running blendTree
             if (monoBehaviour.IsRunning() && !monoBehaviour.IsJumping)
             {
-                var movement = InputManager.Instance.MovementInput;
+                var movement = InputManager.Instance.Player.MovementInput;
 
                 animator.SetFloat(PlayerState.LockOnMovementX.ToString(), 0f);
                 animator.SetFloat(PlayerState.LockOnMovementY.ToString(), 2f, transitionDelay, Time.deltaTime);

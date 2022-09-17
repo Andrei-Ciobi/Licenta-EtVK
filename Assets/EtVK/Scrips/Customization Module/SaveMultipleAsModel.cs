@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace EtVK.Customization_Module
 {
+#if UNITY_EDITOR
     public class SaveMultipleAsModel : SaveCustomization
     {
+
         public override void Save()
         {
             var modEleOptList = GetComponentsInChildren<ModularElementOption>().ToList();
@@ -28,11 +30,10 @@ namespace EtVK.Customization_Module
             }
 
             var prefab = CreateParentPrefab(preparedPrefabList);
-            
-            SavePrefab(prefab, localPath);
-            
-            DestroyImmediate(prefab);
 
+            SavePrefab(prefab, localPath);
+
+            DestroyImmediate(prefab);
         }
 
         private GameObject CreateParentPrefab(List<Transform> objList)
@@ -54,9 +55,10 @@ namespace EtVK.Customization_Module
                 x.position = Vector3.zero;
                 x.rotation = Quaternion.identity;
             });
-            
+
 
             return parentObj;
         }
     }
+#endif
 }

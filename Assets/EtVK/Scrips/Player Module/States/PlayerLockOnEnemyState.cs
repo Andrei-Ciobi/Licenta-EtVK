@@ -1,4 +1,4 @@
-﻿using EtVK.Core_Module;
+﻿using EtVK.Core;
 using EtVK.Input_Module;
 using EtVK.Player_Module.Controller;
 using EtVK.Utyles;
@@ -10,7 +10,7 @@ namespace EtVK.Player_Module.States
     {
         public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (!InputManager.Instance.ActivateLockOn) 
+            if (!InputManager.Instance.Player.ActivateLockOn) 
                 return;
             
             var success = false;
@@ -23,7 +23,7 @@ namespace EtVK.Player_Module.States
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (!InputManager.Instance.ActivateLockOn) 
+            if (!InputManager.Instance.Player.ActivateLockOn) 
                 return;
             
             var success = false;
