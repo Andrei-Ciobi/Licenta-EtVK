@@ -20,6 +20,9 @@ namespace EtVK.AI_Module.States
             if(!isPatrolling)
                 return;
             
+            monoBehaviour.GetController().MoveAgent(false);
+            animator.applyRootMotion = false;
+            monoBehaviour.UseRootMotionRotation = false;
             animator.SetBool(EnemyAIAction.IsPatrolling.ToString(), false);
             currentWaitTime = 0f;
         }

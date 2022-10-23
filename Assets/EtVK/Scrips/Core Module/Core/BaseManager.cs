@@ -10,12 +10,15 @@ namespace EtVK.Core
     {
         public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
         
-        private AnimatorOverrideController baseAnimatorOverrideController;
         protected Animator animator;
         protected TController controller;
         protected TInventoryManager inventoryManager;
-        protected TEntity livingEntity;
+        private AnimatorOverrideController baseAnimatorOverrideController;
+        private TEntity livingEntity;
+        private BaseAttackController attackController;
         
+        public bool UninterruptibleAction { get; set; }
+
         protected virtual void InitializeBaseReferences()
         {
             animator = GetComponentInChildren<Animator>();
@@ -23,7 +26,9 @@ namespace EtVK.Core
             inventoryManager = GetComponentInChildren<TInventoryManager>();
             livingEntity = GetComponent<TEntity>();
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+            attackController = GetComponent<BaseAttackController>();
             SceneLinkedSMB<TManager>.Initialise(animator, this as TManager);
+            
         }
         
         public BaseAbility GetAbility(AbilityType abilityType)
@@ -58,6 +63,11 @@ namespace EtVK.Core
         public TEntity GetLivingEntity()
         {
             return livingEntity;
+        }
+
+        public BaseAttackController GetAttackController()
+        {
+            return attackController;
         }
         
         

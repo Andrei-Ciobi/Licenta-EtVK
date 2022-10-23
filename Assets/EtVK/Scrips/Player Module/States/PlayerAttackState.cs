@@ -29,6 +29,8 @@ namespace EtVK.Player_Module.States
 
             animator.applyRootMotion = attackAction.UseRootMotion;
             monoBehaviour.UseRootMotionRotation = attackAction.UseRootMotion && useRotation;
+
+            monoBehaviour.UninterruptibleAction = !attackAction.CanBeInterrupted;
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -45,6 +47,14 @@ namespace EtVK.Player_Module.States
                 animator.SetBool(PlayerState.IsAttacking.ToString(), canContinueCombo || endAttackContinue);
                 animator.SetBool(PlayerState.ComboAttack.ToString(), canContinueCombo);
             }
+        }
+
+        public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            if(monoBehaviour.IsDodging)
+                return;
+            
+            monoBehaviour.UninterruptibleAction = false;
         }
     }
 }

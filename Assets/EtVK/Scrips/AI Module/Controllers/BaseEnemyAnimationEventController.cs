@@ -17,6 +17,7 @@ namespace EtVK.AI_Module.Controllers
         private void Awake()
         {
             inventory = transform.root.GetComponentInChildren<TEnemyInventory>();
+            BaseInitialize();
         }
 
         public override void ActivateWeaponCollider()

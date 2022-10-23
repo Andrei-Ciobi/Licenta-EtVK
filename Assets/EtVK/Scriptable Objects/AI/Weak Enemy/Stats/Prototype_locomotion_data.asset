@@ -18,6 +18,7 @@ MonoBehaviour:
   rotationSpeed: 0.5
   sprintSpeed: 7
   maxRotationSpeed: 4
+  dodgeChance: 30
   patrolWaitTime: 0
   detectionLayer:
     serializedVersion: 2
@@ -26,7 +27,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   detectionAngle: 124
-  baseDetectionRadius: 11.7
+  baseDetectionRadius: 18.8
   baseAttackRadius: 3.8
   baseMeleeRadius: 1.7
   aggroRange: 6.6

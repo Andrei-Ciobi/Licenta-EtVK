@@ -65,18 +65,18 @@ namespace EtVK.Utyles
     public enum EnemyAIAction
     {
         IsPatrolling,
-        TakeDamage,
         IsRotating,
         Angle,
         Rotation,
         IsAttacking,
-        ComboAttack,
         CombatVertical,
         CombatHorizontal,
+        DodgeX,
+        DodgeY,
         IsPhaseShifting,
-        IsAttackRotate,
         IsActive,
         StartEncounter,
+        
 
     }
 

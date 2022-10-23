@@ -103,7 +103,7 @@ namespace EtVK.AI_Module.States
 
         private void UpdateRotation(Animator animator)
         {
-            animator.SetFloat(EnemyAIAction.Rotation.ToString(), rotation, 0.3f, Time.deltaTime);
+            animator.SetFloat(EnemyAIAction.Rotation.ToString(), rotation, 0.1f, Time.deltaTime);
         }
     }
 }

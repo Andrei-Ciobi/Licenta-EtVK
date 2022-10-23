@@ -124,30 +124,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &204971643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3574976061433991894, guid: 40f778b4854eb594da5ad11bee085211,
-    type: 3}
-  m_PrefabInstance: {fileID: 1930286001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &341373034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
     type: 3}
   m_PrefabInstance: {fileID: 1930286001}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &341373039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204971643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722045071c0e4eb7974887c95bd818b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &539258791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,31 +256,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 996119331463529059, guid: 40f778b4854eb594da5ad11bee085211,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3574976060800153707, guid: 40f778b4854eb594da5ad11bee085211,
-        type: 3}
-      propertyPath: inventoryData
-      value: 
-      objectReference: {fileID: 11400000, guid: 5643a6155b74e254b9053ee85cecf573,
-        type: 2}
-    - target: {fileID: 3574976061433991882, guid: 40f778b4854eb594da5ad11bee085211,
-        type: 3}
-      propertyPath: startFullGame
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3574976061433991894, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: m_Name
       value: Character_Eros
-      objectReference: {fileID: 0}
-    - target: {fileID: 3574976061433991894, guid: 40f778b4854eb594da5ad11bee085211,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
@@ -353,11 +314,6 @@ PrefabInstance:
     - target: {fileID: 3574976061433991895, guid: 40f778b4854eb594da5ad11bee085211,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6986851451809076183, guid: 40f778b4854eb594da5ad11bee085211,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

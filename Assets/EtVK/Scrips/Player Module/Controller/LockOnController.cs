@@ -13,6 +13,7 @@ namespace EtVK.Player_Module.Controller
         [SerializeField] private float maxLockOnDistance;
         [SerializeField] private LayerMask hitLayer;
         [SerializeField] private ActiveCameraEvent changeCameraEvent;
+
         private PlayerManager playerManager;
         private List<EnemyEntity> availableTargets = new();
         private EnemyEntity currentLockOnTarget;

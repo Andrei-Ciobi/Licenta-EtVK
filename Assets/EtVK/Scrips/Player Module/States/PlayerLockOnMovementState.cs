@@ -30,13 +30,6 @@ namespace EtVK.Player_Module.States
                 animator.SetBool(PlayerState.Jump.ToString(), true);
                 return;
             }
-            
-            // Dodge bool variable for animator
-            if (InputManager.Instance.Player.TapDodge && monoBehaviour.IsMoving() && !inTransition)
-            {
-                animator.SetBool(PlayerState.InDodge.ToString(), true);
-                return;
-            }
 
             if (InputManager.Instance.Player.DeactivateLockOn)
             {
@@ -57,12 +50,10 @@ namespace EtVK.Player_Module.States
             // Walk blendTree
             if (monoBehaviour.IsMoving() && !monoBehaviour.IsRunning() && !monoBehaviour.IsJumping)
             {
-                var movement = InputManager.Instance.Player.MovementInput;
-                var moveX = Mathf.Clamp(movement.x * 2.1f, -1f, 1f);
-                var moveY = Mathf.Clamp(movement.y * 2.1f, -1f, 1f);
+                var movement = InputManager.Instance.Player.MovementInputClamped;
                 
-                animator.SetFloat(PlayerState.LockOnMovementX.ToString(), moveX, transitionDelay, Time.deltaTime);
-                animator.SetFloat(PlayerState.LockOnMovementY.ToString(), moveY, transitionDelay, Time.deltaTime);
+                animator.SetFloat(PlayerState.LockOnMovementX.ToString(), movement.x, transitionDelay, Time.deltaTime);
+                animator.SetFloat(PlayerState.LockOnMovementY.ToString(), movement.y, transitionDelay, Time.deltaTime);
                 monoBehaviour.GetController().UpdateLockOnMovement(movement);
             }
             

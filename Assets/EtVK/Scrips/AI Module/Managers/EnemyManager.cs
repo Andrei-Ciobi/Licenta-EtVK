@@ -19,6 +19,7 @@ namespace EtVK.AI_Module.Managers
         {
             InitializeBaseReferences();
             rootMotionController.Initialize(this);
+            GetLivingEntity().Initialize(this);
         }
 
         private void Start()
@@ -99,8 +100,6 @@ namespace EtVK.AI_Module.Managers
                     && angle >= attack.MinAngle 
                     && angle <= attack.MaxAngle;
         }
-        
-        
     }
     
 }
