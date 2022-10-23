@@ -7433,7 +7433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locomotionData: {fileID: 11400000, guid: 32a1e2173a5f1fa408f5bd3de3362322, type: 2}
-  dummyMode: 1
+  dummyMode: 0
 --- !u!114 &1013564694
 MonoBehaviour:
   m_ObjectHideFlags: 0
