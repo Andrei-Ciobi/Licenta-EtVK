@@ -18,7 +18,7 @@ MonoBehaviour:
   rotationSpeed: 0.5
   sprintSpeed: 7
   maxRotationSpeed: 4
-  dodgeChance: 30
+  dodgeChance: 25
   patrolWaitTime: 0
   detectionLayer:
     serializedVersion: 2

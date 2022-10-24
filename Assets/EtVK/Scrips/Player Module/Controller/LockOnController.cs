@@ -2,7 +2,6 @@
 using EtVK.AI_Module.Stats;
 using EtVK.Event_Module.Event_Types;
 using EtVK.Event_Module.Events;
-using EtVK.Input_Module;
 using EtVK.Utyles;
 using UnityEngine;
 

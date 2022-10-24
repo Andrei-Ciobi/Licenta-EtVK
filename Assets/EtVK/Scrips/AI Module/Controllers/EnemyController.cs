@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EtVK.AI_Module.Controllers
 {
-    public class EnemyController : MonoBehaviour
+    public class EnemyController : MonoBehaviour, IMoveComponent
     {
         public Transform CurrentTarget { get; set; }
         public bool HasCurrentTarget => CurrentTarget;
@@ -28,6 +28,10 @@ namespace EtVK.AI_Module.Controllers
             }
         }
 
+        public void Move(Vector3 direction)
+        {
+            transform.root.position += direction;
+        }
         public void Move(Vector3 direction, float speed)
         {
             transform.root.position += direction * speed * Time.deltaTime;

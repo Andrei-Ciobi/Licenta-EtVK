@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using EtVK.Core;
 using EtVK.Utyles;
 using UnityEngine;
@@ -10,6 +10,7 @@ namespace EtVK.Input_Module
     public class InputManager : MonoSingletone<InputManager>
     {
         [SerializeField] [Range(0f, 2f)] private float queInputTime = 0.3f;
+
         public PlayerInputs Player => playerInputs;
         public UiInputs Ui => uiInputs;
         public PlayerInputActions.PlayerActions PlayerCallbacks => playerActions.Player;
@@ -118,6 +119,7 @@ namespace EtVK.Input_Module
             playerActions.Player.HoldRun.canceled += _ => playerInputs.HoldRun = false;
             playerActions.Player.HoldAttack.performed += _ => playerInputs.ChannelingAttack = true;
             playerActions.Player.HoldAttack.canceled += _ => playerInputs.ChannelingAttack = false;
+            playerActions.Player.TapRun.performed += _ => SetAbilityPressed(AbilityType.Dash);
             playerActions.Player.TapAttack.performed += _ =>
             {
                 ResetQueInput();
@@ -213,6 +215,11 @@ namespace EtVK.Input_Module
             }
         }
 
+        private void SetAbilityPressed(AbilityType abilityType)
+        {
+            playerInputs.AbilityPressed = abilityType;
+        }
+
         public class PlayerInputs
         {
             private readonly PlayerInputActions playerActions;
@@ -226,6 +233,7 @@ namespace EtVK.Input_Module
             public bool SwitchWeaponInput { get; set; }
             public bool TapAttackInputQue { get; set; }
             public WeaponType SwitchWeaponType { get; set; }
+            public AbilityType AbilityPressed { get; set; }
             public bool TapJumpInput => playerActions.Player.TapJump.triggered;
             public bool TapRunInput => playerActions.Player.TapRun.triggered;
             public bool TapInteractInput => playerActions.Player.TapInteract.triggered;

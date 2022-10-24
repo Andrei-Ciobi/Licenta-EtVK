@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using EtVK.AI_Module.Controllers;
 using EtVK.Core;
-using EtVK.Event_Module;
 using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,7 +10,7 @@ namespace EtVK.AI_Module.Managers
     public class BaseEnemyManager<TManager, TController, TInventory, TLocomotionData, TEntity>
         : BaseManager<TManager, TController, TInventory, TEntity>
         where TManager
-        : BaseEnemyManager<TManager, TController, TInventory, TLocomotionData, TEntity>
+        : BaseEnemyManager<TManager, TController, TInventory, TLocomotionData, TEntity>, IBaseManager
     {
         [SerializeField] private TLocomotionData locomotionData;
 

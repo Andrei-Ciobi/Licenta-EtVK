@@ -12,6 +12,11 @@ namespace EtVK.Utyles
         AirAttack,
     }
 
+    public enum AnimatorCommonFileds
+    {
+        AbilityFinished,
+    }
+
     // For Enemy AI
     public enum EnemyAIState
     {
@@ -94,6 +99,7 @@ namespace EtVK.Utyles
     public enum AbilityType
     {
         GroundSmash,
+        Dash,
     }
 
     public enum RotateAround
@@ -209,7 +215,7 @@ namespace EtVK.Utyles
         
     }
 
-public class AllEnums
+    public class AllEnums
     {
 
     }

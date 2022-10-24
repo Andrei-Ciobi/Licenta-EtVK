@@ -1,4 +1,3 @@
-using System;
 using EtVK.Core;
 using EtVK.Health_Module;
 using EtVK.Input_Module;
@@ -10,7 +9,7 @@ using UnityEngine.InputSystem;
 namespace EtVK.Player_Module.Controller
 {
     public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>,
-        IFullGameComponent
+        IFullGameComponent, IBaseManager
     {
         [SerializeField] private bool startFullGame;
         [SerializeField] private PlayerLocomotionData playerLocomotionData;

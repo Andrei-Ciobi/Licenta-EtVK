@@ -1,4 +1,5 @@
-﻿using EtVK.Health_Module;
+﻿using EtVK.Ability_Module.Core;
+using EtVK.Health_Module;
 using EtVK.Utyles;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace EtVK.Ability_Module.GroundSmash
             abilityType = AbilityType.GroundSmash;
         }
 
-        public override void PerformAbility(BaseAbilityData baseAbilityData)
+        public override void PerformAbility(BaseAbilityData baseAbilityData, Animator animator)
         {
             var groundSmashData = (GroundSmashData) baseAbilityData;
 

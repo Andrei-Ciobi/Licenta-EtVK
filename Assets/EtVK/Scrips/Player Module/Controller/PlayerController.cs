@@ -1,9 +1,10 @@
+using EtVK.Core;
 using EtVK.Input_Module;
 using UnityEngine;
 
 namespace EtVK.Player_Module.Controller
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IMoveComponent
     {
         [SerializeField] private Transform playerHead;
         
@@ -86,9 +87,13 @@ namespace EtVK.Player_Module.Controller
             characterController.Move(move * Time.deltaTime * speed);
         }
 
-        public void Move(Vector3 position)
+        public void Move(Vector3 direction)
         {
-            characterController.Move(position);
+            characterController.Move(direction);
+        }
+        public void Move(Vector3 direction, float speed)
+        {
+            characterController.Move(direction * speed * Time.deltaTime);
         }
         
         public void Jump(float gravityValue = 0f, float gravityMultiplayer = 0f, float jumpHeight = 0f)

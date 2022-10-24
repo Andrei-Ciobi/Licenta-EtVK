@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace EtVK.AI_Module.Weapons
 {
-    public class EnemyWeapon : BaseEnemyWeapon<EnemyWeaponData, EnemyAttackAction>, IEnemyWeapon, IWeaponDamageable
+    public class EnemyWeapon : BaseEnemyWeapon<EnemyWeaponData, EnemyAttackAction>, IWeaponDamageable
     {
         public void DrawWeapon()
         {

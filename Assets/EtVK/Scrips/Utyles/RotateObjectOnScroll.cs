@@ -1,5 +1,4 @@
-﻿using System;
-using EtVK.Input_Module;
+﻿using EtVK.Input_Module;
 using UnityEngine;
 
 namespace EtVK.Utyles

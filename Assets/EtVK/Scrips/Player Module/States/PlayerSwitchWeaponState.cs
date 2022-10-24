@@ -2,6 +2,7 @@
 using EtVK.Input_Module;
 using EtVK.Player_Module.Controller;
 using UnityEngine;
+// ReSharper disable Unity.NoNullPropagation
 
 namespace EtVK.Player_Module.States
 {
@@ -23,10 +24,11 @@ namespace EtVK.Player_Module.States
                 }
                 
                 weaponToSwitch.SwitchWeapon(currentWeaponArmed);
-                
                 var newWeapon = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
-
                 animator.runtimeAnimatorController = newWeapon != null ? newWeapon.WeaponData.AnimatorOverride : monoBehaviour.BaseAnimatorOverrideController;
+                
+                monoBehaviour.GetAbilityManager()?.RemoveAbilityReference(currentWeaponArmed?.transform);
+                monoBehaviour.GetAbilityManager()?.AddAbilityReference(newWeapon?.transform);
             }
         }
     }

@@ -3,5 +3,7 @@
     public interface IWeaponDamageable
     {
         public float DealDamage();
+        public void DrawWeapon();
+        public void WithdrawWeapon();
     }
 }

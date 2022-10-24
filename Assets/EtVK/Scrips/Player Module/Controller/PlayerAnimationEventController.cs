@@ -1,4 +1,4 @@
-﻿using EtVK.Ability_Module;
+﻿using EtVK.Ability_Module.Core;
 using EtVK.AI_Module.Weapons;
 using EtVK.Core;
 using EtVK.Items_Module.Weapons;
@@ -30,8 +30,11 @@ namespace EtVK.Player_Module.Controller
             if(manager.IsDodging)
                 return;
             
-            var weaponColliderController = manager.GetInventoryManager().GetCurrentWeapon()
+            var weaponColliderController = manager.GetInventoryManager()?.GetCurrentWeapon()?
                 .GetComponent<WeaponColliderController>();
+            
+            if(weaponColliderController == null)
+                return;
             
             weaponColliderController.ActivateColliders();
 
@@ -42,20 +45,24 @@ namespace EtVK.Player_Module.Controller
             if(manager.IsDodging)
                 return;
             
-            var weaponColliderController = manager.GetInventoryManager().GetCurrentWeapon()
+            var weaponColliderController = manager.GetInventoryManager()?.GetCurrentWeapon()?
                 .GetComponent<WeaponColliderController>();
+            
+            if(weaponColliderController == null)
+                return;
             
             weaponColliderController.DeactivateColliders();
 
         }
 
         public override void DrawWeapon(WeaponType weaponType)
-        {           
-            var inventoryWeapon = manager.GetInventoryManager().GetWeaponByType(weaponType);
-            var weapon = inventoryWeapon.GetComponent<IEnemyWeapon>();
+        {         
+            return;
+            
+            var weapon = manager.GetInventoryManager().GetWeaponByType(weaponType);
             if (weapon == null)
             {
-                Debug.LogError($"No IWeapon interface on {inventoryWeapon.gameObject.name}");
+                Debug.LogError($"No Weapon of type = {weaponType}");
                 return;
             }
             weapon.DrawWeapon();
@@ -63,11 +70,12 @@ namespace EtVK.Player_Module.Controller
 
         public override void WithdrawWeapon(WeaponType weaponType)
         {
-            var inventoryWeapon = manager.GetInventoryManager().GetWeaponByType(weaponType);
-            var weapon = inventoryWeapon.GetComponent<IEnemyWeapon>();
+            return;
+            
+            var weapon = manager.GetInventoryManager().GetWeaponByType(weaponType);
             if (weapon == null)
             {
-                Debug.LogError($"No IWeapon interface on {inventoryWeapon.gameObject.name}");
+                Debug.LogError($"No Weapon of type = {weaponType}");
                 return;
             }
             weapon.WithdrawWeapon();
@@ -78,13 +86,11 @@ namespace EtVK.Player_Module.Controller
         {
             if(abilityData == null)
             {
-                Debug.LogError("No ability data given in the aniamtion event");
+                Debug.LogError("No ability data given in the animation event");
                 return;
             }
             
-            var ability = manager.GetAbility(abilityData.AbilityType);
-            
-            ability.PerformAbility(abilityData);
+            manager.GetAbilityManager().PerformAbility(abilityData, manager.GetAnimator());
         }
     }
 }

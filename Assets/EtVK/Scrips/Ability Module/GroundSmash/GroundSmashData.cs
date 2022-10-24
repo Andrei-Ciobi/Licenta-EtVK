@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EtVK.Ability_Module.Core;
+using UnityEngine;
 
 namespace EtVK.Ability_Module.GroundSmash
 {
