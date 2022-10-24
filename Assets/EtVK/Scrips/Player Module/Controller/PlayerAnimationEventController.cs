@@ -14,13 +14,23 @@ namespace EtVK.Player_Module.Controller
         private void Awake()
         {
             manager = transform.root.GetComponent<PlayerManager>();
+            BaseInitialize();
+        }
+
+        public override void SetCanCombo(int value)
+        {
+            if(manager.IsDodging)
+                return;
+            
+            base.SetCanCombo(value);
         }
 
         public override void ActivateWeaponCollider()
         {
-            var playerManager = transform.root.GetComponent<PlayerManager>();
-
-            var weaponColliderController = playerManager.GetInventoryManager().GetCurrentWeapon()
+            if(manager.IsDodging)
+                return;
+            
+            var weaponColliderController = manager.GetInventoryManager().GetCurrentWeapon()
                 .GetComponent<WeaponColliderController>();
             
             weaponColliderController.ActivateColliders();
@@ -29,7 +39,9 @@ namespace EtVK.Player_Module.Controller
         
         public override void DeactivateWeaponCollider()
         {
-
+            if(manager.IsDodging)
+                return;
+            
             var weaponColliderController = manager.GetInventoryManager().GetCurrentWeapon()
                 .GetComponent<WeaponColliderController>();
             

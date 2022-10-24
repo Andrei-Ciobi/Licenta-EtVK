@@ -18,7 +18,7 @@ namespace EtVK.Utyles
         AgentState,
         IdleState = 1,
         CombatState = 2,
-        DummyState = 3,
+        DummyMode = 3,
         LookForTarget = 5,
         VoidState = 100,
 
@@ -65,18 +65,18 @@ namespace EtVK.Utyles
     public enum EnemyAIAction
     {
         IsPatrolling,
-        TakeDamage,
         IsRotating,
         Angle,
         Rotation,
         IsAttacking,
-        ComboAttack,
         CombatVertical,
         CombatHorizontal,
+        DodgeX,
+        DodgeY,
         IsPhaseShifting,
-        IsAttackRotate,
         IsActive,
         StartEncounter,
+        
 
     }
 

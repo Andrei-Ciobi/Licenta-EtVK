@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using EtVK.Core;
 using EtVK.Utyles;
@@ -8,9 +9,11 @@ namespace EtVK.Input_Module
 {
     public class InputManager : MonoSingletone<InputManager>
     {
+        [SerializeField] [Range(0f, 2f)] private float queInputTime = 0.3f;
         public PlayerInputs Player => playerInputs;
         public UiInputs Ui => uiInputs;
-
+        public PlayerInputActions.PlayerActions PlayerCallbacks => playerActions.Player;
+        public PlayerInputActions.UIActions UICallbacks => playerActions.UI;
 
         private PlayerInputs playerInputs;
         private UiInputs uiInputs;
@@ -18,18 +21,26 @@ namespace EtVK.Input_Module
         private Coroutine blockInputCoroutine;
         private Coroutine blockAttackInputCoroutine;
 
+        private bool inputQueSet;
+        private float currentQueInputTime;
+
         private void Awake()
         {
             InitializeSingletone();
             playerActions = new PlayerInputActions();
             InitializeInputs();
         }
-        
+
         private void Start()
         {
             InitializeInputCallbacks();
         }
-        
+
+        private void Update()
+        {
+            HandleQueInputs();
+        }
+
         private void OnEnable()
         {
             playerActions.Enable();
@@ -62,7 +73,7 @@ namespace EtVK.Input_Module
         {
             playerActions.UI.Disable();
         }
-        
+
         public void BeginJumpCdCoroutine(float jumpCdTime)
         {
             StartCoroutine(JumpCdCoroutine(jumpCdTime));
@@ -99,15 +110,20 @@ namespace EtVK.Input_Module
             playerInputs.AttackInputBlocked = true;
             blockAttackInputCoroutine = StartCoroutine(BlockAttackInputCoroutine(blockInputCd));
         }
-        
+
         private void InitializeInputCallbacks()
         {
-
             // Player
             playerActions.Player.HoldRun.performed += _ => playerInputs.HoldRun = true;
             playerActions.Player.HoldRun.canceled += _ => playerInputs.HoldRun = false;
             playerActions.Player.HoldAttack.performed += _ => playerInputs.ChannelingAttack = true;
             playerActions.Player.HoldAttack.canceled += _ => playerInputs.ChannelingAttack = false;
+            playerActions.Player.TapAttack.performed += _ =>
+            {
+                ResetQueInput();
+                playerInputs.TapAttackInputQue = true;
+                QueInput();
+            };
             // playerActions.Player.HoldAim.performed += OnAimPerformed;
             playerActions.Player.HoldAim.canceled += _ => playerInputs.Aim = false;
             playerActions.Player.MouseLook.performed += OnMouseLook;
@@ -120,7 +136,7 @@ namespace EtVK.Input_Module
             playerActions.UI.ScrollWheel.performed += OnScrollWheel;
             // playerActions.UI.Escape.performed += OnEscapePerformed;
         }
-        
+
         private void OnMovementInput(InputAction.CallbackContext context)
         {
             playerInputs.MovementInput = context.ReadValue<Vector2>();
@@ -138,9 +154,9 @@ namespace EtVK.Input_Module
 
         private void OnWeaponInput(WeaponType weaponType)
         {
-            if(playerInputs.SwitchWeaponInput)
+            if (playerInputs.SwitchWeaponInput)
                 return;
-            
+
             playerInputs.SwitchWeaponInput = true;
             playerInputs.SwitchWeaponType = weaponType;
         }
@@ -168,18 +184,47 @@ namespace EtVK.Input_Module
             playerInputs = new PlayerInputs(playerActions);
             uiInputs = new UiInputs(playerActions);
         }
-        
+
+        private void QueInput()
+        {
+            inputQueSet = true;
+            currentQueInputTime = queInputTime;
+        }
+
+        private void ResetQueInput()
+        {
+            playerInputs.TapAttackInputQue = false;
+        }
+
+        private void HandleQueInputs()
+        {
+            if (!inputQueSet)
+                return;
+
+            if (currentQueInputTime > 0)
+            {
+                currentQueInputTime -= Time.deltaTime;
+            }
+            else
+            {
+                ResetQueInput();
+                inputQueSet = false;
+                currentQueInputTime = 0;
+            }
+        }
+
         public class PlayerInputs
         {
             private readonly PlayerInputActions playerActions;
-            public bool HoldRun { get;  set; }
-            public bool ChannelingAttack { get;  set; }
+            public bool HoldRun { get; set; }
+            public bool ChannelingAttack { get; set; }
             public bool Aim { get; set; }
-            public bool AttackInputBlocked { get;  set; }
-            public bool SpecificInputBlocked { get;  set; }
+            public bool AttackInputBlocked { get; set; }
+            public bool SpecificInputBlocked { get; set; }
             public bool DeactivateLockOn { get; set; }
             public bool JumpInputBlocked { get; set; }
             public bool SwitchWeaponInput { get; set; }
+            public bool TapAttackInputQue { get; set; }
             public WeaponType SwitchWeaponType { get; set; }
             public bool TapJumpInput => playerActions.Player.TapJump.triggered;
             public bool TapRunInput => playerActions.Player.TapRun.triggered;
@@ -188,19 +233,24 @@ namespace EtVK.Input_Module
             public bool TapDodge => playerActions.Player.TapDodge.triggered;
             public bool ActivateLockOn => playerActions.Player.ActivateLockOn.triggered;
             public bool TapEscape => playerActions.Player.Escape.triggered;
-            public Vector2 MovementInput { get;  set; }
-            public Vector2 MouseLook { get;  set; }
+            public Vector2 MovementInput { get; set; }
+
+            public Vector2 MovementInputClamped => new Vector2(Mathf.Clamp(MovementInput.x * 2.1f, -1f, 1f),
+                Mathf.Clamp(MovementInput.y * 2.1f, -1f, 1f));
+
+            public Vector2 MouseLook { get; set; }
 
             public PlayerInputs(PlayerInputActions playerActions)
             {
                 this.playerActions = playerActions;
             }
         }
+
         public class UiInputs
         {
             private PlayerInputActions playerActions;
             public bool TapEscape => playerActions.UI.Cancel.triggered;
-            public Vector2 ScrollWheel { get;  set; }
+            public Vector2 ScrollWheel { get; set; }
 
             public UiInputs(PlayerInputActions playerActions)
             {

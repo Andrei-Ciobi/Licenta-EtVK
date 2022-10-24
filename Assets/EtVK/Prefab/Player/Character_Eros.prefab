@@ -54332,6 +54332,7 @@ GameObject:
   - component: {fileID: 3574976061433991882}
   - component: {fileID: 3574976061433991880}
   - component: {fileID: 3574976061433991883}
+  - component: {fileID: 341373039}
   m_Layer: 11
   m_Name: Character_Eros
   m_TagString: Player
@@ -54391,6 +54392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93960b7e2037ec84d82267cb6c161cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startFullGame: 0
   playerLocomotionData: {fileID: 11400000, guid: b677fb30ae050734989ac903af878893,
     type: 2}
 --- !u!114 &3574976061433991880
@@ -54420,6 +54422,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityStats: {fileID: 11400000, guid: 313161c4763ab664e8d2f03da2e4775c, type: 2}
   isInvulnerable: 1
+--- !u!114 &341373039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574976061433991894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722045071c0e4eb7974887c95bd818b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3574976061472501258
 GameObject:
   m_ObjectHideFlags: 0
@@ -55376,7 +55390,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4421888427479077655}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 98a92ad0a003b2c47b173030c7a126da, type: 3}
   m_Controller: {fileID: 9100000, guid: c4ed6f9c302801d40887b35279ad04ab, type: 2}
   m_CullingMode: 1

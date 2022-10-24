@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using EtVK.AI_Module.Controllers;
 using EtVK.Core;
+using EtVK.Event_Module;
+using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,25 +10,26 @@ namespace EtVK.AI_Module.Managers
 {
     public class BaseEnemyManager<TManager, TController, TInventory, TLocomotionData, TEntity>
         : BaseManager<TManager, TController, TInventory, TEntity>
-        where TManager 
+        where TManager
         : BaseEnemyManager<TManager, TController, TInventory, TLocomotionData, TEntity>
     {
         [SerializeField] private TLocomotionData locomotionData;
-        [Header("Set AI to dummy mode, only takes damage")]
-        [SerializeField] private bool dummyMode;
-        
+
+        [Header("Set AI to dummy mode, only takes damage")] [SerializeField]
+        private bool dummyMode;
+
         public bool UseRootMotionRotation { get; set; }
         public bool LookingForTarget { get; set; }
         public bool IsChasing { get; set; }
         public bool CanAttack { get; set; }
-        
+
         private Rigidbody agentRigidBody;
         private NavMeshAgent navMeshAgent;
         private PatrolManager patrolManager;
         private EnemyAnimationEventController animationEventController;
         protected EnemyRootMotionController rootMotionController;
-        
-        
+
+
         public Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal)
         {
             if (!angleIsGlobal)
@@ -34,13 +37,15 @@ namespace EtVK.AI_Module.Managers
                 angleInDegrees += transform.eulerAngles.y;
             }
 
-            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0f, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0f,
+                Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
         }
 
         public void SetAttackOnCd(float time)
         {
             StartCoroutine(AttackCdCoroutine(time));
         }
+
         public bool HasPatrolPath()
         {
             return patrolManager != null && patrolManager.HasPath;
@@ -50,17 +55,17 @@ namespace EtVK.AI_Module.Managers
         {
             return locomotionData;
         }
-        
+
         public Rigidbody GetAgentRigidBody()
         {
             return agentRigidBody;
         }
-        
+
         public NavMeshAgent GetNavMeshAgent()
         {
             return navMeshAgent;
         }
-        
+
         public PatrolManager GetPatrolManager()
         {
             return patrolManager;
@@ -79,6 +84,7 @@ namespace EtVK.AI_Module.Managers
             patrolManager = GetComponentInChildren<PatrolManager>();
             rootMotionController = GetComponentInChildren<EnemyRootMotionController>();
             animationEventController = GetComponentInChildren<EnemyAnimationEventController>();
+            animator.SetBool(EnemyAIState.DummyMode.ToString(), dummyMode);
         }
 
         protected void OnStart()

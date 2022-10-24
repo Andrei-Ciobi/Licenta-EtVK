@@ -16,6 +16,7 @@ namespace EtVK.AI_Module.States
             action = monoBehaviour.GetInventoryManager().GetCurrentWeapon().CurrentAttackAction;
             animator.applyRootMotion = action!.UseRootMotion;
             monoBehaviour.UseRootMotionRotation = action!.UseRotation;
+            monoBehaviour.UninterruptibleAction = !action!.CanBeInterrupted;
             combo = false;
         }
 
@@ -31,6 +32,8 @@ namespace EtVK.AI_Module.States
             
             animator.SetBool(EnemyAIAction.IsAttacking.ToString(), false);
             monoBehaviour.SetAttackOnCd(action.AttackCd);
+            monoBehaviour.GetLivingEntity().IsInvulnerable = false;
+            monoBehaviour.UninterruptibleAction = false;
         }
 
         private void CheckForCombo(Animator animator)

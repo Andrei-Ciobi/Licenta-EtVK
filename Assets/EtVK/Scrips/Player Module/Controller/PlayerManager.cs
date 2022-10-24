@@ -5,20 +5,29 @@ using EtVK.Input_Module;
 using EtVK.Inventory_Module;
 using EtVK.Utyles;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace EtVK.Player_Module.Controller
 {
-    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>, IFullGameComponent
+    public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>,
+        IFullGameComponent
     {
         [SerializeField] private bool startFullGame;
         [SerializeField] private PlayerLocomotionData playerLocomotionData;
-        
-        public bool StartFullGame { get => startFullGame; set => startFullGame = value; }
+
+        public bool StartFullGame
+        {
+            get => startFullGame;
+            set => startFullGame = value;
+        }
+
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }
         public bool UseRootMotionRotation { get; set; }
+        public bool IsDodging { get; set; }
+        public bool IsPerformingAttack { get; set; }
         public Transform CameraMainTransform => cameraMainTransform;
-        
+
         private PlayerAnimationEventController animationEventController;
         private PlayerRootMotionController playerRootMotionController;
         private LockOnController lockOnController;
@@ -30,6 +39,37 @@ namespace EtVK.Player_Module.Controller
             InitializeReferences();
             // Cursor.lockState = CursorLockMode.Locked;
             // Cursor.visible = false;
+        }
+
+        private void Start()
+        {
+            InitializeCallbacks();
+        }
+
+        private void OnDodge(InputAction.CallbackContext context)
+        {
+            if(UninterruptibleAction)
+                return;
+            
+            if(!IsMoving())
+                return;
+
+            var isLockedOn = animator.GetBool(PlayerState.IsLockedOn.ToString());
+            animationEventController.SetCanCombo(0);
+            animationEventController.DeactivateWeaponCollider();
+            if (isLockedOn || IsPerformingAttack)
+            {
+                var movement = InputManager.Instance.Player.MovementInputClamped;
+                
+                animator.SetFloat(PlayerState.LockOnMovementX.ToString(), movement.x);
+                animator.SetFloat(PlayerState.LockOnMovementY.ToString(), movement.y);
+                animator.CrossFade("Directional Dodge", .1f);
+            }
+            else
+            {
+                animator.CrossFade("Normal Dodge", .1f);
+            }
+           
         }
         
         public bool IsMoving()
@@ -45,7 +85,8 @@ namespace EtVK.Player_Module.Controller
         public bool CanAttack()
         {
             var isAttacking = animator.GetBool(PlayerState.IsAttacking.ToString());
-            return InputManager.Instance.Player.TapAttackInput && !isAttacking;
+            return (InputManager.Instance.Player.TapAttackInput || InputManager.Instance.Player.TapAttackInputQue) &&
+                   !isAttacking;
         }
 
         public PlayerLocomotionData GetLocomotionData()
@@ -57,7 +98,7 @@ namespace EtVK.Player_Module.Controller
         {
             return animationEventController;
         }
-        
+
         public LockOnController GetLockOnController()
         {
             return lockOnController;
@@ -95,10 +136,18 @@ namespace EtVK.Player_Module.Controller
             }
         }
 
+        private void InitializeCallbacks()
+        {
+            InputManager.Instance.PlayerCallbacks.TapDodge.performed += OnDodge;
+        }
+
         private void OnDestroy()
         {
+            if (!startFullGame)
+                return;
             GameManager.Instance.onLateFinishLoading -= OnFinishLoadingLate;
             GameManager.Instance.onChangeGameState -= OnGameStateChange;
+            InputManager.Instance.PlayerCallbacks.TapDodge.performed -= OnDodge;
         }
     }
 }

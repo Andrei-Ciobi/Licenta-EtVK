@@ -8,6 +8,7 @@ namespace EtVK.AI_Module.Stats
     {
         [SerializeField] private float sprintSpeed;
         [SerializeField] private float maxRotationSpeed = 4f;
+        [Range(0, 100)] [SerializeField] private int dodgeChance = 50;
         [Range(0f, 420f)] [SerializeField] private float patrolWaitTime;
 
         [Header("Detection parameters")] 
@@ -22,13 +23,15 @@ namespace EtVK.AI_Module.Stats
         [Header("Minimum range needed for attacks")] 
         [Range(0f, 35f)] [SerializeField] private float baseMeleeRadius; // The distance from which the agent goes into combat state
         [Header("Sensing radius for enemy")]
-        [Range(0f, 35f)] [SerializeField] private float aggroRange;  // The distance form wich the agent can sense the player after it gets aggro on him
+        [Range(0f, 35f)] [SerializeField] private float aggroRange;  // The distance form witch the agent can sense the player after it gets aggro on him
         [Header("Combat radius")]
         [Range(0f, 35f)] [SerializeField] private float combatAggroRange;
 
         public float SprintSpeed => sprintSpeed;
 
         public float MaxRotationSpeed => maxRotationSpeed;
+
+        public int DodgeChance => dodgeChance;
 
         public float PatrolWaitTime => patrolWaitTime;
 

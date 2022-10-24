@@ -30,13 +30,6 @@ namespace EtVK.Player_Module.States
                 animator.SetBool(PlayerState.Jump.ToString(), true);
                 return;
             }
-            
-            // Dodge bool variable for animator
-            if (InputManager.Instance.Player.TapDodge && monoBehaviour.IsMoving() && !inTransition)
-            {
-                animator.SetBool(PlayerState.InDodge.ToString(), true);
-                return;
-            }
 
             // Running bool variable from animator
             animator.SetBool(PlayerState.Running.ToString(), monoBehaviour.IsRunning());
