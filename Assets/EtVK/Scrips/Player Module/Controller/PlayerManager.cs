@@ -25,6 +25,7 @@ namespace EtVK.Player_Module.Controller
         public Vector3 DownVelocity { get; set; }
         public bool UseRootMotionRotation { get; set; }
         public bool IsDodging { get; set; }
+        public bool IsPerformingAttack { get; set; }
         public Transform CameraMainTransform => cameraMainTransform;
 
         private PlayerAnimationEventController animationEventController;
@@ -54,10 +55,9 @@ namespace EtVK.Player_Module.Controller
                 return;
 
             var isLockedOn = animator.GetBool(PlayerState.IsLockedOn.ToString());
-            var isAttacking = animator.GetBool(PlayerState.IsAttacking.ToString());
             animationEventController.SetCanCombo(0);
             animationEventController.DeactivateWeaponCollider();
-            if (isLockedOn || isAttacking)
+            if (isLockedOn || IsPerformingAttack)
             {
                 var movement = InputManager.Instance.Player.MovementInputClamped;
                 

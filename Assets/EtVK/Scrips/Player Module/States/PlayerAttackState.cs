@@ -16,6 +16,7 @@ namespace EtVK.Player_Module.States
         private bool endAttackContinue;
         private bool checkedForAttack;
         private bool useRotation;
+        private bool combo;
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             animator.SetBool(PlayerState.IsAttacking.ToString(), false);
@@ -23,6 +24,7 @@ namespace EtVK.Player_Module.States
             var weapon = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
             var attackAction = weapon.WeaponData.GetAttackAction(attackType, attackIndex - 1);
             useRotation = attackAction.UseRotation;
+            combo = false;
 
             endAttackContinue = attackAction.ComboIntoDifferentAttackType;
             canContinueCombo = weapon.WeaponData.GetMaxComboForAttackType(attackType) > attackIndex;
@@ -31,6 +33,7 @@ namespace EtVK.Player_Module.States
             monoBehaviour.UseRootMotionRotation = attackAction.UseRootMotion && useRotation;
 
             monoBehaviour.UninterruptibleAction = !attackAction.CanBeInterrupted;
+            monoBehaviour.IsPerformingAttack = true;
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -46,11 +49,17 @@ namespace EtVK.Player_Module.States
                 
                 animator.SetBool(PlayerState.IsAttacking.ToString(), canContinueCombo || endAttackContinue);
                 animator.SetBool(PlayerState.ComboAttack.ToString(), canContinueCombo);
+                combo = canContinueCombo || endAttackContinue;
             }
         }
 
         public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            if (!combo)
+            {
+                monoBehaviour.IsPerformingAttack = false;
+            }
+            
             if(monoBehaviour.IsDodging)
                 return;
             

@@ -3252,7 +3252,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh32294
+  m_Name: pb_Mesh29758
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13159,11 +13159,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Input Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 762065796711062446, guid: 6349678d9bc95954a9bf55bad0b61137,
-        type: 3}
-      propertyPath: queInputTime
-      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 762065796711062447, guid: 6349678d9bc95954a9bf55bad0b61137,
         type: 3}
