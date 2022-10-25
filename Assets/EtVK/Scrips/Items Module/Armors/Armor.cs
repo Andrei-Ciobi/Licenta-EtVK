@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using EtVK.Inventory_Module;
+using EtVK.Inventory_Module.Holder_Slots;
 using EtVK.Player_Module.Interactable;
 using EtVK.Utyles;
 using UnityEngine;

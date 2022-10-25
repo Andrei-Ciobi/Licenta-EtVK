@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EtVK.Items_Module.Armors;
 using EtVK.Items_Module.Weapons;
 using EtVK.Utyles;
@@ -60,14 +61,14 @@ namespace EtVK.Inventory_Module
             return weapon != null ? weapon : null;
         }
 
-        public Weapon GetWeaponByType(WeaponType type)
+        public Weapon GetWeapon(Predicate<Weapon> predicate)
         {
-            var weapon = weaponReferences.Find(x => x.WeaponData.WeaponType.Equals(type));
+            var weapon = weaponReferences.Find(predicate);
             
             if (weapon != null) 
                 return weapon;
             
-            Debug.Log($"No weapon of type: {type}");
+            Debug.Log($"No weapon found with predicate : {predicate}");
             return null;
         }
 

@@ -1,4 +1,5 @@
-﻿using EtVK.Actions_Module;
+﻿using System.Collections.Generic;
+using EtVK.Actions_Module;
 using EtVK.Utyles;
 using UnityEngine;
 
@@ -9,13 +10,13 @@ namespace EtVK.AI_Module.Actions
     {
         [SerializeField] private WeaponType weaponType;
         [SerializeField] private WeaponActionType weaponActionType;
-        [SerializeField] private int layerIndex;
+        [SerializeField] private List<AnimatorLayer> layerIndexList;
         
         
         public WeaponType WeaponType => weaponType;
 
         public WeaponActionType WeaponActionType => weaponActionType;
 
-        public int LayerIndex => layerIndex;
+        public List<AnimatorLayer> LayerIndexList => layerIndexList;
     }
 }

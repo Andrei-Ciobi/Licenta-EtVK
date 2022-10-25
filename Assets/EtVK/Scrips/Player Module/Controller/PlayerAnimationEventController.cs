@@ -1,5 +1,4 @@
 ﻿using EtVK.Ability_Module.Core;
-using EtVK.AI_Module.Weapons;
 using EtVK.Core;
 using EtVK.Items_Module.Weapons;
 using EtVK.Utyles;
@@ -54,12 +53,28 @@ namespace EtVK.Player_Module.Controller
             weaponColliderController.DeactivateColliders();
 
         }
+        
+        public override void DrawWeaponOffHand(WeaponType weaponType)
+        {
+        }
+
+        public override void WithdrawWeaponOffHand(WeaponType weaponType)
+        {
+        }
+
+        public override void DrawOffHand(OffHandType offHandType)
+        {
+        }
+
+        public override void WithdrawOffHand(OffHandType offHandType)
+        {
+        }
 
         public override void DrawWeapon(WeaponType weaponType)
         {         
             return;
             
-            var weapon = manager.GetInventoryManager().GetWeaponByType(weaponType);
+            var weapon = manager.GetInventoryManager().GetWeapon(weapon => weapon.WeaponData.WeaponType.Equals(weaponType));
             if (weapon == null)
             {
                 Debug.LogError($"No Weapon of type = {weaponType}");
@@ -72,7 +87,7 @@ namespace EtVK.Player_Module.Controller
         {
             return;
             
-            var weapon = manager.GetInventoryManager().GetWeaponByType(weaponType);
+            var weapon = manager.GetInventoryManager().GetWeapon(weapon => weapon.WeaponData.WeaponType.Equals(weaponType));
             if (weapon == null)
             {
                 Debug.LogError($"No Weapon of type = {weaponType}");
@@ -80,7 +95,6 @@ namespace EtVK.Player_Module.Controller
             }
             weapon.WithdrawWeapon();
         }
-
 
         public override void PerformAbility(BaseAbilityData abilityData)
         {

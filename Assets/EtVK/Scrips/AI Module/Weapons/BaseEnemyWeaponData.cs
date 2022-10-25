@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using EtVK.Actions_Module;
 using EtVK.Inventory_Module;
+using EtVK.Items_Module.Off_Hand;
 using EtVK.Utyles;
 using UnityEngine;
 
@@ -11,8 +12,10 @@ namespace EtVK.AI_Module.Weapons
     {
         [SerializeField] protected WeaponType weaponType;
         [SerializeField] private AnimatorOverrideController animatorOverride;
+        [SerializeField] private bool hasOffHand;
+        [SerializeField] private OffHandData offHandData;
 
-        [Header("Weapon stats")] 
+        [Header("Weapon stats")]
         [Range(0f, 35f)] [SerializeField] private float meleeRange;
         [Range(0f, 35f)] [SerializeField] private float attackRange;
         [SerializeField] private float baseDamage;
@@ -24,6 +27,8 @@ namespace EtVK.AI_Module.Weapons
         
         //Public props
         public WeaponType WeaponType => weaponType;
+        public bool HasOffHand => hasOffHand;
+        public OffHandData OffHandData => offHandData;
         public float AttackRange => attackRange;
         public float MeleeRange => meleeRange;
         public float BaseDamage => baseDamage;

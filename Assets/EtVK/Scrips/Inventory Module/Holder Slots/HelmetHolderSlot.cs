@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace EtVK.Inventory_Module
+namespace EtVK.Inventory_Module.Holder_Slots
 {
     public class HelmetHolderSlot : ArmorHolderSlot
     {

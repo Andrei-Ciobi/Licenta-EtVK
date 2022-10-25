@@ -1,4 +1,5 @@
 ﻿using EtVK.Inventory_Module;
+using EtVK.Inventory_Module.Holder_Slots;
 using EtVK.Utyles;
 using UnityEngine;
 

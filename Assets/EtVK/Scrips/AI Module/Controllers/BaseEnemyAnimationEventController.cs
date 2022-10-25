@@ -2,6 +2,7 @@
 using EtVK.AI_Module.Inventory;
 using EtVK.AI_Module.Weapons;
 using EtVK.Core;
+using EtVK.Items_Module.Off_Hand;
 using EtVK.Items_Module.Weapons;
 using EtVK.Utyles;
 using UnityEngine;
@@ -38,12 +39,12 @@ namespace EtVK.AI_Module.Controllers
 
         public override void DrawWeapon(WeaponType weaponType)
         {
-            var inventoryWeapon = inventory.GetWeaponObjByType(weaponType);
+            var inventoryWeapon = inventory.GetWeaponObj(weaponType);
             
             var weapon = inventoryWeapon.GetComponent<IWeaponDamageable>();
             if (weapon == null)
             {
-                Debug.LogError($"No IWeapon interface on {inventoryWeapon.gameObject.name}");
+                Debug.LogError($"No IWeaponDamageable interface on {inventoryWeapon.gameObject.name}");
                 return;
             }
             weapon.DrawWeapon();
@@ -51,14 +52,54 @@ namespace EtVK.AI_Module.Controllers
 
         public override void WithdrawWeapon(WeaponType weaponType)
         {
-            var inventoryWeapon = inventory.GetWeaponObjByType(weaponType);
+            var inventoryWeapon = inventory.GetWeaponObj(weaponType);
             var weapon = inventoryWeapon.GetComponent<IWeaponDamageable>();
             if (weapon == null)
             {
-                Debug.LogError($"No IWeapon interface on {inventoryWeapon.gameObject.name}");
+                Debug.LogError($"No IWeaponDamageable interface on {inventoryWeapon.gameObject.name}");
                 return;
             }
             weapon.WithdrawWeapon();
+        }
+
+        public override void DrawWeaponOffHand(WeaponType weaponType)
+        {
+            var inventoryOffHand = inventory.GetWeaponCurrentOffHand(weaponType);
+            if(inventoryOffHand == null)
+                return;
+
+            var offHand = inventoryOffHand.GetComponent<OffHand>();
+            if (offHand == null)
+            {
+                Debug.LogError($"No offHand on {inventoryOffHand.gameObject.name}");
+                return;
+            }
+            
+            offHand.DrawOffHand();
+        }
+        
+        public override void WithdrawWeaponOffHand(WeaponType weaponType)
+        {
+            var inventoryOffHand = inventory.GetWeaponCurrentOffHand(weaponType);
+            if(inventoryOffHand == null)
+                return;
+
+            var offHand = inventoryOffHand.GetComponent<OffHand>();
+            if (offHand == null)
+            {
+                Debug.LogError($"No offHand on {inventoryOffHand.gameObject.name}");
+                return;
+            }
+            
+            offHand.WithdrawOffHand();
+        }
+
+        public override void DrawOffHand(OffHandType offHandType)
+        {
+        }
+
+        public override void WithdrawOffHand(OffHandType offHandType)
+        {
         }
 
         public override void PerformAbility(BaseAbilityData abilityData)

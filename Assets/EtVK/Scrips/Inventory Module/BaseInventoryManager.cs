@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using EtVK.Inventory_Module.Holder_Slots;
 using UnityEngine;
 
 namespace EtVK.Inventory_Module

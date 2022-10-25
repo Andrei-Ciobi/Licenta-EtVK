@@ -16,6 +16,10 @@ namespace EtVK.Core
         public abstract void DeactivateWeaponCollider();
         public abstract void DrawWeapon(WeaponType weaponType);
         public abstract void WithdrawWeapon(WeaponType weaponType);
+        public abstract void DrawWeaponOffHand(WeaponType weaponType);
+        public abstract void WithdrawWeaponOffHand(WeaponType weaponType);
+        public abstract void DrawOffHand(OffHandType offHandType);
+        public abstract void WithdrawOffHand(OffHandType offHandType);
         public abstract void PerformAbility(BaseAbilityData abilityData);
         
         public void PerformAttack()

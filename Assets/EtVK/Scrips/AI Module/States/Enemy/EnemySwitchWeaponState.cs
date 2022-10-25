@@ -4,7 +4,7 @@ using EtVK.Core;
 using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.AI_Module.Stats
+namespace EtVK.AI_Module.States
 {
     public class EnemySwitchWeaponState : SceneLinkedSMB<EnemyManager>
     {
@@ -28,7 +28,8 @@ namespace EtVK.AI_Module.Stats
         {
             if(action == null)
                 return;
-            animator.SetLayerWeight(action.LayerIndex, 0f);
+            
+            action.LayerIndexList.ForEach(x => animator.SetLayerWeight(x.GetHashCode(), 0f));
         }
 
         private void DrawWeapon(Animator animator)
@@ -36,12 +37,13 @@ namespace EtVK.AI_Module.Stats
             action = null;
             // TO DO: manager for deciding the weapon to draw
             const WeaponType type = WeaponType.Sword;
-            
-            var weapon = monoBehaviour.GetInventoryManager().GetWeaponByType(type);
+
+            var weapon = monoBehaviour.GetInventoryManager()
+                .GetWeapon(weapon => weapon.WeaponData.WeaponType.Equals(type));
             action = weapon.WeaponData.GetBaseActionAs<WeaponAction>(x =>
                 x.WeaponType == type && x.WeaponActionType == WeaponActionType.Draw);
             
-            animator.SetLayerWeight(action.LayerIndex, 1f);
+            action.LayerIndexList.ForEach(x => animator.SetLayerWeight(x.GetHashCode(), 1f));
             
             
             weapon.SetAnimationOverride();

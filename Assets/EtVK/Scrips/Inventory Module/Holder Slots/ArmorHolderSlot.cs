@@ -1,7 +1,7 @@
 ﻿using EtVK.Utyles;
 using UnityEngine;
 
-namespace EtVK.Inventory_Module
+namespace EtVK.Inventory_Module.Holder_Slots
 {
     public class ArmorHolderSlot : HolderSlot
     {

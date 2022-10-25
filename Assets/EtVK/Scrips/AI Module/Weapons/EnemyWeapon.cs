@@ -13,8 +13,12 @@ namespace EtVK.AI_Module.Weapons
             transform.parent = currentWeaponSlot.DrawParentOverride;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
-
             isArmed = true;
+            
+            // if(offHandItem == null)
+            //     return;
+            //
+            // offHandItem.DrawOffHand();
         }
 
         public void WithdrawWeapon()
@@ -22,8 +26,12 @@ namespace EtVK.AI_Module.Weapons
             transform.parent = currentWeaponSlot.ParentOverride;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
-
             isArmed = false;
+            
+            // if(offHandItem == null)
+            //     return;
+            //
+            // offHandItem.WithdrawOffHand();
         }
 
         public void SetAnimationOverride()
@@ -41,6 +49,7 @@ namespace EtVK.AI_Module.Weapons
         
         protected override void SetWeaponReference(BaseInventoryManager inventory)
         {
+
             var enemyInventory = (EnemyInventoryManager) inventory;
             enemyInventory.AddWeaponReference(this);
         }

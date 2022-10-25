@@ -1,4 +1,6 @@
-﻿using EtVK.Utyles;
+﻿using System;
+using EtVK.Inventory_Module;
+using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Inventory
@@ -6,6 +8,7 @@ namespace EtVK.AI_Module.Inventory
     public interface IEnemyInventory
     {
         public GameObject GetCurrentWeaponObj();
-        public GameObject GetWeaponObjByType(WeaponType weaponType);
+        public GameObject GetWeaponObj(WeaponType weaponType);
+        public GameObject GetWeaponCurrentOffHand(WeaponType weaponType);
     }
 }

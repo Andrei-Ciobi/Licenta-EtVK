@@ -22,6 +22,11 @@ namespace EtVK.Items_Module.Weapons.Sword
             transform.localRotation = Quaternion.identity;
 
             isArmed = true;
+            
+            if(offHandItem == null)
+                return;
+            
+            offHandItem.DrawOffHand();
         }
 
         public override void WithdrawWeapon()
@@ -31,6 +36,11 @@ namespace EtVK.Items_Module.Weapons.Sword
             transform.localRotation = Quaternion.identity;
 
             isArmed = false;
+            
+            if(offHandItem == null)
+                return;
+            
+            offHandItem.WithdrawOffHand();
         }
 
         public override void SwitchWeapon(Weapon currentWeapon)
