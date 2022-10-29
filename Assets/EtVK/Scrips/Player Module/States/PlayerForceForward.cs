@@ -1,5 +1,6 @@
 ﻿using EtVK.Core;
 using EtVK.Player_Module.Controller;
+using EtVK.Player_Module.Manager;
 using UnityEngine;
 
 namespace EtVK.Player_Module.States

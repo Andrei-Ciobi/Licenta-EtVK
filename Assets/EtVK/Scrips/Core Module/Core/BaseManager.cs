@@ -27,6 +27,7 @@ namespace EtVK.Core
             inventoryManager = GetComponentInChildren<TInventoryManager>();
             livingEntity = GetComponent<TEntity>();
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+            animator.runtimeAnimatorController = baseAnimatorOverrideController;
             attackController = GetComponent<BaseAttackController>();
             abilityManager = GetComponentInChildren<AbilityManager>();
             SceneLinkedSMB<TManager>.Initialise(animator, this as TManager);

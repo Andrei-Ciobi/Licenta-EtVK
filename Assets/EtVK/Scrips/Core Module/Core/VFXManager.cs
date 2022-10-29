@@ -11,19 +11,19 @@ namespace EtVK.Core
             InitializeSingletone();
         }
 
-        public void PlayPostProcessing(GameObject obj, float time, AnimationCurve timeCurve)
+        public void PlayPostProcessing(GameObject postProcessingObj, float time, AnimationCurve timeCurve)
         {
-            var postObj = Instantiate(obj);
+            var postObj = Instantiate(postProcessingObj);
             postObj.SetActive(true);
             var postProcessing = postObj.GetComponent<Volume>();
             if (postProcessing == null)
                 return;
 
-            StartCoroutine(InOutPostProcessingCoroutine(postProcessing, time, timeCurve));
+            StartCoroutine(PostProcessingCoroutine(postProcessing, time, timeCurve));
         }
 
 
-        private IEnumerator InOutPostProcessingCoroutine(Volume postProcessing, float time, AnimationCurve timeCurve)
+        private IEnumerator PostProcessingCoroutine(Volume postProcessing, float time, AnimationCurve timeCurve)
         {
             var currentTime = 0f;
 

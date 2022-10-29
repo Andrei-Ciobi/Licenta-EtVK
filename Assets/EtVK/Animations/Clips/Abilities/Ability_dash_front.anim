@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Base_dash_front
+  m_Name: Ability_dash_front
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -14462,12 +14462,4 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: PerformAbility
-    data: 
-    objectReferenceParameter: {fileID: 11400000, guid: 707c878b722ebc14dbeb70bed44e42b3,
-      type: 2}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

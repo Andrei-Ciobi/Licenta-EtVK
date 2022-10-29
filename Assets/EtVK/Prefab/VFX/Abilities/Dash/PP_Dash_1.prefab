@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 370973248263214731}
   - component: {fileID: 370973248263214730}
   m_Layer: 0
-  m_Name: DashPostProccesing
+  m_Name: PP_Dash_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

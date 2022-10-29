@@ -15,7 +15,7 @@ namespace EtVK.Ability_Module.GroundSmash
             abilityType = AbilityType.GroundSmash;
         }
 
-        public override void PerformAbility(BaseAbilityData baseAbilityData, Animator animator)
+        public override void PerformAbility(BaseAbilityData baseAbilityData, Animator animator = null, Transform obj = null)
         {
             var groundSmashData = (GroundSmashData) baseAbilityData;
 

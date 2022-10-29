@@ -2,11 +2,12 @@ using EtVK.Core;
 using EtVK.Health_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
+using EtVK.Player_Module.Controller;
 using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace EtVK.Player_Module.Controller
+namespace EtVK.Player_Module.Manager
 {
     public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>,
         IFullGameComponent, IBaseManager

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EtVK.Player_Module.Manager;
+using UnityEngine;
 
 namespace EtVK.Player_Module.Controller
 {
