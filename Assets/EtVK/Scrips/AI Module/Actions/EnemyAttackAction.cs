@@ -1,7 +1,6 @@
 ﻿using EtVK.Actions_Module;
 using EtVK.Utyles;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace EtVK.AI_Module.Actions
 {

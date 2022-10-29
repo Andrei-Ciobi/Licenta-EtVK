@@ -12,6 +12,11 @@ namespace EtVK.Utyles
         AirAttack,
     }
 
+    public enum AnimatorCommonFileds
+    {
+        AbilityFinished,
+    }
+
     // For Enemy AI
     public enum EnemyAIState
     {
@@ -94,6 +99,7 @@ namespace EtVK.Utyles
     public enum AbilityType
     {
         GroundSmash,
+        Dash,
     }
 
     public enum RotateAround
@@ -134,6 +140,7 @@ namespace EtVK.Utyles
         Weapon = 0,
         Armor = 1,
         Colectable = 2,
+        OffHand = 3,
     }
 
     public enum WeaponType
@@ -149,6 +156,13 @@ namespace EtVK.Utyles
         BootRightFeet = 22,
         BootLeftFeet = 23,
 
+    }
+
+    public enum OffHandType
+    {
+        Shield = 0,
+        Potion = 1,
+        Torch = 2,
     }
 
     public enum ArmorType
@@ -209,7 +223,15 @@ namespace EtVK.Utyles
         
     }
 
-public class AllEnums
+    public enum AnimatorLayer
+    {
+        Base = 0,
+        RightArm = 1,
+        LeftArm = 2,
+        BothArms = 3,
+    }
+
+    public class AllEnums
     {
 
     }

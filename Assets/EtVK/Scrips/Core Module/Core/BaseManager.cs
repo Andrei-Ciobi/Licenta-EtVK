@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using EtVK.Ability_Module;
+using EtVK.Ability_Module.Core;
 using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Core
 {
     public class BaseManager<TManager, TController, TInventoryManager, TEntity > : MonoBehaviour 
-        where TManager : BaseManager<TManager, TController, TInventoryManager, TEntity>
+        where TManager : BaseManager<TManager, TController, TInventoryManager, TEntity>, IBaseManager
     {
         public AnimatorOverrideController BaseAnimatorOverrideController => baseAnimatorOverrideController;
         
@@ -16,6 +16,7 @@ namespace EtVK.Core
         private AnimatorOverrideController baseAnimatorOverrideController;
         private TEntity livingEntity;
         private BaseAttackController attackController;
+        private AbilityManager abilityManager;
         
         public bool UninterruptibleAction { get; set; }
 
@@ -26,24 +27,14 @@ namespace EtVK.Core
             inventoryManager = GetComponentInChildren<TInventoryManager>();
             livingEntity = GetComponent<TEntity>();
             baseAnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+            animator.runtimeAnimatorController = baseAnimatorOverrideController;
             attackController = GetComponent<BaseAttackController>();
+            abilityManager = GetComponentInChildren<AbilityManager>();
             SceneLinkedSMB<TManager>.Initialise(animator, this as TManager);
             
         }
         
-        public BaseAbility GetAbility(AbilityType abilityType)
-        {
-            var abilities = GetComponentsInChildren<BaseAbility>().ToList();
-            var ability = abilities.Find(element => element.AbilityType.Equals(abilityType));
-
-            if (ability == null)
-            {
-                Debug.LogError($"No ability of type {abilityType} found under {gameObject.name} gameObject");
-                return null;
-            }
-
-            return ability;
-        }
+        
         
         public Animator GetAnimator()
         {
@@ -69,7 +60,10 @@ namespace EtVK.Core
         {
             return attackController;
         }
-        
-        
+
+        public AbilityManager GetAbilityManager()
+        {
+            return abilityManager;
+        }
     }
 }

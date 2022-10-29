@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using EtVK.Actions_Module;
 using EtVK.Inventory_Module;
+using EtVK.Items_Module.Off_Hand;
 using EtVK.Utyles;
 using UnityEngine;
 
@@ -11,11 +12,14 @@ namespace EtVK.Items_Module.Weapons
         [SerializeField] protected WeaponType weaponType;
         [SerializeField] private float baseWeaponDamage;
         [SerializeField] private AnimatorOverrideController animatorOverride;
+        [SerializeField] private bool hasOffHand;
+        [SerializeField] private OffHandData offHandData;
         [SerializeField] private SerializableHashMap<AttackType, List<AttackAction>> attacks;
 
         public WeaponType WeaponType => weaponType;
-
         public float BaseWeaponDamage => baseWeaponDamage;
+        public bool HasOffHand => hasOffHand;
+        public OffHandData OffHandData => offHandData;
 
         public AnimatorOverrideController AnimatorOverride => virtualOverride;
         private AnimatorOverrideController virtualOverride;

@@ -21,6 +21,8 @@ MonoBehaviour:
   weaponType: 1
   baseWeaponDamage: 10
   animatorOverride: {fileID: 22100000, guid: 1776bc0d2af79fd4290277223c76b887, type: 2}
+  hasOffHand: 1
+  offHandData: {fileID: 11400000, guid: d700c77ce99211f4d81a15ee7d3cd9a7, type: 2}
   attacks:
     customHashMap:
     - key: 0

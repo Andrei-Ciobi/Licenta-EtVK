@@ -20,10 +20,12 @@ MonoBehaviour:
   isEquipped: 1
   weaponType: 1
   animatorOverride: {fileID: 22100000, guid: 68672cc8b8a20c74e80314f823fa4fdc, type: 2}
+  hasOffHand: 1
+  offHandData: {fileID: 11400000, guid: d700c77ce99211f4d81a15ee7d3cd9a7, type: 2}
   meleeRange: 3.5
   attackRange: 5.3
   baseDamage: 0
   baseActionList:
-  - {fileID: 11400000, guid: 059cd645789ae1c4895f13fbd19a3d2e, type: 2}
+  - {fileID: 11400000, guid: 2a0fae06ef3f2a04c913165fcfccf2ba, type: 2}
   actionList:
   - {fileID: 11400000, guid: 01f95a8b84f3b1f45b65c031e043c6a9, type: 2}

@@ -1,6 +1,7 @@
 ﻿using EtVK.Actions_Module;
 using EtVK.Core;
 using EtVK.Player_Module.Controller;
+using EtVK.Player_Module.Manager;
 using UnityEngine;
 
 namespace EtVK.Player_Module.States
@@ -17,8 +18,11 @@ namespace EtVK.Player_Module.States
 
             if (attackAction == null)
             {
-                Debug.LogError("Not an force forward attack action");
+                Debug.LogError("Not a force forward attack action");
+                return;
             }
+            
+            monoBehaviour.GetAttackController().PlayVisualEffects(attackAction);
             
         }
 

@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using EtVK.Inventory_Module;
+using EtVK.Inventory_Module.Holder_Slots;
+using EtVK.Items_Module.Off_Hand;
 using EtVK.Player_Module.Interactable;
 using EtVK.Utyles;
 using UnityEngine;
@@ -14,6 +16,7 @@ namespace EtVK.Items_Module.Weapons
         protected WeaponData weaponData;
         protected WeaponHolderSlot currentWeaponSlot;
         protected bool isArmed;
+        protected OffHand offHandItem;
 
         public abstract void DrawWeapon();
         public abstract void WithdrawWeapon();
@@ -45,6 +48,11 @@ namespace EtVK.Items_Module.Weapons
             currentWeaponSlot = weaponSlot;
             var playerInventory = (PlayerInventoryManager) inventory;
             playerInventory.AddWeaponReference(this);
+            
+            if(!weaponData.HasOffHand)
+                return;
+            
+            LoadOffHand(inventory);
         }
 
         public override void AddItemToInventory(BaseInventoryManager inventory, Interactable interactable)
@@ -87,6 +95,23 @@ namespace EtVK.Items_Module.Weapons
             // inventoryManager.AddWeaponReference(this);
             // inventoryManager.GetInventoryData().AddItem(weaponData);
 
+        }
+        
+        private void LoadOffHand(BaseInventoryManager inventory)
+        {
+            var offHandObj = Instantiate(weaponData.OffHandData.Prefab);
+            var offHand = offHandObj.GetComponent<OffHand>();
+            
+            if(offHand == null)
+            {
+                Debug.LogError("No offHand script attached to gameObject = " + offHandObj.name);
+                return;
+            }
+            
+            offHand.LoadItemFromInventory(inventory);
+
+            //add a reference of the off hand item to the weapon
+            offHandItem = offHand;
         }
 
         public float DealDamage()
