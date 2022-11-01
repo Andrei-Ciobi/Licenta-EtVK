@@ -19,3 +19,4 @@ MonoBehaviour:
   itemDescription: 
   isEquipped: 0
   offHandType: 0
+  absorption: 50

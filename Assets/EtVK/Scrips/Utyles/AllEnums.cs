@@ -12,10 +12,7 @@ namespace EtVK.Utyles
         AirAttack,
     }
 
-    public enum AnimatorCommonFileds
-    {
-        AbilityFinished,
-    }
+
 
     // For Enemy AI
     public enum EnemyAIState
@@ -184,6 +181,8 @@ namespace EtVK.Utyles
     {
         Draw = 0,
         Withdraw = 1,
+        Block,
+        Aim,
     }
 
     public enum StatusResponse
@@ -229,6 +228,13 @@ namespace EtVK.Utyles
         RightArm = 1,
         LeftArm = 2,
         BothArms = 3,
+        UpperBody = 4,
+    }
+    
+    public enum AnimatorCommonFileds
+    {
+        AbilityFinished,
+        IsAimAction = 14,
     }
 
     public class AllEnums

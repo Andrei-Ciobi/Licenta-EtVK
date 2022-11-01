@@ -23,6 +23,8 @@ MonoBehaviour:
   animatorOverride: {fileID: 22100000, guid: 1776bc0d2af79fd4290277223c76b887, type: 2}
   hasOffHand: 1
   offHandData: {fileID: 11400000, guid: d700c77ce99211f4d81a15ee7d3cd9a7, type: 2}
+  baseActionList:
+  - {fileID: 11400000, guid: f074044ad37cfa14bb93bc6d1ca74c83, type: 2}
   attacks:
     customHashMap:
     - key: 0

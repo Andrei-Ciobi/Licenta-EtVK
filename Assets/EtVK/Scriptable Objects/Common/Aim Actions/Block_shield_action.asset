@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01feb3c31f04dd382cd48d169c22990, type: 3}
-  m_Name: Player_prototype_stats
+  m_Script: {fileID: 11500000, guid: 8b5c77e3dc7342c896ffeb61eb08b0c4, type: 3}
+  m_Name: Block_shield_action
   m_EditorClassIdentifier: 
-  entityName: 
-  maxHealth: 30000
-  poiseLevel: 0
-  invulnerableTime: 1
-  entityFaction: 0
-  entityAllies: 
+  clipName: 
+  animationClip: {fileID: 0}
+  canBeInterrupted: 0
+  actionType: 2
+  transitionDelay: 0.5
+  layer: 2
+  useLayerBlend: 1
+  blendStateName: Aim Action Only Loop
+  blendDelay: 0

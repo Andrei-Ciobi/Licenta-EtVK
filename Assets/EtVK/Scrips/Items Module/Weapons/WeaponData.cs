@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EtVK.Actions_Module;
 using EtVK.Inventory_Module;
 using EtVK.Items_Module.Off_Hand;
@@ -14,6 +15,9 @@ namespace EtVK.Items_Module.Weapons
         [SerializeField] private AnimatorOverrideController animatorOverride;
         [SerializeField] private bool hasOffHand;
         [SerializeField] private OffHandData offHandData;
+        [Header("List of base actions")] 
+        [SerializeField] private List<BaseAction> baseActionList;
+        [Header("Attack actions map")]
         [SerializeField] private SerializableHashMap<AttackType, List<AttackAction>> attacks;
 
         public WeaponType WeaponType => weaponType;
@@ -68,6 +72,13 @@ namespace EtVK.Items_Module.Weapons
             }
 
             return attacks[attackType][index];
+        }
+        
+        public T GetBaseActionAs<T>(Predicate<T> predicate) where T : BaseAction
+        {
+            bool Filter(BaseAction x) => predicate(x as T);
+
+            return baseActionList.Find(Filter) as T;
         }
 
         private void SetAttackAnimations()

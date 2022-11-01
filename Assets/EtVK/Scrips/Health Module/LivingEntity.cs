@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using EtVK.Core;
 using EtVK.Items_Module.Weapons;
 using EtVK.Utyles;
 using UnityEngine;
@@ -36,7 +37,6 @@ namespace EtVK.Health_Module
         private float currentHealth;
         private float currentPoiseLevel;
         private bool damageAnimationOnCd;
-        private float directionHit;
         private bool isInvulnerable;
 
         private void Awake()
@@ -49,7 +49,7 @@ namespace EtVK.Health_Module
             OnStart();
         }
 
-        public virtual void TakeHit(float damage)
+        public virtual void TakeHit(float damage, string damageAnimation = "Base_damage_front", bool forceAnimation = false)
         {
             if(godMode)
                 return;
@@ -67,25 +67,29 @@ namespace EtVK.Health_Module
                 return;
             }
 
-            var damageAnimation = CalculateDamageDirectionAnimation(directionHit);
+           
             if (string.IsNullOrEmpty(damageAnimation))
             {
-                Debug.LogError("No damage animation played, bad angle value " + directionHit);
+                Debug.LogError("No correct damage animation given");
+                return;
+            }
+
+            if (forceAnimation)
+            {
+                animator.CrossFade(damageAnimation, 0f);
                 return;
             }
             
             if (CanPlayDamageAnimation(damage))
             {
-                var range = damageAnimationVariation.Find(x => x.GetKey() == damageAnimation).GetValue();
-                var randomAnimationIndex = Random.Range(0, range);
-                animator.CrossFade($"{damageAnimation}_{randomAnimationIndex}", 0f);
+                animator.CrossFade(damageAnimation, 0f);
             }
             else
             {
                 StartCoroutine(InvulnerableCoroutine(entityStats.InvulnerableTime));
             }
             
-            Debug.Log("Hit damage taken = " + damage);
+            // Debug.Log("Hit damage taken = " + damage);
         }
 
         public virtual void Die()
@@ -150,9 +154,37 @@ namespace EtVK.Health_Module
                 return;
 
             // var contactPoint = other.ClosestPointOnBounds(transform.position);
-            directionHit = Vector3.SignedAngle(other.transform.root.forward, transform.forward, Vector3.up);
+            var directionHit = Vector3.SignedAngle(other.transform.root.forward, transform.forward, Vector3.up);
 
-            TakeHit(weapon.DealDamage());
+            var blockingManager = transform.GetComponentInChildren<BlockingManager>();
+            
+            if (blockingManager != null)
+            {
+                if (blockingManager.CheckBlockingStatus(directionHit))
+                {
+                    var damage = blockingManager.CalculateNewDamage(weapon.DealDamage());
+                    TakeHit(damage, "Block", true);
+                    animator.SetLayerWeight(blockingManager.BlockingLayer, 0f);
+                    return;
+                }
+                
+                if (blockingManager.IsBlocking)
+                {
+                    animator.SetBool(WeaponActionType.Block.ToString(), false);
+                    animator.SetBool(AnimatorCommonFileds.IsAimAction.ToString(), false);
+                
+                }
+            }
+
+           
+            
+            // Decide the damage animation 
+            var damageAnimation = CalculateDamageDirectionAnimation(directionHit);
+            var range = damageAnimationVariation.Find(x => x.GetKey() == damageAnimation).GetValue();
+            var randomAnimationIndex = Random.Range(0, range);
+            damageAnimation = damageAnimation + "_" + randomAnimationIndex;
+
+            TakeHit(weapon.DealDamage(), damageAnimation);
         }
 
       

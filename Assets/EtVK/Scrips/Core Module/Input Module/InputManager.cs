@@ -126,7 +126,7 @@ namespace EtVK.Input_Module
                 playerInputs.TapAttackInputQue = true;
                 QueInput();
             };
-            // playerActions.Player.HoldAim.performed += OnAimPerformed;
+            playerActions.Player.HoldAim.performed += _ => playerInputs.Aim = true;
             playerActions.Player.HoldAim.canceled += _ => playerInputs.Aim = false;
             playerActions.Player.MouseLook.performed += OnMouseLook;
             playerActions.Player.Movement.performed += OnMovementInput;

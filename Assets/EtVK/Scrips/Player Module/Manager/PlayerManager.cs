@@ -48,10 +48,10 @@ namespace EtVK.Player_Module.Manager
 
         private void OnDodge(InputAction.CallbackContext context)
         {
-            if(UninterruptibleAction)
+            if (UninterruptibleAction || IsBLocking || IsAiming)
                 return;
-            
-            if(!IsMoving())
+
+            if (!IsMoving())
                 return;
 
             var isLockedOn = animator.GetBool(PlayerState.IsLockedOn.ToString());
@@ -60,7 +60,7 @@ namespace EtVK.Player_Module.Manager
             if (isLockedOn || IsPerformingAttack)
             {
                 var movement = InputManager.Instance.Player.MovementInputClamped;
-                
+
                 animator.SetFloat(PlayerState.LockOnMovementX.ToString(), movement.x);
                 animator.SetFloat(PlayerState.LockOnMovementY.ToString(), movement.y);
                 animator.CrossFade("Directional Dodge", .1f);
@@ -69,24 +69,23 @@ namespace EtVK.Player_Module.Manager
             {
                 animator.CrossFade("Normal Dodge", .1f);
             }
-           
         }
-        
+
         public bool IsMoving()
         {
             return InputManager.Instance.Player.MovementInput != Vector2.zero;
         }
 
-        public bool IsRunning()
+        public bool IsRunning(bool canRun = true)
         {
-            return InputManager.Instance.Player.HoldRun && IsMoving();
+            return InputManager.Instance.Player.HoldRun && IsMoving() && canRun;
         }
 
         public bool CanAttack()
         {
             var isAttacking = animator.GetBool(PlayerState.IsAttacking.ToString());
             return (InputManager.Instance.Player.TapAttackInput || InputManager.Instance.Player.TapAttackInputQue) &&
-                   !isAttacking;
+                   !isAttacking && !IsBLocking;
         }
 
         public PlayerLocomotionData GetLocomotionData()

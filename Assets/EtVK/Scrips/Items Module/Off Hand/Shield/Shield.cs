@@ -1,4 +1,5 @@
 ﻿using System;
+using EtVK.Core;
 using UnityEngine;
 
 namespace EtVK.Items_Module.Off_Hand.Shield
@@ -19,6 +20,12 @@ namespace EtVK.Items_Module.Off_Hand.Shield
             transform.localRotation = Quaternion.identity;
 
             isArmed = true;
+
+            var blockingManager = transform.root.gameObject.GetComponentInChildren<BlockingManager>();
+            if(blockingManager == null)
+                return;
+            
+            blockingManager.SetAbsorption(shieldData.Absorption);
         }
 
         public override void WithdrawOffHand()
@@ -28,6 +35,14 @@ namespace EtVK.Items_Module.Off_Hand.Shield
             transform.localRotation = Quaternion.identity;
 
             isArmed = false;
+            
+            var blockingManager = transform.root.gameObject.GetComponentInChildren<BlockingManager>();
+            if(blockingManager == null)
+                return;
+            
+            blockingManager.SetAbsorption(0);
         }
+        
+        
     }
 }

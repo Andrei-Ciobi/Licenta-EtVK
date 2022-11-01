@@ -25,7 +25,7 @@ namespace EtVK.Player_Module.Manager
             if(!InputManager.Instance.Player.TapRunInput)
                 return;
             
-            if(manager.UninterruptibleAction)
+            if(manager.UninterruptibleAction || manager.IsBLocking)
                 return;
 
             var abilityType = InputManager.Instance.Player.AbilityPressed;
