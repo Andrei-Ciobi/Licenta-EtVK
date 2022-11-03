@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using EtVK.Core;
-using EtVK.Utyles;
+using EtVK.Core.Utyles;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

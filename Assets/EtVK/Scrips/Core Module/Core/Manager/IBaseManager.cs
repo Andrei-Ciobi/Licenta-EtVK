@@ -1,4 +1,4 @@
-﻿namespace EtVK.Core
+﻿namespace EtVK.Core.Manager
 {
     public interface IBaseManager
     {

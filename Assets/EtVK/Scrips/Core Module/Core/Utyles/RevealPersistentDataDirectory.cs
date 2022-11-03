@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace EtVK.Utyles
+namespace EtVK.Core.Utyles
 {
 #if UNITY_EDITOR
     public class RevealPersistentDataDirectory : MonoBehaviour

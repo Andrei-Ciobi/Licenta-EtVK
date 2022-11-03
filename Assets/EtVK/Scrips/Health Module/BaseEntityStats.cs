@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using EtVK.Utyles;
+using EtVK.Core.Utyles;
 using UnityEngine;
 
 namespace EtVK.Health_Module

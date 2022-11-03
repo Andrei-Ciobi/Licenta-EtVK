@@ -1,7 +1,7 @@
-﻿using EtVK.Event_Module.Event_Types;
+﻿using EtVK.Core.Utyles;
+using EtVK.Event_Module.Event_Types;
 using EtVK.Event_Module.Events;
 using EtVK.Items_Module.Weapons;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.Interactable

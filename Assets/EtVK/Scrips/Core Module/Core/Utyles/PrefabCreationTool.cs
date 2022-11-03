@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace EtVK.Utyles
+namespace EtVK.Core.Utyles
 {
 #if UNITY_EDITOR
     public class PrefabCreationTool : MonoBehaviour

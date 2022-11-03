@@ -1,5 +1,6 @@
 ﻿using EtVK.AI_Module.Managers;
-using EtVK.Core;
+using EtVK.Core.Controller;
+using EtVK.Core.Utyles;
 using EtVK.Health_Module;
 using UnityEngine;
 

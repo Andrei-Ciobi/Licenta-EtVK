@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EtVK.Core.Utyles;
 using EtVK.Save_System_Module;
-using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace EtVK.Core
+namespace EtVK.Core.Manager
 {
     public class GameManager : MonoSingletone<GameManager>, ISavable
     {

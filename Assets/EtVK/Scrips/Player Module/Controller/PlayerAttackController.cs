@@ -1,4 +1,4 @@
-﻿using EtVK.Core;
+﻿using EtVK.Core.Controller;
 using UnityEngine;
 
 namespace EtVK.Player_Module.Controller

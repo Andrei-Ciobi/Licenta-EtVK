@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using EtVK.Core.Utyles;
 using EtVK.Items_Module.Armors;
 using EtVK.Items_Module.Weapons;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Inventory_Module

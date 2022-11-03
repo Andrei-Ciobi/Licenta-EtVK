@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace EtVK.Utyles
+namespace EtVK.Core.Utyles
 {
     [System.Serializable]
     public class SerializableHashMap<K, V>

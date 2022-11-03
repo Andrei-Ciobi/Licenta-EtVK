@@ -1,4 +1,4 @@
-using EtVK.Core;
+using EtVK.Core.Utyles;
 using EtVK.Input_Module;
 using EtVK.Player_Module.Manager;
 using UnityEngine;
@@ -99,6 +99,9 @@ namespace EtVK.Player_Module.Controller
         
         public void Jump(float gravityValue = 0f, float gravityMultiplayer = 0f, float jumpHeight = 0f)
         {
+            if(playerManager.IsJumping)
+                return;
+            
             gravityValue = gravityValue == 0f ? playerManager.GetLocomotionData().GravityValue : gravityValue;
             gravityMultiplayer = gravityMultiplayer == 0f ? playerManager.GetLocomotionData().GravityMultiplayer : gravityMultiplayer;
             jumpHeight = jumpHeight == 0f ? playerManager.GetLocomotionData().JumpHeight : jumpHeight;

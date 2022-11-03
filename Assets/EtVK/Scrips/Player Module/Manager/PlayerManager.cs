@@ -1,9 +1,9 @@
-using EtVK.Core;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using EtVK.Health_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
 using EtVK.Player_Module.Controller;
-using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

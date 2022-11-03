@@ -1,6 +1,6 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
-namespace EtVK.Utyles
+namespace EtVK.Core.Utyles
 {
 
 
@@ -154,6 +154,14 @@ namespace EtVK.Utyles
         BootLeftFeet = 23,
 
     }
+    
+    public enum WeaponActionType
+    {
+        Draw = 0,
+        Withdraw = 1,
+        Block,
+        Aim,
+    }
 
     public enum OffHandType
     {
@@ -177,13 +185,7 @@ namespace EtVK.Utyles
 
     }
 
-    public enum WeaponActionType
-    {
-        Draw = 0,
-        Withdraw = 1,
-        Block,
-        Aim,
-    }
+
 
     public enum StatusResponse
     {

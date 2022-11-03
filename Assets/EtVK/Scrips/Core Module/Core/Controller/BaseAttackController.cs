@@ -1,7 +1,8 @@
 ﻿using EtVK.Actions_Module;
+using EtVK.Core.Manager;
 using UnityEngine;
 
-namespace EtVK.Core
+namespace EtVK.Core.Controller
 {
     public abstract class BaseAttackController : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Utyles
+namespace EtVK.Core.Utyles
 {
     [System.Serializable] public struct SerializableColor
     {

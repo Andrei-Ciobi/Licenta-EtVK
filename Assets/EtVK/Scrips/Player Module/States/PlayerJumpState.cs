@@ -1,8 +1,7 @@
 using EtVK.Core;
+using EtVK.Core.Utyles;
 using EtVK.Input_Module;
-using EtVK.Player_Module.Controller;
 using EtVK.Player_Module.Manager;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.States
@@ -10,12 +9,12 @@ namespace EtVK.Player_Module.States
     public class PlayerJumpState : SceneLinkedSMB<PlayerManager>
     {
         [SerializeField] private float jumpCdTime;
-        private float curentAirSpeed;
+        private float currentAirSpeed;
         private Vector2 movement;
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             monoBehaviour.GetController().Jump();
-            curentAirSpeed = monoBehaviour.GetLocomotionData().WalkFastSpeed;
+            currentAirSpeed = monoBehaviour.GetLocomotionData().WalkFastSpeed;
             movement = Vector2.zero;
         }
 
@@ -46,7 +45,7 @@ namespace EtVK.Player_Module.States
         {
             if (monoBehaviour.IsRunning())
             {
-                curentAirSpeed = monoBehaviour.GetLocomotionData().RunSpeed;
+                currentAirSpeed = monoBehaviour.GetLocomotionData().RunSpeed;
             }
 
             if (monoBehaviour.IsMoving())
@@ -54,7 +53,7 @@ namespace EtVK.Player_Module.States
                 movement = InputManager.Instance.Player.MovementInput;
             }
 
-            monoBehaviour.GetController().UpdateNormalMovement(movement, curentAirSpeed);
+            monoBehaviour.GetController().UpdateNormalMovement(movement, currentAirSpeed);
         }
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace EtVK.Core
+namespace EtVK.Core.Manager
 {
     public class VFXManager : MonoSingletone<VFXManager>
     {

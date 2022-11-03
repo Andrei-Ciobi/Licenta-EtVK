@@ -1,4 +1,4 @@
-﻿namespace EtVK.Utyles
+﻿namespace EtVK.Core.Utyles
 {
     public interface IFullGameComponent
     {

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace EtVK.Utyles
+namespace EtVK.Core.Utyles
 {
     public class FullGameObjectTool : MonoBehaviour
     {

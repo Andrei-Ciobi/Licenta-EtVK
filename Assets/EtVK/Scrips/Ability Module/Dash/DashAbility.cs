@@ -1,9 +1,7 @@
 ﻿using System.Collections;
-using System.Linq;
 using EtVK.Ability_Module.Core;
-using EtVK.Core;
-using EtVK.Utyles;
-using UnityEditor.Animations;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using UnityEngine;
 
 namespace EtVK.Ability_Module.Dash

@@ -1,5 +1,4 @@
-﻿using System;
-using EtVK.Core;
+﻿using EtVK.Core.Manager;
 using UnityEngine;
 
 namespace EtVK.Items_Module.Off_Hand.Shield

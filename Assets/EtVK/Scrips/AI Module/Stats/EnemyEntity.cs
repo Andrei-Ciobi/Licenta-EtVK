@@ -1,5 +1,5 @@
 ﻿using EtVK.AI_Module.Managers;
-using EtVK.Core;
+using EtVK.Core.Controller;
 using EtVK.Health_Module;
 
 namespace EtVK.AI_Module.Stats

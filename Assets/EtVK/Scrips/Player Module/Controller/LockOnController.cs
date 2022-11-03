@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using EtVK.AI_Module.Stats;
+using EtVK.Core.Utyles;
 using EtVK.Event_Module.Event_Types;
 using EtVK.Event_Module.Events;
 using EtVK.Player_Module.Manager;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.Controller

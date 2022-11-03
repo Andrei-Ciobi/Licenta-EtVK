@@ -1,7 +1,7 @@
 ﻿using EtVK.Input_Module;
 using UnityEngine;
 
-namespace EtVK.Utyles
+namespace EtVK.Core.Utyles
 {
     public class RotateObjectOnScroll : MonoBehaviour
     {

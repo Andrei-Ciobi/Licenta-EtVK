@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Core
+namespace EtVK.Core.Utyles
 {
     public interface IMoveComponent
     {

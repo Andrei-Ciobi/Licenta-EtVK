@@ -1,8 +1,8 @@
 ﻿using EtVK.Actions_Module;
 using EtVK.Core;
+using EtVK.Core.Utyles;
 using EtVK.Input_Module;
 using EtVK.Player_Module.Manager;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.States

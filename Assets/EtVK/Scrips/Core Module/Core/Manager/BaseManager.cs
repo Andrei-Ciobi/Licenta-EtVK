@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using EtVK.Ability_Module.Core;
-using EtVK.Utyles;
+﻿using EtVK.Ability_Module.Core;
+using EtVK.Core.Controller;
+using EtVK.Core.Utyles;
 using UnityEngine;
 
-namespace EtVK.Core
+namespace EtVK.Core.Manager
 {
     public class BaseManager<TManager, TController, TInventoryManager, TEntity > : MonoBehaviour 
         where TManager : BaseManager<TManager, TController, TInventoryManager, TEntity>, IBaseManager

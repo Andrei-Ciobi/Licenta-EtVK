@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using EtVK.Core.Utyles;
 using EtVK.Event_Module.Event_Types;
 using EtVK.Event_Module.Events;
-using EtVK.Utyles;
 using UnityEngine;
 using UnityEngine.UI;
 

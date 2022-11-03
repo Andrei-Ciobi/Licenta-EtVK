@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EtVK.Core
+namespace EtVK.Core.Manager
 {
     public class BlockingManager : MonoBehaviour
     {

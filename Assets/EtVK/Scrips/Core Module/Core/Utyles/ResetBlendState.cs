@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace EtVK.Utyles
+namespace EtVK.Core.Utyles
 {
     public class ResetBlendState : StateMachineBehaviour
     {

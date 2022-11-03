@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EtVK.Core;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using EtVK.Input_Module;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.UI_Module.Game_UI

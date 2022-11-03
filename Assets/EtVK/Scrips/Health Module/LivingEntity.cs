@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using EtVK.Core;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using EtVK.Items_Module.Weapons;
-using EtVK.Utyles;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

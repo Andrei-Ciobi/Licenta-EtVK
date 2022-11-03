@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using EtVK.Actions_Module;
+using EtVK.Core.Utyles;
 using EtVK.Inventory_Module;
 using EtVK.Items_Module.Off_Hand;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Items_Module.Weapons

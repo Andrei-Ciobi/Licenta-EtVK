@@ -1,15 +1,13 @@
 ﻿using System.Collections;
-using System.Linq;
-using EtVK.Utyles;
-using UnityEditor.Animations;
+using EtVK.Core.Utyles;
 using UnityEngine;
 
 namespace EtVK.Ability_Module.Core
 {
     public abstract class BaseAbility : MonoBehaviour
     {
-        [Header("Base ability info")] [SerializeField]
-        protected AbilityType abilityType;
+        [Header("Base ability info")] 
+        [SerializeField] protected AbilityType abilityType;
 
         public bool OnCooldown => onCooldown;
 

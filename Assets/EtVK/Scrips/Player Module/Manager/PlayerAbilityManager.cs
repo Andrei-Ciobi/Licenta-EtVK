@@ -1,7 +1,5 @@
-﻿using System;
-using EtVK.Ability_Module.Core;
+﻿using EtVK.Ability_Module.Core;
 using EtVK.Input_Module;
-using UnityEngine;
 
 namespace EtVK.Player_Module.Manager
 {
