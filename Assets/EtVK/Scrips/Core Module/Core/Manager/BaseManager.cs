@@ -1,6 +1,7 @@
 ﻿using EtVK.Ability_Module.Core;
 using EtVK.Core.Controller;
 using EtVK.Core.Utyles;
+using EtVK.Resources_Module.Stamina;
 using UnityEngine;
 
 namespace EtVK.Core.Manager
@@ -13,11 +14,13 @@ namespace EtVK.Core.Manager
         protected Animator animator;
         protected TController controller;
         protected TInventoryManager inventoryManager;
+        protected StaminaManager staminaManager;
         private AnimatorOverrideController baseAnimatorOverrideController;
         private TEntity livingEntity;
         private BaseAttackController attackController;
         private AbilityManager abilityManager;
         private BlockingManager blockingManager;
+        
         
         public bool UninterruptibleAction { get; set; }
         public bool IsBLocking { get; set; }
@@ -34,6 +37,7 @@ namespace EtVK.Core.Manager
             attackController = GetComponent<BaseAttackController>();
             abilityManager = GetComponentInChildren<AbilityManager>();
             blockingManager = GetComponentInChildren<BlockingManager>();
+            staminaManager = GetComponentInChildren<StaminaManager>();
             SceneLinkedSMB<TManager>.Initialise(animator, this as TManager);
             
         }
@@ -80,6 +84,11 @@ namespace EtVK.Core.Manager
         public AbilityManager GetAbilityManager()
         {
             return abilityManager;
+        }
+
+        public StaminaManager GetStaminaManager()
+        {
+            return staminaManager;
         }
     }
 }

@@ -52,6 +52,10 @@ namespace EtVK.Player_Module.States
             if (!InputManager.Instance.Player.DeactivateLockOn) 
                 return;
             
+            var isLockedOn = animator.GetBool(PlayerState.IsLockedOn.ToString());
+            if(!isLockedOn)
+                return;
+            
             monoBehaviour.GetLockOnController().UnlockFromEnemy();
         }
         

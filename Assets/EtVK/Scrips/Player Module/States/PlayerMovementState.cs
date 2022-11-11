@@ -89,6 +89,7 @@ namespace EtVK.Player_Module.States
                 
                 monoBehaviour.GetController()
                     .UpdateNormalMovement(movement, monoBehaviour.GetLocomotionData().RunSpeed);
+                monoBehaviour.GetStaminaManager()?.PerformStaminaDrain(StaminaCostType.Sprint);
             }
 
             monoBehaviour.GetController().MoveOnSlope();

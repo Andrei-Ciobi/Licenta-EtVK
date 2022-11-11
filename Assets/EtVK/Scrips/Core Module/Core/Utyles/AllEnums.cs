@@ -112,6 +112,13 @@ namespace EtVK.Core.Utyles
         Balkan,
     }
 
+    public enum StaminaCostType
+    {
+        Sprint,
+        Dodge,
+        Jump,
+    }
+
 
     // For player controller
     public enum PlayerState

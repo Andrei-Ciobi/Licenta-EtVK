@@ -1,6 +1,6 @@
 ﻿using EtVK.AI_Module.Managers;
 using EtVK.Core.Controller;
-using EtVK.Health_Module;
+using EtVK.Resources_Module.Health;
 
 namespace EtVK.AI_Module.Stats
 {

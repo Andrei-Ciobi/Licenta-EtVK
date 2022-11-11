@@ -1,7 +1,7 @@
 ﻿using EtVK.Core.Utyles;
 using UnityEngine;
 
-namespace EtVK.Health_Module
+namespace EtVK.Resources_Module.Health
 {
     public interface ILivingEntity
     {

@@ -1,9 +1,9 @@
 using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
-using EtVK.Health_Module;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
 using EtVK.Player_Module.Controller;
+using EtVK.Resources_Module.Health;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -53,7 +53,12 @@ namespace EtVK.Player_Module.Manager
 
             if (!IsMoving())
                 return;
-
+            
+            if(!staminaManager?.CheckCanPerformAction(StaminaCostType.Dodge) ?? false)
+                return;
+            
+            staminaManager?.PerformStaminaDrain(StaminaCostType.Dodge);
+            
             var isLockedOn = animator.GetBool(PlayerState.IsLockedOn.ToString());
             animationEventController.SetCanCombo(0);
             animationEventController.DeactivateWeaponCollider();
@@ -78,7 +83,10 @@ namespace EtVK.Player_Module.Manager
 
         public bool IsRunning(bool canRun = true)
         {
-            return InputManager.Instance.Player.HoldRun && IsMoving() && canRun;
+            if (!InputManager.Instance.Player.HoldRun || !IsMoving() || !canRun)
+                return false;
+            
+            return staminaManager?.CheckCanPerformAction(StaminaCostType.Sprint) ?? true;
         }
 
         public bool CanAttack()

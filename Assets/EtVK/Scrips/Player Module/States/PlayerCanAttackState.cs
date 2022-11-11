@@ -15,6 +15,11 @@ namespace EtVK.Player_Module.States
             monoBehaviour.UseRootMotionRotation = false;
         }
 
+        public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            CheckCanAttack(animator);
+        }
+
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             CheckCanAttack(animator);

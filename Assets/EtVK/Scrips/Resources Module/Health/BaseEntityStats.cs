@@ -2,7 +2,7 @@
 using EtVK.Core.Utyles;
 using UnityEngine;
 
-namespace EtVK.Health_Module
+namespace EtVK.Resources_Module.Health
 {
     [CreateAssetMenu( menuName = "ScriptableObjects/Stats/EntityStats")]
     public class BaseEntityStats : ScriptableObject

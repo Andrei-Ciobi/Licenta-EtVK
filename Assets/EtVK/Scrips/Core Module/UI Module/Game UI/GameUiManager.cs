@@ -73,7 +73,7 @@ namespace EtVK.UI_Module.Game_UI
 
         private void Initialize()
         {
-            GameManager.Instance.onLateFinishLoading += OnFinishLoading;
+            // GameManager.Instance.onLateFinishLoading += OnFinishLoading;
             
             var uiList = GetComponentsInChildren<BaseGameUi>(true).ToList();
             foreach (var gameUi in uiList)

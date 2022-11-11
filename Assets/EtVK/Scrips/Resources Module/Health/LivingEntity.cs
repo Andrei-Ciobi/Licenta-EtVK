@@ -6,7 +6,7 @@ using EtVK.Items_Module.Weapons;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace EtVK.Health_Module
+namespace EtVK.Resources_Module.Health
 {
     public abstract class LivingEntity<TStats> : MonoBehaviour, IDamageable, ILivingEntity
         where TStats : BaseEntityStats

@@ -8,9 +8,10 @@ namespace EtVK.Player_Module.States
     {
         [SerializeField] private bool useRootMotion = true;
         [SerializeField] private bool useRootMotionRotation;
+        [SerializeField] private bool uninterruptibleAction = true;
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            monoBehaviour.UninterruptibleAction = true;
+            monoBehaviour.UninterruptibleAction = uninterruptibleAction;
             monoBehaviour.GetLivingEntity().IsInvulnerable = true;
             monoBehaviour.UseRootMotionRotation = useRootMotionRotation && useRootMotion;
             animator.applyRootMotion = useRootMotion;

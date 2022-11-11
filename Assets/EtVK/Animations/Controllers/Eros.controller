@@ -1072,6 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRootMotion: 1
   useRootMotionRotation: 0
+  uninterruptibleAction: 1
 --- !u!1102 &-5575365928992184196
 AnimatorState:
   serializedVersion: 6
@@ -1664,6 +1665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRootMotion: 1
   useRootMotionRotation: 0
+  uninterruptibleAction: 1
 --- !u!114 &-3783240169381134857
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2324,6 +2326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRootMotion: 1
   useRootMotionRotation: 0
+  uninterruptibleAction: 1
 --- !u!114 &-2433580622028699622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4458,6 +4461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRootMotion: 1
   useRootMotionRotation: 0
+  uninterruptibleAction: 1
 --- !u!1107 &2706831941922144319
 AnimatorStateMachine:
   serializedVersion: 6
@@ -5601,6 +5605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRootMotion: 0
   useRootMotionRotation: 0
+  uninterruptibleAction: 0
 --- !u!1102 &6545433128479873606
 AnimatorState:
   serializedVersion: 6
