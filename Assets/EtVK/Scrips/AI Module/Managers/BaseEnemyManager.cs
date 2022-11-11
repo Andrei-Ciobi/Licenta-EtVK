@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using EtVK.AI_Module.Controllers;
-using EtVK.Core;
-using EtVK.Utyles;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using UnityEngine;
 using UnityEngine.AI;
 

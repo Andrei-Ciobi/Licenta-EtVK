@@ -8,7 +8,6 @@ namespace EtVK.Inventory_Module
     public abstract class BaseInventoryManager : MonoBehaviour
     {
         protected List<HolderSlot> holderSlots = new();
-
         protected abstract void LoadInventory();
         public List<HolderSlot> GetAllHolderSlots()
         {

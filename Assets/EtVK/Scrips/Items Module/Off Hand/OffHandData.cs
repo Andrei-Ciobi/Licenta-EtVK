@@ -1,5 +1,5 @@
-﻿using EtVK.Inventory_Module;
-using EtVK.Utyles;
+﻿using EtVK.Core.Utyles;
+using EtVK.Inventory_Module;
 using UnityEngine;
 
 namespace EtVK.Items_Module.Off_Hand

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
+using EtVK.Core.Utyles;
 using EtVK.Inventory_Module;
 using EtVK.Inventory_Module.Holder_Slots;
 using EtVK.Player_Module.Interactable;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Items_Module.Armors

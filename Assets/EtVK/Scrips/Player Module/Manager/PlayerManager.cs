@@ -1,9 +1,9 @@
-using EtVK.Core;
-using EtVK.Health_Module;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
 using EtVK.Player_Module.Controller;
-using EtVK.Utyles;
+using EtVK.Resources_Module.Health;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -48,19 +48,24 @@ namespace EtVK.Player_Module.Manager
 
         private void OnDodge(InputAction.CallbackContext context)
         {
-            if(UninterruptibleAction)
-                return;
-            
-            if(!IsMoving())
+            if (UninterruptibleAction || IsBLocking || IsAiming)
                 return;
 
+            if (!IsMoving())
+                return;
+            
+            if(!staminaManager?.CheckCanPerformAction(StaminaCostType.Dodge) ?? false)
+                return;
+            
+            staminaManager?.PerformStaminaDrain(StaminaCostType.Dodge);
+            
             var isLockedOn = animator.GetBool(PlayerState.IsLockedOn.ToString());
             animationEventController.SetCanCombo(0);
             animationEventController.DeactivateWeaponCollider();
             if (isLockedOn || IsPerformingAttack)
             {
                 var movement = InputManager.Instance.Player.MovementInputClamped;
-                
+
                 animator.SetFloat(PlayerState.LockOnMovementX.ToString(), movement.x);
                 animator.SetFloat(PlayerState.LockOnMovementY.ToString(), movement.y);
                 animator.CrossFade("Directional Dodge", .1f);
@@ -69,24 +74,26 @@ namespace EtVK.Player_Module.Manager
             {
                 animator.CrossFade("Normal Dodge", .1f);
             }
-           
         }
-        
+
         public bool IsMoving()
         {
             return InputManager.Instance.Player.MovementInput != Vector2.zero;
         }
 
-        public bool IsRunning()
+        public bool IsRunning(bool canRun = true)
         {
-            return InputManager.Instance.Player.HoldRun && IsMoving();
+            if (!InputManager.Instance.Player.HoldRun || !IsMoving() || !canRun)
+                return false;
+            
+            return staminaManager?.CheckCanPerformAction(StaminaCostType.Sprint) ?? true;
         }
 
         public bool CanAttack()
         {
             var isAttacking = animator.GetBool(PlayerState.IsAttacking.ToString());
             return (InputManager.Instance.Player.TapAttackInput || InputManager.Instance.Player.TapAttackInputQue) &&
-                   !isAttacking;
+                   !isAttacking && !IsBLocking;
         }
 
         public PlayerLocomotionData GetLocomotionData()

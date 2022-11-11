@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EtVK.Utyles;
+using EtVK.Core.Utyles;
 using Unity.Collections;
 using UnityEngine;
 

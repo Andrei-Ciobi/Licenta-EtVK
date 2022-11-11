@@ -1,7 +1,6 @@
 ﻿using EtVK.Core;
-using EtVK.Player_Module.Controller;
+using EtVK.Core.Utyles;
 using EtVK.Player_Module.Manager;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.States
@@ -16,20 +15,31 @@ namespace EtVK.Player_Module.States
             monoBehaviour.UseRootMotionRotation = false;
         }
 
+        public override void OnSLTransitionToStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            CheckCanAttack(animator);
+        }
+
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (monoBehaviour.CanAttack())
-            {
-                var weaponDraw = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
+            CheckCanAttack(animator);
+        }
 
-                if (weaponDraw == null)
-                {
-                    Debug.Log("Can't attack without a weapon draw");
-                    return;
-                }
-                
-                animator.SetBool(PlayerState.IsAttacking.ToString(), true);
+        private void CheckCanAttack(Animator animator)
+        {
+            if (!monoBehaviour.CanAttack()) 
+                return;
+            
+            var weaponDraw = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
+
+            if (weaponDraw == null)
+            {
+                Debug.Log("Can't attack without a weapon draw");
+                return;
             }
+                
+            animator.SetBool(PlayerState.IsAttacking.ToString(), true);
+            // animator.CrossFade("Attacks", transitionDelay);
         }
         
     }

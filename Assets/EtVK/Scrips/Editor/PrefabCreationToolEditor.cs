@@ -1,4 +1,4 @@
-﻿using EtVK.Utyles;
+﻿using EtVK.Core.Utyles;
 using UnityEditor;
 using UnityEngine;
 

@@ -1,6 +1,6 @@
 ﻿using EtVK.AI_Module.Managers;
-using EtVK.Core;
-using EtVK.Utyles;
+using EtVK.Core.Controller;
+using EtVK.Core.Utyles;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

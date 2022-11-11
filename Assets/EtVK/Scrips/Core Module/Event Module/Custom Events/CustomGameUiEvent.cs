@@ -1,4 +1,4 @@
-﻿using EtVK.Utyles;
+﻿using EtVK.Core.Utyles;
 using UnityEngine.Events;
 
 namespace EtVK.Event_Module.Custom_Events

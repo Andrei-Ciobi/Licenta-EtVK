@@ -1,6 +1,6 @@
 ﻿using EtVK.Ability_Module.Core;
-using EtVK.Health_Module;
-using EtVK.Utyles;
+using EtVK.Core.Utyles;
+using EtVK.Resources_Module.Health;
 using UnityEngine;
 
 namespace EtVK.Ability_Module.GroundSmash

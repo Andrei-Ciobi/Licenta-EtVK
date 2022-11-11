@@ -1,6 +1,6 @@
-﻿using EtVK.Core;
+﻿using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using EtVK.Save_System_Module;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Levels_Module

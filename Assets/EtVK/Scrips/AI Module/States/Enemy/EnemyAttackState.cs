@@ -1,7 +1,7 @@
 ﻿using EtVK.AI_Module.Actions;
 using EtVK.AI_Module.Managers;
 using EtVK.Core;
-using EtVK.Utyles;
+using EtVK.Core.Utyles;
 using UnityEngine;
 
 namespace EtVK.AI_Module.States

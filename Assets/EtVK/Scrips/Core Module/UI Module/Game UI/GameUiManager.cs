@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EtVK.Core;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using EtVK.Input_Module;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.UI_Module.Game_UI
@@ -73,7 +73,7 @@ namespace EtVK.UI_Module.Game_UI
 
         private void Initialize()
         {
-            GameManager.Instance.onLateFinishLoading += OnFinishLoading;
+            // GameManager.Instance.onLateFinishLoading += OnFinishLoading;
             
             var uiList = GetComponentsInChildren<BaseGameUi>(true).ToList();
             foreach (var gameUi in uiList)

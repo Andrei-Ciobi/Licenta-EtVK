@@ -1,8 +1,8 @@
 ﻿using EtVK.Ability_Module.Core;
-using EtVK.Core;
+using EtVK.Core.Controller;
+using EtVK.Core.Utyles;
 using EtVK.Items_Module.Weapons;
 using EtVK.Player_Module.Manager;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.Controller

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Cinemachine;
+using EtVK.Core.Utyles;
 using EtVK.Event_Module.Event_Types;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.Player_Module.Camera {

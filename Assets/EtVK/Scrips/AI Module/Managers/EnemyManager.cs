@@ -4,8 +4,8 @@ using EtVK.AI_Module.Controllers;
 using EtVK.AI_Module.Inventory;
 using EtVK.AI_Module.Stats;
 using EtVK.AI_Module.Weapons;
-using EtVK.Core;
-using EtVK.Utyles;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Managers

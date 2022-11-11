@@ -1,5 +1,5 @@
 ﻿using EtVK.Actions_Module;
-using EtVK.Utyles;
+using EtVK.Core.Utyles;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Actions

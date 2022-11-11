@@ -1,10 +1,9 @@
 ﻿using EtVK.Ability_Module.Core;
 using EtVK.AI_Module.Inventory;
-using EtVK.AI_Module.Weapons;
-using EtVK.Core;
+using EtVK.Core.Controller;
+using EtVK.Core.Utyles;
 using EtVK.Items_Module.Off_Hand;
 using EtVK.Items_Module.Weapons;
-using EtVK.Utyles;
 using UnityEngine;
 
 namespace EtVK.AI_Module.Controllers

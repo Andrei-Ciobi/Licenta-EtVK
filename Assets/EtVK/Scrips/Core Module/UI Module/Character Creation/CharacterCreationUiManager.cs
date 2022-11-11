@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using EtVK.Core;
+using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
 using EtVK.Input_Module;
 using EtVK.Save_System_Module;
 using EtVK.UI_Module.Core;
-using EtVK.Utyles;
 
 namespace EtVK.UI_Module.Character_Creation
 {
