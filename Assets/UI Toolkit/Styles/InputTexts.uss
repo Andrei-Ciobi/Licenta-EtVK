@@ -1,0 +1,37 @@
+.text-input-menu {
+    font-size: 40px;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 150px;
+    width: 70%;
+    -unity-text-align: upper-center;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
+    color: rgba(214, 232, 238, 255);
+    -unity-font-style: bold;
+    letter-spacing: 10px;
+}
+
+.text-input-box-menu > .unity-base-field__input {
+    font-size: 40px;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 50px;
+    width: 100%;
+    -unity-text-align: middle-center;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
+    color: rgb(214, 232, 238);
+    -unity-font-style: bold;
+    letter-spacing: 10px;
+    margin-top: 10px;
+    background-color: rgba(1, 18, 48, 255);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-left-color: rgba(1, 18, 48, 255);
+    border-right-color: rgba(1, 18, 48, 255);
+    border-top-color: rgba(1, 18, 48, 255);
+    border-bottom-color: rgba(1, 18, 48, 255);
+}

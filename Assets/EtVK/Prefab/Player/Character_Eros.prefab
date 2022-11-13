@@ -54459,7 +54459,6 @@ GameObject:
   - component: {fileID: 3574976061433991882}
   - component: {fileID: 3574976061433991880}
   - component: {fileID: 3574976061433991883}
-  - component: {fileID: 341373039}
   - component: {fileID: 593020593}
   m_Layer: 11
   m_Name: Character_Eros
@@ -54520,7 +54519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93960b7e2037ec84d82267cb6c161cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFullGame: 0
   playerLocomotionData: {fileID: 11400000, guid: 9fc075dc2f6e8ff4295973f551129c72,
     type: 2}
 --- !u!114 &3574976061433991880
@@ -54559,18 +54557,6 @@ MonoBehaviour:
     value: 3
   - key: Base_damage_left
     value: 2
---- !u!114 &341373039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3574976061433991894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722045071c0e4eb7974887c95bd818b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &593020593
 MonoBehaviour:
   m_ObjectHideFlags: 0

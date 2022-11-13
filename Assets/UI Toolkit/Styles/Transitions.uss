@@ -1,0 +1,19 @@
+.opacity-none {
+    opacity: 0;
+}
+
+.opacity-none-trans {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.2s;
+}
+
+.opacity-full-trans {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.2s;
+}

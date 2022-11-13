@@ -1,0 +1,61 @@
+.panel {
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: center;
+    align-items: flex-end;
+    opacity: 1;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    opacity: 1;
+}
+
+.info-bar-bottom {
+    background-color: rgba(13, 22, 41, 0.85);
+    width: 100%;
+    height: 8%;
+    align-items: center;
+}
+
+.info-bar-top {
+    background-color: rgba(13, 22, 41, 0.85);
+    width: 100%;
+    height: 15%;
+}
+
+.info-bar-container {
+    width: 60%;
+    height: 100%;
+}
+
+.game-slot {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 10px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.game-slot:hover {
+    background-color: rgba(13, 22, 41, 0.89);
+    scale: 1.1 1.1;
+}

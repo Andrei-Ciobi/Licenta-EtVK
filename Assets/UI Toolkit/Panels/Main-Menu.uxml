@@ -1,0 +1,48 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Buttons.uss?fileID=7433441132597879392&amp;guid=fa4c956d64cc5ed45abcc622bc45627e&amp;type=3#Buttons" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Labels.uss?fileID=7433441132597879392&amp;guid=47b2188cc2ab2034ca9fcbfd1d5e9844&amp;type=3#Labels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Panels.uss?fileID=7433441132597879392&amp;guid=a27b0f8b7864ba54eb1efaa47d20f695&amp;type=3#Panels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/InputTexts.uss?fileID=7433441132597879392&amp;guid=ac817340cc4a8d44b84c59d6d54bd7ad&amp;type=3#InputTexts" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Transitions.uss?fileID=7433441132597879392&amp;guid=53ac27584b35ec342be1f82ae3fa2d94&amp;type=3#Transitions" />
+    <EtVK.UI_Module.Main_Menu.MainMenuManager name="main-menu-manager" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/background2.jpg?fileID=2800000&amp;guid=6e61db2e99a267a4b9ecf673c9e78552&amp;type=3#background2&apos;); justify-content: center; align-items: center;">
+        <EtVK.UI_Module.Main_Menu.Panels.MainMenuUi name="main-menu" class="panel" style="width: 50%; height: 80%; justify-content: center; padding-top: 25px;">
+            <ui:VisualElement name="title-container" class="container" style="margin-bottom: 5%;">
+                <ui:Label text="Eros" display-tooltip-when-elided="true" name="title" class="title-label" />
+                <ui:Label text="the vault keeper" display-tooltip-when-elided="true" name="title" class="title-label" />
+            </ui:VisualElement>
+            <ui:VisualElement name="middle-container" class="container" style="display: flex;">
+                <ui:Button text="Start game" display-tooltip-when-elided="true" name="start-game" class="button-menu opacity-none" style="display: none;" />
+                <ui:Button text="Load game" display-tooltip-when-elided="true" name="load-game" class="button-menu opacity-none" style="display: none;" />
+                <ui:Button text="options" display-tooltip-when-elided="true" name="options" class="button-menu opacity-none" style="display: none;" />
+                <ui:Button text="exit" display-tooltip-when-elided="true" name="exit" class="button-menu opacity-none" style="display: none;" />
+                <ui:Button text="Click here to continue" display-tooltip-when-elided="true" name="enter-menu" class="button-enter" />
+            </ui:VisualElement>
+        </EtVK.UI_Module.Main_Menu.Panels.MainMenuUi>
+        <EtVK.UI_Module.Main_Menu.Panels.StartMenuUi name="start-menu" class="panel opacity-none" style="width: 100%; height: 100%; justify-content: space-between; align-items: center; display: none;">
+            <ui:VisualElement name="top-bar" class="info-bar info-bar-top" style="flex-direction: row; justify-content: center; align-items: center;">
+                <ui:Label text="-Select an empty slot-" display-tooltip-when-elided="true" name="title" class="title-label-info" style="-unity-font-style: bold;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="slot-container" class="info-bar-container" style="height: 60%;">
+                <ui:VisualElement name="game-slot" class="game-slot">
+                    <ui:VisualElement name="img" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/empty-slot.jpg?fileID=2800000&amp;guid=ea236c30d8d9f64458bc6676b84dce47&amp;type=3#empty-slot&apos;); -unity-background-image-tint-color: rgb(1, 50, 89); border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; scale: 1.4 1.3; margin-right: 20px;" />
+                    <ui:VisualElement name="slot-data" style="width: 80%; height: 100%;">
+                        <ui:Label text="Slot 1 | Level 1" display-tooltip-when-elided="true" name="slot-id" class="slot-label" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="select-icon" style="width: 50px; height: 50px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="game-slot" class="game-slot">
+                    <ui:VisualElement name="img" style="width: 100px; height: 100px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/empty-slot.jpg?fileID=2800000&amp;guid=ea236c30d8d9f64458bc6676b84dce47&amp;type=3#empty-slot&apos;); -unity-background-image-tint-color: rgb(1, 50, 89); border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; scale: 1.4 1.3; margin-right: 20px;" />
+                    <ui:VisualElement name="slot-data" style="width: 80%; height: 100%;">
+                        <ui:Label text="Slot 1 | Level 1" display-tooltip-when-elided="true" name="slot-id" class="slot-label" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="select-icon" style="width: 50px; height: 50px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="bottom-bar" class="info-bar info-bar-bottom">
+                <ui:VisualElement name="container" class="info-bar-container" style="height: 100%; flex-direction: row; align-items: center;">
+                    <ui:Button text="Back" display-tooltip-when-elided="true" name="back-button" class="button-back" style="height: 50px; transition-timing-function: ease-out-back; transition-duration: 0.5s;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </EtVK.UI_Module.Main_Menu.Panels.StartMenuUi>
+    </EtVK.UI_Module.Main_Menu.MainMenuManager>
+</ui:UXML>

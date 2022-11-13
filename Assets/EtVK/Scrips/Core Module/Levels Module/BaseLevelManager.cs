@@ -5,16 +5,14 @@ using UnityEngine;
 
 namespace EtVK.Levels_Module
 {
-    public class BaseLevelManager : MonoBehaviour, IFullGameComponent
+    public class BaseLevelManager : MonoBehaviour
     {
-        [SerializeField] private bool startFullGame;
         [SerializeField] private bool saveOnStart;
         [SerializeField] private Transform playerSpawnPoint;
         
-        public bool StartFullGame { get => startFullGame; set => startFullGame = value; }
         private void Awake()
         {
-            if(!startFullGame)
+            if(GameManager.Instance == null)
                 return;
             
             GameManager.Instance.onFinishLoading += LoadCurrentLevelData;
@@ -54,6 +52,9 @@ namespace EtVK.Levels_Module
 
         private void OnDestroy()
         {
+            if(GameManager.Instance == null)
+                return;
+            
             GameManager.Instance.onFinishLoading -= LoadCurrentLevelData;
             GameManager.Instance.onFinishLoading -= SetPlayerPosition;
             GameManager.Instance.onFinishLoading -= SaveOnStartLevel;

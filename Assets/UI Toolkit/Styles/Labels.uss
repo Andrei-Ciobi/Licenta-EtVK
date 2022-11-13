@@ -1,0 +1,28 @@
+.title-label {
+    -unity-font-style: bold;
+    font-size: 100px;
+    -unity-text-align: upper-center;
+    color: rgb(214, 232, 238);
+    -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    -unity-font-definition: none;
+    letter-spacing: 11px;
+}
+
+.title-label-info {
+    color: rgba(214, 232, 238, 255);
+    font-size: 60px;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
+    letter-spacing: 10px;
+}
+
+.slot-label {
+    -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Roboto-Bold.ttf?fileID=12800000&guid=4beb055f07aaff244873dec698d0363e&type=3#Roboto-Bold');
+    -unity-font-definition: none;
+    -unity-font-style: bold;
+    font-size: 35px;
+    color: rgba(214, 232, 238, 255);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 255);
+    letter-spacing: 7px;
+}

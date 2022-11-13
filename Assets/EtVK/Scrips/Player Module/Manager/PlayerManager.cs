@@ -10,16 +10,11 @@ using UnityEngine.InputSystem;
 namespace EtVK.Player_Module.Manager
 {
     public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>,
-        IFullGameComponent, IBaseManager
+        IBaseManager
     {
-        [SerializeField] private bool startFullGame;
         [SerializeField] private PlayerLocomotionData playerLocomotionData;
 
-        public bool StartFullGame
-        {
-            get => startFullGame;
-            set => startFullGame = value;
-        }
+
 
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }
@@ -114,6 +109,7 @@ namespace EtVK.Player_Module.Manager
         private void OnFinishLoadingLate()
         {
             animator.enabled = true;
+            InputManager.Instance.EnablePlayerActionMap();
         }
 
         private void OnGameStateChange(bool state)
@@ -130,7 +126,7 @@ namespace EtVK.Player_Module.Manager
             playerRootMotionController.Initialize(this);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
 
-            if (startFullGame)
+            if (GameManager.Instance != null)
             {
                 GameManager.Instance.onLateFinishLoading += OnFinishLoadingLate;
                 GameManager.Instance.onChangeGameState += OnGameStateChange;
@@ -150,11 +146,14 @@ namespace EtVK.Player_Module.Manager
 
         private void OnDestroy()
         {
-            if (!startFullGame)
+            InputManager.Instance.PlayerCallbacks.TapDodge.performed -= OnDodge;
+            
+            if (GameManager.Instance == null)
                 return;
+            
             GameManager.Instance.onLateFinishLoading -= OnFinishLoadingLate;
             GameManager.Instance.onChangeGameState -= OnGameStateChange;
-            InputManager.Instance.PlayerCallbacks.TapDodge.performed -= OnDodge;
+           
         }
     }
 }
