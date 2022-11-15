@@ -1,5 +1,8 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
+
+using System;
+
 namespace EtVK.Core.Utyles
 {
 
@@ -209,27 +212,28 @@ namespace EtVK.Core.Utyles
 
     public enum SceneNames
     {
-        MainMenu = 0,
         GameUi = 4, 
         Player = 1,
         CharacterCreation = 2,
         LevelOne = 3,
     }
 
+    public enum GameLevel
+    {
+        None = 0,
+        One = 1,
+    }
+
     public enum GameUi
     {
-        Menu,
-        Inventory,
+        Empty = 0,
+        MainMenu = 1,
+        GameMenu = 2,
+        Inventory = 2,
         Shop,
         Hud,
     }
-
-    public enum HudUi
-    {
-        Health,
-        Stamina,
-        
-    }
+    
 
     public enum AnimatorLayer
     {

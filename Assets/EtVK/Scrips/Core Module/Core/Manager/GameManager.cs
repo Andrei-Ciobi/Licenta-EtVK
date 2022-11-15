@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EtVK.Core.Utyles;
+using EtVK.Event_Module.Events;
 using EtVK.Save_System_Module;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,9 +11,12 @@ namespace EtVK.Core.Manager
 {
     public class GameManager : MonoSingletone<GameManager>, ISavable
     {
-        [SerializeField] private GameObject loadingScreen;
+        [SerializeField] private GameData gameData;
+        [SerializeField] private GameUiEvent changeUiEvent;
+        [SerializeField] private VoidEvent loadingScreenEvent;
         [SerializeField] private bool startFullGame;
-        public bool IsLoadingScene => isLoadingScene;
+        public GameData GameData => gameData;
+
         public bool PreventLoad { get; set; }
 
         public LoadingEvent onFinishLoading;
@@ -22,12 +26,10 @@ namespace EtVK.Core.Manager
         public delegate void LoadingEvent();
         public delegate void ChangeGameState(bool state);
 
-
         private bool gamePaused;
-        
-        // private Dictionary<SceneNames, Scene> currentLoadedScenes = new();
         private bool isLoadingScene;
         private bool isUnloadingScene;
+        
         private List<SceneNames> currentScenesLoaded = new();
         
 
@@ -136,6 +138,12 @@ namespace EtVK.Core.Manager
             FindObjectsOfType<FullGameObjectTool>().ToList().ForEach(x => x.SetFullGameState(state));
         }
 
+        public void StartLoadingScreen(GameUi newGameUi)
+        {
+            loadingScreenEvent.Invoke();
+            changeUiEvent.Invoke(newGameUi);
+        }
+
         private IEnumerator LoadSceneAsync(List<SceneNames> scenesToLoad)
         {
             while (isUnloadingScene)
@@ -143,7 +151,6 @@ namespace EtVK.Core.Manager
                 yield return null;
             }
 
-            StartLoadingScreen();
             var operations = new List<AsyncOperation>();
 
             foreach (var sceneName in scenesToLoad)
@@ -171,7 +178,6 @@ namespace EtVK.Core.Manager
                 yield return null;
             }
 
-            StartLoadingScreen();
             var operations = new List<AsyncOperation>();
 
             foreach (var sceneName in scenesToUnload)
@@ -201,28 +207,15 @@ namespace EtVK.Core.Manager
             StartCoroutine(LoadingDelay(2f));
         }
 
-        private void StartLoadingScreen()
-        {
-            if (loadingScreen.activeInHierarchy)
-                return;
-
-
-            loadingScreen.SetActive(true);
-        }
-
         private IEnumerator LoadingDelay(float time)
         {
             yield return new WaitForSecondsRealtime(time/2f);
             onLateFinishLoading?.Invoke();
-            
-            yield return new WaitForSecondsRealtime(time/2f);
-            loadingScreen.SetActive(false);
         }
 
         private void InitializeGame()
         {
-            var scene = new List<SceneNames> {SceneNames.MainMenu};
-            LoadScene(scene);
+            return;
         }
         
         public bool IsGamePaused

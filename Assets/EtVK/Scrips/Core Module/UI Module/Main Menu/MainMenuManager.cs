@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using EtVK.UI_Module.Main_Menu.Panels;
-using UnityEngine;
+﻿using EtVK.UI_Module.Main_Menu.Panels;
 using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Main_Menu
@@ -9,9 +7,12 @@ namespace EtVK.UI_Module.Main_Menu
     {
         public MainMenuUi MainMenu => mainMenu;
         public StartMenuUi StartMenu => startMenu;
+        public LoadMenuUi LoadMenu => loadMenu;
 
         private MainMenuUi mainMenu;
         private StartMenuUi startMenu;
+        private LoadMenuUi loadMenu;
+        // private EnterMenuUi enterMenu;
 
         private static BaseMenuPanel selectedPanel;
 
@@ -32,6 +33,8 @@ namespace EtVK.UI_Module.Main_Menu
         {
             mainMenu = this.Q<MainMenuUi>("main-menu");
             startMenu = this.Q<StartMenuUi>("start-menu");
+            loadMenu = this.Q<LoadMenuUi>("load-menu");
+            // enterMenu = this.Q<EnterMenuUi>("enter-menu");
             
             // mainMenu?.RegisterCallback<TransitionEndEvent>(ev => ClosePanelEnd(ev, mainMenu));
             // startMenu?.RegisterCallback<TransitionEndEvent>(ev => ClosePanelEnd(ev, startMenu));

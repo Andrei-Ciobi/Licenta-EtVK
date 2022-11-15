@@ -17,10 +17,12 @@ namespace EtVK.UI_Module.Main_Menu.Panels
 
         protected virtual void OnGeometryChange(GeometryChangedEvent evt)
         {
+            RegisterCallback<TransitionEndEvent>(ev => MainMenuManager.ClosePanelEnd(ev, this));
+            RegisterCallback<TransitionEndEvent>(ev => MainMenuManager.OpenPanelEnd(ev, this));
             UnregisterCallback<GeometryChangedEvent>(OnGeometryChange);
         }
 
-        public void Open()
+        public virtual void Open()
         {
             style.display = DisplayStyle.Flex;
             AddToClassList("opacity-full-trans");

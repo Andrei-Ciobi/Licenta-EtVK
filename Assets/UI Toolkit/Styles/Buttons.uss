@@ -109,8 +109,8 @@
     letter-spacing: 10px;
     padding-right: 15px;
     padding-left: 15px;
-    background-color: rgba(214, 232, 238, 255);
-    color: rgba(1, 50, 89, 255);
+    background-color: rgb(214, 232, 238);
+    color: rgb(1, 50, 89);
     -unity-font-style: bold;
     transition-property: scale;
     transition-duration: 0.8s;
@@ -123,4 +123,8 @@
 
 .button-back:hover {
     scale: 1.2 1.2;
+}
+
+.button-back:active {
+    scale: 1.5 1.5;
 }

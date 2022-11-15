@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using EtVK.Core;
+using EtVK.Core.Utyles;
 using UnityEngine;
 
 namespace EtVK.Save_System_Module
@@ -10,7 +12,9 @@ namespace EtVK.Save_System_Module
     public class GameSaveManager : MonoSingletone<GameSaveManager>
     {
         private readonly string directory = "SaveFiles";
+        private readonly string saveDataId = "file-data";
         private string currentSaveFile;
+        private SaveFileData saveFileData;
 
 
         private void Awake()
@@ -27,7 +31,7 @@ namespace EtVK.Save_System_Module
                 return;
             }
 
-            var state = LoadFile();
+            var state = LoadFile(currentSaveFile);
             SaveState(state);
             SaveFile(state);
         }
@@ -41,7 +45,7 @@ namespace EtVK.Save_System_Module
                 return;
             }
 
-            var state = LoadFile();
+            var state = LoadFile(currentSaveFile);
             LoadState(state);
         }
 
@@ -51,17 +55,47 @@ namespace EtVK.Save_System_Module
             Load();
         }
 
-        public void SetSaveFileName(string fileName)
+        public void SetSaveFileName(int slotId)
         {
-            currentSaveFile = fileName + ".txt";
+            currentSaveFile = $"Slot_{slotId}.txt";
+            saveFileData.SlotId = slotId;
+            saveFileData.GameLevel = GameLevel.One;
         }
 
-        public List<string> GetAllSaves()
+        public List<SaveFileData> GetSaveFilesData()
+        {
+            var data = new List<SaveFileData>();
+            var fileNameList = GetAllSaveFileNames();
+
+            if (fileNameList == null)
+                return data;
+            
+            foreach (var fileName in fileNameList)
+            {
+                var state = LoadFile(fileName + ".txt");
+                var saveData = (SaveFileData) state[saveDataId];
+                data.Add(saveData);
+            }
+            
+            return data;
+        }
+
+        public bool HasSaveFiles()
+        {
+            var saveFiles = GetSaveFilesData();
+
+            if (saveFiles == null)
+                return false;
+            
+            return saveFiles.Count > 0;
+        }
+
+        private List<string> GetAllSaveFileNames()
         {
             var savePath = $"{Application.persistentDataPath}/{directory}";
             if (!Directory.Exists(savePath))
                 return null;
-            
+
             var filePaths = Directory.GetFiles(savePath).ToList();
 
             if (filePaths.Count == 0)
@@ -74,7 +108,7 @@ namespace EtVK.Save_System_Module
                 fileNames.Add(fileName.Split(".")[0]);
             });
 
-            return fileNames;
+            return fileNames.OrderByDescending(x => x).ToList();
         }
 
 
@@ -93,9 +127,9 @@ namespace EtVK.Save_System_Module
             }
         }
 
-        private Dictionary<string, object> LoadFile()
+        private Dictionary<string, object> LoadFile(string fileName)
         {
-            var savePath = $"{Application.persistentDataPath}/{directory}/{currentSaveFile}";
+            var savePath = $"{Application.persistentDataPath}/{directory}/{fileName}";
             if (!File.Exists(savePath))
             {
                 Debug.Log("No save file found");
@@ -115,6 +149,9 @@ namespace EtVK.Save_System_Module
             {
                 state[savableObject.ID] = savableObject.SaveState();
             }
+            
+            saveFileData.LastSavedTime = DateTime.Now;
+            state[saveDataId] = saveFileData;
         }
 
         private void LoadState(Dictionary<string, object> state)
@@ -126,6 +163,46 @@ namespace EtVK.Save_System_Module
                     savableObject.LoadState(savedState);
                 }
             }
+
+            if (state.TryGetValue(saveDataId, out var data))
+            {
+                saveFileData = (SaveFileData) data;
+            }
+        }
+    }
+
+    [System.Serializable]
+    public struct SaveFileData
+    {
+        // ReSharper disable once InconsistentNaming
+        public static SaveFileData Empty = new();
+        public DateTime LastSavedTime { get; set; }
+        public int SlotId { get; set; }
+        public GameLevel GameLevel { get; set; }
+
+        public static bool operator ==(SaveFileData first, SaveFileData second)
+        {
+            return first.SlotId == second.SlotId;
+        }
+
+        public static bool operator !=(SaveFileData first, SaveFileData second)
+        {
+            return first.SlotId != second.SlotId;
+        }
+        
+        public bool Equals(SaveFileData other)
+        {
+            return SlotId == other.SlotId;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is SaveFileData other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return SlotId;
         }
     }
 }

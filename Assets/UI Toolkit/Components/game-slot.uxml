@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Buttons.uss?fileID=7433441132597879392&amp;guid=fa4c956d64cc5ed45abcc622bc45627e&amp;type=3#Buttons" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Labels.uss?fileID=7433441132597879392&amp;guid=47b2188cc2ab2034ca9fcbfd1d5e9844&amp;type=3#Labels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Panels.uss?fileID=7433441132597879392&amp;guid=a27b0f8b7864ba54eb1efaa47d20f695&amp;type=3#Panels" />
+    <EtVK.UI_Module.Core.GameSlotUi name="game-slot" class="game-slot">
+        <ui:VisualElement name="img" style="width: 175px; height: 130px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/empty-slot.jpg?fileID=2800000&amp;guid=ea236c30d8d9f64458bc6676b84dce47&amp;type=3#empty-slot&apos;); -unity-background-image-tint-color: rgb(1, 50, 89); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; scale: 1 1; margin-right: 20px;" />
+        <ui:VisualElement name="slot-data" style="width: 80%; height: 100%; justify-content: space-around; align-items: flex-start;">
+            <ui:Label text="Slot 1 | Level 1" display-tooltip-when-elided="true" name="slot-name" class="slot-label" />
+            <ui:Label text="last saved" display-tooltip-when-elided="true" name="last-saved" class="slot-label" style="font-size: 22px; -unity-font: url(&apos;project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Bangers.ttf?fileID=12800000&amp;guid=5dd49b3eacc540408c98eee0de38e0f1&amp;type=3#Bangers&apos;); letter-spacing: 20px; word-spacing: 10px;" />
+            <ui:Label text="chapter status" display-tooltip-when-elided="true" name="progress" class="slot-label" style="font-size: 22px; -unity-font: url(&apos;project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Bangers.ttf?fileID=12800000&amp;guid=5dd49b3eacc540408c98eee0de38e0f1&amp;type=3#Bangers&apos;); letter-spacing: 20px; word-spacing: 10px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="icon-start" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-arrow-point-left.png?fileID=2800000&amp;guid=bd796c19a0a5cf648b9be7661b697256&amp;type=3#icon-arrow-point-left&apos;); -unity-background-image-tint-color: rgb(214, 232, 238); display: none; opacity: 0;" />
+        <ui:VisualElement name="icon-load" style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-x.png?fileID=2800000&amp;guid=82d0ff357d48715409c8dc50a530b8da&amp;type=3#icon-x&apos;); -unity-background-image-tint-color: rgb(214, 232, 238); display: none; opacity: 0;" />
+    </EtVK.UI_Module.Core.GameSlotUi>
+</ui:UXML>

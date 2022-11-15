@@ -1,29 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using EtVK.Core.Utyles;
 using EtVK.Save_System_Module;
 using EtVK.UI_Module.Core;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Main_Menu.Panels
 {
-    public class StartMenuUi : BaseMenuPanel
+    public class LoadMenuUi : BaseMenuPanel
     {
         private Button backButton;
         
-        public new class UxmlFactory : UxmlFactory<StartMenuUi, UxmlTraits> { }
+        public new class UxmlFactory : UxmlFactory<LoadMenuUi, UxmlTraits> { }
         public new class UxmlTraits : VisualElement.UxmlTraits { }
-
+        
         protected override void OnGeometryChange(GeometryChangedEvent evt)
         {
             backButton = this.Q<Button>("back-button");
 
             backButton.RegisterCallback<ClickEvent>(
                 ev => MainMenuManager.OpenPanelStart(this, MainMenuManager.MainMenu));
-
+            
             base.OnGeometryChange(evt);
         }
-
+        
         public override void Open()
         {
             var gameFiles = new List<SaveFileData>();
@@ -41,12 +41,11 @@ namespace EtVK.UI_Module.Main_Menu.Panels
                     //Check if it has a saved slot
                     var data = gameFiles.Find(x => x.SlotId == index + 1);
 
-                    if (data != SaveFileData.Empty)
-                    {
-                        gameSlots[index].SetData(data.SlotId, data.LastSavedTime, data.GameLevel);
+                    if (data == SaveFileData.Empty) 
                         continue;
-                    }
-                    gameSlots[index].SetData(index + 1, DateTime.MinValue);
+                    
+                    gameSlots[index].SetData(data.SlotId, data.LastSavedTime, data.GameLevel, true);
+                    // gameSlots[index].SetData(index + 1, DateTime.MinValue, GameLevel.None, true);
                 }
             }
 

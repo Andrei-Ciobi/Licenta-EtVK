@@ -33,7 +33,6 @@ namespace EtVK.UI_Module.Character_Creation
         protected override void OnMinMenuIndex()
         {
             GameManager.Instance.UnLoadScene(SceneNames.CharacterCreation);
-            GameManager.Instance.LoadScene(SceneNames.MainMenu);
         }
         
     }

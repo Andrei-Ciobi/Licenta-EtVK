@@ -10,7 +10,7 @@
 }
 
 .title-label-info {
-    color: rgba(214, 232, 238, 255);
+    color: rgb(214, 232, 238);
     font-size: 60px;
     -unity-font-definition: none;
     -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
@@ -22,7 +22,8 @@
     -unity-font-definition: none;
     -unity-font-style: bold;
     font-size: 35px;
-    color: rgba(214, 232, 238, 255);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 255);
+    color: rgb(214, 232, 238);
+    text-shadow: 2px 0 3px rgb(0, 0, 0);
     letter-spacing: 7px;
+    margin-bottom: 5px;
 }
