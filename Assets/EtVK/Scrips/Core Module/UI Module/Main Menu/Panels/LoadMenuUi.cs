@@ -41,11 +41,12 @@ namespace EtVK.UI_Module.Main_Menu.Panels
                     //Check if it has a saved slot
                     var data = gameFiles.Find(x => x.SlotId == index + 1);
 
-                    if (data == SaveFileData.Empty) 
+                    if (data != SaveFileData.Empty)
+                    {
+                        gameSlots[index].SetData(data.SlotId, data.LastSavedTime, data.GameLevel, true);
                         continue;
-                    
-                    gameSlots[index].SetData(data.SlotId, data.LastSavedTime, data.GameLevel, true);
-                    // gameSlots[index].SetData(index + 1, DateTime.MinValue, GameLevel.None, true);
+                    }
+                    gameSlots[index].Hide();
                 }
             }
 

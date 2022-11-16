@@ -5,15 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/EtVK/Scenes/Core Scenes/GameManager Scene.unity
     guid: c72846fe794be124cb6bb9e942d00fa3
-  - enabled: 1
-    path: Assets/EtVK/Scenes/UI Scenes/MainMenu Scene.unity
-    guid: 2b2da15c5bc04ca479c5f55155ae54bf
   - enabled: 1
     path: Assets/EtVK/Scenes/UI Scenes/GameUi Scene.unity
     guid: deab9d1365c24bf4ba7e9cd28fbc55eb

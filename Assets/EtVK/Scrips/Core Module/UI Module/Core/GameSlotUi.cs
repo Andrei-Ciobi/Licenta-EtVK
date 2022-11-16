@@ -10,12 +10,13 @@ namespace EtVK.UI_Module.Core
     public class GameSlotUi : VisualElement
     {
         private VisualElement icon;
-        private bool slotEmpty;
+        
         private string iconName = "icon-start";
-
-        private int slotNumber;
         private string slotName;
 
+        private int slotNumber;
+
+        private bool slotEmpty;
         private bool forLoad;
         private bool hover;
 
@@ -58,10 +59,17 @@ namespace EtVK.UI_Module.Core
             this.Q<VisualElement>("img").style.unityBackgroundImageTintColor = Color.white;
         }
 
+        public void Hide()
+        {
+            style.display = DisplayStyle.None;
+        }
+
         private void OnGeometryChange(GeometryChangedEvent evt)
         {
             icon = this.Q<VisualElement>(iconName);
 
+            icon.RegisterCallback<ClickEvent>(OnIconCLick);
+            
             RegisterCallback<PointerOutEvent>(OnFocusExit);
             RegisterCallback<PointerOverEvent>(OnFocusEnter);
             RegisterCallback<ClickEvent>(ev => OnSlotClick());
@@ -95,19 +103,42 @@ namespace EtVK.UI_Module.Core
 
         private void OnSlotClick()
         {
-            if (GameSaveManager.Instance == null)
+            if (forLoad)
             {
-                Debug.LogError("No game save manager loaded");
-                return;
+                LoadGame();
+            }
+            else
+            {
+                StartNewGame();
             }
 
-            if (GameManager.Instance == null)
-            {
-                Debug.LogError("No game manager loaded");
-                return;
-            }
 
-            GameSaveManager.Instance.SetSaveFileName(slotNumber);
+        }
+
+        private void OnIconCLick(ClickEvent ev)
+        {
+            if(!forLoad)
+                return;
+            
+            ev.StopPropagation();
+            
+            GameSaveManager.Instance.DeleteSaveSlot(slotNumber);
+            this.Hide();
+        }
+
+        private void LoadGame()
+        {
+            GameManager.Instance.StartLoadingScreen(GameUi.Hud);
+            GameSaveManager.Instance.LoadSaveSlot(slotNumber);
+            GameManager.Instance.LoadCurrentScenes();
+        }
+
+        private void StartNewGame()
+        {
+            if(!slotEmpty)
+                return;
+            
+            GameSaveManager.Instance.StartNewSaveSlot(slotNumber);
 
             GameManager.Instance.StartLoadingScreen(GameUi.Hud);
             GameManager.Instance.LoadScene(SceneNames.CharacterCreation);

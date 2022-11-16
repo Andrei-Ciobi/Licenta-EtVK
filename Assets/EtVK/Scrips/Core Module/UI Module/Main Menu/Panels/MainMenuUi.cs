@@ -1,4 +1,6 @@
-﻿using EtVK.Save_System_Module;
+﻿using EtVK.Core.Manager;
+using EtVK.Core.Utyles;
+using EtVK.Save_System_Module;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -23,6 +25,7 @@ namespace EtVK.UI_Module.Main_Menu.Panels
 
         protected override void OnGeometryChange(GeometryChangedEvent evt)
         {
+            continueGameButton = this.Q<Button>("continue-game");
             startGameButton = this.Q<Button>("start-game");
             loadGameButton = this.Q<Button>("load-game");
             optionsButton = this.Q<Button>("options");
@@ -33,7 +36,7 @@ namespace EtVK.UI_Module.Main_Menu.Panels
             loadGameButton?.RegisterCallback<ClickEvent>(ev =>
                 MainMenuManager.OpenPanelStart(this, MainMenuManager.LoadMenu));
 
-
+            continueGameButton?.RegisterCallback<ClickEvent>(ev => LoadLastSaveFile());
             exitButton?.RegisterCallback<ClickEvent>(ev => ExitGame());
 
 
@@ -42,16 +45,22 @@ namespace EtVK.UI_Module.Main_Menu.Panels
 
         public override void Open()
         {
-            if (GameSaveManager.Instance != null)
+            if (!GameSaveManager.Instance.HasSaveFiles())
             {
-                if (!GameSaveManager.Instance.HasSaveFiles())
-                {
-                    this.Q<Button>("load-game").style.display = DisplayStyle.None;
-                    this.Q<Button>("continue-game").style.display = DisplayStyle.None;
-                }
+                this.Q<Button>("load-game").style.display = DisplayStyle.None;
+                this.Q<Button>("continue-game").style.display = DisplayStyle.None;
             }
 
             base.Open();
+        }
+
+        private void LoadLastSaveFile()
+        {
+            var lastSaveData = GameSaveManager.Instance.GetLastSavedFileData();
+
+            GameManager.Instance.StartLoadingScreen(GameUi.Hud);
+            GameSaveManager.Instance.LoadSaveSlot(lastSaveData.SlotId);
+            GameManager.Instance.LoadCurrentScenes();
         }
 
         private void ExitGame()

@@ -55,11 +55,22 @@ namespace EtVK.Save_System_Module
             Load();
         }
 
-        public void SetSaveFileName(int slotId)
+        public void DeleteSaveSlot(int slotId)
+        {
+            DeleteFile($"Slot_{slotId}.txt");
+        }
+
+        public void StartNewSaveSlot(int slotId)
         {
             currentSaveFile = $"Slot_{slotId}.txt";
             saveFileData.SlotId = slotId;
             saveFileData.GameLevel = GameLevel.One;
+        }
+
+        public void LoadSaveSlot(int slotId)
+        {
+            currentSaveFile = $"Slot_{slotId}.txt";
+            Load();
         }
 
         public List<SaveFileData> GetSaveFilesData()
@@ -78,6 +89,11 @@ namespace EtVK.Save_System_Module
             }
             
             return data;
+        }
+
+        public SaveFileData GetLastSavedFileData()
+        {
+            return GetSaveFilesData().OrderByDescending(x => x.LastSavedTime).FirstOrDefault();
         }
 
         public bool HasSaveFiles()
@@ -125,6 +141,19 @@ namespace EtVK.Save_System_Module
                 var formatter = new BinaryFormatter();
                 formatter.Serialize(stream, state);
             }
+        }
+
+        private void DeleteFile(string fileName)
+        {
+            if (!Directory.Exists($"{Application.persistentDataPath}/{directory}"))
+                return;
+            
+            var filePath = $"{Application.persistentDataPath}/{directory}/{fileName}";
+
+            if(!File.Exists(filePath))
+                return;
+            
+            File.Delete(filePath);
         }
 
         private Dictionary<string, object> LoadFile(string fileName)
