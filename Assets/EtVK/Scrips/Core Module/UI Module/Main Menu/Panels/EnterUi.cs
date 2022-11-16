@@ -1,21 +1,27 @@
-﻿using UnityEngine;
+﻿using EtVK.UI_Module.Core;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Main_Menu.Panels
 {
-    public class EnterMenuUi : BaseMenuPanel
+    public class EnterUi : BasePanel<MainMenuManager>
     {
         private Button enterButton;
         
-        public new class UxmlFactory : UxmlFactory<EnterMenuUi, UxmlTraits> { }
+        public new class UxmlFactory : UxmlFactory<EnterUi, UxmlTraits> { }
         public new class UxmlTraits : VisualElement.UxmlTraits { }
+
+        public EnterUi()
+        {
+            
+        }
         
         protected override void OnGeometryChange(GeometryChangedEvent evt)
         {
             enterButton = this.Q<Button>("enter-button");
             
             RegisterCallback<ClickEvent>(ev =>
-                MainMenuManager.OpenPanelStart(this, MainMenuManager.MainMenu));
+                BaseUiManager.OpenPanelStart(this, BaseUiManager.Main));
 
             base.OnGeometryChange(evt);
         }

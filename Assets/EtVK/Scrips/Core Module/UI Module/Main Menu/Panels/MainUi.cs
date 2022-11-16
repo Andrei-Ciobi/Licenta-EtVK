@@ -1,12 +1,13 @@
 ﻿using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
 using EtVK.Save_System_Module;
+using EtVK.UI_Module.Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Main_Menu.Panels
 {
-    public class MainMenuUi : BaseMenuPanel
+    public class MainUi : BasePanel<MainMenuManager>
     {
         private Button continueGameButton;
         private Button startGameButton;
@@ -15,7 +16,7 @@ namespace EtVK.UI_Module.Main_Menu.Panels
         private Button exitButton;
 
 
-        public new class UxmlFactory : UxmlFactory<MainMenuUi, UxmlTraits>
+        public new class UxmlFactory : UxmlFactory<MainUi, UxmlTraits>
         {
         }
 
@@ -32,9 +33,9 @@ namespace EtVK.UI_Module.Main_Menu.Panels
             exitButton = this.Q<Button>("exit");
 
             startGameButton?.RegisterCallback<ClickEvent>(ev =>
-                MainMenuManager.OpenPanelStart(this, MainMenuManager.StartMenu));
+                BaseUiManager.OpenPanelStart(this, BaseUiManager.Start));
             loadGameButton?.RegisterCallback<ClickEvent>(ev =>
-                MainMenuManager.OpenPanelStart(this, MainMenuManager.LoadMenu));
+                BaseUiManager.OpenPanelStart(this, BaseUiManager.Load));
 
             continueGameButton?.RegisterCallback<ClickEvent>(ev => LoadLastSaveFile());
             exitButton?.RegisterCallback<ClickEvent>(ev => ExitGame());

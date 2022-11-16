@@ -59,9 +59,9 @@ namespace EtVK.UI_Module.Core
             selectedUi = ui;
         }
         
-        public MainMenuManager GetMainMenuManager()
+        public T GetRootManager<T>() where T : VisualElement
         {
-            return uiDocument.rootVisualElement.Q<MainMenuManager>("main-menu-manager");
+            return uiDocument.rootVisualElement.Q<T>("root-manager");
         }
 
         private void OnStartInitialize()

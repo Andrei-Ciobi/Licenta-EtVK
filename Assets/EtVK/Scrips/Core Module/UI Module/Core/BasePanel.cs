@@ -1,15 +1,15 @@
-﻿using EtVK.UI_Module.Core;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace EtVK.UI_Module.Main_Menu.Panels
+namespace EtVK.UI_Module.Core
 {
-    public class BaseMenuPanel : VisualElement
+    public class BasePanel<TManager> : VisualElement where TManager : BaseUiManager<TManager>, new()
     {
-        protected UiManager manager;
-        protected MainMenuManager MainMenuManager => manager.GetMainMenuManager();
+        private UiManager manager;
+        protected TManager BaseUiManager => manager.GetRootManager<TManager>();
+        
 
-        protected BaseMenuPanel()
+        protected BasePanel()
         {
             manager = Object.FindObjectOfType<UiManager>();
             RegisterCallback<GeometryChangedEvent>(OnGeometryChange);
@@ -17,8 +17,8 @@ namespace EtVK.UI_Module.Main_Menu.Panels
 
         protected virtual void OnGeometryChange(GeometryChangedEvent evt)
         {
-            RegisterCallback<TransitionEndEvent>(ev => MainMenuManager.ClosePanelEnd(ev, this));
-            RegisterCallback<TransitionEndEvent>(ev => MainMenuManager.OpenPanelEnd(ev, this));
+            RegisterCallback<TransitionEndEvent>(ev => BaseUiManager.ClosePanelEnd(ev, this));
+            RegisterCallback<TransitionEndEvent>(ev => BaseUiManager.OpenPanelEnd(ev, this));
             UnregisterCallback<GeometryChangedEvent>(OnGeometryChange);
         }
 
