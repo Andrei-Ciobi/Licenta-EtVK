@@ -8,8 +8,7 @@ namespace EtVK.Resources_Module.Stamina
     public class StaminaManager : MonoBehaviour
     {
         [SerializeField] private StaminaData staminaData;
-        [SerializeField] private IntEvent maxStaminaEvent;
-        [SerializeField] private IntEvent updateStaminaEvent;
+        [SerializeField] private FloatEvent updateStaminaEvent;
 
         private Coroutine recuperateCoroutine;
         private int currentStamina;
@@ -46,7 +45,7 @@ namespace EtVK.Resources_Module.Stamina
             var cost = staminaData.GetCost(costType);
             currentStamina -= cost;
 
-            updateStaminaEvent.Invoke(currentStamina);
+            updateStaminaEvent.Invoke((float)currentStamina / staminaData.Stamina);
 
             if (recuperateCoroutine != null)
             {
@@ -68,7 +67,7 @@ namespace EtVK.Resources_Module.Stamina
                 currentStamina += staminaData.RecuperateWeight;
             }
 
-            updateStaminaEvent.Invoke(currentStamina);
+            updateStaminaEvent.Invoke((float)currentStamina / staminaData.Stamina);
         }
 
         private IEnumerator RecuperateWaitCoroutine(float waitTime)
@@ -81,8 +80,7 @@ namespace EtVK.Resources_Module.Stamina
         private void Initialize()
         {
             currentStamina = staminaData.Stamina;
-            maxStaminaEvent.Invoke(staminaData.Stamina);
-            updateStaminaEvent.Invoke(staminaData.Stamina);
+            updateStaminaEvent.Invoke(1f);
         }
     }
 }

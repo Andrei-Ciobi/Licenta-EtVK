@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 // ReSharper disable InconsistentNaming
 // ReSharper disable MemberCanBePrivate.Global
@@ -23,6 +24,7 @@ namespace EtVK.UI_Module.Components
 
         public int width { get; set; }
         public int height { get; set; }
+        public  bool useCustomWidthHeight { get; set; }
         public Color backgroundColor { get; set; }
         public Color overlayColor { get; set; }
         public ResourceType resourceType;
@@ -52,13 +54,22 @@ namespace EtVK.UI_Module.Components
             }
         }
 
+        public UnityAction<float> updateValue;  
+
         private float m_value;
         private VisualElement overlay;
+
+        public ResourceBarUiComponent()
+        {
+            updateValue = v => value = v;
+        }
 
         public new class UxmlFactory : UxmlFactory<ResourceBarUiComponent, UxmlTraits> { }
 
         public new class UxmlTraits : VisualElement.UxmlTraits
         {
+            private readonly UxmlBoolAttributeDescription m_useCustomWidthHeight =
+                new() {name = "use-custom-width-height", defaultValue = true};
             private readonly UxmlIntAttributeDescription m_width = new() {name = "width", defaultValue = 300};
             private readonly UxmlIntAttributeDescription m_height = new() {name = "height", defaultValue = 50};
             private readonly UxmlFloatAttributeDescription m_value = new() {name = "value", defaultValue = 1};
@@ -84,22 +95,27 @@ namespace EtVK.UI_Module.Components
                 ate.fillType = m_fillType.GetValueFromBag(bag, cc);
                 ate.backgroundColor = m_backgroundColor.GetValueFromBag(bag, cc);
                 ate.overlayColor = m_overlayColor.GetValueFromBag(bag, cc);
+                ate.useCustomWidthHeight = m_useCustomWidthHeight.GetValueFromBag(bag, cc);
 
                 ate.Clear();
-
-                ate.style.width = ate.width;
-                ate.style.height = ate.height;
                 ate.style.backgroundColor = ate.backgroundColor;
                 ate.AddToClassList("resource-bar-overlay");
 
                 var overlay = new VisualElement();
                 ate.overlay = overlay;
                 ate.Add(overlay);
-                overlay.style.width = ate.width;
-                overlay.style.height = ate.height;
+
                 overlay.style.backgroundColor = ate.overlayColor;
                 overlay.style.transformOrigin = new TransformOrigin(0, 100, 0);
                 overlay.AddToClassList("resource-bar-background");
+                
+                if (ate.useCustomWidthHeight)
+                {
+                    ate.style.width = ate.width;
+                    ate.style.height = ate.height;
+                    overlay.style.width = ate.width;
+                    overlay.style.height = ate.height;
+                }
                 
                 ate.RegisterValueChangedCallback(ate.UpdateBar);
                 ate.FillBar();

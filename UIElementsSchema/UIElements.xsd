@@ -10,8 +10,13 @@
   <xs:include schemaLocation="GlobalNamespace.xsd" />
   <xs:import schemaLocation="EtVK.UI_Module.Main_Menu.xsd" namespace="EtVK.UI_Module.Main_Menu" />
   <xs:import schemaLocation="EtVK.UI_Module.Main_Menu.Panels.xsd" namespace="EtVK.UI_Module.Main_Menu.Panels" />
+  <xs:import schemaLocation="EtVK.UI_Module.Hud.xsd" namespace="EtVK.UI_Module.Hud" />
+  <xs:import schemaLocation="EtVK.UI_Module.Hud.Panels.xsd" namespace="EtVK.UI_Module.Hud.Panels" />
+  <xs:import schemaLocation="EtVK.UI_Module.Game_Menu.xsd" namespace="EtVK.UI_Module.Game_Menu" />
   <xs:import schemaLocation="EtVK.UI_Module.Core.xsd" namespace="EtVK.UI_Module.Core" />
+  <xs:import schemaLocation="EtVK.UI_Module.Components.xsd" namespace="EtVK.UI_Module.Components" />
   <xs:import schemaLocation="EtVK.UI_Module.Character_Creation.xsd" namespace="EtVK.UI_Module.Character_Creation" />
+  <xs:import schemaLocation="EtVK.UI_Module.Character_Creation.Customization_Panels.xsd" namespace="EtVK.UI_Module.Character_Creation.Customization_Panels" />
   <xs:import schemaLocation="UnityEditor.ShortcutManagement.xsd" namespace="UnityEditor.ShortcutManagement" />
   <xs:import schemaLocation="UnityEditor.UIElements.Debugger.xsd" namespace="UnityEditor.UIElements.Debugger" />
   <xs:import schemaLocation="Unity.UI.Builder.xsd" namespace="Unity.UI.Builder" />

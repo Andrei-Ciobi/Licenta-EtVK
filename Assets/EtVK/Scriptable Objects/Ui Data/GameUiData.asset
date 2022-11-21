@@ -21,5 +21,9 @@ MonoBehaviour:
     value: {fileID: 9197481963319205126, guid: fad2e4ec8fcaf854ea2b98f6173aa260, type: 3}
   - key: 6
     value: {fileID: 9197481963319205126, guid: dc01952c056966c4e9e45d30d0f19622, type: 3}
+  - key: 3
+    value: {fileID: 9197481963319205126, guid: d3a8feee0624cf5419417fbe8e40de6b, type: 3}
   uiDataList:
   - {fileID: 11400000, guid: e7f00fa588e9d6145bb63614c17f52f9, type: 2}
+  - {fileID: 11400000, guid: e5b217b76a9613f43b00ea9bc817423a, type: 2}
+  - {fileID: 11400000, guid: d9504485883ebb24d9e5da9b6883a890, type: 2}

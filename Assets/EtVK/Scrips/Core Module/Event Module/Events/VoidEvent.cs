@@ -1,3 +1,4 @@
+using EtVK.Event_Module.Core;
 using EtVK.Event_Module.Event_Types;
 using UnityEngine;
 

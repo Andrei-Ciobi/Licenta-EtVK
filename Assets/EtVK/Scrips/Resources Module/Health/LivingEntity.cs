@@ -11,8 +11,8 @@ namespace EtVK.Resources_Module.Health
     public abstract class LivingEntity<TStats> : MonoBehaviour, IDamageable, ILivingEntity
         where TStats : BaseEntityStats
     {
-        [SerializeField] private TStats entityStats;
-        [SerializeField] private bool godMode;
+        [SerializeField] protected TStats entityStats;
+        [SerializeField] protected bool godMode;
 
         [SerializeField] protected List<SerializableSet<string, int>> damageAnimationVariation = new()
         {
@@ -34,7 +34,7 @@ namespace EtVK.Resources_Module.Health
 
         private Animator animator;
 
-        private float currentHealth;
+        protected float currentHealth;
         private float currentPoiseLevel;
         private bool damageAnimationOnCd;
         private bool isInvulnerable;
@@ -51,15 +51,10 @@ namespace EtVK.Resources_Module.Health
 
         public virtual void TakeHit(float damage, string damageAnimation = "Base_damage_front", bool forceAnimation = false)
         {
-            if(godMode)
+            if(godMode || isInvulnerable)
                 return;
-            
-            if (isInvulnerable)
-                return;
-
             currentHealth -= damage;
-
-
+            
             // Object needs to be destroyed from an animation event
             if (currentHealth <= 0)
             {

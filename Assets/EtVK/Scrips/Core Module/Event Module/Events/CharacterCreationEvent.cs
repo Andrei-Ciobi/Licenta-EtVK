@@ -1,4 +1,5 @@
-﻿using EtVK.Event_Module.Event_Types;
+﻿using EtVK.Event_Module.Core;
+using EtVK.Event_Module.Event_Types;
 using UnityEngine;
 
 namespace EtVK.Event_Module.Events

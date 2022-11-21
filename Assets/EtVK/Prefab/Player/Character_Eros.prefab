@@ -54557,6 +54557,7 @@ MonoBehaviour:
     value: 3
   - key: Base_damage_left
     value: 2
+  updateHealthEvent: {fileID: 11400000, guid: 38509cb66b90571488d0254c9b09f4cb, type: 2}
 --- !u!114 &593020593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56316,7 +56317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaData: {fileID: 11400000, guid: c33c12839d0c7624285fd57ca5cc387e, type: 2}
-  maxStaminaEvent: {fileID: 11400000, guid: 9d5f9fb6cc013544096ee62af69d24c2, type: 2}
   updateStaminaEvent: {fileID: 11400000, guid: fa49545e17f46084784c876ff96f17a0, type: 2}
 --- !u!1 &6597824024024542820
 GameObject:

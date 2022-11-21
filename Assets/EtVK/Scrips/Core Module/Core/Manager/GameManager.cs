@@ -14,9 +14,8 @@ namespace EtVK.Core.Manager
         [SerializeField] private GameData gameData;
         [SerializeField] private GameUiEvent changeUiEvent;
         [SerializeField] private VoidEvent loadingScreenEvent;
-        [SerializeField] private bool startFullGame;
         public GameData GameData => gameData;
-
+        public bool IsFullGame => gameData.FullGame;
         public bool PreventLoad { get; set; }
 
         public LoadingEvent onFinishLoading;
@@ -36,7 +35,7 @@ namespace EtVK.Core.Manager
         private void Awake()
         {
             InitializeSingletone();
-            if (startFullGame)
+            if (gameData.FullGame)
             {
                 InitializeGame();
             }
@@ -132,12 +131,6 @@ namespace EtVK.Core.Manager
             currentScenesLoaded = saveData.SceneNames;
         }
 
-        public void SetFullGameState(bool state)
-        {
-            startFullGame = state;
-            FindObjectsOfType<FullGameObjectTool>().ToList().ForEach(x => x.SetFullGameState(state));
-        }
-
         public void StartLoadingScreen(GameUi newGameUi)
         {
             loadingScreenEvent.Invoke();
@@ -215,7 +208,6 @@ namespace EtVK.Core.Manager
 
         private void InitializeGame()
         {
-            return;
         }
         
         public bool IsGamePaused

@@ -1,3 +1,4 @@
+using EtVK.Event_Module.Core;
 using EtVK.Items_Module.Weapons;
 using UnityEngine;
 

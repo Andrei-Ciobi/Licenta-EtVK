@@ -22,6 +22,8 @@ namespace EtVK.UI_Module.Core
 
         public void ActivateLoadingScreen()
         {
+            var uiManager = uiDocument.rootVisualElement.Q<VisualElement>("root-manager") as IBaseUiManager;
+            uiManager?.OnClose();
             uiDocument.visualTreeAsset = gameUiData.LoadingUi;
         }
 
@@ -33,6 +35,8 @@ namespace EtVK.UI_Module.Core
             }
             
             uiDocument.visualTreeAsset = selectedUi;
+            var uiManager = uiDocument.rootVisualElement.Q<VisualElement>("root-manager") as IBaseUiManager;
+            uiManager?.OnOpen();
             selectedUi = null;
         }
 
@@ -53,6 +57,23 @@ namespace EtVK.UI_Module.Core
             }
 
             selectedUi = ui;
+        }
+
+        public void OpenGameUi(GameUi gameUi)
+        {
+            var ui = gameUiData.GetUi(gameUi);
+            if (ui == null)
+            {
+                Debug.Log($"No VisualTreeAsset of type '{gameUi}' found");
+                return;
+            }
+            
+            var uiManager = uiDocument.rootVisualElement.Q<VisualElement>("root-manager") as IBaseUiManager;
+            uiManager?.OnClose();
+            
+            uiDocument.visualTreeAsset = ui;
+            uiManager = uiDocument.rootVisualElement.Q<VisualElement>("root-manager") as IBaseUiManager;
+            uiManager?.OnOpen();
         }
         
         public T GetRootManager<T>() where T : VisualElement

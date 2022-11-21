@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace EtVK.UI_Module.Core
+namespace EtVK.UI_Module.Components
 {
     public class DragManipulator: Clickable
 	{

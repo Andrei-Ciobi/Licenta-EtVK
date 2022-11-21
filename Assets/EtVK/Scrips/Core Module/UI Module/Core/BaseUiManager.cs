@@ -1,13 +1,16 @@
-﻿using UnityEngine.UIElements;
+﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Core
 {
-    public class BaseUiManager<T> : VisualElement where T : BaseUiManager<T>, new()
+    public class BaseUiManager<T> : VisualElement, IBaseUiManager where T : BaseUiManager<T>, new()
     {
         protected static BasePanel<T> selectedPanel;
+        protected UiManager uiManager;
 
         protected BaseUiManager()
         {
+            uiManager = Object.FindObjectOfType<UiManager>();
             RegisterCallback<GeometryChangedEvent>(OnGeometryChange);
         }
         
@@ -58,6 +61,14 @@ namespace EtVK.UI_Module.Core
 
             basePanel.CloseEnd();
             selectedPanel.Open();
+        }
+
+        public virtual void OnOpen()
+        {
+        }
+
+        public virtual void OnClose()
+        {
         }
     }
 }

@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Levels
   m_EditorClassIdentifier: 
   gameUi: 0
-  defaultLevelImg: {fileID: 0}
-  levelNames: []
-  levelImgList: []
+  defaultLevelImg: {fileID: 2800000, guid: ea236c30d8d9f64458bc6676b84dce47, type: 3}
+  levelNames:
+  - key: 1
+    value: Level 1 name
+  levelImgList:
+  - key: 1
+    value: {fileID: 2800000, guid: 6e61db2e99a267a4b9ecf673c9e78552, type: 3}
