@@ -1,8 +1,6 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
 
-using System;
-
 namespace EtVK.Core.Utyles
 {
 
@@ -228,8 +226,9 @@ namespace EtVK.Core.Utyles
     {
         Empty = 0,
         MainMenu = 1,
-        GameMenu = 2,
-        Inventory = 2,
+        CharacterCreation = 2,
+        GameMenu,
+        Inventory,
         Shop,
         Hud,
     }

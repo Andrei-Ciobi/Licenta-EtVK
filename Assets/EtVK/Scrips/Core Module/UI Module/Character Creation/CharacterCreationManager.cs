@@ -1,5 +1,4 @@
 ﻿using EtVK.UI_Module.Core;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Character_Creation

@@ -5,13 +5,13 @@ namespace EtVK.UI_Module.Core
 {
     public class BasePanel<TManager> : VisualElement where TManager : BaseUiManager<TManager>, new()
     {
-        private UiManager manager;
-        protected TManager BaseUiManager => manager.GetRootManager<TManager>();
+        protected UiManager uiManager;
+        protected TManager BaseUiManager => uiManager.GetRootManager<TManager>();
         
 
         protected BasePanel()
         {
-            manager = Object.FindObjectOfType<UiManager>();
+            uiManager = Object.FindObjectOfType<UiManager>();
             RegisterCallback<GeometryChangedEvent>(OnGeometryChange);
         }
 

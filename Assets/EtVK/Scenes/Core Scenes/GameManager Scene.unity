@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.6100392, g: 0.71307397, b: 0.9056604, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -463,11 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 537620996}
-  loadingUi: {fileID: 9197481963319205126, guid: 472f652581086554cb43eedcf07f0677,
-    type: 3}
-  uiList:
-  - key: 4
-    value: {fileID: 9197481963319205126, guid: dc01952c056966c4e9e45d30d0f19622, type: 3}
+  gameUiData: {fileID: 11400000, guid: 73ae1f3351c562f49a0ca794501dc6c1, type: 2}
 --- !u!1 &1146781621
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: loadingScreen
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447787890960134695, guid: a1899ae142a319b498995f08324f7691,
+        type: 3}
+      propertyPath: startFullGame
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8447787890960134695, guid: a1899ae142a319b498995f08324f7691,
         type: 3}

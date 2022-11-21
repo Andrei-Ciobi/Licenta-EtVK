@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:editor="UnityEditor.UIElements" xmlns:engine="UnityEngine.UIElements" xmlns="UnityEditor.Overlays" elementFormDefault="qualified" targetNamespace="EtVK.UI_Module.Main_Menu.Panels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="UnityEngine.UIElements.xsd" namespace="UnityEngine.UIElements" />
-  <xs:complexType name="EnterMenuUiType">
+  <xs:complexType name="EnterUiType">
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -21,8 +21,8 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EnterMenuUi" substitutionGroup="engine:VisualElement" xmlns:q1="EtVK.UI_Module.Main_Menu.Panels" type="q1:EnterMenuUiType" />
-  <xs:complexType name="LoadMenuUiType">
+  <xs:element name="EnterUi" substitutionGroup="engine:VisualElement" xmlns:q1="EtVK.UI_Module.Main_Menu.Panels" type="q1:EnterUiType" />
+  <xs:complexType name="LoadUiType">
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -42,8 +42,8 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="LoadMenuUi" substitutionGroup="engine:VisualElement" xmlns:q2="EtVK.UI_Module.Main_Menu.Panels" type="q2:LoadMenuUiType" />
-  <xs:complexType name="MainMenuUiType">
+  <xs:element name="LoadUi" substitutionGroup="engine:VisualElement" xmlns:q2="EtVK.UI_Module.Main_Menu.Panels" type="q2:LoadUiType" />
+  <xs:complexType name="MainUiType">
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -63,8 +63,8 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="MainMenuUi" substitutionGroup="engine:VisualElement" xmlns:q3="EtVK.UI_Module.Main_Menu.Panels" type="q3:MainMenuUiType" />
-  <xs:complexType name="StartMenuUiType">
+  <xs:element name="MainUi" substitutionGroup="engine:VisualElement" xmlns:q3="EtVK.UI_Module.Main_Menu.Panels" type="q3:MainUiType" />
+  <xs:complexType name="StartUiType">
     <xs:complexContent mixed="false">
       <xs:restriction base="engine:VisualElementType">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -84,5 +84,5 @@
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="StartMenuUi" substitutionGroup="engine:VisualElement" xmlns:q4="EtVK.UI_Module.Main_Menu.Panels" type="q4:StartMenuUiType" />
+  <xs:element name="StartUi" substitutionGroup="engine:VisualElement" xmlns:q4="EtVK.UI_Module.Main_Menu.Panels" type="q4:StartUiType" />
 </xs:schema>

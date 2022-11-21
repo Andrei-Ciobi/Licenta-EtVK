@@ -38,3 +38,14 @@
     width: 60%;
     height: 100%;
 }
+
+.side-panel {
+    width: 20%;
+    height: 100%;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    justify-content: space-around;
+    align-items: center;
+}

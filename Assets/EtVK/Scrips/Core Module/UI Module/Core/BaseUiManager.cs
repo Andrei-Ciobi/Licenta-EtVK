@@ -1,5 +1,4 @@
-﻿using EtVK.UI_Module.Main_Menu;
-using UnityEngine.UIElements;
+﻿using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Core
 {
@@ -19,7 +18,14 @@ namespace EtVK.UI_Module.Core
 
         public void OpenPanelStart(BasePanel<T> from, BasePanel<T> to)
         {
-            from?.Close();
+            if (from == null)
+            {
+                to.Open();
+                selectedPanel = to;
+                return;
+            }
+            
+            from.Close();
             selectedPanel = to;
         }
         

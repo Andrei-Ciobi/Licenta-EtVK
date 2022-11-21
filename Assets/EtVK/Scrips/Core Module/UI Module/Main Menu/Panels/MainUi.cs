@@ -57,9 +57,8 @@ namespace EtVK.UI_Module.Main_Menu.Panels
 
         private void LoadLastSaveFile()
         {
-            var lastSaveData = GameSaveManager.Instance.GetLastSavedFileData();
-
             GameManager.Instance.StartLoadingScreen(GameUi.Hud);
+            var lastSaveData = GameSaveManager.Instance.GetLastSavedFileData();
             GameSaveManager.Instance.LoadSaveSlot(lastSaveData.SlotId);
             GameManager.Instance.LoadCurrentScenes();
         }

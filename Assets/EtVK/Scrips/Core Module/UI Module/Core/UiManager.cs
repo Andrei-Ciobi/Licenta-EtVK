@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using EtVK.Core.Manager;
+﻿using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
-using EtVK.UI_Module.Main_Menu;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,12 +8,11 @@ namespace EtVK.UI_Module.Core
     public class UiManager : MonoBehaviour
     {
         [SerializeField] private UIDocument uiDocument;
-        [SerializeField] private VisualTreeAsset loadingUi;
-        [SerializeField] private List<SerializableSet<GameUi, VisualTreeAsset>> uiList;
+        [SerializeField] private GameUiData gameUiData;
         
-
         public UIDocument UIDocument => uiDocument;
-
+        public GameUiData GameUiData => gameUiData;
+        
         private VisualTreeAsset selectedUi;
 
         private void Start()
@@ -26,7 +22,7 @@ namespace EtVK.UI_Module.Core
 
         public void ActivateLoadingScreen()
         {
-            uiDocument.visualTreeAsset = loadingUi;
+            uiDocument.visualTreeAsset = gameUiData.LoadingUi;
         }
 
         private void DeactivateLoadingScreen()
@@ -47,8 +43,8 @@ namespace EtVK.UI_Module.Core
                 Debug.Log($"New Ui change while in loading screen {gameUi}. !Ignored!");
                 return;
             }
-            
-            var ui = uiList.Find(x => x.GetKey() == gameUi)?.GetValue();
+
+            var ui = gameUiData.GetUi(gameUi);
 
             if (ui == null)
             {

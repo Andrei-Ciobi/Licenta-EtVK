@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using EtVK.Save_System_Module;
+using EtVK.UI_Module.Components;
 using EtVK.UI_Module.Core;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Main_Menu.Panels

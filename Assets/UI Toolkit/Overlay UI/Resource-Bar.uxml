@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/ResourceBar.uss?fileID=7433441132597879392&amp;guid=30e87fc378daddf4cad7d1b961b8c5ef&amp;type=3#ResourceBar" />
+    <EtVK.UI_Module.Components.ResourceBarUiComponent class="resource-bar-overlay" />
+</ui:UXML>

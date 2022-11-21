@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fd4a2c331d42b2a6e7bf78b1b7c483, type: 3}
+  m_Name: Character_creation
+  m_EditorClassIdentifier: 
+  gameUi: 2
+  onNext: {fileID: 11400000, guid: 6173be1cc3ff00a46bef285b37c78c50, type: 2}
+  onPrevious: {fileID: 11400000, guid: a57028b83cb7afc49a10d11ef5c5bade, type: 2}
+  onUnset: {fileID: 11400000, guid: 7980d46cc7036af4c8d6043bc84d9e1d, type: 2}
+  onColorChange: {fileID: 11400000, guid: 7be9abf463c83f94f81d5528888accf2, type: 2}
+  baseCustomizationMaterial: {fileID: 2100000, guid: f7fef70e57a0b6947b40952b611d2bca,
+    type: 2}
