@@ -178,10 +178,15 @@
 
 .button-popup:hover {
     scale: 1.1 1.1;
-    color: rgba(1, 138, 190, 255);
+    color: rgb(1, 138, 190);
 }
 
 .button-popup:active {
     scale: 1.2 1.2;
-    color: rgba(1, 138, 190, 255);
+    color: rgb(1, 138, 190);
+}
+
+.button-text-left {
+    -unity-text-align: upper-left;
+    padding-left: 5%;
 }

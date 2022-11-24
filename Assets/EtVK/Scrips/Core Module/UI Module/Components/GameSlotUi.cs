@@ -1,6 +1,7 @@
 ﻿using System;
 using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
+using EtVK.Event_Module.Event_Types;
 using EtVK.Save_System_Module;
 using EtVK.UI_Module.Core;
 using EtVK.UI_Module.Levels;
@@ -13,7 +14,7 @@ namespace EtVK.UI_Module.Components
     public class GameSlotUi : BasePanel<MainMenuManager>
     {
         private VisualElement icon;
-        
+
         private string iconName = "icon-start";
         private string slotName;
 
@@ -46,7 +47,7 @@ namespace EtVK.UI_Module.Components
             forLoad = usedForLoad;
             iconName = usedForLoad ? "icon-load" : "icon-start";
             slotEmpty = level == GameLevel.None;
-            
+
             this.Q<VisualElement>("img").style.backgroundImage = uiData.GetLevelImg(level);
             this.Q<Label>("slot-name").text = $"Slot {id} | {currentLevel}";
             this.Q<VisualElement>(iconName).style.display = DisplayStyle.Flex;
@@ -68,20 +69,26 @@ namespace EtVK.UI_Module.Components
             style.display = DisplayStyle.None;
         }
 
-        private void OnGeometryChange(GeometryChangedEvent evt)
+        protected override void OnGeometryChange(GeometryChangedEvent evt)
         {
             icon = this.Q<VisualElement>(iconName);
+            var hoverContainer = this.Q<VisualElement>("hover-container");
 
-            icon.RegisterCallback<ClickEvent>(OnIconCLick);
+            icon?.RegisterCallback<ClickEvent>(ev => PlayClickButtonSound(() => OnIconCLick(ev)));
             
-            RegisterCallback<PointerOutEvent>(OnFocusExit);
-            RegisterCallback<PointerOverEvent>(OnFocusEnter);
-            RegisterCallback<ClickEvent>(ev => OnSlotClick());
+            hoverContainer?.RegisterCallback<ClickEvent>(ev => PlayClickButtonSound());
+            hoverContainer?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+
+            RegisterCallback<MouseOutEvent>(OnFocusExit);
+            RegisterCallback<MouseOverEvent>(OnFocusEnter);
+            RegisterCallback<ClickEvent>(ev => PlayClickButtonSound(OnSlotClick));
             UnregisterCallback<GeometryChangedEvent>(OnGeometryChange);
+
+            base.OnGeometryChange(evt);
         }
 
 
-        private void OnFocusEnter(PointerOverEvent ev)
+        private void OnFocusEnter(MouseOverEvent ev)
         {
             if (hover)
                 return;
@@ -91,9 +98,10 @@ namespace EtVK.UI_Module.Components
 
             hover = true;
             icon.style.opacity = 1f;
+
         }
 
-        private void OnFocusExit(PointerOutEvent ev)
+        private void OnFocusExit(MouseOutEvent ev)
         {
             if (!hover)
                 return;
@@ -115,19 +123,17 @@ namespace EtVK.UI_Module.Components
             {
                 StartNewGame();
             }
-
-
         }
 
         private void OnIconCLick(ClickEvent ev)
         {
-            if(!forLoad)
+            if (!forLoad)
                 return;
-            
+
             ev.StopPropagation();
-            
+
             GameSaveManager.Instance.DeleteSaveSlot(slotNumber);
-            this.Hide();
+            Hide();
         }
 
         private void LoadGame()
@@ -139,9 +145,9 @@ namespace EtVK.UI_Module.Components
 
         private void StartNewGame()
         {
-            if(!slotEmpty)
+            if (!slotEmpty)
                 return;
-            
+
             GameSaveManager.Instance.StartNewSaveSlot(slotNumber);
 
             GameManager.Instance.StartLoadingScreen(GameUi.CharacterCreation);

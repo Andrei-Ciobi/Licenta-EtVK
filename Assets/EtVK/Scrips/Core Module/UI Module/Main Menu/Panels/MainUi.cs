@@ -1,5 +1,7 @@
-﻿using EtVK.Core.Manager;
+﻿using System;
+using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
+using EtVK.Event_Module.Event_Types;
 using EtVK.Save_System_Module;
 using EtVK.UI_Module.Core;
 using UnityEngine;
@@ -33,13 +35,18 @@ namespace EtVK.UI_Module.Main_Menu.Panels
             exitButton = this.Q<Button>("exit");
 
             startGameButton?.RegisterCallback<ClickEvent>(ev =>
-                BaseUiManager.OpenPanelStart(this, BaseUiManager.Start));
+                PlayClickButtonSound(() => BaseUiManager.OpenPanelStart(this, BaseUiManager.Start)));
             loadGameButton?.RegisterCallback<ClickEvent>(ev =>
-                BaseUiManager.OpenPanelStart(this, BaseUiManager.Load));
-
-            continueGameButton?.RegisterCallback<ClickEvent>(ev => LoadLastSaveFile());
-            exitButton?.RegisterCallback<ClickEvent>(ev => ExitGame());
-
+                PlayClickButtonSound(() => BaseUiManager.OpenPanelStart(this, BaseUiManager.Load)));
+            optionsButton?.RegisterCallback<ClickEvent>(ev => PlayClickButtonSound());
+            continueGameButton?.RegisterCallback<ClickEvent>(ev =>  PlayClickButtonSound(LoadLastSaveFile));
+            exitButton?.RegisterCallback<ClickEvent>(ev =>  PlayClickButtonSound(ExitGame));
+            
+            startGameButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            loadGameButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            optionsButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            continueGameButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            exitButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
 
             base.OnGeometryChange(evt);
         }

@@ -249,6 +249,12 @@ namespace EtVK.Core.Utyles
         IsAimAction = 14,
     }
 
+    public enum AudioSourceType
+    {
+        Player = 0,
+        Ui = 1,
+    }
+
     public class AllEnums
     {
 

@@ -24,15 +24,23 @@ namespace EtVK.UI_Module.Hud
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            
-            if(!GameManager.Instance.IsFullGame)
+
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+                return;
+#endif
+            if (!GameManager.Instance.IsFullGame)
                 return;
             InputManager.Instance.UICallbacks.Cancel.performed += EscapeCallback;
         }
 
         public override void OnClose()
         {
-            if(!GameManager.Instance.IsFullGame)
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+                return;
+#endif
+            if (!GameManager.Instance.IsFullGame)
                 return;
             InputManager.Instance.UICallbacks.Cancel.performed -= EscapeCallback;
         }

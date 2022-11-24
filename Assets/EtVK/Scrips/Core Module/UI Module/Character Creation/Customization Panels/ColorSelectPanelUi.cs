@@ -33,11 +33,7 @@ namespace EtVK.UI_Module.Character_Creation.Customization_Panels
 
         private void UpdateColor(ModularColorOptions colorOptions, Color color)
         {
-            var uiData = uiManager.GameUiData.GetUiData<CharacterCreationUiData>();
-            if (uiData == null)
-                return;
-
-            uiData.OnColorChange.Invoke(
+            GetUiData<CharacterCreationUiData>()?.OnColorChange.Invoke(
                 new CharacterCreationData(ModularOptions.Hair, color, colorOptions));
         }
 

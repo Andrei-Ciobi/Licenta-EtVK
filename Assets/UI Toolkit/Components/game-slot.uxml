@@ -9,6 +9,7 @@
             <ui:Label text="last saved" display-tooltip-when-elided="true" name="last-saved" class="slot-label" style="font-size: 22px; -unity-font: url(&apos;project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Bangers.ttf?fileID=12800000&amp;guid=5dd49b3eacc540408c98eee0de38e0f1&amp;type=3#Bangers&apos;); letter-spacing: 20px; word-spacing: 10px;" />
             <ui:Label text="chapter status" display-tooltip-when-elided="true" name="progress" class="slot-label" style="font-size: 22px; -unity-font: url(&apos;project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Bangers.ttf?fileID=12800000&amp;guid=5dd49b3eacc540408c98eee0de38e0f1&amp;type=3#Bangers&apos;); letter-spacing: 20px; word-spacing: 10px;" />
         </ui:VisualElement>
+        <ui:VisualElement name="hover-container" style="position: absolute; width: 100%; height: 100%;" />
         <ui:VisualElement name="icon-start" class="icon" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-arrow-point-left.png?fileID=2800000&amp;guid=bd796c19a0a5cf648b9be7661b697256&amp;type=3#icon-arrow-point-left&apos;); display: none;" />
         <ui:VisualElement name="icon-load" class="icon" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-x.png?fileID=2800000&amp;guid=82d0ff357d48715409c8dc50a530b8da&amp;type=3#icon-x&apos;); display: none;" />
     </EtVK.UI_Module.Components.GameSlotUi>

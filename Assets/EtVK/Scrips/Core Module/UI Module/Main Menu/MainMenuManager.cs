@@ -1,18 +1,17 @@
 ﻿using EtVK.UI_Module.Core;
 using EtVK.UI_Module.Main_Menu.Panels;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace EtVK.UI_Module.Main_Menu
 {
     public class MainMenuManager : BaseUiManager<MainMenuManager>
     {
-        public MainUi Main => main;
-        public StartUi Start => start;
-        public LoadUi Load => load;
+        public EnterUi Enter => this.Q<EnterUi>("enter-menu");
+        public MainUi Main => this.Q<MainUi>("main-menu");
+        public StartUi Start => this.Q<StartUi>("start-menu");
+        public LoadUi Load => this.Q<LoadUi>("load-menu");
 
-        private MainUi main;
-        private StartUi start;
-        private LoadUi load;
 
         public new class UxmlFactory : UxmlFactory<MainMenuManager, UxmlTraits>
         {
@@ -21,15 +20,11 @@ namespace EtVK.UI_Module.Main_Menu
         public new class UxmlTraits : VisualElement.UxmlTraits
         {
         }
-        
 
-        protected override void OnGeometryChange(GeometryChangedEvent evt)
+        public override void OnOpen()
         {
-            main = this.Q<MainUi>("main-menu");
-            start = this.Q<StartUi>("start-menu");
-            load = this.Q<LoadUi>("load-menu");
-
-            base.OnGeometryChange(evt);
+            Enter?.CloseInstant();
+            Main?.OpenInstant();
         }
     }
 }

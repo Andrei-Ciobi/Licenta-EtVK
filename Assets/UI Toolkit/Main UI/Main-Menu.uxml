@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:Template name="game-slot" src="project://database/Assets/UI%20Toolkit/Components/game-slot.uxml?fileID=9197481963319205126&amp;guid=a421013e615616b44bbb6137d8ffbf72&amp;type=3#game-slot" />
+    <ui:Template name="game-Version" src="project://database/Assets/UI%20Toolkit/Components/game-Version.uxml?fileID=9197481963319205126&amp;guid=09541dbde0682774fad216bc6440d131&amp;type=3#game-Version" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/Buttons.uss?fileID=7433441132597879392&amp;guid=fa4c956d64cc5ed45abcc622bc45627e&amp;type=3#Buttons" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/Labels.uss?fileID=7433441132597879392&amp;guid=47b2188cc2ab2034ca9fcbfd1d5e9844&amp;type=3#Labels" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/Panels.uss?fileID=7433441132597879392&amp;guid=a27b0f8b7864ba54eb1efaa47d20f695&amp;type=3#Panels" />
@@ -59,4 +60,5 @@
             </ui:VisualElement>
         </EtVK.UI_Module.Main_Menu.Panels.LoadUi>
     </EtVK.UI_Module.Main_Menu.MainMenuManager>
+    <ui:Instance template="game-Version" name="game-Version" style="position: absolute; width: 100%; height: 0;" />
 </ui:UXML>

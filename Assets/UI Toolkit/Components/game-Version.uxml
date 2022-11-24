@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Resources/UiStyles/GameVersion.uss?fileID=7433441132597879392&amp;guid=68d97e2cdf23a0a499f570a022ff8e6b&amp;type=3#GameVersion" />
+    <EtVK.UI_Module.Components.VersionUiComponent name="container" />
+</ui:UXML>

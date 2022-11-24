@@ -12,11 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799d9af612e54d51ab3962a5c46ec4b0, type: 3}
   m_Name: Game Data
   m_EditorClassIdentifier: 
+  fullGame: 1
   version: version 0.2 beta
-  defaultLevelImg: {fileID: 2800000, guid: ea236c30d8d9f64458bc6676b84dce47, type: 3}
-  levelNames:
-  - key: 1
-    value: Level 1
-  levelImgList:
-  - key: 1
-    value: {fileID: 2800000, guid: 6e61db2e99a267a4b9ecf673c9e78552, type: 3}

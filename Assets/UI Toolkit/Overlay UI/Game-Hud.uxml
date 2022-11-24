@@ -1,4 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="game-version" src="project://database/Assets/UI%20Toolkit/Components/game-version.uxml?fileID=9197481963319205126&amp;guid=09541dbde0682774fad216bc6440d131&amp;type=3#game-version" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/Hud.uss?fileID=7433441132597879392&amp;guid=48cd2886868808647842b0e90207b63b&amp;type=3#Hud" />
     <EtVK.UI_Module.Hud.HudManager name="root-manager" style="width: 100%; height: 100%;">
         <EtVK.UI_Module.Hud.Panels.ResourcesUi name="resources-container" class="resource-container">
@@ -7,4 +8,5 @@
             <EtVK.UI_Module.Components.ResourceBarUiComponent name="stamina" use-custom-width-height="false" overlay-color="#35902BFF" background-color="#013A02FF" resource-type="Stamina" class="resource-bar" style="width: 60%;" />
         </EtVK.UI_Module.Hud.Panels.ResourcesUi>
     </EtVK.UI_Module.Hud.HudManager>
+    <ui:Instance template="game-version" name="game-version" style="position: absolute; width: 100%;" />
 </ui:UXML>

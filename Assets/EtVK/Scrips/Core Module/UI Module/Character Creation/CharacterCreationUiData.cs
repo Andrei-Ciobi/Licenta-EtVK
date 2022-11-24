@@ -20,11 +20,6 @@ namespace EtVK.UI_Module.Character_Creation
         public CharacterCreationEvent OnUnset => onUnset;
         public CharacterCreationEvent OnColorChange => onColorChange;
 
-        private void Awake()
-        {
-            gameUi = GameUi.CharacterCreation;
-        }
-
         public Color GetBaseColor(ModularColorOptions colorOptions)
         {
             return baseCustomizationMaterial.GetColor($"_Color_{colorOptions.ToString()}");

@@ -39,15 +39,22 @@ namespace EtVK.UI_Module.Character_Creation.Customization_Panels
             var downArrow = this.Q<VisualElement>("down-arrow");
             var unsetButton = this.Q<Button>("unset");
 
+            // Click events
             upArrow?.RegisterCallback<PointerDownEvent>(ev => OnClickDownIcon(upArrow, Vector3.down, 10f));
             upArrow?.RegisterCallback<PointerUpEvent>(ev => OnClickUpIcon(upArrow));
-            upArrow?.RegisterCallback<ClickEvent>(ev => OnNext());
+            upArrow?.RegisterCallback<ClickEvent>(ev => PlayClickButtonSound(OnNext));
 
             downArrow?.RegisterCallback<PointerDownEvent>(ev => OnClickDownIcon(downArrow, Vector3.up, 10f));
             downArrow?.RegisterCallback<PointerUpEvent>(ev => OnClickUpIcon(downArrow));
-            downArrow?.RegisterCallback<ClickEvent>(ev => OnPrevious());
+            downArrow?.RegisterCallback<ClickEvent>(ev => PlayClickButtonSound(OnPrevious));
 
-            unsetButton?.RegisterCallback<ClickEvent>(ev => OnUnset());
+            unsetButton?.RegisterCallback<ClickEvent>(ev => PlayClickButtonSound(OnUnset));
+            
+            // Hover events
+            upArrow?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            downArrow?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            unsetButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+
             base.OnGeometryChange(evt);
         }
 

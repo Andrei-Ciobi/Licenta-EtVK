@@ -10,16 +10,20 @@ namespace EtVK.UI_Module.Character_Creation.Customization_Panels
 {
     public class PlayerCustomizationUi : BasePanel<CharacterCreationManager>
     {
-
         private Button currentButton;
-        private static BasePanel<CharacterCreationManager> currentPanelActive;
+        private BasePanel<CharacterCreationManager> currentPanelActive;
 
         private readonly string leftSidePanel = "left-side-panel";
         private readonly string bottomBar = "bottom-bar";
-        
-        
-        public new class UxmlFactory : UxmlFactory<PlayerCustomizationUi, UxmlTraits> { }
-        public new class UxmlTraits : VisualElement.UxmlTraits { }
+
+
+        public new class UxmlFactory : UxmlFactory<PlayerCustomizationUi, UxmlTraits>
+        {
+        }
+
+        public new class UxmlTraits : VisualElement.UxmlTraits
+        {
+        }
 
         protected override void OnGeometryChange(GeometryChangedEvent evt)
         {
@@ -37,21 +41,36 @@ namespace EtVK.UI_Module.Character_Creation.Customization_Panels
             var eyebrowsSidePanel = this.Q<BasePanel<CharacterCreationManager>>("eyebrows-side-panel");
             var facialMarkSidePanel = this.Q<BasePanel<CharacterCreationManager>>("facial-mark-side-panel");
             var colorsSidePanel = this.Q<BasePanel<CharacterCreationManager>>("colors-side-panel");
+
+            // Click events
+            hairButton?.RegisterCallback<ClickEvent>(ev =>
+                PlayClickButtonSound(() => OpenSidePanel(hairSidePanel, hairButton)));
+            facialHairButton?.RegisterCallback<ClickEvent>(ev =>
+                PlayClickButtonSound(() => OpenSidePanel(facialHairSidePanel, facialHairButton)));
+            eyebrowsButton?.RegisterCallback<ClickEvent>(ev =>
+                PlayClickButtonSound(() => OpenSidePanel(eyebrowsSidePanel, eyebrowsButton)));
+            facialMarkButton?.RegisterCallback<ClickEvent>(ev =>
+                PlayClickButtonSound(() => OpenSidePanel(facialMarkSidePanel, facialMarkButton)));
+            colorsButton?.RegisterCallback<ClickEvent>(ev =>
+                PlayClickButtonSound(() => OpenSidePanel(colorsSidePanel, colorsButton)));
+            backButton?.RegisterCallback<ClickEvent>(ev => PlayClickButtonSound(OnBack));
+            nextButton?.RegisterCallback<ClickEvent>(ev => PlayClickButtonSound(OnNext));
             
-            hairButton?.RegisterCallback<ClickEvent>(ev =>OpenSidePanel(hairSidePanel, hairButton));
-            facialHairButton?.RegisterCallback<ClickEvent>(ev => OpenSidePanel(facialHairSidePanel, facialHairButton));
-            eyebrowsButton?.RegisterCallback<ClickEvent>(ev => OpenSidePanel(eyebrowsSidePanel, eyebrowsButton));
-            facialMarkButton?.RegisterCallback<ClickEvent>(ev => OpenSidePanel(facialMarkSidePanel, facialMarkButton));
-            colorsButton?.RegisterCallback<ClickEvent>(ev => OpenSidePanel(colorsSidePanel, colorsButton));
-            
-            backButton?.RegisterCallback<ClickEvent>(ev => OnBack());
-            nextButton?.RegisterCallback<ClickEvent>(ev => OnNext());
+            // Hover events
+            hairButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            facialHairButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            eyebrowsButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            facialMarkButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            colorsButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            backButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+            nextButton?.RegisterCallback<MouseOverEvent>(ev => PlayHoverButtonSound());
+
             base.OnGeometryChange(evt);
         }
 
         private void OpenSidePanel(BasePanel<CharacterCreationManager> sidePanel, Button buttonClicked)
         {
-            if(currentPanelActive == sidePanel)
+            if (currentPanelActive == sidePanel)
                 return;
 
             if (currentButton != null)
@@ -66,7 +85,7 @@ namespace EtVK.UI_Module.Character_Creation.Customization_Panels
                 buttonClicked.AddToClassList("button-menu-active");
                 currentButton = buttonClicked;
             }
-            
+
             BaseUiManager.OpenPanelStart(currentPanelActive, sidePanel);
             currentPanelActive = sidePanel;
         }
@@ -74,7 +93,7 @@ namespace EtVK.UI_Module.Character_Creation.Customization_Panels
         private void OnBack()
         {
 #if UNITY_EDITOR
-            if(!Application.isPlaying)
+            if (!Application.isPlaying)
                 return;
 #endif
             GameManager.Instance.StartLoadingScreen(GameUi.MainMenu);
@@ -84,7 +103,7 @@ namespace EtVK.UI_Module.Character_Creation.Customization_Panels
         private void OnNext()
         {
 #if UNITY_EDITOR
-            if(!Application.isPlaying)
+            if (!Application.isPlaying)
                 return;
 #endif
             GameManager.Instance.StartLoadingScreen(GameUi.Hud);
@@ -93,7 +112,7 @@ namespace EtVK.UI_Module.Character_Creation.Customization_Panels
                 SceneNames.LevelOne,
                 SceneNames.Player,
             };
-            
+
             GameSaveManager.Instance.Save();
             GameManager.Instance.UnLoadScene(SceneNames.CharacterCreation);
             GameManager.Instance.LoadScene(scenesToLoad);

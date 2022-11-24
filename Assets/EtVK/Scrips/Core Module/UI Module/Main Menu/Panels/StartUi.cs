@@ -10,16 +10,21 @@ namespace EtVK.UI_Module.Main_Menu.Panels
     public class StartUi : BasePanel<MainMenuManager>
     {
         private Button backButton;
-        
-        public new class UxmlFactory : UxmlFactory<StartUi, UxmlTraits> { }
-        public new class UxmlTraits : VisualElement.UxmlTraits { }
+
+        public new class UxmlFactory : UxmlFactory<StartUi, UxmlTraits>
+        {
+        }
+
+        public new class UxmlTraits : VisualElement.UxmlTraits
+        {
+        }
 
         protected override void OnGeometryChange(GeometryChangedEvent evt)
         {
             backButton = this.Q<Button>("back-button");
 
-            backButton.RegisterCallback<ClickEvent>(
-                ev => BaseUiManager.OpenPanelStart(this, BaseUiManager.Main));
+            backButton?.RegisterCallback<ClickEvent>(
+                ev => PlayClickButtonSound(() => BaseUiManager.OpenPanelStart(this, BaseUiManager.Main)));
 
             base.OnGeometryChange(evt);
         }
@@ -28,7 +33,7 @@ namespace EtVK.UI_Module.Main_Menu.Panels
         {
             var gameFiles = new List<SaveFileData>();
             if (GameSaveManager.Instance != null)
-            { 
+            {
                 gameFiles = GameSaveManager.Instance.GetSaveFilesData();
             }
 
@@ -46,6 +51,7 @@ namespace EtVK.UI_Module.Main_Menu.Panels
                         gameSlots[index].SetData(data.SlotId, data.LastSavedTime, data.GameLevel);
                         continue;
                     }
+
                     gameSlots[index].SetData(index + 1, DateTime.MinValue);
                 }
             }

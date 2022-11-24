@@ -134,8 +134,13 @@ namespace EtVK.UI_Module.Components
 
 			Object.Destroy(gradientTexture);
 			Object.Destroy(hueSliderTexture);
-
+			
+			var c = Color.HSVToRGB(H, S, V);
+			c.a = A;
+			
+			onSubmit?.Invoke(c);
 			onSubmit = null;
+			
 			base.Hide();
 		}
 

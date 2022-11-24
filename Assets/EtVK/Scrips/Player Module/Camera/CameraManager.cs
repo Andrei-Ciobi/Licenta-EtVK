@@ -1,16 +1,23 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
 using EtVK.Core.Utyles;
 using EtVK.Event_Module.Event_Types;
 using UnityEngine;
 
-namespace EtVK.Player_Module.Camera {
+namespace EtVK.Player_Module.Camera
+{
     public class CameraManager : MonoBehaviour
     {
         [SerializeField] private List<SerializableSet<ActiveCameraType, CinemachineVirtualCamera>> cameraList = new();
 
         private CinemachineVirtualCamera currentCamera;
+        private List<CinemachineInputProvider> cameraInputList;
 
+        private void Awake()
+        {
+            cameraInputList = GetComponentsInChildren<CinemachineInputProvider>(true).ToList();
+        }
 
         private void Start()
         {
@@ -27,13 +34,25 @@ namespace EtVK.Player_Module.Camera {
                 Debug.LogError($"No camera type found {cam.CameraType}");
                 return;
             }
-            
+
             newCamera.gameObject.SetActive(true);
             currentCamera.gameObject.SetActive(false);
-            
+
             currentCamera = newCamera;
             currentCamera.LookAt = cam.CameraType.Equals(ActiveCameraType.LockOn) ? cam.TargetTransform : null;
-            
+        }
+
+        public void ChangeCameraInputState(bool state)
+        {
+            switch (state)
+            {
+                case true:
+                    cameraInputList.ForEach(x => x.XYAxis.action.Enable());
+                    break;
+                case false:
+                    cameraInputList.ForEach(x => x.XYAxis.action.Disable());
+                    break;
+            }
         }
 
 
@@ -43,7 +62,7 @@ namespace EtVK.Player_Module.Camera {
             {
                 set.GetValue().gameObject.SetActive(false);
             }
-            
+
             currentCamera = cameraList.Find(x => x.GetKey() == ActiveCameraType.Main).GetValue();
             currentCamera.gameObject.SetActive(true);
         }
@@ -61,7 +80,5 @@ namespace EtVK.Player_Module.Camera {
         //         mainCamera.SetActive(true);
         //     }
         // }
-
-
     }
 }

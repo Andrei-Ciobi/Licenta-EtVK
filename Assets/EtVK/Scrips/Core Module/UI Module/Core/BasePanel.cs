@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using EtVK.Core.Utyles;
+using EtVK.Event_Module.Event_Types;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 namespace EtVK.UI_Module.Core
 {
@@ -7,8 +10,7 @@ namespace EtVK.UI_Module.Core
     {
         protected UiManager uiManager;
         protected TManager BaseUiManager => uiManager.GetRootManager<TManager>();
-        
-
+        protected AudioUiData AudioUiData => uiManager.GameUiData.GetUiData<AudioUiData>();
         protected BasePanel()
         {
             uiManager = Object.FindObjectOfType<UiManager>();
@@ -17,8 +19,8 @@ namespace EtVK.UI_Module.Core
 
         protected virtual void OnGeometryChange(GeometryChangedEvent evt)
         {
-            RegisterCallback<TransitionEndEvent>(ev => BaseUiManager.ClosePanelEnd(ev, this));
-            RegisterCallback<TransitionEndEvent>(ev => BaseUiManager.OpenPanelEnd(ev, this));
+            RegisterCallback<TransitionEndEvent>(ev => BaseUiManager?.ClosePanelEnd(ev, this));
+            RegisterCallback<TransitionEndEvent>(ev => BaseUiManager?.OpenPanelEnd(ev, this));
             UnregisterCallback<GeometryChangedEvent>(OnGeometryChange);
         }
 
@@ -34,16 +36,45 @@ namespace EtVK.UI_Module.Core
             RemoveFromClassList("opacity-full-trans");
         }
 
+        public void OpenInstant()
+        {
+            style.display = DisplayStyle.Flex;
+            RemoveFromClassList("opacity-none");
+        }
+
         public void Close()
         {
             AddToClassList("opacity-none-trans");
         }
 
-        public void CloseEnd()
+        public virtual void CloseEnd()
         {
             AddToClassList("opacity-none");
             RemoveFromClassList("opacity-none-trans");
             style.display = DisplayStyle.None;
+        }
+
+        public void CloseInstant()
+        {
+            AddToClassList("opacity-none");
+            style.display = DisplayStyle.None;
+        }
+
+        protected T GetUiData<T>() where T : BaseUiData
+        {
+            return uiManager.GameUiData.GetUiData<T>();
+        }
+
+        protected void PlayClickButtonSound(Action action = null)
+        {
+            AudioUiData.PlayAudioEvent.Invoke(new AudioData(AudioSourceType.Ui, AudioUiData.ButtonClickSound));
+            action?.Invoke();
+        }
+        
+        protected void PlayHoverButtonSound(Action action = null)
+        {
+            AudioUiData.PlayAudioEvent.Invoke(new AudioData(AudioSourceType.Ui, AudioUiData.ButtonHoverSound));
+            action?.Invoke();
         }
     }
 }

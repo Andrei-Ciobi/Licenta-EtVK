@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 1082318574425151578}
   m_Father: {fileID: 5961118370407786025}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1082318574227513843
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
-  AutoEnableInputs: 1
+  AutoEnableInputs: 0
   XYAxis: {fileID: -1537010742861072136, guid: 2251dc89539f8024a9f5e16507fbb736, type: 3}
   ZAxis: {fileID: 0}
 --- !u!1 &1082318574425151579
@@ -304,7 +304,7 @@ Transform:
   - {fileID: 1082318574227513842}
   - {fileID: 7758249140204754127}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5961118370407786024
 MonoBehaviour:
@@ -380,7 +380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7752405530935341574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 94.950195, y: 47.091923, z: 119.650536}
+  m_LocalPosition: {x: 153.99593, y: 16.031921, z: 43.312244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -417,7 +417,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.0879791, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
-  AutoEnableInputs: 1
+  AutoEnableInputs: 0
   XYAxis: {fileID: -1537010742861072136, guid: 2251dc89539f8024a9f5e16507fbb736, type: 3}
   ZAxis: {fileID: 0}
 --- !u!1 &7752405531282951085
@@ -772,7 +772,7 @@ Transform:
   m_Children:
   - {fileID: 7758249139991358823}
   m_Father: {fileID: 5961118370407786025}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 37.721, y: 0, z: 0}
 --- !u!114 &7758249140204754126
 MonoBehaviour:
@@ -855,6 +855,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
-  AutoEnableInputs: 1
+  AutoEnableInputs: 0
   XYAxis: {fileID: -1537010742861072136, guid: 2251dc89539f8024a9f5e16507fbb736, type: 3}
   ZAxis: {fileID: 0}

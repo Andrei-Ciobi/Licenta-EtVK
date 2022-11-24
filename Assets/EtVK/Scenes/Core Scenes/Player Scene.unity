@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 341373034}
+    - target: {fileID: 1341374309992850984, guid: 62df7278f20023249956876551373403,
+        type: 3}
+      propertyPath: AutoEnableInputs
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5961118370407786022, guid: 62df7278f20023249956876551373403,
         type: 3}
       propertyPath: m_Name
@@ -207,21 +212,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 153.99593
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 16.031921
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752405530935341572, guid: 62df7278f20023249956876551373403,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 43.312244
-      objectReference: {fileID: 0}
     - target: {fileID: 7752405530935341573, guid: 62df7278f20023249956876551373403,
         type: 3}
       propertyPath: m_Follow
@@ -232,11 +222,6 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 341373034}
-    - target: {fileID: 7752405530935341573, guid: 62df7278f20023249956876551373403,
-        type: 3}
-      propertyPath: m_Lens.m_SensorSize.x
-      value: 1.0403601
-      objectReference: {fileID: 0}
     - target: {fileID: 7758249140204754126, guid: 62df7278f20023249956876551373403,
         type: 3}
       propertyPath: m_Follow
@@ -249,6 +234,52 @@ PrefabInstance:
       objectReference: {fileID: 341373034}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62df7278f20023249956876551373403, type: 3}
+--- !u!1 &539258792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5961118370407786022, guid: 62df7278f20023249956876551373403,
+    type: 3}
+  m_PrefabInstance: {fileID: 539258791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &539258793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5961118370407786024, guid: 62df7278f20023249956876551373403,
+    type: 3}
+  m_PrefabInstance: {fileID: 539258791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539258792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a292c1112eea3514e93d2ed2c26d3e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &539258794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539258792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024fd5dbd2d84c98948039deec1bcacb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2b8b67b886ca8494f8bd7243b78cc91e, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 539258793}
+        m_TargetAssemblyTypeName: EtVK.Player_Module.Camera.CameraManager, Assembly-CSharp
+        m_MethodName: ChangeCameraInputState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1930286001
 PrefabInstance:
   m_ObjectHideFlags: 0
