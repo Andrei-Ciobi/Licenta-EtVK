@@ -1,5 +1,7 @@
+using EtVK.Core.Error_Data;
 using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
+using EtVK.Event_Module.Events;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
 using EtVK.Player_Module.Controller;
@@ -13,6 +15,8 @@ namespace EtVK.Player_Module.Manager
         IBaseManager
     {
         [SerializeField] private PlayerLocomotionData playerLocomotionData;
+        [SerializeField] private PlayerErrorUiData errorUiData;
+        [SerializeField] private StringEvent errorUiEvent;
 
 
 
@@ -22,6 +26,7 @@ namespace EtVK.Player_Module.Manager
         public bool IsDodging { get; set; }
         public bool IsPerformingAttack { get; set; }
         public Transform CameraMainTransform => cameraMainTransform;
+        public PlayerErrorUiData ErrorUiData => errorUiData;
 
         private PlayerAnimationEventController animationEventController;
         private PlayerRootMotionController playerRootMotionController;
@@ -32,8 +37,6 @@ namespace EtVK.Player_Module.Manager
         {
             InitializeBaseReferences();
             InitializeReferences();
-            // Cursor.lockState = CursorLockMode.Locked;
-            // Cursor.visible = false;
         }
 
         private void Start()
@@ -48,15 +51,17 @@ namespace EtVK.Player_Module.Manager
 
             if (!IsMoving())
                 return;
-            
-            if(!staminaManager?.CheckCanPerformAction(StaminaCostType.Dodge) ?? false)
+
+            var canDodge = staminaManager?.CheckCanPerformAction(StaminaCostType.Dodge) ?? true;
+            if (!canDodge)
+            {
+                errorUiEvent.Invoke(errorUiData.NoStamina);
                 return;
+            }
             
             staminaManager?.PerformStaminaDrain(StaminaCostType.Dodge);
             
             var isLockedOn = animator.GetBool(PlayerState.IsLockedOn.ToString());
-            animationEventController.SetCanCombo(0);
-            animationEventController.DeactivateWeaponCollider();
             if (isLockedOn || IsPerformingAttack)
             {
                 var movement = InputManager.Instance.Player.MovementInputClamped;
@@ -81,7 +86,14 @@ namespace EtVK.Player_Module.Manager
             if (!InputManager.Instance.Player.HoldRun || !IsMoving() || !canRun)
                 return false;
             
-            return staminaManager?.CheckCanPerformAction(StaminaCostType.Sprint) ?? true;
+            var canPerformRun = staminaManager?.CheckCanPerformAction(StaminaCostType.Sprint) ?? true;
+
+            if (canPerformRun) 
+                return true;
+            
+            InputManager.Instance.Player.HoldRun = false;
+            ErrorUiMessage(errorUiData.NoStamina);
+            return false;
         }
 
         public bool CanAttack()
@@ -90,6 +102,15 @@ namespace EtVK.Player_Module.Manager
             return (InputManager.Instance.Player.TapAttackInput || InputManager.Instance.Player.TapAttackInputQue) &&
                    !isAttacking && !IsBLocking;
         }
+
+        public void ErrorUiMessage(string message, bool inputCheck = true)
+        {
+            if(!inputCheck)
+                return;
+            
+            errorUiEvent.Invoke(message);
+        }
+        
 
         public PlayerLocomotionData GetLocomotionData()
         {

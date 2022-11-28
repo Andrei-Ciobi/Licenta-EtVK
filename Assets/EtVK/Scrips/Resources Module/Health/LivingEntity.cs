@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
 using EtVK.Items_Module.Weapons;
+using EtVK.Resources_Module.Stamina;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -152,14 +153,18 @@ namespace EtVK.Resources_Module.Health
             var directionHit = Vector3.SignedAngle(other.transform.root.forward, transform.forward, Vector3.up);
 
             var blockingManager = transform.GetComponentInChildren<BlockingManager>();
+            var staminaManager = transform.GetComponentInChildren<StaminaManager>();
             
             if (blockingManager != null)
             {
-                if (blockingManager.CheckBlockingStatus(directionHit))
+                var canBlock = staminaManager?.CheckCanPerformAction(StaminaCostType.Block) ?? true;
+                if (blockingManager.CheckBlockingStatus(directionHit) && canBlock)
                 {
                     var damage = blockingManager.CalculateNewDamage(weapon.DealDamage());
                     TakeHit(damage, "Block", true);
                     animator.SetLayerWeight(blockingManager.BlockingLayer, 0f);
+                    
+                    staminaManager?.PerformStaminaDrain(StaminaCostType.Block);
                     return;
                 }
                 

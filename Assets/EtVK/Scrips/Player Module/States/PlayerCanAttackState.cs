@@ -1,5 +1,6 @@
 ﻿using EtVK.Core;
 using EtVK.Core.Utyles;
+using EtVK.Input_Module;
 using EtVK.Player_Module.Manager;
 using UnityEngine;
 
@@ -27,20 +28,20 @@ namespace EtVK.Player_Module.States
 
         private void CheckCanAttack(Animator animator)
         {
-            if (!monoBehaviour.CanAttack()) 
+            if (!monoBehaviour.CanAttack())
                 return;
-            
+
             var weaponDraw = monoBehaviour.GetInventoryManager().GetCurrentWeapon();
 
             if (weaponDraw == null)
             {
-                Debug.Log("Can't attack without a weapon draw");
+                monoBehaviour.ErrorUiMessage(monoBehaviour.ErrorUiData.AttackWithNoWeaponDraw,
+                    InputManager.Instance.Player.TapAttackInput);
                 return;
             }
-                
+
             animator.SetBool(PlayerState.IsAttacking.ToString(), true);
             // animator.CrossFade("Attacks", transitionDelay);
         }
-        
     }
 }

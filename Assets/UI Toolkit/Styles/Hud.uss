@@ -1,6 +1,6 @@
 .resource-container {
     width: 35%;
-    height: 100px;
+    height: 70px;
     position: absolute;
     left: 50px;
     top: 50px;
@@ -22,4 +22,79 @@
     height: 100%;
     width: 100%;
     overflow: visible;
+}
+
+.interact-container {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 60%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.interact-item {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.ability-container {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    bottom: 2%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ability-holder {
+    height: 100%;
+    width: 25%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ability {
+    width: 70px;
+    height: 100%;
+    background-color: rgba(1, 138, 190, 255);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgba(4, 9, 19, 255);
+    border-right-color: rgba(4, 9, 19, 255);
+    border-top-color: rgba(4, 9, 19, 255);
+    border-bottom-color: rgba(4, 9, 19, 255);
+}
+
+.ability-cd-container {
+    width: 100%;
+    height: 100%;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
+    font-size: 35px;
+    justify-content: center;
+    align-items: center;
+    color: rgba(214, 232, 238, 255);
+}
+
+.ability-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.94);
+    transform-origin: bottom;
+    scale: 1 0;
 }

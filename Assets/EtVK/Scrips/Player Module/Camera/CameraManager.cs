@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
+using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
 using EtVK.Event_Module.Event_Types;
 using UnityEngine;
@@ -65,6 +66,11 @@ namespace EtVK.Player_Module.Camera
 
             currentCamera = cameraList.Find(x => x.GetKey() == ActiveCameraType.Main).GetValue();
             currentCamera.gameObject.SetActive(true);
+
+            if(GameManager.Instance.IsFullGame)
+                return;
+            
+            cameraInputList.ForEach(x => x.XYAxis.action.Enable());
         }
 
         // Update is called once per frame

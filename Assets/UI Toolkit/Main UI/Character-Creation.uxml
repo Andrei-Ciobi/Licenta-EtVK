@@ -16,7 +16,7 @@
                     <ui:Button text="Colors" display-tooltip-when-elided="true" name="colors" class="button-menu" style="width: 70%;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="center-panel" style="width: 0; height: 0;" />
-                <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="hair-side-panel" body-part="Hair" class="background side-panel opacity-none" style="display: none; height: 80%; margin-right: 2%;">
+                <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="hair-side-panel" body-part="Hair" open-transition="opacity-full-side-panel-trans" close-transition="opacity-none-side-panel-trans" class="background side-panel opacity-none" style="display: none; height: 80%; margin-right: 2%;">
                     <ui:VisualElement name="up-arrow" class="button-menu arrow-size" style="justify-content: center; align-items: center;">
                         <ui:VisualElement name="icon" class="arrow-icon-size" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-arrow-point-up.png?fileID=2800000&amp;guid=2a92c1620791c5e48920ece8e6ee8c7a&amp;type=3#icon-arrow-point-up&apos;);" />
                     </ui:VisualElement>
@@ -26,7 +26,7 @@
                     </ui:VisualElement>
                     <ui:Button text="unset" display-tooltip-when-elided="true" name="unset" class="button-menu" style="width: 60%;" />
                 </EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi>
-                <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="facial-hair-side-panel" body-part="FacialHair" class="background side-panel opacity-none" style="display: none; height: 80%; margin-right: 2%;">
+                <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="facial-hair-side-panel" body-part="FacialHair" open-transition="opacity-full-side-panel-trans" close-transition="opacity-none-side-panel-trans" class="background side-panel opacity-none" style="display: none; height: 80%; margin-right: 2%;">
                     <ui:VisualElement name="up-arrow" class="button-menu arrow-size" style="justify-content: center; align-items: center;">
                         <ui:VisualElement name="icon" class="arrow-icon-size" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-arrow-point-up.png?fileID=2800000&amp;guid=2a92c1620791c5e48920ece8e6ee8c7a&amp;type=3#icon-arrow-point-up&apos;);" />
                     </ui:VisualElement>
@@ -36,7 +36,7 @@
                     </ui:VisualElement>
                     <ui:Button text="unset" display-tooltip-when-elided="true" name="unset" class="button-menu" style="width: 60%;" />
                 </EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi>
-                <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="eyebrows-side-panel" body-part="Eyebrows" class="background side-panel opacity-none" style="display: none; height: 80%; margin-right: 2%;">
+                <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="eyebrows-side-panel" body-part="Eyebrows" open-transition="opacity-full-side-panel-trans" close-transition="opacity-none-side-panel-trans" class="background side-panel opacity-none" style="display: none; height: 80%; margin-right: 2%;">
                     <ui:VisualElement name="up-arrow" class="button-menu arrow-size" style="justify-content: center; align-items: center;">
                         <ui:VisualElement name="icon" class="arrow-icon-size" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-arrow-point-up.png?fileID=2800000&amp;guid=2a92c1620791c5e48920ece8e6ee8c7a&amp;type=3#icon-arrow-point-up&apos;);" />
                     </ui:VisualElement>
@@ -46,7 +46,7 @@
                     </ui:VisualElement>
                     <ui:Button text="unset" display-tooltip-when-elided="true" name="unset" class="button-menu" style="width: 60%;" />
                 </EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi>
-                <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="facial-mark-side-panel" body-part="Head" class="background side-panel opacity-none" style="display: none; height: 80%; margin-right: 2%;">
+                <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="facial-mark-side-panel" body-part="Head" open-transition="opacity-full-side-panel-trans" close-transition="opacity-none-side-panel-trans" class="background side-panel opacity-none" style="display: none; height: 80%; margin-right: 2%;">
                     <ui:VisualElement name="up-arrow" class="button-menu arrow-size" style="justify-content: center; align-items: center;">
                         <ui:VisualElement name="icon" class="arrow-icon-size" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-arrow-point-up.png?fileID=2800000&amp;guid=2a92c1620791c5e48920ece8e6ee8c7a&amp;type=3#icon-arrow-point-up&apos;);" />
                     </ui:VisualElement>
@@ -56,7 +56,7 @@
                     </ui:VisualElement>
                     <ui:Button text="unset" display-tooltip-when-elided="true" name="unset" class="button-menu" style="width: 60%;" />
                 </EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi>
-                <EtVK.UI_Module.Character_Creation.Customization_Panels.ColorSelectPanelUi name="colors-side-panel" focusable="false" class="side-panel opacity-none" style="margin-right: 2%; display: none; justify-content: space-between;">
+                <EtVK.UI_Module.Character_Creation.Customization_Panels.ColorSelectPanelUi name="colors-side-panel" focusable="false" open-transition="opacity-full-side-panel-trans" close-transition="opacity-none-side-panel-trans" class="side-panel opacity-none" style="margin-right: 2%; display: none; justify-content: space-between;">
                     <ui:VisualElement name="popup-container" class="background" style="height: 30%; width: 100%; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px; justify-content: center; align-items: center;" />
                     <ui:VisualElement name="colors-container" class="background" style="width: 100%; height: 80%; justify-content: space-around; align-items: center;">
                         <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularColorUi color-label="Skin" name="modular-color" color-option="Skin" class="modular-color-pick" />

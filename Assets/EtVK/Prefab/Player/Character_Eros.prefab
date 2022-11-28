@@ -54521,6 +54521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLocomotionData: {fileID: 11400000, guid: 9fc075dc2f6e8ff4295973f551129c72,
     type: 2}
+  errorUiData: {fileID: 0}
+  errorUiEvent: {fileID: 11400000, guid: 89f914ee4fb33e9498d0b12b54e41a92, type: 2}
 --- !u!114 &3574976061433991880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54718,7 +54720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b84d8b2045445492024447ed16b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curentInteractableObjects: []
+  interactUiEven: {fileID: 11400000, guid: aba058f3faf624740b24031f15e34492, type: 2}
+  errorEvent: {fileID: 11400000, guid: 89f914ee4fb33e9498d0b12b54e41a92, type: 2}
 --- !u!1 &3574976061515371656
 GameObject:
   m_ObjectHideFlags: 0
@@ -55693,6 +55696,8 @@ MonoBehaviour:
   abilityHolder: {fileID: 6542120476801438672}
   abilities:
   - {fileID: 11400000, guid: 707c878b722ebc14dbeb70bed44e42b3, type: 2}
+  initializeAbilityUiEvent: {fileID: 11400000, guid: a984d75a73923914db10d8dccd71822d,
+    type: 2}
 --- !u!1 &5052608061219210943
 GameObject:
   m_ObjectHideFlags: 0

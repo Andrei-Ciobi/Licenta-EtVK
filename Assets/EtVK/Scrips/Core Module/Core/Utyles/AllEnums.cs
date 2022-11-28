@@ -100,6 +100,13 @@ namespace EtVK.Core.Utyles
         Dash,
     }
 
+    public enum AbilityButtonType
+    {
+        None = 0,
+        Shift = 1,
+        E = 2,
+    }
+
     public enum RotateAround
     {
         CurentTarget,
@@ -118,6 +125,7 @@ namespace EtVK.Core.Utyles
         Sprint,
         Dodge,
         Jump,
+        Block,
     }
 
 
@@ -131,7 +139,7 @@ namespace EtVK.Core.Utyles
         CombatState = 5,
         Running = 6,
         IsAttacking = 7,
-        InDodge = 8,
+        // InDodge = 8,
         Transition = 9,
         TransitionLayer = 1,
         IsAiming = 10,

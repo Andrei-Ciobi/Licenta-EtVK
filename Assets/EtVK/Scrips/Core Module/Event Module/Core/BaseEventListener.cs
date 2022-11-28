@@ -25,6 +25,11 @@ namespace EtVK.Event_Module.Core
         {
             eventResponse.AddListener(callback);
         }
+
+        public void RemoveCallbacks()
+        {
+            eventResponse.RemoveAllListeners();
+        }
         public void OnEventInvoked(T item)
         {
             eventResponse?.Invoke(item);

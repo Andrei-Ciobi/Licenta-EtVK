@@ -12,7 +12,7 @@ namespace EtVK.Player_Module.Interactable
     {
         public ItemEvent equipWeaponEvent;
 
-        public override void Action()
+        public override void Action(InteractableManager interactableManager)
         {
             var weapon = GetComponentInChildren<Weapon>();
 
@@ -21,7 +21,8 @@ namespace EtVK.Player_Module.Interactable
                 Debug.LogError($"No weapon set as child of {gameObject.name}");
                 return;
             }
-            
+
+            manager = interactableManager;
             equipWeaponEvent.Invoke(new Item(weapon, this));
             
         }
@@ -34,7 +35,7 @@ namespace EtVK.Player_Module.Interactable
                     OnResponseSuccess();
                     break;
                 case StatusResponse.Fail:
-                    Debug.Log(message);
+                    manager.ResponseFail(message);
                     break;
             }
         }
@@ -46,6 +47,8 @@ namespace EtVK.Player_Module.Interactable
             {
                 Destroy(gameObject);
             }
+            
+            manager.ResponseSuccess(this);
         }
     }
 }

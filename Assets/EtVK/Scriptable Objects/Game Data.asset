@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799d9af612e54d51ab3962a5c46ec4b0, type: 3}
   m_Name: Game Data
   m_EditorClassIdentifier: 
-  fullGame: 1
+  fullGame: 0
   version: version 0.2 beta

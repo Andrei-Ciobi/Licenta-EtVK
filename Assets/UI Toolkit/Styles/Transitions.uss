@@ -17,3 +17,19 @@
     transition-timing-function: ease-in-out;
     transition-delay: 0.2s;
 }
+
+.opacity-none-side-panel-trans {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.1s;
+}
+
+.opacity-full-side-panel-trans {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.1s;
+}

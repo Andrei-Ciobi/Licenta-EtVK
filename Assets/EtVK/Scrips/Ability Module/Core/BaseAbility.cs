@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using EtVK.Core.Utyles;
+using EtVK.Event_Module.Event_Types;
+using EtVK.Event_Module.Events;
 using UnityEngine;
 
 namespace EtVK.Ability_Module.Core
@@ -10,9 +12,15 @@ namespace EtVK.Ability_Module.Core
         [SerializeField] protected AbilityType abilityType;
 
         public bool OnCooldown => onCooldown;
+        public AbilityType AbilityType => abilityType;
 
         protected bool onCooldown;
-        public AbilityType AbilityType => abilityType;
+        protected AbilityUiEvent updateUiEvent;
+
+        public void SetUpdateEvent(AbilityUiEvent @event)
+        {
+            updateUiEvent = @event;
+        }
 
         public abstract void PerformAbility(BaseAbilityData baseAbilityData, Animator animator = null,
             Transform obj = null);
@@ -57,7 +65,18 @@ namespace EtVK.Ability_Module.Core
 
         protected IEnumerator AbilityCooldownCoroutine(float time)
         {
-            yield return new WaitForSeconds(time);
+            var currentTime = time;
+            updateUiEvent?.Invoke(new AbilityUiData( Mathf.RoundToInt(time), 1f));
+            while (currentTime >= 0)
+            {
+                yield return null;
+                currentTime -= Time.deltaTime;
+                var roundedTime = Mathf.RoundToInt(currentTime);
+                var percentage = currentTime / time;
+                updateUiEvent?.Invoke(new AbilityUiData(roundedTime, percentage));
+            }
+            
+            updateUiEvent?.Invoke(new AbilityUiData(0, 0f));
             onCooldown = false;
         }
     }
