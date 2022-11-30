@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_prototype_stats
   m_EditorClassIdentifier: 
   entityName: 
-  maxHealth: 30000
+  maxHealth: 100
   poiseLevel: 0
   invulnerableTime: 1
   entityFaction: 0

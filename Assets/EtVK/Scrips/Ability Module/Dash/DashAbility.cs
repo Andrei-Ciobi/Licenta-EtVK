@@ -45,8 +45,12 @@ namespace EtVK.Ability_Module.Dash
 
             animator.CrossFade("Base Ability", .1f);
 
-            VFXManager.Instance.PlayPostProcessing(dashData.PostProcessing,
-                dashData.Duration, dashData.VFXCurve);
+            if (VFXManager.Instance != null)
+            {
+                VFXManager.Instance.PlayPostProcessing(dashData.PostProcessing,
+                    dashData.Duration, dashData.VFXCurve, transform);
+            }
+
             StartCoroutine(DashForwardCoroutine(dashData, animator, obj, controller));
         }
 

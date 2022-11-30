@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22fd9cb520645de95c92700a1dcdced, type: 3}
+  m_Name: Audio
+  m_EditorClassIdentifier: 
+  playAudioEvent: {fileID: 11400000, guid: 97d168969a3c8014683072860e7570a4, type: 2}
+  buttonHoverSound: {fileID: 8300000, guid: 0e0eeb972eaecfc47bc328e7f6a63054, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 3927711c13246f642b503b817fda7548, type: 3}

@@ -1,0 +1,19 @@
+.version-container {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    width: 250px;
+}
+
+.version-label {
+    width: 100%;
+    height: 100%;
+    -unity-text-align: upper-right;
+    font-size: 20px;
+    -unity-font-style: normal;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
+    letter-spacing: 10px;
+    word-spacing: 14px;
+    color: rgba(214, 232, 238, 255);
+}

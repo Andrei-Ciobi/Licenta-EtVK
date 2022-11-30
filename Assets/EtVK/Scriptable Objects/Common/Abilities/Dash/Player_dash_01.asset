@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bbe764307148449cfff2f372424aa5, type: 3}
   m_Name: Player_dash_01
   m_EditorClassIdentifier: 
+  displayOnUi: 1
   abilityType: 1
-  cooldown: 1
+  abilityButtonType: 1
+  cooldown: 10
   vfx: {fileID: 0}
   postProcessing: {fileID: 370973248263214837, guid: 9b3fa96259dfd1347a95fabf7027376b,
     type: 3}

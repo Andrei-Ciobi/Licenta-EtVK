@@ -54459,7 +54459,6 @@ GameObject:
   - component: {fileID: 3574976061433991882}
   - component: {fileID: 3574976061433991880}
   - component: {fileID: 3574976061433991883}
-  - component: {fileID: 341373039}
   - component: {fileID: 593020593}
   m_Layer: 11
   m_Name: Character_Eros
@@ -54520,9 +54519,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93960b7e2037ec84d82267cb6c161cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFullGame: 0
   playerLocomotionData: {fileID: 11400000, guid: 9fc075dc2f6e8ff4295973f551129c72,
     type: 2}
+  errorUiData: {fileID: 0}
+  errorUiEvent: {fileID: 11400000, guid: 89f914ee4fb33e9498d0b12b54e41a92, type: 2}
 --- !u!114 &3574976061433991880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54559,18 +54559,7 @@ MonoBehaviour:
     value: 3
   - key: Base_damage_left
     value: 2
---- !u!114 &341373039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3574976061433991894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722045071c0e4eb7974887c95bd818b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  updateHealthEvent: {fileID: 11400000, guid: 38509cb66b90571488d0254c9b09f4cb, type: 2}
 --- !u!114 &593020593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54731,7 +54720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b84d8b2045445492024447ed16b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curentInteractableObjects: []
+  interactUiEven: {fileID: 11400000, guid: aba058f3faf624740b24031f15e34492, type: 2}
+  errorEvent: {fileID: 11400000, guid: 89f914ee4fb33e9498d0b12b54e41a92, type: 2}
 --- !u!1 &3574976061515371656
 GameObject:
   m_ObjectHideFlags: 0
@@ -55706,6 +55696,8 @@ MonoBehaviour:
   abilityHolder: {fileID: 6542120476801438672}
   abilities:
   - {fileID: 11400000, guid: 707c878b722ebc14dbeb70bed44e42b3, type: 2}
+  initializeAbilityUiEvent: {fileID: 11400000, guid: a984d75a73923914db10d8dccd71822d,
+    type: 2}
 --- !u!1 &5052608061219210943
 GameObject:
   m_ObjectHideFlags: 0
@@ -56330,7 +56322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaData: {fileID: 11400000, guid: c33c12839d0c7624285fd57ca5cc387e, type: 2}
-  maxStaminaEvent: {fileID: 11400000, guid: 9d5f9fb6cc013544096ee62af69d24c2, type: 2}
   updateStaminaEvent: {fileID: 11400000, guid: fa49545e17f46084784c876ff96f17a0, type: 2}
 --- !u!1 &6597824024024542820
 GameObject:

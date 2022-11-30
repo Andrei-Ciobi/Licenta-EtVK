@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:editor="UnityEditor.UIElements" xmlns:engine="UnityEngine.UIElements" xmlns="UnityEditor.Overlays" elementFormDefault="qualified" targetNamespace="EtVK.UI_Module.Character_Creation.Customization_Panels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="UnityEngine.UIElements.xsd" namespace="UnityEngine.UIElements" />
+  <xs:complexType name="ColorSelectPanelUiType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ColorSelectPanelUi" substitutionGroup="engine:VisualElement" xmlns:q1="EtVK.UI_Module.Character_Creation.Customization_Panels" type="q1:ColorSelectPanelUiType" />
+  <xs:simpleType name="ModularColorUi_color-option_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Primary" />
+      <xs:enumeration value="Secondary" />
+      <xs:enumeration value="Leather_Primary" />
+      <xs:enumeration value="Leather_Secondary" />
+      <xs:enumeration value="Metal_Primary" />
+      <xs:enumeration value="Metal_Secondary" />
+      <xs:enumeration value="Metal_Dark" />
+      <xs:enumeration value="Hair" />
+      <xs:enumeration value="Skin" />
+      <xs:enumeration value="Stubble" />
+      <xs:enumeration value="Scar" />
+      <xs:enumeration value="Eyes" />
+      <xs:enumeration value="BodyArt" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ModularColorUiType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute name="color-label" type="xs:string" use="optional" />
+        <xs:attribute default="Primary" name="color-option" xmlns:q2="EtVK.UI_Module.Character_Creation.Customization_Panels" type="q2:ModularColorUi_color-option_Type" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModularColorUi" substitutionGroup="engine:VisualElement" xmlns:q3="EtVK.UI_Module.Character_Creation.Customization_Panels" type="q3:ModularColorUiType" />
+  <xs:simpleType name="ModularElementPanelUi_body-part_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Head" />
+      <xs:enumeration value="Hair" />
+      <xs:enumeration value="Eyebrows" />
+      <xs:enumeration value="FacialHair" />
+      <xs:enumeration value="Helmet" />
+      <xs:enumeration value="Shoulder" />
+      <xs:enumeration value="Back" />
+      <xs:enumeration value="UpperArm" />
+      <xs:enumeration value="LowerArm" />
+      <xs:enumeration value="Hand" />
+      <xs:enumeration value="Chest" />
+      <xs:enumeration value="Hips" />
+      <xs:enumeration value="Legs" />
+      <xs:enumeration value="HelmetAttachment" />
+      <xs:enumeration value="HeadAttachment" />
+      <xs:enumeration value="All" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ModularElementPanelUiType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Head" name="body-part" xmlns:q4="EtVK.UI_Module.Character_Creation.Customization_Panels" type="q4:ModularElementPanelUi_body-part_Type" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModularElementPanelUi" substitutionGroup="engine:VisualElement" xmlns:q5="EtVK.UI_Module.Character_Creation.Customization_Panels" type="q5:ModularElementPanelUiType" />
+  <xs:complexType name="PlayerCustomizationUiType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlayerCustomizationUi" substitutionGroup="engine:VisualElement" xmlns:q6="EtVK.UI_Module.Character_Creation.Customization_Panels" type="q6:PlayerCustomizationUiType" />
+</xs:schema>

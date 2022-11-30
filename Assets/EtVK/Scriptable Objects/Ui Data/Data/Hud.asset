@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71aad57309c64a208633784483db126f, type: 3}
+  m_Name: Hud
+  m_EditorClassIdentifier: 
+  healthEvent: {fileID: 11400000, guid: 38509cb66b90571488d0254c9b09f4cb, type: 2}
+  staminaEvent: {fileID: 11400000, guid: fa49545e17f46084784c876ff96f17a0, type: 2}
+  interactEvent: {fileID: 11400000, guid: aba058f3faf624740b24031f15e34492, type: 2}
+  errorEvent: {fileID: 11400000, guid: 89f914ee4fb33e9498d0b12b54e41a92, type: 2}
+  initializeAbilityEvent: {fileID: 11400000, guid: a984d75a73923914db10d8dccd71822d,
+    type: 2}

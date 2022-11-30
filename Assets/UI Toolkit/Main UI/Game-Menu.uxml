@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="game-Version" src="project://database/Assets/UI%20Toolkit/Components/game-version.uxml?fileID=9197481963319205126&amp;guid=09541dbde0682774fad216bc6440d131&amp;type=3#game-version" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Buttons.uss?fileID=7433441132597879392&amp;guid=fa4c956d64cc5ed45abcc622bc45627e&amp;type=3#Buttons" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Labels.uss?fileID=7433441132597879392&amp;guid=47b2188cc2ab2034ca9fcbfd1d5e9844&amp;type=3#Labels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Panels.uss?fileID=7433441132597879392&amp;guid=a27b0f8b7864ba54eb1efaa47d20f695&amp;type=3#Panels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Transitions.uss?fileID=7433441132597879392&amp;guid=53ac27584b35ec342be1f82ae3fa2d94&amp;type=3#Transitions" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/GameMenu.uss?fileID=7433441132597879392&amp;guid=be1359242fde2eb44b62adda52cd6daf&amp;type=3#GameMenu" />
+    <EtVK.UI_Module.Game_Menu.GameMenuManager name="root-manager" style="width: 100%; height: 100%; justify-content: space-between; align-items: center; background-color: rgba(4, 9, 19, 0.94); flex-direction: row;">
+        <ui:VisualElement name="main-panel" class="side-panel" style="justify-content: space-between; margin-left: 2%;">
+            <ui:Label text="Eros&#10;the vault keeper" display-tooltip-when-elided="true" class="title-label" style="-unity-text-align: upper-left; font-size: 60px;" />
+            <ui:VisualElement name="buttons-container" class="container" style="height: 40%; justify-content: space-around;">
+                <ui:Button text="Unpause" display-tooltip-when-elided="true" name="unpause" class="button-menu button-text-left" style="width: 75%;" />
+                <ui:Button text="Options" display-tooltip-when-elided="true" name="options" class="button-menu button-text-left" style="width: 75%;" />
+                <ui:Button text="Main menu" display-tooltip-when-elided="true" name="main-menu" class="button-menu button-text-left" style="width: 75%;" />
+                <ui:Button text="Exit" display-tooltip-when-elided="true" name="exit" class="button-menu button-text-left" style="width: 75%;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="height: 10%; width: 100%;" />
+        </ui:VisualElement>
+    </EtVK.UI_Module.Game_Menu.GameMenuManager>
+    <ui:Instance template="game-Version" name="game-Version" style="width: 100%; position: absolute;" />
+</ui:UXML>

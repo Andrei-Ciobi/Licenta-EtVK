@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370973248263214731}
   - component: {fileID: 370973248263214730}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PP_Dash_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

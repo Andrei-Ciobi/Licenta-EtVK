@@ -5,10 +5,18 @@ namespace EtVK.Player_Module.Interactable
 {
     public abstract class Interactable : MonoBehaviour
     {
-        [Header("Remove after one action")] [SerializeField]
-        protected bool destroyAfterInteract;
+        [Header("Labels")] 
+        [SerializeField] private string pressLabel = "press";
+        [SerializeField] private string interactLabel = "to interact";
+        [Header("Remove after one action")] 
+        [SerializeField] protected bool destroyAfterInteract;
 
-        public abstract void Action();
+        public string PressLabel => pressLabel;
+        public string InteractLabel => interactLabel;
+
+        protected InteractableManager manager;
+
+        public abstract void Action(InteractableManager interactableManager);
         public abstract void Response(StatusResponse statusResponse, string message = "");
     }
 }
