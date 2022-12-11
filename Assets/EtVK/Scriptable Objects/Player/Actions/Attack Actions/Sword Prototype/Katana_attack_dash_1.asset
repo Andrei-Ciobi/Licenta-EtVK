@@ -18,69 +18,7 @@ MonoBehaviour:
   comboIntoDifferentAttackType: 1
   useRootMotion: 1
   useRotation: 0
-  vfx: {fileID: 0}
-  postProcessing: {fileID: 370973248263214837, guid: 9b3fa96259dfd1347a95fabf7027376b,
-    type: 3}
-  vfxCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.00289917
-      value: 0
-      inSlope: 0.053285733
-      outSlope: 0.053285733
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.37154138
-    - serializedVersion: 3
-      time: 0.2259943
-      value: 0.2670802
-      inSlope: 2.1280107
-      outSlope: 2.1280107
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.35394365
-      outWeight: 0.11237741
-    - serializedVersion: 3
-      time: 0.46666205
-      value: 1
-      inSlope: -0.05973581
-      outSlope: -0.05973581
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.29811803
-      outWeight: 0.30094755
-    - serializedVersion: 3
-      time: 0.5848094
-      value: 0.69468325
-      inSlope: -4.483357
-      outSlope: -4.483357
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.08755591
-    - serializedVersion: 3
-      time: 0.704959
-      value: 0.10602316
-      inSlope: -1.0854882
-      outSlope: -1.0854882
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 1
-      outWeight: 0.15833703
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0.009446196
-      outSlope: 0.009446196
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.20297189
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  volumeVFX: {fileID: 11400000, guid: 7b0db3d0ed553c740b6e81dc4a5ae02a, type: 2}
   useForceForward: 1
   speedGraph:
     serializedVersion: 2

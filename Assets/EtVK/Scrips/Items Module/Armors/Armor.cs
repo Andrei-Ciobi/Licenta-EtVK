@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using EtVK.Core.Utyles;
 using EtVK.Inventory_Module;
 using EtVK.Inventory_Module.Holder_Slots;
 using EtVK.Player_Module.Interactable;
@@ -38,20 +37,20 @@ namespace EtVK.Items_Module.Armors
             SetSkinBones(armorSLot);
             DeactivateVisual();
             var playerInventory = (PlayerInventoryManager) inventory;
-            playerInventory.AddArmorReference(this);
+            // playerInventory.AddArmorReference(this);
         }
 
         public override void AddItemToInventory(BaseInventoryManager inventory, Interactable interactable)
         {
-            var playerInventory = (PlayerInventoryManager) inventory;
-            if (!playerInventory.SpaceAvailable(armorData.ItemType))
-            {
-                interactable.Response(StatusResponse.Fail, "No space available");
-                return;
-            }
-            
-            playerInventory.GetInventoryData().AddItem(armorData);
-            interactable.Response(StatusResponse.Success);
+            // var playerInventory = (PlayerInventoryManager) inventory;
+            // if (!playerInventory.SpaceAvailable(armorData.ItemType))
+            // {
+            //     interactable.Response(StatusResponse.Fail, "No space available");
+            //     return;
+            // }
+            //
+            // playerInventory.GetInventoryData().AddItem(armorData);
+            // interactable.Response(StatusResponse.Success);
         }
 
         protected void InitializeReferences()

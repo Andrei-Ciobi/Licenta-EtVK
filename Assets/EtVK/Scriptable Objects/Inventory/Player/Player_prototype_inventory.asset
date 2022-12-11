@@ -12,23 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc9a1cc5cbf45f1b7d281a59002c605, type: 3}
   m_Name: Player_prototype_inventory
   m_EditorClassIdentifier: 
+  armorSet: {fileID: 11400000, guid: e48dd44ee4a647b479637a59f8482b4f, type: 2}
   inventorySpace:
   - key: 0
     value: 3
-  - key: 1
-    value: 10
   - key: 2
     value: 20
-  listOfItems:
-  - key: 0
-    value:
-    - {fileID: 11400000, guid: d3e0a2bd8a0b6cc478b71ce9886014ea, type: 2}
-    - {fileID: 11400000, guid: 9840c25c26500b4439c12f9242b9df86, type: 2}
-    - {fileID: 11400000, guid: b7394a722b5253b4287f611ecd0dbf35, type: 2}
-  - key: 1
-    value:
-    - {fileID: 11400000, guid: 9a45240005e18644ca01965fca86b15b, type: 2}
-    - {fileID: 11400000, guid: e6dbed69168ea98448836e8bd1043ad6, type: 2}
-    - {fileID: 11400000, guid: 5c0b8f73e49111e4480d6053c9b41fc2, type: 2}
-    - {fileID: 11400000, guid: 14f0361f960d48246960d797a9a23c4a, type: 2}
-    - {fileID: 11400000, guid: 81cdba4c2468d164a982a407b2147233, type: 2}
+  itemList:
+  - {fileID: 11400000, guid: d3e0a2bd8a0b6cc478b71ce9886014ea, type: 2}
+  - {fileID: 11400000, guid: 9840c25c26500b4439c12f9242b9df86, type: 2}

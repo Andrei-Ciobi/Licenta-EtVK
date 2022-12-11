@@ -21,11 +21,8 @@ namespace EtVK.Inventory_Module
 
         private void Start()
         {
-            
             LoadInventory();
         }
-
-
 
         public void AddWeaponReference(Weapon weapon)
         {
@@ -43,9 +40,9 @@ namespace EtVK.Inventory_Module
             item.InteractItem.AddItemToInventory(this, item.Interactable);
         }
 
-        public bool SpaceAvailable(ItemType itemType)
+        public bool SpaceAvailable<T>(ItemType itemType) where T : ItemData
         {
-            var inventorySpace = inventoryData.AllItemsByType(itemType);
+            var inventorySpace = inventoryData.GetItemsOfType<T>();
             if (inventorySpace == null)
                 return true;
 
@@ -77,13 +74,10 @@ namespace EtVK.Inventory_Module
             return inventoryData;
         }
         
-
         protected override void LoadInventory()
         {
-            if (inventoryData.InventorySize() <= 0) 
-                return;
-            
-            foreach (var item in inventoryData.AllItems())
+
+            foreach (var item in inventoryData.GetAllItems())
             {
                 if(!item.IsEquipped)
                     continue;
