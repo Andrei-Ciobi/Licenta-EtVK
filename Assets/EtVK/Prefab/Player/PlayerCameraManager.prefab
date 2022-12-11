@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 5961118370407786025}
   - component: {fileID: 5961118370407786024}
   - component: {fileID: 5961118370407786006}
+  - component: {fileID: 539258794}
   m_Layer: 0
   m_Name: PlayerCameraManager
   m_TagString: Untagged
@@ -353,6 +354,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &539258794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5961118370407786022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024fd5dbd2d84c98948039deec1bcacb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2b8b67b886ca8494f8bd7243b78cc91e, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5961118370407786024}
+        m_TargetAssemblyTypeName: EtVK.Player_Module.Camera.CameraManager, Assembly-CSharp
+        m_MethodName: ChangeCameraInputState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7752405530935341574
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7752405530935341574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 153.99593, y: 16.031921, z: 43.312244}
+  m_LocalPosition: {x: -32.1398, y: 1.0719221, z: -8.108017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -440,7 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 8256
+    m_Bits: 41024
   m_IgnoreTag: Player
   m_TransparentLayers:
     serializedVersion: 2
@@ -469,7 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
-  AutoEnableInputs: 0
+  AutoEnableInputs: 1
   XYAxis: {fileID: -1537010742861072136, guid: 2251dc89539f8024a9f5e16507fbb736, type: 3}
   ZAxis: {fileID: 0}
 --- !u!1 &7752405531282951085

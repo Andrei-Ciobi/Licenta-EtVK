@@ -54500,13 +54500,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.8
   m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.45
   m_SkinWidth: 0.04
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.12, z: 0}
 --- !u!114 &3574976061433991882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54521,7 +54521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLocomotionData: {fileID: 11400000, guid: 9fc075dc2f6e8ff4295973f551129c72,
     type: 2}
-  errorUiData: {fileID: 0}
+  errorUiData: {fileID: 11400000, guid: 3e8e8f28101e42c4f9e6db28d9d57597, type: 2}
   errorUiEvent: {fileID: 11400000, guid: 89f914ee4fb33e9498d0b12b54e41a92, type: 2}
 --- !u!114 &3574976061433991880
 MonoBehaviour:
@@ -56293,7 +56293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &225048115949084023
 Transform:
   m_ObjectHideFlags: 0
@@ -56316,7 +56316,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6457175759806402900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3abc39a89554edaa639a1259b935771, type: 3}
   m_Name: 
