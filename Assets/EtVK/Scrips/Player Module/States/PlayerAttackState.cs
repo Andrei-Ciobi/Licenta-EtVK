@@ -59,10 +59,10 @@ namespace EtVK.Player_Module.States
             {
                 monoBehaviour.IsPerformingAttack = false;
             }
-            
-            if(monoBehaviour.IsDodging)
+
+            if (monoBehaviour.IsDodging || combo)
                 return;
-            
+
             monoBehaviour.UninterruptibleAction = false;
         }
     }

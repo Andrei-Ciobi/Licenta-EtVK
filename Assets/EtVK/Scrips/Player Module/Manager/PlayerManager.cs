@@ -1,5 +1,7 @@
+using EtVK.Core.Error_Data;
 using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
+using EtVK.Event_Module.Events;
 using EtVK.Input_Module;
 using EtVK.Inventory_Module;
 using EtVK.Player_Module.Controller;
@@ -10,16 +12,13 @@ using UnityEngine.InputSystem;
 namespace EtVK.Player_Module.Manager
 {
     public class PlayerManager : BaseManager<PlayerManager, PlayerController, PlayerInventoryManager, PlayerEntity>,
-        IFullGameComponent, IBaseManager
+        IBaseManager
     {
-        [SerializeField] private bool startFullGame;
         [SerializeField] private PlayerLocomotionData playerLocomotionData;
+        [SerializeField] private PlayerErrorUiData errorUiData;
+        [SerializeField] private StringEvent errorUiEvent;
 
-        public bool StartFullGame
-        {
-            get => startFullGame;
-            set => startFullGame = value;
-        }
+
 
         public bool IsJumping { get; set; }
         public Vector3 DownVelocity { get; set; }
@@ -27,6 +26,7 @@ namespace EtVK.Player_Module.Manager
         public bool IsDodging { get; set; }
         public bool IsPerformingAttack { get; set; }
         public Transform CameraMainTransform => cameraMainTransform;
+        public PlayerErrorUiData ErrorUiData => errorUiData;
 
         private PlayerAnimationEventController animationEventController;
         private PlayerRootMotionController playerRootMotionController;
@@ -37,8 +37,6 @@ namespace EtVK.Player_Module.Manager
         {
             InitializeBaseReferences();
             InitializeReferences();
-            // Cursor.lockState = CursorLockMode.Locked;
-            // Cursor.visible = false;
         }
 
         private void Start()
@@ -53,15 +51,17 @@ namespace EtVK.Player_Module.Manager
 
             if (!IsMoving())
                 return;
-            
-            if(!staminaManager?.CheckCanPerformAction(StaminaCostType.Dodge) ?? false)
+
+            var canDodge = staminaManager?.CheckCanPerformAction(StaminaCostType.Dodge) ?? true;
+            if (!canDodge)
+            {
+                errorUiEvent.Invoke(errorUiData.NoStamina);
                 return;
+            }
             
             staminaManager?.PerformStaminaDrain(StaminaCostType.Dodge);
             
             var isLockedOn = animator.GetBool(PlayerState.IsLockedOn.ToString());
-            animationEventController.SetCanCombo(0);
-            animationEventController.DeactivateWeaponCollider();
             if (isLockedOn || IsPerformingAttack)
             {
                 var movement = InputManager.Instance.Player.MovementInputClamped;
@@ -86,7 +86,14 @@ namespace EtVK.Player_Module.Manager
             if (!InputManager.Instance.Player.HoldRun || !IsMoving() || !canRun)
                 return false;
             
-            return staminaManager?.CheckCanPerformAction(StaminaCostType.Sprint) ?? true;
+            var canPerformRun = staminaManager?.CheckCanPerformAction(StaminaCostType.Sprint) ?? true;
+
+            if (canPerformRun) 
+                return true;
+            
+            InputManager.Instance.Player.HoldRun = false;
+            ErrorUiMessage(errorUiData.NoStamina);
+            return false;
         }
 
         public bool CanAttack()
@@ -95,6 +102,15 @@ namespace EtVK.Player_Module.Manager
             return (InputManager.Instance.Player.TapAttackInput || InputManager.Instance.Player.TapAttackInputQue) &&
                    !isAttacking && !IsBLocking;
         }
+
+        public void ErrorUiMessage(string message, bool inputCheck = true)
+        {
+            if(!inputCheck)
+                return;
+            
+            errorUiEvent.Invoke(message);
+        }
+        
 
         public PlayerLocomotionData GetLocomotionData()
         {
@@ -114,6 +130,7 @@ namespace EtVK.Player_Module.Manager
         private void OnFinishLoadingLate()
         {
             animator.enabled = true;
+            InputManager.Instance.EnablePlayerActionMap();
         }
 
         private void OnGameStateChange(bool state)
@@ -130,7 +147,7 @@ namespace EtVK.Player_Module.Manager
             playerRootMotionController.Initialize(this);
             cameraMainTransform = UnityEngine.Camera.main!.transform;
 
-            if (startFullGame)
+            if (GameManager.Instance != null)
             {
                 GameManager.Instance.onLateFinishLoading += OnFinishLoadingLate;
                 GameManager.Instance.onChangeGameState += OnGameStateChange;
@@ -150,11 +167,14 @@ namespace EtVK.Player_Module.Manager
 
         private void OnDestroy()
         {
-            if (!startFullGame)
+            InputManager.Instance.PlayerCallbacks.TapDodge.performed -= OnDodge;
+            
+            if (GameManager.Instance == null)
                 return;
+            
             GameManager.Instance.onLateFinishLoading -= OnFinishLoadingLate;
             GameManager.Instance.onChangeGameState -= OnGameStateChange;
-            InputManager.Instance.PlayerCallbacks.TapDodge.performed -= OnDodge;
+           
         }
     }
 }

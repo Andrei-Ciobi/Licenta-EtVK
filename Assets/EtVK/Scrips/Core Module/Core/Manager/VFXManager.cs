@@ -11,9 +11,16 @@ namespace EtVK.Core.Manager
             InitializeSingletone();
         }
 
-        public void PlayPostProcessing(GameObject postProcessingObj, float time, AnimationCurve timeCurve)
+        public void PlayPostProcessing(GameObject postProcessingObj, float time, AnimationCurve timeCurve, bool intoWorld = true)
         {
-            var postObj = Instantiate(postProcessingObj);
+            Transform spawnPoint = null;
+
+            if (intoWorld)
+            {
+                spawnPoint = GameObject.FindGameObjectWithTag("PostProcessing")?.transform;
+            }
+            
+            var postObj = Instantiate(postProcessingObj, spawnPoint);
             postObj.SetActive(true);
             var postProcessing = postObj.GetComponent<Volume>();
             if (postProcessing == null)

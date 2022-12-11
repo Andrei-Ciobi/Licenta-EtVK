@@ -1,5 +1,6 @@
 ﻿using EtVK.Core.Utyles;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace EtVK.Event_Module.Event_Types
 {
@@ -8,10 +9,16 @@ namespace EtVK.Event_Module.Event_Types
         public ModularOptions BodyType { get; set; }
         public Color BodyColor { get; set; }
         public ModularColorOptions ColorType { get; set; }
+        public VisualElement ImgContainer { get; set; }
 
         public CharacterCreationData(ModularOptions bodyType) : this()
         {
             BodyType = bodyType;
+        }
+        public CharacterCreationData(ModularOptions bodyType, VisualElement imgContainer) : this()
+        {
+            BodyType = bodyType;
+            ImgContainer = imgContainer;
         }
 
         public CharacterCreationData(ModularOptions bodyType, Color bodyColor, ModularColorOptions colorType)
@@ -19,6 +26,7 @@ namespace EtVK.Event_Module.Event_Types
             BodyType = bodyType;
             BodyColor = bodyColor;
             ColorType = colorType;
+            ImgContainer = null;
         }
     }
 }

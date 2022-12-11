@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/CharacterCreation.uss?fileID=7433441132597879392&amp;guid=5e2b58c775642314b9c0caf2b50fbb75&amp;type=3#CharacterCreation" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Buttons.uss?fileID=7433441132597879392&amp;guid=fa4c956d64cc5ed45abcc622bc45627e&amp;type=3#Buttons" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Panels.uss?fileID=7433441132597879392&amp;guid=a27b0f8b7864ba54eb1efaa47d20f695&amp;type=3#Panels" />
+    <EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi name="modular-body-part" body-part="Hair" class="background side-panel opacity-none" style="height: 100%; display: flex; opacity: 1; width: 100%;">
+        <ui:VisualElement name="up-arrow" class="button-menu arrow-size" style="justify-content: center; align-items: center;">
+            <ui:VisualElement name="icon" class="arrow-icon-size" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-arrow-point-up.png?fileID=2800000&amp;guid=2a92c1620791c5e48920ece8e6ee8c7a&amp;type=3#icon-arrow-point-up&apos;);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="current-img" class="img-container" style="width: 200px; height: 200px;" />
+        <ui:VisualElement name="down-arrow" class="button-menu arrow-size" style="justify-content: center; align-items: center;">
+            <ui:VisualElement name="icon" class="arrow-icon-size" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/Images/icon-arrow-point-down.png?fileID=2800000&amp;guid=cdd7cfa5053404a41b83cd054ab10fb7&amp;type=3#icon-arrow-point-down&apos;);" />
+        </ui:VisualElement>
+        <ui:Button text="unset" display-tooltip-when-elided="true" name="unset" class="button-menu" style="width: 60%;" />
+    </EtVK.UI_Module.Character_Creation.Customization_Panels.ModularElementPanelUi>
+</ui:UXML>

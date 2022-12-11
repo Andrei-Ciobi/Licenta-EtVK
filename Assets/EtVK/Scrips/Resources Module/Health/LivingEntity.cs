@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
 using EtVK.Items_Module.Weapons;
+using EtVK.Resources_Module.Stamina;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,8 +12,8 @@ namespace EtVK.Resources_Module.Health
     public abstract class LivingEntity<TStats> : MonoBehaviour, IDamageable, ILivingEntity
         where TStats : BaseEntityStats
     {
-        [SerializeField] private TStats entityStats;
-        [SerializeField] private bool godMode;
+        [SerializeField] protected TStats entityStats;
+        [SerializeField] protected bool godMode;
 
         [SerializeField] protected List<SerializableSet<string, int>> damageAnimationVariation = new()
         {
@@ -34,7 +35,7 @@ namespace EtVK.Resources_Module.Health
 
         private Animator animator;
 
-        private float currentHealth;
+        protected float currentHealth;
         private float currentPoiseLevel;
         private bool damageAnimationOnCd;
         private bool isInvulnerable;
@@ -51,15 +52,10 @@ namespace EtVK.Resources_Module.Health
 
         public virtual void TakeHit(float damage, string damageAnimation = "Base_damage_front", bool forceAnimation = false)
         {
-            if(godMode)
+            if(godMode || isInvulnerable)
                 return;
-            
-            if (isInvulnerable)
-                return;
-
             currentHealth -= damage;
-
-
+            
             // Object needs to be destroyed from an animation event
             if (currentHealth <= 0)
             {
@@ -157,14 +153,18 @@ namespace EtVK.Resources_Module.Health
             var directionHit = Vector3.SignedAngle(other.transform.root.forward, transform.forward, Vector3.up);
 
             var blockingManager = transform.GetComponentInChildren<BlockingManager>();
+            var staminaManager = transform.GetComponentInChildren<StaminaManager>();
             
             if (blockingManager != null)
             {
-                if (blockingManager.CheckBlockingStatus(directionHit))
+                var canBlock = staminaManager?.CheckCanPerformAction(StaminaCostType.Block) ?? true;
+                if (blockingManager.CheckBlockingStatus(directionHit) && canBlock)
                 {
                     var damage = blockingManager.CalculateNewDamage(weapon.DealDamage());
                     TakeHit(damage, "Block", true);
                     animator.SetLayerWeight(blockingManager.BlockingLayer, 0f);
+                    
+                    staminaManager?.PerformStaminaDrain(StaminaCostType.Block);
                     return;
                 }
                 

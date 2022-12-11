@@ -1,0 +1,39 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="game-version" src="project://database/Assets/UI%20Toolkit/Components/game-version.uxml?fileID=9197481963319205126&amp;guid=09541dbde0682774fad216bc6440d131&amp;type=3#game-version" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Hud.uss?fileID=7433441132597879392&amp;guid=48cd2886868808647842b0e90207b63b&amp;type=3#Hud" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Labels.uss?fileID=7433441132597879392&amp;guid=47b2188cc2ab2034ca9fcbfd1d5e9844&amp;type=3#Labels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Transitions.uss?fileID=7433441132597879392&amp;guid=53ac27584b35ec342be1f82ae3fa2d94&amp;type=3#Transitions" />
+    <EtVK.UI_Module.Hud.HudManager name="root-manager" style="width: 100%; height: 100%;">
+        <EtVK.UI_Module.Hud.Panels.ResourcesUi name="resources-container" class="resource-container">
+            <EtVK.UI_Module.Components.ResourceBarUiComponent name="health" use-custom-width-height="false" overlay-color="#950A0AFF" background-color="#480000FF" class="resource-bar" />
+            <EtVK.UI_Module.Components.ResourceBarUiComponent name="magick" use-custom-width-height="false" overlay-color="#1524B4FF" background-color="#04053AFF" resource-type="Magick" class="resource-bar" style="width: 30%;" />
+            <EtVK.UI_Module.Components.ResourceBarUiComponent name="stamina" use-custom-width-height="false" overlay-color="#35902BFF" background-color="#013A02FF" resource-type="Stamina" class="resource-bar" style="width: 60%;" />
+        </EtVK.UI_Module.Hud.Panels.ResourcesUi>
+        <EtVK.UI_Module.Hud.Panels.InteractUi name="interact-container">
+            <ui:Label text="Press" display-tooltip-when-elided="true" name="press-label" class="interact-item interact-label-info" />
+            <ui:Label text="E" display-tooltip-when-elided="true" class="interact-item interact-label-info interact-label" style="background-color: rgb(1, 138, 190);" />
+            <ui:Label text="To interact" display-tooltip-when-elided="true" name="interact-label" class="interact-label-info interact-item" />
+        </EtVK.UI_Module.Hud.Panels.InteractUi>
+        <EtVK.UI_Module.Hud.Panels.ErrorUi name="error-container" style="bottom: 0; top: 25%;">
+            <ui:Label text="Error Lable" display-tooltip-when-elided="true" class="interact-item interact-label-info" style="color: rgb(214, 17, 7); text-shadow: 1px 1px 0 rgb(0, 0, 0);" />
+        </EtVK.UI_Module.Hud.Panels.ErrorUi>
+        <EtVK.UI_Module.Hud.Panels.AbilityContainerUi name="ability-container" class="ability-container">
+            <ui:VisualElement name="class" class="ability-holder">
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" button-type="Shift" />
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+            </ui:VisualElement>
+            <ui:VisualElement style="width: 10%; height: 100%;" />
+            <ui:VisualElement name="weapon" class="ability-holder">
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+                <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
+            </ui:VisualElement>
+        </EtVK.UI_Module.Hud.Panels.AbilityContainerUi>
+    </EtVK.UI_Module.Hud.HudManager>
+    <ui:Instance template="game-version" name="game-version" style="position: absolute; width: 100%;" />
+</ui:UXML>

@@ -1,5 +1,6 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
+
 namespace EtVK.Core.Utyles
 {
 
@@ -99,6 +100,13 @@ namespace EtVK.Core.Utyles
         Dash,
     }
 
+    public enum AbilityButtonType
+    {
+        None = 0,
+        Shift = 1,
+        E = 2,
+    }
+
     public enum RotateAround
     {
         CurentTarget,
@@ -117,6 +125,7 @@ namespace EtVK.Core.Utyles
         Sprint,
         Dodge,
         Jump,
+        Block,
     }
 
 
@@ -130,7 +139,7 @@ namespace EtVK.Core.Utyles
         CombatState = 5,
         Running = 6,
         IsAttacking = 7,
-        InDodge = 8,
+        // InDodge = 8,
         Transition = 9,
         TransitionLayer = 1,
         IsAiming = 10,
@@ -209,27 +218,29 @@ namespace EtVK.Core.Utyles
 
     public enum SceneNames
     {
-        MainMenu = 0,
         GameUi = 4, 
         Player = 1,
         CharacterCreation = 2,
         LevelOne = 3,
     }
 
+    public enum GameLevel
+    {
+        None = 0,
+        One = 1,
+    }
+
     public enum GameUi
     {
-        Menu,
+        Empty = 0,
+        MainMenu = 1,
+        CharacterCreation = 2,
+        GameMenu,
         Inventory,
         Shop,
         Hud,
     }
-
-    public enum HudUi
-    {
-        Health,
-        Stamina,
-        
-    }
+    
 
     public enum AnimatorLayer
     {
@@ -244,6 +255,12 @@ namespace EtVK.Core.Utyles
     {
         AbilityFinished,
         IsAimAction = 14,
+    }
+
+    public enum AudioSourceType
+    {
+        Player = 0,
+        Ui = 1,
     }
 
     public class AllEnums

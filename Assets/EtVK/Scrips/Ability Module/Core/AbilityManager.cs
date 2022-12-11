@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -8,11 +9,12 @@ namespace EtVK.Ability_Module.Core
     {
         [SerializeField] private Transform abilityHolder;
         [SerializeField] protected List<BaseAbilityData> abilities;
-        
-        private List<BaseAbility> abilityReferences = new();
+
+        protected List<BaseAbility> abilityReferences = new();
 
 
-        public void PerformAbility(BaseAbilityData abilityData, Animator animator = null, Transform obj = null)
+        public void PerformAbility(BaseAbilityData abilityData, Animator animator = null, Transform obj = null,
+            Action onCdCallback = null)
         {
             var ability = abilityReferences.Find(x => x.AbilityType == abilityData.AbilityType);
 
@@ -21,19 +23,22 @@ namespace EtVK.Ability_Module.Core
                 Debug.Log("No reference of ability type = " + abilityData.AbilityType);
                 return;
             }
-            
-            if(ability.OnCooldown)
+
+            if (ability.OnCooldown)
+            {
+                onCdCallback?.Invoke();
                 return;
-            
+            }
+
             ability.PerformAbility(abilityData, animator, obj);
         }
-        
+
         // Setters for the reference
         public void AddAbilityReference(BaseAbility ability)
         {
-            if(ability == null)
+            if (ability == null)
                 return;
-            
+
             if (abilityReferences.Contains(ability))
                 return;
 
@@ -42,31 +47,31 @@ namespace EtVK.Ability_Module.Core
 
         public void AddAbilityReference(IEnumerable<BaseAbility> abilityList)
         {
-            if(abilityList == null)
+            if (abilityList == null)
                 return;
-            
+
             foreach (var ability in abilityList.Where(ability => !abilityReferences.Contains(ability)))
             {
                 abilityReferences.Add(ability);
             }
         }
-        
+
         public void AddAbilityReference(Transform gameObjRoot)
         {
-            if(gameObjRoot == null)
+            if (gameObjRoot == null)
                 return;
-            
+
             var abilityList = gameObjRoot.GetComponentsInChildren<BaseAbility>().ToList()
                 .Where(x => !abilityReferences.Contains(x));
-            
+
             abilityReferences.AddRange(abilityList);
         }
-        
+
         public void RemoveAbilityReference(BaseAbility ability)
         {
-            if(ability == null)
+            if (ability == null)
                 return;
-            
+
             if (!abilityReferences.Contains(ability))
                 return;
 
@@ -75,20 +80,20 @@ namespace EtVK.Ability_Module.Core
 
         public void RemoveAbilityReference(IEnumerable<BaseAbility> abilityList)
         {
-            if(abilityList == null)
+            if (abilityList == null)
                 return;
-            
+
             foreach (var ability in abilityList.Where(ability => abilityReferences.Contains(ability)))
             {
                 abilityReferences.Remove(ability);
             }
         }
-        
+
         public void RemoveAbilityReference(Transform gameObjRoot)
         {
-            if(gameObjRoot == null)
+            if (gameObjRoot == null)
                 return;
-            
+
             var abilityList = gameObjRoot.GetComponentsInChildren<BaseAbility>().ToList();
             foreach (var ability in abilityList.Where(ability => abilityReferences.Contains(ability)))
             {

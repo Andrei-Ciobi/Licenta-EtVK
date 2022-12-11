@@ -1,0 +1,6 @@
+.resource-bar-overlay {
+    overflow: hidden;
+}
+
+.resource-bar-background {
+}
