@@ -50202,6 +50202,51 @@ Transform:
   m_Father: {fileID: 7220913791167785395}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1999914490734098461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5331250475478711845}
+  - component: {fileID: 129537549501740798}
+  m_Layer: 11
+  m_Name: Upgrades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5331250475478711845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999914490734098461}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 493643762478957059}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &129537549501740798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999914490734098461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbe2a75dbc04eb2b7a6f3be8ade8644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commonUpgrades: []
 --- !u!1 &2053275172282984889
 GameObject:
   m_ObjectHideFlags: 0
@@ -52661,6 +52706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3574976060577231805}
   - component: {fileID: 3574976060577231806}
+  - component: {fileID: 1768952309667066581}
   m_Layer: 11
   m_Name: CharacterEventListeners
   m_TagString: Untagged
@@ -52702,6 +52748,35 @@ MonoBehaviour:
       - m_Target: {fileID: 3574976060800153707}
         m_TargetAssemblyTypeName: EtVK.Inventory_Module.InventoryManager, Assembly-CSharp
         m_MethodName: AddItemToInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1768952309667066581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574976060577231804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b01d6d3e25248c8868f596414ade7b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 45d7c5eb9e773d945b64283f2ac8a474, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 129537549501740798}
+        m_TargetAssemblyTypeName: EtVK.Player_Module.Manager.PlayerUpgradesManager,
+          Assembly-CSharp
+        m_MethodName: AddCommonUpgrade
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -56638,6 +56713,7 @@ Transform:
   - {fileID: 1013149914572282888}
   - {fileID: 6110407974461647406}
   - {fileID: 225048115949084023}
+  - {fileID: 5331250475478711845}
   m_Father: {fileID: 3574976061433991895}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

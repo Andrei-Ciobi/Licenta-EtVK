@@ -34,6 +34,7 @@
                 <EtVK.UI_Module.Hud.Panels.AbilityHolderUi button-name="shift" />
             </ui:VisualElement>
         </EtVK.UI_Module.Hud.Panels.AbilityContainerUi>
+        <EtVK.UI_Module.Hud.Panels.UpgradesContainerUi name="upgrades-container" style="position: absolute; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.61);" />
     </EtVK.UI_Module.Hud.HudManager>
     <ui:Instance template="game-version" name="game-version" style="position: absolute; width: 100%;" />
 </ui:UXML>
