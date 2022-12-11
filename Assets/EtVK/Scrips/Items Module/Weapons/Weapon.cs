@@ -58,7 +58,7 @@ namespace EtVK.Items_Module.Weapons
         public override void AddItemToInventory(BaseInventoryManager inventory, Interactable interactable)
         {
             var playerInventory = (PlayerInventoryManager) inventory;
-            if (!playerInventory.SpaceAvailable(weaponData.ItemType))
+            if (!playerInventory.SpaceAvailable<WeaponData>(weaponData.ItemType))
             {
                 interactable.Response(StatusResponse.Fail, "No space available");
                 return;

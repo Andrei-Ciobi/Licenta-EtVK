@@ -1,4 +1,5 @@
 ﻿using EtVK.Core.Utyles;
+using EtVK.VFX_Module;
 using UnityEngine;
 
 namespace EtVK.Ability_Module.Core
@@ -10,15 +11,13 @@ namespace EtVK.Ability_Module.Core
         [SerializeField] private AbilityButtonType abilityButtonType;
         [SerializeField] private float cooldown;
         [SerializeField] private GameObject vfx;
-        [SerializeField] private GameObject postProcessing;
-        [SerializeField] private AnimationCurve vfxCurve;
+        [SerializeField] private VolumeVFX volumeVFX;
 
         public bool DisplayOnUi => displayOnUi;
         public AbilityType AbilityType => abilityType;
         public AbilityButtonType AbilityButtonType => abilityButtonType;
         public float Cooldown => cooldown;
         public GameObject VFX => vfx;
-        public GameObject PostProcessing => postProcessing;
-        public AnimationCurve VFXCurve => vfxCurve;
+        public VolumeVFX VolumeVFX => volumeVFX;
     }
 }

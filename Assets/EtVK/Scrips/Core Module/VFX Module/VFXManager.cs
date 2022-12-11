@@ -1,8 +1,9 @@
 ﻿using System.Collections;
+using EtVK.Core;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace EtVK.Core.Manager
+namespace EtVK.VFX_Module
 {
     public class VFXManager : MonoSingletone<VFXManager>
     {
@@ -11,8 +12,14 @@ namespace EtVK.Core.Manager
             InitializeSingletone();
         }
 
-        public void PlayPostProcessing(GameObject postProcessingObj, float time, AnimationCurve timeCurve, bool intoWorld = true)
+        public void PlayPostProcessing(VolumeVFX volumeVFX, float time, bool intoWorld = true)
         {
+            if (volumeVFX == null)
+            {
+                Debug.LogError("No volume vfx given!");
+                return;
+            }
+            
             Transform spawnPoint = null;
 
             if (intoWorld)
@@ -20,13 +27,13 @@ namespace EtVK.Core.Manager
                 spawnPoint = GameObject.FindGameObjectWithTag("PostProcessing")?.transform;
             }
             
-            var postObj = Instantiate(postProcessingObj, spawnPoint);
+            var postObj = Instantiate(volumeVFX.Obj, spawnPoint);
             postObj.SetActive(true);
             var postProcessing = postObj.GetComponent<Volume>();
             if (postProcessing == null)
                 return;
 
-            StartCoroutine(PostProcessingCoroutine(postProcessing, time, timeCurve));
+            StartCoroutine(PostProcessingCoroutine(postProcessing, time, volumeVFX.TimeCurve));
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using EtVK.Actions_Module;
 using EtVK.Core.Manager;
+using EtVK.VFX_Module;
 using UnityEngine;
 
 namespace EtVK.Core.Controller
@@ -30,8 +31,7 @@ namespace EtVK.Core.Controller
             if(actionData == null)
                 return;
             
-            VFXManager.Instance.PlayPostProcessing(actionData.PostProcessing, actionData.AnimationClip.length,
-                actionData.VFXCurve);
+            VFXManager.Instance.PlayPostProcessing(actionData.VolumeVFX, actionData.AnimationClip.length);
         }
     }
 }

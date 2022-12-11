@@ -2,6 +2,7 @@
 using EtVK.Ability_Module.Core;
 using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
+using EtVK.VFX_Module;
 using UnityEngine;
 
 namespace EtVK.Ability_Module.Dash
@@ -47,8 +48,8 @@ namespace EtVK.Ability_Module.Dash
 
             if (VFXManager.Instance != null)
             {
-                VFXManager.Instance.PlayPostProcessing(dashData.PostProcessing,
-                    dashData.Duration, dashData.VFXCurve, transform);
+                VFXManager.Instance.PlayPostProcessing(dashData.VolumeVFX,
+                    dashData.Duration, transform);
             }
 
             StartCoroutine(DashForwardCoroutine(dashData, animator, obj, controller));
