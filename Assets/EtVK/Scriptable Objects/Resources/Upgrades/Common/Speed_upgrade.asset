@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd8b5a25b8524745b0a2fb50721ee553, type: 3}
-  m_Name: Speed_upgrade_3
+  m_Name: Speed_upgrade
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  title: test 3
-  description: '{VALUE} more base movement speed'
-  value: 0.2
+  title: Bonus movement speed
+  description: +{VALUE} more base movement speed
+  value: 10
+  valuePercentage: 0
   isPercentage: 0

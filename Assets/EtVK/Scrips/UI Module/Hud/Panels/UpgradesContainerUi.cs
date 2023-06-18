@@ -49,7 +49,7 @@ namespace EtVK.UI_Module.Hud.Panels
 
         private void DisplayUpgrades(UpgradesUiData data)
         {
-            Debug.Log("In display");
+            currentUpgrades = new List<UpgradeUi>();
             foreach (var upgradeData in data.UpgradeList)
             {
                 var upgrade = new UpgradeUi(upgradeData, OnUpgradeClick);
@@ -62,6 +62,7 @@ namespace EtVK.UI_Module.Hud.Panels
             GameManager.Instance.IsGamePaused = true;
             InputManager.Instance.DisablePlayerActionMap();
             GetUiData<GameMenuUiData>()?.CameraInputEvent.Invoke(false);
+            BaseUiManager.DeactivateInputCallbacks();
             OpenInstant();
         }
 
@@ -79,6 +80,7 @@ namespace EtVK.UI_Module.Hud.Panels
             GameManager.Instance.IsGamePaused = false;
             InputManager.Instance.EnablePlayerActionMap();
             GetUiData<GameMenuUiData>()?.CameraInputEvent.Invoke(true);
+            BaseUiManager.ActivateInputCallbacks();
             CloseInstant();
         }
 
@@ -93,5 +95,10 @@ namespace EtVK.UI_Module.Hud.Panels
             CloseInstant();
         }
 
+        public override void CloseLogic()
+        {
+            upgradesListener?.RemoveCallbacks();
+            upgradesListener = null;
+        }
     }
 }

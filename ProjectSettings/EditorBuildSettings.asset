@@ -18,6 +18,6 @@ EditorBuildSettings:
     path: Assets/EtVK/Scenes/Core Scenes/CharacterCreation Scene.unity
     guid: ebb02b20629eb614ab5608697ceea0c7
   - enabled: 1
-    path: Assets/EtVK/Scenes/Level Scenes/Hub Scene.unity
-    guid: d7a5486fa21bbf54f887e1a0dc6ec57a
+    path: Assets/EtVK/Scenes/Level Scenes/LevelOne Scene.unity
+    guid: 2370dac2ce254fc4887410c5fc5fe0af
   m_configObjects: {}

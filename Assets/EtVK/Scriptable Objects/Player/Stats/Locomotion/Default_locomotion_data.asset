@@ -16,7 +16,7 @@ MonoBehaviour:
   walkFastSpeed: 3
   runSpeed: 8
   rotationSpeed: 10
-  bonusSpeed: 0.2
+  bonusSpeed: 0
   gravityValue: -9.81
   gravityMultiplayer: 3
   jumpHeight: 5

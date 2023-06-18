@@ -9,16 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6a6b3ac98f4510bc66bcacc9021f4b, type: 3}
-  m_Name: Player_stamina_1
+  m_Script: {fileID: 11500000, guid: e524fac0ae334c219672ec97a27d2810, type: 3}
+  m_Name: Health_regen_upgrade
   m_EditorClassIdentifier: 
-  stamina: 300
-  recuperateWaitTime: 2
-  recuperateWeight: 2
-  costList:
-  - key: 1
-    value: 50
-  - key: 0
-    value: 1
-  - key: 3
-    value: 25
+  icon: {fileID: 0}
+  title: Bonus health regen
+  description: +{VALUE} increased health regen
+  value: 0
+  valuePercentage: 2
+  isPercentage: 1

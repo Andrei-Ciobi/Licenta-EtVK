@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EtVK.Core.Manager;
 using EtVK.Core.Utyles;
 using EtVK.Event_Module.Event_Types;
 using EtVK.Event_Module.Events;
@@ -55,6 +56,8 @@ namespace EtVK.UI_Module.Hud.Panels
                 var buttonNameLabel = new Label() {text = buttonNameLabelText};
                 buttonNameLabel.AddToClassList("ability-label");
                 ate.Add(buttonNameLabel);
+                
+                ate.Initialize();
             }
 
             public override IEnumerable<UxmlChildElementDescription> uxmlChildElementsDescription
@@ -63,14 +66,24 @@ namespace EtVK.UI_Module.Hud.Panels
             }
         }
 
+        private void Initialize()
+        {
+            if(!Application.isPlaying)
+                return;
+            
+            if(!GameManager.Instance?.IsFullGame ?? true)
+                return;
+            
+            GetUiData<HudUiData>().StartInitAbilityEvent.Invoke();
+        }
 
-        public void Initialize(AbilityUiEvent updateEvent, Texture2D abilityIcon = null)
+        public void Bind(AbilityUiEvent updateEvent, Texture2D abilityIcon = null)
         {
             updateEventListener ??= new AbilityUiEventListener(updateEvent);
 
             updateEventListener.RemoveCallbacks();
             updateEventListener.AddCallback(UpdateAbilityCd);
-
+            
             if (abilityIcon == null)
                 return;
 
@@ -82,13 +95,19 @@ namespace EtVK.UI_Module.Hud.Panels
         {
             abilityCdLabel.style.display = abilityUiData.CdPercentage switch
             {
-                1f => DisplayStyle.Flex,
                 0f => DisplayStyle.None,
-                _ => abilityCdLabel.style.display
+                _ => DisplayStyle.Flex
             };
 
             abilityCdLabel.text = abilityUiData.CdTime.ToString();
             abilityCdOverlay.style.scale = new Scale(new Vector3(1, abilityUiData.CdPercentage, 0));
+        }
+
+        public override void CloseLogic()
+        {
+            updateEventListener?.RemoveCallbacks();
+            updateEventListener = null;
+
         }
     }
 }

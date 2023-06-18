@@ -9,7 +9,7 @@ namespace EtVK.Upgrades_Module.Common
     {
         private void Awake()
         {
-            description = $"{variableName} more base movement speed";
+            description = $"+{variableName} more base movement speed";
         }
 
         public override void Action(PlayerManager manager)

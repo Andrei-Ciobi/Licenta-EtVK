@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8b5a25b8524745b0a2fb50721ee553, type: 3}
-  m_Name: Speed_upgrade_4
+  m_Script: {fileID: 11500000, guid: 9252ce30a57247f390879c10fb13b56b, type: 3}
+  m_Name: Max_health_upgrade
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  title: test 4
-  description: '{VALUE} more base movement speed'
-  value: 0.2
+  title: Bonus max health
+  description: +{VALUE} more max health
+  value: 25
   isPercentage: 0

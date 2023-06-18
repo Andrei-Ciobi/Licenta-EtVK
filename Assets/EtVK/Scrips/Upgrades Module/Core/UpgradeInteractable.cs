@@ -1,24 +1,27 @@
-﻿using EtVK.Core.Utyles;
+﻿using System.Collections.Generic;
+using EtVK.Core.Utyles;
 using EtVK.Event_Module.Event_Types;
 using EtVK.Event_Module.Events;
-using EtVK.Upgrades_Module.Core;
+using EtVK.Player_Module.Interactable;
 using UnityEngine;
 
-namespace EtVK.Player_Module.Interactable
+namespace EtVK.Upgrades_Module.Core
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class CommonUpgradeInteractable : Interactable
+    public abstract class UpgradeInteractable : Interactable
     {
         [SerializeField] private UpgradesUiEvent displayUpgrades;
+
+        protected abstract List<BaseUpgradeData> GetUpgrades(int amount);
         public override void Action(InteractableManager interactableManager)
         {
             if(UpgradesManager.Instance == null)
                 return;
 
-            var upgrades = UpgradesManager.Instance.GetCommonUpgrade(3);
-            
+            var upgrades = GetUpgrades(3);
             displayUpgrades.Invoke(new UpgradesUiData(upgrades));
             
+            interactableManager.ResponseSuccess(this);
             if(destroyAfterInteract)
                 Destroy(gameObject);
         }

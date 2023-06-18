@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EtVK.Upgrades_Module.Common;
 using EtVK.Upgrades_Module.Core;
 using UnityEngine;
 
@@ -15,13 +16,13 @@ namespace EtVK.Player_Module.Manager
             manager = transform.root.GetComponent<PlayerManager>();
         }
 
-        public void AddCommonUpgrade(BaseUpgradeData upgradeData)
+        public void AddUpgrade(BaseUpgradeData upgradeData)
         {
-            if(upgradeData is not CommonUpgradeData)
-                return;
-            
             upgradeData.Action(manager);
-            commonUpgrades.Add((CommonUpgradeData) upgradeData);
+            if (upgradeData is CommonUpgradeData commonUpgradeData)
+            {
+                commonUpgrades.Add(commonUpgradeData);
+            }
         }
 
     }

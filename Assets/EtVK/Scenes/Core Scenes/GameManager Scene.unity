@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1094,27 +1094,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8447787890960134695, guid: a1899ae142a319b498995f08324f7691,
-        type: 3}
-      propertyPath: changeUiEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 8983521e47a8ccb4982bc20ab82decc0,
-        type: 2}
-    - target: {fileID: 8447787890960134695, guid: a1899ae142a319b498995f08324f7691,
-        type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8447787890960134695, guid: a1899ae142a319b498995f08324f7691,
-        type: 3}
-      propertyPath: startFullGame
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8447787890960134695, guid: a1899ae142a319b498995f08324f7691,
-        type: 3}
-      propertyPath: loadingScreenEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 8038b3ba73007ca458bd96429fd5c344,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1899ae142a319b498995f08324f7691, type: 3}

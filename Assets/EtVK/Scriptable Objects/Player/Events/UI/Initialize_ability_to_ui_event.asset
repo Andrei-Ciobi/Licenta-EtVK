@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8b5a25b8524745b0a2fb50721ee553, type: 3}
-  m_Name: Speed_upgrade_2
+  m_Script: {fileID: 11500000, guid: ce9b4d167f3976c4aba794fbee472948, type: 3}
+  m_Name: Initialize_ability_to_ui_event
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  title: Test 2
-  description: '{VALUE} more base movement speed'
-  value: 0.2
-  isPercentage: 0

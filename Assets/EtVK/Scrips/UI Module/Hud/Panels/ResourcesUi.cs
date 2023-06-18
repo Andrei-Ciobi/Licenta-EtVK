@@ -7,8 +7,8 @@ namespace EtVK.UI_Module.Hud.Panels
 {
     public class ResourcesUi : BasePanel<HudManager>
     {
-        private FloatEventListener staminaEvent;
-        private FloatEventListener healthEvent;
+        private FloatEventListener staminaEventListener;
+        private FloatEventListener healthEventListener;
         public new class UxmlFactory : UxmlFactory<ResourcesUi, UxmlTraits>
         {
         }
@@ -23,16 +23,16 @@ namespace EtVK.UI_Module.Hud.Panels
             var health = this.Q<ResourceBarUiComponent>("health");
             var uiData = GetUiData<HudUiData>();
 
-            if (staminaEvent == null)
+            if (staminaEventListener == null)
             {
-                staminaEvent = new FloatEventListener(uiData.StaminaEvent);
-                staminaEvent.AddCallback(stamina.updateValue);
+                staminaEventListener = new FloatEventListener(uiData.StaminaEvent);
+                staminaEventListener.AddCallback(stamina.updateValue);
             }
 
-            if (healthEvent == null)
+            if (healthEventListener == null)
             {
-                healthEvent = new FloatEventListener(uiData.HealthEvent);
-                healthEvent.AddCallback(health.updateValue);
+                healthEventListener = new FloatEventListener(uiData.HealthEvent);
+                healthEventListener.AddCallback(health.updateValue);
             }
             base.OnGeometryChange(evt);
         }

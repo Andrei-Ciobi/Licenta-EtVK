@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: ab75c10c291a2b74ab6eed40d9f1b03c, type: 2}
-  loadingScreen: {fileID: 0}
-  startFullGame: 1
+  changeUiEvent: {fileID: 11400000, guid: 8983521e47a8ccb4982bc20ab82decc0, type: 2}
+  loadingScreenEvent: {fileID: 11400000, guid: 8038b3ba73007ca458bd96429fd5c344, type: 2}
 --- !u!114 &1145100305
 MonoBehaviour:
   m_ObjectHideFlags: 0

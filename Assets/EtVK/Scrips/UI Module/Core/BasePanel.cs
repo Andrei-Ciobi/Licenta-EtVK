@@ -85,10 +85,15 @@ namespace EtVK.UI_Module.Core
             style.display = DisplayStyle.None;
         }
 
-        public void CloseInstant()
+        public virtual void CloseInstant()
         {
             AddToClassList("opacity-none");
             style.display = DisplayStyle.None;
+        }
+
+        public virtual void CloseLogic()
+        {
+            
         }
 
         protected T GetUiData<T>() where T : BaseUiData

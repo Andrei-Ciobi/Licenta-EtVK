@@ -32,7 +32,7 @@ namespace EtVK.UI_Module.Hud.Panels
             var abilities = this.Query<AbilityHolderUi>().ToList();
             var ability = abilities.Find(x => x.buttonType == abilityUiData.ButtonType);
             
-            ability?.Initialize(abilityUiData.UpdateEvent);
+            ability?.Bind(abilityUiData.UpdateEvent);
         }
 
 
@@ -43,6 +43,13 @@ namespace EtVK.UI_Module.Hud.Panels
             
             initializeAbilityListener = new AbilityUiEventListener(GetUiData<HudUiData>().InitializeAbilityEvent);
             initializeAbilityListener.AddCallback(BindAbilityToUi);
+        }
+        
+        public override void CloseLogic()
+        {
+            initializeAbilityListener?.RemoveCallbacks();
+            initializeAbilityListener = null;
+
         }
     }
 }

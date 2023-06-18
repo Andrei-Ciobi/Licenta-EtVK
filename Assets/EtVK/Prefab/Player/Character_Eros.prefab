@@ -52776,7 +52776,7 @@ MonoBehaviour:
       - m_Target: {fileID: 129537549501740798}
         m_TargetAssemblyTypeName: EtVK.Player_Module.Manager.PlayerUpgradesManager,
           Assembly-CSharp
-        m_MethodName: AddCommonUpgrade
+        m_MethodName: AddUpgrade
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -55773,6 +55773,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 707c878b722ebc14dbeb70bed44e42b3, type: 2}
   initializeAbilityUiEvent: {fileID: 11400000, guid: a984d75a73923914db10d8dccd71822d,
     type: 2}
+  startInitAbilityUiEvent: {fileID: 11400000, guid: af44ea623f0221d4d831e55fa75d2985,
+    type: 2}
 --- !u!1 &5052608061219210943
 GameObject:
   m_ObjectHideFlags: 0
@@ -56368,7 +56370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &225048115949084023
 Transform:
   m_ObjectHideFlags: 0
@@ -56391,7 +56393,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6457175759806402900}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3abc39a89554edaa639a1259b935771, type: 3}
   m_Name: 
