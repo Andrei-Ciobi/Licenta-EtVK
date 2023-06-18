@@ -17,9 +17,12 @@ namespace EtVK.Ability_Module.Core
         protected bool onCooldown;
         protected AbilityUiEvent updateUiEvent;
 
-        public void SetUpdateEvent(AbilityUiEvent @event)
+        public AbilityUiEvent SetUpdateEvent()
         {
-            updateUiEvent = @event;
+            if (updateUiEvent == null)
+                updateUiEvent = ScriptableObject.CreateInstance<AbilityUiEvent>();
+
+            return updateUiEvent;
         }
 
         public abstract void PerformAbility(BaseAbilityData baseAbilityData, Animator animator = null,

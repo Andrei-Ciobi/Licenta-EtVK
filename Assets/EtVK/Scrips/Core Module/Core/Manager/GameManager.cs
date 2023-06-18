@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace EtVK.Core.Manager
 {
-    public class GameManager : MonoSingletone<GameManager>, ISavable
+    public class GameManager : MonoSingleton<GameManager>, ISavable
     {
         [SerializeField] private GameData gameData;
         [SerializeField] private GameUiEvent changeUiEvent;
@@ -33,7 +33,7 @@ namespace EtVK.Core.Manager
 
         private void Awake()
         {
-            InitializeSingletone();
+            InitializeSingleton();
             if (gameData.FullGame)
             {
                 InitializeGame();

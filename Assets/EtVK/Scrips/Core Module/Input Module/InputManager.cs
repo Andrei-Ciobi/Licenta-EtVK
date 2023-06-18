@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace EtVK.Input_Module
 {
-    public class InputManager : MonoSingletone<InputManager>
+    public class InputManager : MonoSingleton<InputManager>
     {
         [SerializeField] [Range(0f, 2f)] private float queInputTime = 0.3f;
 
@@ -26,7 +26,7 @@ namespace EtVK.Input_Module
 
         private void Awake()
         {
-            InitializeSingletone();
+            InitializeSingleton();
             playerActions = new PlayerInputActions();
             InitializeInputs();
         }

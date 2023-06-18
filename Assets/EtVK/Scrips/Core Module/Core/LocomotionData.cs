@@ -8,13 +8,16 @@ namespace EtVK.Core
         [SerializeField] private float walkFastSpeed;
         [SerializeField] private float runSpeed;
         [SerializeField] private float rotationSpeed;
+        [SerializeField] private float bonusSpeed;
 
-        public float WalkSlowSpeed => walkSlowSpeed;
-
-        public float WalkFastSpeed => walkFastSpeed;
-
-        public float RunSpeed => runSpeed;
-
+        public float WalkSlowSpeed => walkSlowSpeed + bonusSpeed;
+        public float WalkFastSpeed => walkFastSpeed + bonusSpeed;
+        public float RunSpeed => runSpeed + bonusSpeed;
         public float RotationSpeed => rotationSpeed;
+
+        public void AddBonusSpeed(float value)
+        {
+            bonusSpeed += value;
+        }
     }
 }

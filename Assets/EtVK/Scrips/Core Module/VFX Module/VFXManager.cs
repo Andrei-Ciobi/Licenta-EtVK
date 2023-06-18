@@ -5,11 +5,11 @@ using UnityEngine.Rendering;
 
 namespace EtVK.VFX_Module
 {
-    public class VFXManager : MonoSingletone<VFXManager>
+    public class VFXManager : MonoSingleton<VFXManager>
     {
         private void Awake()
         {
-            InitializeSingletone();
+            InitializeSingleton();
         }
 
         public void PlayPostProcessing(VolumeVFX volumeVFX, float time, bool intoWorld = true)

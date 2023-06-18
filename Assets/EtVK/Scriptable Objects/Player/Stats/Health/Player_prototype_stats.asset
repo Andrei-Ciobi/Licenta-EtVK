@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: 
   maxHealth: 100
+  healthRegenPercentage: 5
+  maxHealthRegenPercentage: 20
   poiseLevel: 0
   invulnerableTime: 1
   entityFaction: 0

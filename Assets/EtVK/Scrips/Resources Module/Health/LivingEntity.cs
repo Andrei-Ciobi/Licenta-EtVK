@@ -32,6 +32,7 @@ namespace EtVK.Resources_Module.Health
         public GameObject GameObject => gameObject;
         public Transform Transform => transform;
         public Factions EntityFaction => entityStats.EntityFaction;
+        public TStats EntityStats => entityStats;
 
         private Animator animator;
 

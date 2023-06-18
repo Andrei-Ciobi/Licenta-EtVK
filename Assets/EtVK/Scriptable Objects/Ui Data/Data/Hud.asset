@@ -18,3 +18,8 @@ MonoBehaviour:
   errorEvent: {fileID: 11400000, guid: 89f914ee4fb33e9498d0b12b54e41a92, type: 2}
   initializeAbilityEvent: {fileID: 11400000, guid: a984d75a73923914db10d8dccd71822d,
     type: 2}
+  displayUpgradesEvent: {fileID: 11400000, guid: 0b3d9b570ac5c2d469fee693f6b5020f,
+    type: 2}
+  selectUpgradeEvent: {fileID: 11400000, guid: 45d7c5eb9e773d945b64283f2ac8a474, type: 2}
+  startInitAbilityEvent: {fileID: 11400000, guid: af44ea623f0221d4d831e55fa75d2985,
+    type: 2}

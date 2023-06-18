@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace EtVK.Save_System_Module
 {
-    public class GameSaveManager : MonoSingletone<GameSaveManager>
+    public class GameSaveManager : MonoSingleton<GameSaveManager>
     {
         private readonly string directory = "SaveFiles";
         private readonly string saveDataId = "file-data";
@@ -19,7 +19,7 @@ namespace EtVK.Save_System_Module
 
         private void Awake()
         {
-            InitializeSingletone();
+            InitializeSingleton();
         }
 
         [ContextMenu("Save")]

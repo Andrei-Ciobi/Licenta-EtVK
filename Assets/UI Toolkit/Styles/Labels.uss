@@ -58,8 +58,18 @@
     -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
     font-size: 35px;
     letter-spacing: 16px;
-    color: rgba(214, 232, 238, 255);
+    color: rgb(214, 232, 238);
     left: -5px;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 255);
+    text-shadow: 1px 1px 0 rgb(0, 0, 0);
     width: 100%;
+}
+
+.title-label-info-small {
+    color: rgb(214, 232, 238);
+    font-size: 35px;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/ExtraAssets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Bangers.ttf?fileID=12800000&guid=5dd49b3eacc540408c98eee0de38e0f1&type=3#Bangers');
+    letter-spacing: 10px;
+    white-space: normal;
+    -unity-text-align: upper-center;
 }

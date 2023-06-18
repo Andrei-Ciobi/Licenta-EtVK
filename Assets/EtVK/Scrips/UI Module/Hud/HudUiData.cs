@@ -12,11 +12,17 @@ namespace EtVK.UI_Module.Hud
         [SerializeField] private InteractUiEvent interactEvent;
         [SerializeField] private StringEvent errorEvent;
         [SerializeField] private AbilityUiEvent initializeAbilityEvent;
+        [SerializeField] private UpgradesUiEvent displayUpgradesEvent;
+        [SerializeField] private UpgradeEvent selectUpgradeEvent;
+        [SerializeField] private VoidEvent startInitAbilityEvent;
         
         public FloatEvent HealthEvent => healthEvent;
         public FloatEvent StaminaEvent => staminaEvent;
         public InteractUiEvent InteractEvent => interactEvent;
         public StringEvent ErrorEvent => errorEvent;
         public AbilityUiEvent InitializeAbilityEvent => initializeAbilityEvent;
+        public UpgradesUiEvent DisplayUpgradesEvent => displayUpgradesEvent;
+        public UpgradeEvent SelectUpgradeEvent => selectUpgradeEvent;
+        public VoidEvent StartInitAbilityEvent => startInitAbilityEvent;
     }
 }

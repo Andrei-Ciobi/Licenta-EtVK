@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace EtVK.Core
 {
-    public class MonoSingletone<T> : MonoBehaviour where T : MonoSingletone<T>
+    public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
         public static T Instance => instance;
 
         protected static T instance;
 
 
-        protected void InitializeSingletone()
+        protected void InitializeSingleton()
         {
             if (instance == null)
             {
